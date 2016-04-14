@@ -2,7 +2,7 @@
     <id>572c461e-71cb-423c-b235-1ab3bb2475c5</id>
     <childOrder>modifiedtime DESC</childOrder>
     <nodeType>content</nodeType>
-    <timestamp>2016-04-14T12:08:00.212Z</timestamp>
+    <timestamp>2016-04-14T13:27:17.503Z</timestamp>
     <inheritPermissions>true</inheritPermissions>
     <permissions>
         <principal key="role:cms.cm.app">
@@ -41,12 +41,12 @@
         <string name="displayName">Technology</string>
         <string name="type">com.enonic.app.imagexpert:category</string>
         <string name="owner">user:system:su</string>
-        <dateTime name="modifiedTime">2016-04-14T12:08:00.211Z</dateTime>
+        <dateTime name="modifiedTime">2016-04-14T13:27:17.502Z</dateTime>
         <string name="modifier">user:system:su</string>
         <string name="creator">user:system:su</string>
         <dateTime name="createdTime">2016-04-14T10:18:01.272Z</dateTime>
         <property-set name="data">
-            <reference name="binaryImage">31c09d0d-6515-4dd5-8fde-dd082a953ada</reference>
+            <reference name="binaryImage">02570728-d8d2-4526-940d-97237096c273</reference>
         </property-set>
     </data>
     <indexConfigs>

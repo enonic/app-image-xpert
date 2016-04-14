@@ -1,8 +1,8 @@
 <node>
     <id>f7febd0e-6c27-43c3-9b58-055b3fc32751</id>
-    <childOrder>modifiedtime DESC</childOrder>
+    <childOrder>displayname ASC</childOrder>
     <nodeType>content</nodeType>
-    <timestamp>2016-04-14T09:02:26.535Z</timestamp>
+    <timestamp>2016-04-14T10:06:56.011Z</timestamp>
     <inheritPermissions>true</inheritPermissions>
     <permissions>
         <principal key="role:cms.cm.app">

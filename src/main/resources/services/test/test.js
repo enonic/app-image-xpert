@@ -1,10 +1,12 @@
 var imageXpertLib = require('/lib/image-xpert');
 
 function handleGet(req) {
-    var images = imageXpertLib.getCategories();
     return {
         contentType: 'application/json',
-        body: JSON.stringify(images)
+        body: {
+            imageBinaryIds: imageXpertLib.getImageBinaryIds(),
+            categories: imageXpertLib.getCategories()
+        }
     };
 }
 

@@ -1,12 +1,15 @@
 var contentLib = require('/lib/xp/content');
 
-exports.getImages = function () {
-    return contentLib.query({
+exports.getImageBinaryIds = function () {
+    var imageBinaries = contentLib.query({
         start: 0,
         count: -1,
-        contentTypes: [app.name + ":image"],
+        contentTypes: ["media:image"],
         sort: "displayName ASC"
     }).hits;
+    return imageBinaries.map(function (imageBinary) {
+        return imageBinary._id;
+    });
 };
 
 exports.getCategories = function () {
@@ -17,13 +20,3 @@ exports.getCategories = function () {
         sort: "displayName ASC"
     }).hits;
 };
-
-/*function toArray(object) {
- if (!object) {
- return [];
- }
- if (object.constructor === Array) {
- return object;
- }
- return [object];
- }*/

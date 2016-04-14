@@ -1,0 +1,23 @@
+<div>
+    <h2>Test Upload</h2>
+
+    <form action="#" data-th-action="${postUrl}" method="post" enctype="multipart/form-data">
+        <div>
+            <fieldset class="http-details">
+                <p>
+                    <label>File</label>
+                    <input name="file" type="file"/>
+                </p>
+
+                <p>
+                    <input name="multipartRedirect" type="hidden" data-th-value="${multipartRedirect}"/>
+                    <input name="debug" type="hidden" value="true"/>
+                    <button type="submit" name="send">Upload</button>
+                </p>
+            </fieldset>
+            <br/>
+        </div>
+    </form>
+
+</div>
+

@@ -1,8 +1,8 @@
 <node>
-    <id>a8991aec-d651-427a-bf28-70574e36d4b5</id>
+    <id>a554b7e8-dc3c-4404-9364-f70943b51dbe</id>
     <childOrder>modifiedtime DESC</childOrder>
     <nodeType>content</nodeType>
-    <timestamp>2016-04-14T09:01:57.643Z</timestamp>
+    <timestamp>2016-04-14T10:17:56.173Z</timestamp>
     <inheritPermissions>true</inheritPermissions>
     <permissions>
         <principal key="role:cms.cm.app">
@@ -38,13 +38,13 @@
     </permissions>
     <data>
         <boolean name="valid">true</boolean>
-        <string name="displayName">Templates</string>
-        <string name="type">portal:template-folder</string>
-        <dateTime name="createdTime">2016-04-14T09:01:48.419Z</dateTime>
-        <string name="creator">user:system:su</string>
-        <string name="modifier">user:system:su</string>
-        <dateTime name="modifiedTime">2016-04-14T09:01:48.419Z</dateTime>
+        <string name="displayName">Nature</string>
+        <string name="type">com.enonic.app.imagexpert:category</string>
         <string name="owner">user:system:su</string>
+        <dateTime name="modifiedTime">2016-04-14T10:17:56.165Z</dateTime>
+        <string name="modifier">user:system:su</string>
+        <string name="creator">user:system:su</string>
+        <dateTime name="createdTime">2016-04-14T10:17:54.355Z</dateTime>
         <property-set name="data"/>
     </data>
     <indexConfigs>

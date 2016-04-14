@@ -1,8 +1,8 @@
 <node>
-    <id>568aac63-8686-40e6-998d-9f06d29f2505</id>
+    <id>2a5e6e48-8234-4b5d-94cc-06e16073723f</id>
     <childOrder>modifiedtime DESC</childOrder>
     <nodeType>content</nodeType>
-    <timestamp>2016-04-14T10:07:03.074Z</timestamp>
+    <timestamp>2016-04-14T10:18:17.376Z</timestamp>
     <inheritPermissions>true</inheritPermissions>
     <permissions>
         <principal key="role:cms.cm.app">
@@ -38,13 +38,13 @@
     </permissions>
     <data>
         <boolean name="valid">true</boolean>
-        <string name="displayName">Buildings</string>
+        <string name="displayName">Other</string>
         <string name="type">com.enonic.app.imagexpert:category</string>
         <string name="owner">user:system:su</string>
-        <dateTime name="modifiedTime">2016-04-14T10:07:03.065Z</dateTime>
+        <dateTime name="modifiedTime">2016-04-14T10:18:17.368Z</dateTime>
         <string name="modifier">user:system:su</string>
         <string name="creator">user:system:su</string>
-        <dateTime name="createdTime">2016-04-14T10:06:07.833Z</dateTime>
+        <dateTime name="createdTime">2016-04-14T10:18:15.376Z</dateTime>
         <property-set name="data"/>
     </data>
     <indexConfigs>

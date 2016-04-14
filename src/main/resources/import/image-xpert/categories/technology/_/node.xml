@@ -1,8 +1,8 @@
 <node>
-    <id>b3caec18-6f67-4514-b61e-2288a50ba733</id>
+    <id>572c461e-71cb-423c-b235-1ab3bb2475c5</id>
     <childOrder>modifiedtime DESC</childOrder>
     <nodeType>content</nodeType>
-    <timestamp>2016-04-14T10:06:49.564Z</timestamp>
+    <timestamp>2016-04-14T10:18:02.995Z</timestamp>
     <inheritPermissions>true</inheritPermissions>
     <permissions>
         <principal key="role:cms.cm.app">
@@ -38,13 +38,13 @@
     </permissions>
     <data>
         <boolean name="valid">true</boolean>
-        <string name="displayName">Animals</string>
+        <string name="displayName">Technology</string>
         <string name="type">com.enonic.app.imagexpert:category</string>
         <string name="owner">user:system:su</string>
-        <dateTime name="modifiedTime">2016-04-14T10:06:49.554Z</dateTime>
+        <dateTime name="modifiedTime">2016-04-14T10:18:02.987Z</dateTime>
         <string name="modifier">user:system:su</string>
         <string name="creator">user:system:su</string>
-        <dateTime name="createdTime">2016-04-14T10:06:45.552Z</dateTime>
+        <dateTime name="createdTime">2016-04-14T10:18:01.272Z</dateTime>
         <property-set name="data"/>
     </data>
     <indexConfigs>

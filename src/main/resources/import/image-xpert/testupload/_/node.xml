@@ -2,7 +2,7 @@
     <id>00372d2b-31f2-4143-a943-da98a4ef2a34</id>
     <childOrder>modifiedtime DESC</childOrder>
     <nodeType>content</nodeType>
-    <timestamp>2016-04-14T15:00:00.915Z</timestamp>
+    <timestamp>2016-04-15T07:51:05.807Z</timestamp>
     <inheritPermissions>true</inheritPermissions>
     <permissions>
         <principal key="role:cms.cm.app">
@@ -41,7 +41,7 @@
         <string name="displayName">TestUpload</string>
         <string name="type">com.enonic.app.imagexpert:landing-page</string>
         <string name="owner">user:system:su</string>
-        <dateTime name="modifiedTime">2016-04-14T15:00:00.914Z</dateTime>
+        <dateTime name="modifiedTime">2016-04-15T07:51:05.807Z</dateTime>
         <string name="modifier">user:system:su</string>
         <string name="creator">user:system:su</string>
         <dateTime name="createdTime">2016-04-14T14:57:46.164Z</dateTime>
@@ -54,8 +54,8 @@
                 <property-set name="component">
                     <string name="type">PartComponent</string>
                     <property-set name="PartComponent">
-                        <string name="name">Multipart functions example</string>
-                        <string name="template">com.enonic.app.imagexpert:multipart</string>
+                        <string name="name">image-upload</string>
+                        <string name="template">com.enonic.app.imagexpert:image-upload</string>
                         <property-set name="config"/>
                     </property-set>
                 </property-set>

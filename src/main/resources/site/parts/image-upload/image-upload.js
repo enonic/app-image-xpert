@@ -7,7 +7,7 @@ exports.get = function (req) {
 
     var params = {
         imageCreationServiceUrl: imageCreationServiceUrl,
-        multipartRedirect: redirectPageId
+        redirectPageId: redirectPageId
     };
 
     var view = resolve('image-upload.html');

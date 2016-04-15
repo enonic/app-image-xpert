@@ -1,7 +1,7 @@
 <div>
     <h2>Image Upload Test</h2>
 
-    <form action="#" data-th-action="${imageCreationServiceUrl}" method="post" enctype="multipart/form-data">
+    <form action="{{imageCreationServiceUrl}}" method="post" enctype="multipart/form-data">
         <p>
             <label>File</label>
             <input name="file" type="file"/>
@@ -9,7 +9,11 @@
 
         <p>
             <label>Category</label>
-            <input name="categoryName" type="text"/>
+            <select name="categoryName">
+                {{#categories}}
+                <option value="{{name}}">{{displayName}}</option>
+                {{/categories}}
+            </select>
         </p>
 
         <p>

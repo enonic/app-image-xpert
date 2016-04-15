@@ -20,3 +20,10 @@ exports.getCategories = function () {
         sort: "displayName ASC"
     }).hits;
 };
+
+exports.getCategoryByName = function (categoryName) {
+    return contentLib.get({
+        key: "/image-xpert/categories/" + categoryName,
+        branch: "draft"
+    });
+};

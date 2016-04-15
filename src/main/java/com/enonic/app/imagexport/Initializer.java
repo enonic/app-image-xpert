@@ -66,7 +66,7 @@ public class Initializer
     private void doInitialize()
         throws Exception
     {
-        final ContentPath imageXportContentPath = ContentPath.from( "/imagexport" );
+        final ContentPath imageXportContentPath = ContentPath.from( "/image-xpert" );
         if ( exists( imageXportContentPath ) )
         {
             return;

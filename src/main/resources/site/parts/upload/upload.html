@@ -2,25 +2,31 @@
     <h2>Image Upload Test</h2>
 
     <form action="{{imageCreationServiceUrl}}" method="post" enctype="multipart/form-data">
-        <p>
+        <div>
             <label>Select a file</label>
             <input name="file" type="file"/>
-        </p>
-
-        <p>
+        </div>
+        <div>
             <label>Select category:</label>
             {{#categories}}
             <input type="radio" name="category" value="{{id}}">{{displayName}}<br>
             {{/categories}}
-        </p>
+        </div>
+        <div>
+            <input type="text" name="caption" value="Add a caption">
+        </div>
+        <div>
+            <input type="text" name="artist" value="Enter your name">
+        </div>
+        <div>
+            <input type="text" name="tags" value="Add tags">
+        </div>
 
-        <p>
+        <div>
             <input name="redirectPageId" type="hidden" data-th-value="${redirectPageId}"/>
-            <button type="submit" name="send">Upload</button>
-        </p>
-        <br/>
-
+            <button type="submit" name="upload">Upload</button>
+            <button type="reset" name="cancel">Cancel</button>
+        </div>
     </form>
-
 </div>
 

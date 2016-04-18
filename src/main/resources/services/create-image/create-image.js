@@ -49,6 +49,19 @@ function createMedia() {
             data: portalLib.getMultipartStream("file")
         });
 
+        // BUG in Enonic XP
+        //var caption = portalLib.getMultipartText("caption");
+        //log.info("caption: %s", caption);
+        //contentLib.modify({
+        //    key: media._id,
+        //    editor: function (media) {
+        //        log.info("media: %s", JSON.stringify(media, null, 2));
+        //        media.data.caption = caption;
+        //        return media;
+        //    }
+        //});
+
+
         //Links the Image content to the Image media
         contentLib.modify({
             key: content._id,

@@ -5,17 +5,21 @@ var imageXpertLib = require('/lib/image-xpert');
 exports.post = function (req) {
     var multipartForm = portalLib.getMultipartForm();
     log.info("Create image multipartForm:" + JSON.stringify(multipartForm, null, 2));
-    createMedia();
+    var image = createImage();
 
-    var pageId = portalLib.getMultipartText('multipartRedirect');
-    var redirectUrl = portalLib.pageUrl({id: pageId});
+    //var pageId = portalLib.getMultipartText('multipartRedirect');
+    //var redirectUrl = portalLib.pageUrl({id: pageId});
+    //return {
+    //    redirect: redirectUrl
+    //};
 
     return {
-        redirect: redirectUrl
+        contentType: 'application/json',
+        body: image
     };
 };
 
-function createMedia() {
+function createImage() {
     var part = portalLib.getMultipartItem("file");
     if (part.fileName && part.size > 0) {
 
@@ -63,12 +67,15 @@ function createMedia() {
 
 
         //Links the Image content to the Image media
-        contentLib.modify({
+        content = contentLib.modify({
             key: content._id,
             editor: function (content) {
                 content.data.binary = media._id;
                 return content;
             }
         });
+
+        return content;
     }
+    return null;
 }

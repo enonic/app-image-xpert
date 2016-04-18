@@ -1,8 +1,8 @@
 <node>
-    <id>0855ab4e-f92b-4bbc-8781-0c8eb7260012</id>
+    <id>511e117d-a704-40f2-a142-91e5546738f7</id>
     <childOrder>modifiedtime DESC</childOrder>
     <nodeType>content</nodeType>
-    <timestamp>2016-04-14T12:05:14.427Z</timestamp>
+    <timestamp>2016-04-18T09:55:02.228Z</timestamp>
     <inheritPermissions>true</inheritPermissions>
     <permissions>
         <principal key="role:cms.cm.app">
@@ -38,16 +38,16 @@
     </permissions>
     <data>
         <boolean name="valid">true</boolean>
-        <string name="displayName">Cape_Agulhas_P1040396.JPG</string>
+        <string name="displayName">animals.jpeg</string>
         <string name="type">media:image</string>
-        <dateTime name="createdTime">2016-04-14T11:23:35.766Z</dateTime>
+        <dateTime name="createdTime">2016-04-18T09:55:00.876Z</dateTime>
         <string name="creator">user:system:su</string>
         <string name="modifier">user:system:su</string>
-        <dateTime name="modifiedTime">2016-04-14T11:23:35.766Z</dateTime>
+        <dateTime name="modifiedTime">2016-04-18T09:55:00.876Z</dateTime>
         <string name="owner">user:system:su</string>
         <property-set name="data">
             <property-set name="media">
-                <string name="attachment">Cape_Agulhas_P1040396.JPG</string>
+                <string name="attachment">animals.jpeg</string>
                 <property-set name="focalPoint">
                     <double name="x">0.5</double>
                     <double name="y">0.5</double>
@@ -60,40 +60,21 @@
         </property-set>
         <property-set name="x">
             <property-set name="media">
-                <property-set name="cameraInfo">
-                    <string name="focalLength">7.4 mm</string>
-                    <string name="aperture">F6.3</string>
-                    <string name="make">Panasonic</string>
-                    <string name="meteringMode">Multi-segment</string>
-                    <string name="orientation">Top, left side (Horizontal / normal)</string>
-                    <string name="model">DMC-FZ30</string>
-                    <string name="whiteBalance">Auto white balance</string>
-                    <localDateTime name="date">2006-09-12T13:11:29.000Z</localDateTime>
-                    <string name="focalLength35">35mm</string>
-                    <string name="exposureProgram">Program normal</string>
-                    <string name="shutterTime">1/400 sec</string>
-                    <string name="iso">80</string>
-                    <string name="flash">Flash did not fire, auto</string>
-                    <string name="exposureBias">0 EV</string>
-                    <string name="exposureMode">Auto exposure</string>
-                </property-set>
                 <property-set name="imageInfo">
-                    <string name="fileSource">Digital Still Camera (DSC)</string>
-                    <long name="imageWidth">3264</long>
-                    <long name="imageHeight">2448</long>
-                    <string name="colorSpace">sRGB</string>
+                    <long name="imageHeight">427</long>
+                    <long name="imageWidth">640</long>
                     <string name="contentType">image/jpeg</string>
-                    <long name="pixelSize">7990272</long>
-                    <long name="byteSize">3226043</long>
+                    <long name="pixelSize">273280</long>
+                    <long name="byteSize">40720</long>
                 </property-set>
             </property-set>
         </property-set>
         <property-set name="attachment">
-            <string name="name">Cape_Agulhas_P1040396.JPG</string>
+            <string name="name">animals.jpeg</string>
             <string name="label">source</string>
-            <binaryReference name="binary">Cape_Agulhas_P1040396.JPG</binaryReference>
+            <binaryReference name="binary">animals.jpeg</binaryReference>
             <string name="mimeType">image/jpeg</string>
-            <long name="size">3226043</long>
+            <long name="size">40720</long>
         </property-set>
     </data>
     <indexConfigs>

@@ -5,5 +5,8 @@
         {{/categories}}
         <input type="text" name="searchQuery" value="Search">
     </form>
+    {{#images}}
+    <a href=""><img src="{{imageUrl}}" alt="{{displayName}}"></a>
+    {{/images}}
 </div>
 

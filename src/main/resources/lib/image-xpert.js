@@ -16,22 +16,16 @@ exports.getCategories = function () {
     }).hits;
 }
 
-
-exports.getImagesByCategoryId = function () {
-    //TODO
-    return [];
-};
-
-exports.getImagesBySearch = function () {
-    //TODO
-    //Newest image on top
-    return [];
-};
-
-exports.getImagesByCategoryIdAndSearch = function () {
-    //TODO
-    //Newest image on top
-    return [];
+exports.getImages = function (params) {
+    var query = params && params.categoryId ? ("data.category = '" + params.categoryId + "'") : undefined;
+    log.info("query: %s", query);
+    return contentLib.query({
+        start: 0,
+        count: -1,
+        query: query,
+        contentTypes: [app.name + ":image"],
+        sort: "displayName ASC"
+    }).hits;
 };
 
 

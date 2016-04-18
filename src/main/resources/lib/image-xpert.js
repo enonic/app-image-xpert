@@ -1,14 +1,8 @@
 var contentLib = require('/lib/xp/content');
 
-exports.getImageBinaryIds = function () {
-    var imageBinaries = contentLib.query({
-        start: 0,
-        count: -1,
-        contentTypes: ["media:image"],
-        sort: "displayName ASC"
-    }).hits;
-    return imageBinaries.map(function (imageBinary) {
-        return imageBinary._id;
+exports.getContentByKey = function (key) {
+    return contentLib.get({
+        key: key
     });
 };
 
@@ -19,11 +13,24 @@ exports.getCategories = function () {
         contentTypes: [app.name + ":category"],
         sort: "displayName ASC"
     }).hits;
+}
+
+
+exports.getImagesByCategoryId = function () {
+    //TODO
+    return [];
 };
 
-exports.getContentByKey = function (key, branch) {
-    return contentLib.get({
-        key: key,
-        branch: branch || "draft"
-    });
+exports.getImagesBySearch = function () {
+    //TODO
+    //Newest image on top
+    return [];
 };
+
+exports.getImagesByCategoryIdAndSearch = function () {
+    //TODO
+    //Newest image on top
+    return [];
+};
+
+

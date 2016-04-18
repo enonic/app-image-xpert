@@ -1,6 +1,10 @@
 var contentLib = require('/lib/xp/content');
 var portalLib = require('/lib/xp/portal');
 
+
+/******************************************
+ * Retrieval functions
+ *****************************************/
 exports.getContentByKey = function (key) {
     return contentLib.get({
         key: key
@@ -24,13 +28,21 @@ exports.getImages = function (params) {
         count: -1,
         query: query,
         contentTypes: [app.name + ":image"],
-        sort: "displayName ASC"
+        sort: "createdTime DESC"
     }).hits;
 };
 
+/******************************************
+ * URL generation functions
+ *****************************************/
+
+exports.generateUploadUrl = function (params) {
+    return portalLib.pageUrl({
+        path: "/image-xpert/upload"
+    });
+}
 
 exports.generateGalleryUrl = function (params) {
-
     var params = params && params.categoryId ? {
         category: params.categoryId
     } : undefined;

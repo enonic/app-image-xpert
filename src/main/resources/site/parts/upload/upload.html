@@ -3,17 +3,15 @@
 
     <form action="{{imageCreationServiceUrl}}" method="post" enctype="multipart/form-data">
         <p>
-            <label>File</label>
+            <label>Select a file</label>
             <input name="file" type="file"/>
         </p>
 
         <p>
-            <label>Category</label>
-            <select name="category">
-                {{#categories}}
-                <option value="{{id}}">{{displayName}}</option>
-                {{/categories}}
-            </select>
+            <label>Select category:</label>
+            {{#categories}}
+            <input type="radio" name="category" value="{{id}}">{{displayName}}<br>
+            {{/categories}}
         </p>
 
         <p>

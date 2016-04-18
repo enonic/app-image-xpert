@@ -16,7 +16,7 @@ exports.get = function (req) {
         categories: categories
     };
 
-    var view = resolve('image-upload.html');
+    var view = resolve('upload.html');
     var body = mustacheLib.render(view, params);
 
     return {

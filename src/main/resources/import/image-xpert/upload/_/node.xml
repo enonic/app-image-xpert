@@ -1,8 +1,8 @@
 <node>
-    <id>00372d2b-31f2-4143-a943-da98a4ef2a34</id>
+    <id>a04ad94e-ee3e-461c-b4f9-bbb6c5ebae1f</id>
     <childOrder>modifiedtime DESC</childOrder>
     <nodeType>content</nodeType>
-    <timestamp>2016-04-15T07:51:05.807Z</timestamp>
+    <timestamp>2016-04-18T11:25:06.808Z</timestamp>
     <inheritPermissions>true</inheritPermissions>
     <permissions>
         <principal key="role:cms.cm.app">
@@ -38,13 +38,13 @@
     </permissions>
     <data>
         <boolean name="valid">true</boolean>
-        <string name="displayName">TestUpload</string>
+        <string name="displayName">Upload</string>
         <string name="type">com.enonic.app.imagexpert:landing-page</string>
         <string name="owner">user:system:su</string>
-        <dateTime name="modifiedTime">2016-04-15T07:51:05.807Z</dateTime>
+        <dateTime name="modifiedTime">2016-04-18T11:25:06.807Z</dateTime>
         <string name="modifier">user:system:su</string>
         <string name="creator">user:system:su</string>
-        <dateTime name="createdTime">2016-04-14T14:57:46.164Z</dateTime>
+        <dateTime name="createdTime">2016-04-18T11:24:52.138Z</dateTime>
         <property-set name="data"/>
         <property-set name="page">
             <string name="controller">com.enonic.app.imagexpert:main</string>
@@ -54,8 +54,8 @@
                 <property-set name="component">
                     <string name="type">PartComponent</string>
                     <property-set name="PartComponent">
-                        <string name="name">image-upload</string>
-                        <string name="template">com.enonic.app.imagexpert:image-upload</string>
+                        <string name="name">upload</string>
+                        <string name="template">com.enonic.app.imagexpert:upload</string>
                         <property-set name="config"/>
                     </property-set>
                 </property-set>
@@ -96,6 +96,36 @@
                     </indexValueProcessors>
                 </indexConfig>
                 <path>data.htmlarea_text</path>
+            </pathIndexConfig>
+            <pathIndexConfig>
+                <indexConfig>
+                    <decideByType>false</decideByType>
+                    <enabled>true</enabled>
+                    <nGram>false</nGram>
+                    <fulltext>false</fulltext>
+                    <includeInAllText>false</includeInAllText>
+                </indexConfig>
+                <path>modifier</path>
+            </pathIndexConfig>
+            <pathIndexConfig>
+                <indexConfig>
+                    <decideByType>false</decideByType>
+                    <enabled>true</enabled>
+                    <nGram>false</nGram>
+                    <fulltext>false</fulltext>
+                    <includeInAllText>false</includeInAllText>
+                </indexConfig>
+                <path>owner</path>
+            </pathIndexConfig>
+            <pathIndexConfig>
+                <indexConfig>
+                    <decideByType>false</decideByType>
+                    <enabled>true</enabled>
+                    <nGram>false</nGram>
+                    <fulltext>false</fulltext>
+                    <includeInAllText>false</includeInAllText>
+                </indexConfig>
+                <path>attachment</path>
             </pathIndexConfig>
             <pathIndexConfig>
                 <indexConfig>
@@ -176,36 +206,6 @@
                     <includeInAllText>false</includeInAllText>
                 </indexConfig>
                 <path>modifiedTime</path>
-            </pathIndexConfig>
-            <pathIndexConfig>
-                <indexConfig>
-                    <decideByType>false</decideByType>
-                    <enabled>true</enabled>
-                    <nGram>false</nGram>
-                    <fulltext>false</fulltext>
-                    <includeInAllText>false</includeInAllText>
-                </indexConfig>
-                <path>modifier</path>
-            </pathIndexConfig>
-            <pathIndexConfig>
-                <indexConfig>
-                    <decideByType>false</decideByType>
-                    <enabled>true</enabled>
-                    <nGram>false</nGram>
-                    <fulltext>false</fulltext>
-                    <includeInAllText>false</includeInAllText>
-                </indexConfig>
-                <path>owner</path>
-            </pathIndexConfig>
-            <pathIndexConfig>
-                <indexConfig>
-                    <decideByType>false</decideByType>
-                    <enabled>true</enabled>
-                    <nGram>false</nGram>
-                    <fulltext>false</fulltext>
-                    <includeInAllText>false</includeInAllText>
-                </indexConfig>
-                <path>attachment</path>
             </pathIndexConfig>
         </pathIndexConfigs>
     </indexConfigs>

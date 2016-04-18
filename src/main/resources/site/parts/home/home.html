@@ -1,0 +1,13 @@
+<div>
+    <form>
+        <span>Search in our catalog:</span>
+        <input type="text" name="searchQuery"><br>
+        <span>or browse by category</span>
+        {{#categories}}
+        <a href="{{linkUrl}}"><img src="{{imageUrl}}" alt="{{displayName}}"></a>
+        {{/categories}}
+    </form>
+
+
+</div>
+

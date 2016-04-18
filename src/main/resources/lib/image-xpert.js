@@ -51,6 +51,3 @@ exports.generateGalleryUrl = function (params) {
         params: params
     });
 };
-
-
-

@@ -2,8 +2,8 @@ var mustacheLib = require('/lib/xp/mustache');
 var portalLib = require('/lib/xp/portal');
 var imageXpertLib = require('/lib/image-xpert');
 
-exports.get = function (req) {
 
+exports.get = function (req) {
     //Retrieves the categories
     var categories = imageXpertLib.getCategories().
         filter(function (category) {
@@ -31,8 +31,12 @@ exports.get = function (req) {
     var getImagesParams = req.params.category ? {categoryId: req.params.category} : undefined;
     var images = imageXpertLib.getImages(getImagesParams).
         map(function (image) {
+            var imageBinary = imageXpertLib.getContentByKey(image.data.binary);
+            var artist = imageBinary.data.artist ? imageBinary.data.artist.toString() : undefined;
+
             return {
                 displayName: image.displayName,
+                artist: artist,
                 imageUrl: portalLib.imageUrl({
                     id: image.data.binary,
                     scale: "square(256)"

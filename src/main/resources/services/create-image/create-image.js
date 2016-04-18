@@ -19,14 +19,15 @@ function createMedia() {
     var part = portalLib.getMultipartItem("file");
     if (part.fileName && part.size > 0) {
 
+        //Retrieves the category
         var categoryId = portalLib.getMultipartText('category');
         var category = imageXpertLib.getContentByKey(categoryId);
-
-        if (!category) {
-            log.info('No category: %s', categoryName);
+        if (!category || category.type != (app.name + ":category" )) {
+            log.error('No category: %s', categoryName);
             return;
         }
 
+        //Creates the Image content
         var content = contentLib.create({
             parentPath: '/image-xpert/images',
             displayName: part.fileName,
@@ -37,6 +38,7 @@ function createMedia() {
             }
         });
 
+        //Creates the Image media
         var media = contentLib.createMedia({
             name: part.fileName,
             parentPath: content._path,
@@ -47,6 +49,7 @@ function createMedia() {
             data: portalLib.getMultipartStream("file")
         });
 
+        //Links the Image content to the Image media
         contentLib.modify({
             key: content._id,
             editor: function (content) {
@@ -54,8 +57,5 @@ function createMedia() {
                 return content;
             }
         });
-
-
-        log.info('Media created: %s', JSON.stringify(media, null, 2));
     }
 }

@@ -7,7 +7,7 @@ exports.get = function (req) {
     var redirectPageId = portal.getContent()._id;
     var categories = imageXpertLib.getCategories().
         map(function (category) {
-            return {"name": category._name, "displayName": category.displayName};
+            return {"id": category._id, "displayName": category.displayName};
         });
 
     var params = {

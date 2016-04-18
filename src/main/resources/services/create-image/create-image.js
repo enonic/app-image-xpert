@@ -19,8 +19,8 @@ function createMedia() {
     var part = portalLib.getMultipartItem("file");
     if (part.fileName && part.size > 0) {
 
-        var categoryName = portalLib.getMultipartText('categoryName');
-        var category = imageXpertLib.getCategoryByName(categoryName);
+        var categoryId = portalLib.getMultipartText('category');
+        var category = imageXpertLib.getContentByKey(categoryId);
 
         if (!category) {
             log.info('No category: %s', categoryName);

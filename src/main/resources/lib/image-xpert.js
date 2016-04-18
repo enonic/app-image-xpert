@@ -21,9 +21,9 @@ exports.getCategories = function () {
     }).hits;
 };
 
-exports.getCategoryByName = function (categoryName) {
+exports.getContentByKey = function (key, branch) {
     return contentLib.get({
-        key: "/image-xpert/categories/" + categoryName,
-        branch: "draft"
+        key: key,
+        branch: branch || "draft"
     });
 };

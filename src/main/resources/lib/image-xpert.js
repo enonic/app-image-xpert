@@ -1,4 +1,5 @@
 var contentLib = require('/lib/xp/content');
+var portalLib = require('/lib/xp/portal');
 
 exports.getContentByKey = function (key) {
     return contentLib.get({
@@ -32,5 +33,18 @@ exports.getImagesByCategoryIdAndSearch = function () {
     //Newest image on top
     return [];
 };
+
+
+exports.generateGalleryUrl = function (params) {
+
+    var params = params && params.categoryId ? {
+        category: params.categoryId
+    } : undefined;
+    return portalLib.pageUrl({
+        path: "/image-xpert/gallery",
+        params: params
+    });
+};
+
 
 

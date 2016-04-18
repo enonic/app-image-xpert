@@ -1,4 +1,3 @@
-var portalLib = require('/lib/xp/portal');
 var mustacheLib = require('/lib/xp/mustache');
 var imageXpertLib = require('/lib/image-xpert');
 
@@ -8,27 +7,29 @@ exports.get = function (req) {
             return category.data.binaryImage;
         }).
         map(function (category) {
-            var imageUrl = portalLib.imageUrl({
-                id: category.data.binaryImage,
-                scale: "square(64)"
-            });
             var linkUrl = imageXpertLib.generateGalleryUrl({
                 categoryId: category._id
             });
             return {
                 displayName: category.displayName,
-                imageUrl: imageUrl,
-                linkUrl: linkUrl
+                linkUrl: linkUrl,
+                checked: ""
             };
         });
 
-    var view = resolve('home.html');
+    var noCategoryUrl = imageXpertLib.generateGalleryUrl();
+    categories.push({
+        displayName: "None",
+        linkUrl: noCategoryUrl,
+        checked: ""
+    });
+
+    var view = resolve('gallery.html');
     var body = mustacheLib.render(view, {categories: categories});
 
     return {
         contentType: 'text/html',
         body: body
     };
-}
-;
+};
 

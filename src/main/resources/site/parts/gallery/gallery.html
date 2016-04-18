@@ -1,0 +1,9 @@
+<div>
+    <form>
+        {{#categories}}
+        <input type="radio" name="category" value="{{linkUrl}}" {{checked}}>{{displayName}}<br>
+        {{/categories}}
+        <input type="text" name="searchQuery" value="Search">
+    </form>
+</div>
+

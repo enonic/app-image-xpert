@@ -4,17 +4,17 @@ var mustacheLib = require('/lib/xp/mustache');
 
 exports.get = function (req) {
     var image = portalLib.getContent();
+    var createdDate = new Date(image.createdTime);
+
 
     var binary = contentLib.get({
         key: image.data.binary
     });
 
-
     var artist;
     if (binary.data.artist) {
         artist = binary.data.artist.toString();
     }
-
     var imageWidth = binary.x.media.imageInfo.imageWidth.toFixed(0);
     var imageHeight = binary.x.media.imageInfo.imageHeight.toFixed(0);
     var imageUrl = portalLib.imageUrl({
@@ -26,7 +26,7 @@ exports.get = function (req) {
     var view = resolve('info.html');
     var body = mustacheLib.render(view, {
         displayName: image.displayName,
-        createdTime: image.createdTime,
+        createdDate: createdDate.toDateString(),
         artist: artist,
         imageWidth: imageWidth,
         imageHeight: imageHeight,

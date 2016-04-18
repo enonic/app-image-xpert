@@ -22,8 +22,13 @@ exports.get = function (req) {
             };
         });
 
+    var uploadPageUrl = imageXpertLib.generateUploadUrl();
+
     var view = resolve('home.html');
-    var body = mustacheLib.render(view, {categories: categories});
+    var body = mustacheLib.render(view, {
+        categories: categories,
+        uploadPageUrl: uploadPageUrl
+    });
 
     return {
         contentType: 'text/html',

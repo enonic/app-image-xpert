@@ -1,17 +1,25 @@
 <div>
-    <form>
-        {{#categories}}
-        <input type="radio" name="category" value="{{linkUrl}}" {{checked}}>{{displayName}}<br>
-        {{/categories}}
-        <input type="text" name="searchQuery" value="Search">
-    </form>
-    {{#images}}
-    <figure>
-        <a href=""><img src="{{imageUrl}}" alt="{{displayName}}"></a>
-        {{#artist}}
-        <figcaption>by {{.}}</figcaption>
-        {{/artist}}
-    </figure>
-    {{/images}}
+    <div>
+        <form>
+            {{#categories}}
+            <input type="radio" name="category" value="{{linkUrl}}" {{checked}}>{{displayName}}<br>
+            {{/categories}}
+            <input type="text" name="searchQuery" value="Search">
+        </form>
+    </div>
+    <div>
+        <a href="{{uploadPageUrl}}">Upload image</a>
+    </div>
+    <div>
+        {{#images}}
+        <figure>
+            <a href=""><img src="{{imageUrl}}" alt="{{displayName}}"></a>
+            {{#artist}}
+            <figcaption>by {{.}}</figcaption>
+            {{/artist}}
+            <a href="{{downloadPageUrl}}">Download image</a>
+        </figure>
+        {{/images}}
+    </div>
 </div>
 

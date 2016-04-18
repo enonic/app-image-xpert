@@ -1,11 +1,18 @@
 <div>
     <form>
-        <span>Search in our catalog:</span>
-        <input type="text" name="searchQuery">
-        <span>or browse by category</span>
-        {{#categories}}
-        <a href="{{linkUrl}}"><img src="{{imageUrl}}" alt="{{displayName}}"></a>
-        {{/categories}}
+        <div>
+            <span>Search in our catalog:</span>
+            <input type="text" name="searchQuery">
+        </div>
+        <div>
+            <span>or browse by category</span>
+            {{#categories}}
+            <a href="{{linkUrl}}"><img src="{{imageUrl}}" alt="{{displayName}}"></a>
+            {{/categories}}
+        </div>
+        <div>
+            <a href="{{uploadPageUrl}}">Upload image</a>
+        </div>
     </form>
 
 

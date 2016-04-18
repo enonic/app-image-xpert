@@ -42,6 +42,15 @@ exports.generateUploadUrl = function (params) {
     });
 }
 
+exports.generateDownloadUrl = function (params) {
+    var params = params && params.imageId ? {
+        image: params.imageId
+    } : undefined;
+    return portalLib.pageUrl({
+        path: "/image-xpert/download"
+    });
+}
+
 exports.generateGalleryUrl = function (params) {
     var params = params && params.categoryId ? {
         category: params.categoryId

@@ -40,15 +40,20 @@ exports.get = function (req) {
                 imageUrl: portalLib.imageUrl({
                     id: image.data.binary,
                     scale: "square(256)"
+                }),
+                downloadPageUrl: imageXpertLib.generateDownloadUrl({
+                    imageId: image._id
                 })
             }
         });
-    log.info("images: %s", JSON.stringify(images, null, 2));
+
+    var uploadPageUrl = imageXpertLib.generateUploadUrl();
 
     var view = resolve('gallery.html');
     var body = mustacheLib.render(view, {
         categories: categories,
-        images: images
+        images: images,
+        uploadPageUrl: uploadPageUrl
     });
 
     return {

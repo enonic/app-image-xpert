@@ -2,9 +2,9 @@ body {
     margin: 0;
     height: 100%;
     -webkit-animation: animate-opacity 2s;
-    -moz-animation:    animate-opacity 2s;
-    -o-animation:      animate-opacity 2s;
-    animation:         animate-opacity 2s;
+    -moz-animation: animate-opacity 2s;
+    -o-animation: animate-opacity 2s;
+    animation: animate-opacity 2s;
 }
 
 .background-image {
@@ -27,12 +27,12 @@ body {
 }
 
 @keyframes animate-opacity {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
 }
 
 .main-container {
@@ -56,7 +56,7 @@ body {
     text-align: center;
 }
 
-.browse h1{
+.browse h1 {
     color: lavender;
     font-size: 22px;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -83,6 +83,7 @@ body {
 }
 
 .search-button {
+    cursor: pointer;
     background-color: white;
     display: table-cell;
     padding-right: 30px;
@@ -120,7 +121,7 @@ body {
 .category-image img {
     width: 220px;
     cursor: pointer;
-    box-shadow: 5px 2px 25px rgba(0,0,0,0.8);
+    box-shadow: 5px 2px 25px rgba(0, 0, 0, 0.8);
 }
 
 .category-image img:hover {

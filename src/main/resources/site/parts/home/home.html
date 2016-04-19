@@ -1,19 +1,22 @@
 <div class="search">
-    <div class="search-input">
-        <input type="text" placeholder="Search our library for amazing photos, places or things">
-        <a class="search-button" href="gallery.html"><img src="{{assetUrl}}/img/search-icon.svg"></a>
-    </div>
+    <form id="search-form" action="{{galleryPageUrl}}" class="search-input">
+        <input name="search" type="text" placeholder="Search our library for amazing photos, places or things">
+        <a class="search-button" onclick="$('#search-form').submit();"><img src="{{assetUrl}}/img/search-icon.svg"></a>
+    </form>
 </div>
 <div class="browse">
     <h1>or browse by category</h1>
+
     <div class="category-image-row">
-    {{#categories}}
-    {{#newRow}}
+        {{#categories}}
+        {{#newRow}}
     </div>
     <div class="category-image-row">
-    {{/newRow}}
-        <a href="{{linkUrl}}"><div class="category-image {{displayName}}"><img src="{{imageUrl}}"></div></a>
-    {{/categories}}
+        {{/newRow}}
+        <a href="{{linkUrl}}">
+            <div class="category-image {{displayName}}"><img src="{{imageUrl}}"></div>
+        </a>
+        {{/categories}}
     </div>
 </div>
 <div class="upload">

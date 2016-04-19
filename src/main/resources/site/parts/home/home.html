@@ -1,20 +1,22 @@
-<div>
-    <form>
-        <div>
-            <span>Search in our catalog:</span>
-            <input type="text" name="searchQuery">
-        </div>
-        <div>
-            <span>or browse by category</span>
-            {{#categories}}
-            <a href="{{linkUrl}}"><img src="{{imageUrl}}" alt="{{displayName}}"></a>
-            {{/categories}}
-        </div>
-        <div>
-            <a href="{{uploadPageUrl}}">Upload image</a>
-        </div>
-    </form>
-
-
+<div class="search">
+    <div class="search-input">
+        <input type="text" placeholder="Search our library for amazing photos, places or things">
+        <a class="search-button" href="gallery.html"><img src="{{assetUrl}}/img/search-icon.svg"></a>
+    </div>
 </div>
-
+<div class="browse">
+    <h1>or browse by category</h1>
+    <div class="category-image-row">
+    {{#categories}}
+    {{#newRow}}
+    </div>
+    <div class="category-image-row">
+    {{/newRow}}
+        <a href="{{linkUrl}}"><div class="category-image {{displayName}}"><img src="{{imageUrl}}"></div></a>
+    {{/categories}}
+    </div>
+</div>
+<div class="upload">
+    <a href="{{uploadPageUrl}}"><img src="{{assetUrl}}/img/upload_image.svg"></a>
+    <br>
+</div>

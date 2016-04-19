@@ -1,0 +1,141 @@
+.gallery-header {
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    height: 50px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 2000;
+    width: 100%;
+    text-align: left;
+    background-color: #333333;
+    font-family: "Helvetica Neue",helvetica,arial,sans-serif;
+}
+
+.gallery-header-container {
+    position: relative;
+    min-width: 800px;
+    max-width: calc(100% - 20%);
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 100px;
+    padding-right: 100px;
+    display: table;
+    height: 100%;
+}
+
+.logo-container {
+    display: table-cell;
+    height: 100%;
+    min-width: 200px;
+    vertical-align: middle;
+}
+
+.logo-container a {
+    color: white;
+    text-decoration: none;
+    float: left;
+    display: block;
+    fill: #fff;
+    transition: opacity 150ms ease-in-out;
+    font-weight: 900;
+    font-size: 24px;
+}
+
+.select-category-container {
+    float: left;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    vertical-align: middle;
+}
+
+.select-category-container li {
+    float: left;
+    margin-right: 30px;
+    white-space: nowrap;
+    color: white;
+}
+
+.search-and-upload-container {
+    list-style: none;
+    display: table-cell;
+    height: 100%;
+    vertical-align: middle;
+    min-width: 285px;
+}
+
+.search-container {
+    float: left;
+    width: 230px;
+}
+
+.search-container .search-input {
+    position: relative;
+    display: table;
+    margin-top: 9px;
+}
+
+.search-container .search-input input {
+    width: 100%;
+    padding: 0.4em;
+    padding-right: 0.6em;
+    font-size: 14px;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: 300;
+    color: #333333;
+    border: none;
+    outline: none;
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.search-container .search-button {
+    background-color: white;
+    display: table-cell;
+    padding-top: 5px;
+    padding-right: 30px;
+    vertical-align: top;
+}
+
+.search-container .search-button img {
+    position: absolute;
+    width: 18px;
+}
+
+.upload-container {
+    float: right;
+    height: 48px;
+}
+
+.upload-container .upload img {
+    height: 48px;
+}
+
+.upload-container .upload:hover {
+    cursor: pointer;
+    opacity: 0.7;
+}
+
+.logo-container a:hover, .category-radio:hover, .category-radio input:hover {
+    cursor: pointer;
+    opacity: 0.8;
+}
+
+.gallery-body {
+    max-width: 1200px;
+    margin-top: 70px;
+    padding: 0 50px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.galery-image {
+    width: 100%;
+    margin-bottom: 60px;
+}
+
+.galery-image img {
+    width: 100%;
+}

@@ -4,12 +4,12 @@
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Image XPert by Enonic</title>
-    <link rel="stylesheet" data-th-href="${portal.assetUrl({'_path=css/main.css'})}" type="text/css" />
+    <link rel="stylesheet" data-th-href="${portal.assetUrl({'_path=css/main.css'})}" type="text/css"/>
     <script data-th-src="${jQueryAssetUrl}" type="text/javascript"></script>
 </head>
 
 <body data-portal-component-type="page" data-th-class="${editable}? 'edit'">
-<div class="background-image"></div>
+<div class="background-image" data-th-style="${backgroundImageStyle}"></div>
 <div class="main-container" id="mainRegion" data-portal-region="main">
     <div data-th-if="${reqContent.page.regions['main']}" data-th-remove="tag">
         <div data-th-each="component : ${reqContent.page.regions['main'].components}" data-th-remove="tag">

@@ -6,16 +6,11 @@ exports.post = function (req) {
     var multipartForm = portalLib.getMultipartForm();
     log.info("Create image multipartForm:" + JSON.stringify(multipartForm, null, 2));
     var image = createImage();
-
-    //var pageId = portalLib.getMultipartText('multipartRedirect');
-    //var redirectUrl = portalLib.pageUrl({id: pageId});
-    //return {
-    //    redirect: redirectUrl
-    //};
+    log.info("created image: %s", JSON.stringify(image, null, 2));
+    var redirectUrl = imageXpertLib.generateGalleryUrl({categoryId: image.data.category});
 
     return {
-        contentType: 'application/json',
-        body: image
+        redirect: redirectUrl
     };
 };
 

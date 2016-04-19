@@ -24,19 +24,17 @@ exports.getImages = function (params) {
 
     var binaryImagesIds;
     if (params && params.searchQuery) {
-        var binaryImageQuery = "fulltext('_allText', '" + params.searchQuery + "', 'AND')";
+        var binaryImageQuery = "ngram('_allText', '" + params.searchQuery + "', 'AND')";
         var binaryImagesIds = contentLib.query({
             start: 0,
             count: -1,
             query: binaryImageQuery,
-            contentTypes: ["media:image"],
-            sort: "createdTime DESC"
+            contentTypes: ["media:image"]
         }).
             hits.
             map(function (binaryImage) {
                 return binaryImage._id;
             });
-        log.info("binaryImages: %s", JSON.stringify(binaryImages, null, 2));
 
         if (binaryImagesIds.length == 0) {
             return [];

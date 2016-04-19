@@ -28,7 +28,10 @@ exports.get = function (req) {
 
 
     //Retrieves the images for the current category and search query
-    var getImagesParams = req.params.category ? {categoryId: req.params.category} : undefined;
+    var getImagesParams = {
+        categoryId: req.params.category,
+        searchQuery: req.params.search
+    };
     var images = imageXpertLib.getImages(getImagesParams).
         map(function (image) {
             var imageBinary = imageXpertLib.getContentByKey(image.data.binary);

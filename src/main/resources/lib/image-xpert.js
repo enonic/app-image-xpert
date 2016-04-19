@@ -21,15 +21,44 @@ exports.getCategories = function () {
 }
 
 exports.getImages = function (params) {
-    var query = params && params.categoryId ? ("data.category = '" + params.categoryId + "'") : undefined;
-    log.info("query: %s", query);
+
+    var binaryImagesIds;
+    if (params && params.searchQuery) {
+        var binaryImageQuery = "fulltext('_allText', '" + params.searchQuery + "', 'AND')";
+        var binaryImagesIds = contentLib.query({
+            start: 0,
+            count: -1,
+            query: binaryImageQuery,
+            contentTypes: ["media:image"],
+            sort: "createdTime DESC"
+        }).
+            hits.
+            map(function (binaryImage) {
+                return binaryImage._id;
+            });
+        log.info("binaryImages: %s", JSON.stringify(binaryImages, null, 2));
+
+        if (binaryImagesIds.length == 0) {
+            return [];
+        }
+    }
+
+
+    var imageQuery;
+    if (binaryImagesIds) {
+        imageQuery = "data.binary = '" + binaryImagesIds[0] + "' ";
+    } else {
+        imageQuery = "";
+    }
+    imageQuery = imageQuery + (params && params.categoryId ? ("data.category = '" + params.categoryId + "'") : "");
     return contentLib.query({
         start: 0,
         count: -1,
-        query: query,
+        query: imageQuery,
         contentTypes: [app.name + ":image"],
         sort: "createdTime DESC"
     }).hits;
+
 };
 
 exports.getRandomImage = function () {

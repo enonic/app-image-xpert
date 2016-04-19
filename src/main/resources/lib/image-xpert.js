@@ -27,7 +27,7 @@ exports.getImages = function (params) {
         var binaryImageQuery = "ngram('_allText', '" + params.searchQuery + "', 'AND')";
         var binaryImagesIds = contentLib.query({
             start: 0,
-            count: -1,
+            count: 20,
             query: binaryImageQuery,
             contentTypes: ["media:image"]
         }).
@@ -44,14 +44,16 @@ exports.getImages = function (params) {
 
     var imageQuery;
     if (binaryImagesIds) {
-        imageQuery = "data.binary = '" + binaryImagesIds[0] + "' ";
+        imageQuery = "data.binary IN ('" + binaryImagesIds.join("','") + "') ";
+
     } else {
         imageQuery = "";
     }
     imageQuery = imageQuery + (params && params.categoryId ? ("data.category = '" + params.categoryId + "'") : "");
+    log.info("imageQuery:%s", imageQuery);
     return contentLib.query({
         start: 0,
-        count: -1,
+        count: 10,
         query: imageQuery,
         contentTypes: [app.name + ":image"],
         sort: "createdTime DESC"

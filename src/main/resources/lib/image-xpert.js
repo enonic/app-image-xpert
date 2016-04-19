@@ -47,9 +47,17 @@ exports.getImages = function (params) {
         imageQuery = "data.binary IN ('" + binaryImagesIds.join("','") + "') ";
 
     } else {
-        imageQuery = "";
+        imageQuery = undefined;
     }
-    imageQuery = imageQuery + (params && params.categoryId ? ("data.category = '" + params.categoryId + "'") : "");
+
+    if (params && params.categoryId) {
+        if (imageQuery) {
+            imageQuery = imageQuery + " AND ";
+        } else {
+            imageQuery = "";
+        }
+        imageQuery = imageQuery + ("data.category = '" + params.categoryId + "'");
+    }
     log.info("imageQuery:%s", imageQuery);
     return contentLib.query({
         start: 0,

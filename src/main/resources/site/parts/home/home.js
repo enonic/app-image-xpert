@@ -16,6 +16,7 @@ exports.get = function (req) {
             var linkUrl = imageXpertLib.generateGalleryPageUrl({
                 categoryId: category._id
             });
+                count++;
             return {
                 displayName: category.displayName.toLowerCase(),
                 imageUrl: imageUrl,

@@ -33,8 +33,17 @@ exports.getImages = function (params) {
 };
 
 exports.getRandomImage = function () {
-    //TODO
-    return exports.getImages()[0];
+    var total = contentLib.query({
+        start: 0,
+        count: 0,
+        contentTypes: [app.name + ":image"]
+    }).total;
+
+    return contentLib.query({
+        start: Math.floor(Math.random() * total),
+        count: 1,
+        contentTypes: [app.name + ":image"]
+    }).hits[0];
 };
 
 /******************************************

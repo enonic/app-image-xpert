@@ -13,10 +13,9 @@ exports.get = function (req) {
                 id: category.data.binaryImage,
                 scale: "block(220,147)"
             });
-            var linkUrl = imageXpertLib.generateGalleryUrl({
-                    categoryId: category._id
-                });
-                count++;
+            var linkUrl = imageXpertLib.generateGalleryPageUrl({
+                categoryId: category._id
+            });
             return {
                 displayName: category.displayName.toLowerCase(),
                 imageUrl: imageUrl,
@@ -25,7 +24,7 @@ exports.get = function (req) {
             };
         });
 
-    var uploadPageUrl = imageXpertLib.generateUploadUrl();
+    var uploadPageUrl = imageXpertLib.generateUploadPageUrl();
 
     var view = resolve('home.html');
     var body = mustacheLib.render(view, {

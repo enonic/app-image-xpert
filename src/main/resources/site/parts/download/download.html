@@ -1,0 +1,46 @@
+<div>
+    <div>
+        <img src="{{imageUrl}}" alt="{{displayName}}">
+        <a href="{{infoPageUrl}}">Info</a>
+    </div>
+    <div>
+        <form id="download-image-form" method="post" action="{{downloadImageServiceUrl}}">
+            <div>
+                <label>Specify size:</label>
+                <input type="radio" name="size" value="original" checked>
+                <label>Original</label>
+                <input type="radio" name="size" value="custom">
+                <label>Resize to</label>
+                <input type="text" name="width" value="Width">
+                <label>x</label>
+                <input type="text" name="height" value="Height">
+            </div>
+            <div>
+                <label>Select format:</label>
+                <input type="radio" name="format" value="original" checked>
+                <label>Original</label>
+                <input type="radio" name="format" value="custom">
+                <select>
+                    <option>JPEG</option>
+                    <option>PNG</option>
+                    <option>BMP</option>
+                </select>
+            </div>
+            <div>
+                <input name="binary" type="hidden" value="{{binaryImageId}}"/>
+                <button type="submit" name="download">Download</button>
+                <button type="reset" name="cancel">Cancel</button>
+            </div>
+        </form>
+    </div>
+
+    <!--script>
+        $(document).ready(function () {
+            $('#download-image-form').submit(function (event) {
+                $.post($(this).attr('action'), $(this).serialize());
+                event.preventDefault();
+            });
+        });
+    </script-->
+</div>
+

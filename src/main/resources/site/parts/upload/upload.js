@@ -4,7 +4,6 @@ var imageXpertLib = require('/lib/image-xpert');
 
 exports.get = function (req) {
     var imageCreationServiceUrl = portal.serviceUrl({service: "create-image"});
-    var redirectPageId = portal.getContent()._id;
     var categories = imageXpertLib.getCategories().
         map(function (category) {
             return {"id": category._id, "displayName": category.displayName};
@@ -12,7 +11,6 @@ exports.get = function (req) {
 
     var params = {
         imageCreationServiceUrl: imageCreationServiceUrl,
-        redirectPageId: redirectPageId,
         categories: categories
     };
 

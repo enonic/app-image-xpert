@@ -9,12 +9,15 @@ function handleGet(req) {
 
     var site = portal.getSite();
     var reqContent = portal.getContent();
+    var jQueryAssetUrl = portal.assetUrl({path: "js/jquery-2.1.4.min.js"})
+
     var params = {
         context: req,
         site: site,
         reqContent: reqContent,
         mainRegion: reqContent.page.regions["main"],
-        editable: editMode
+        editable: editMode,
+        jQueryAssetUrl: jQueryAssetUrl
     };
     var body = thymeleaf.render(view, params);
 

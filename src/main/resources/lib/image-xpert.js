@@ -58,7 +58,6 @@ exports.getImages = function (params) {
         }
         imageQuery = imageQuery + ("data.category = '" + params.categoryId + "'");
     }
-    log.info("imageQuery:%s", imageQuery);
     return contentLib.query({
         start: 0,
         count: 10,

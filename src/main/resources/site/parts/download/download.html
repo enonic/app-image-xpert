@@ -4,7 +4,7 @@
         <a href="{{infoPageUrl}}">Info</a>
     </div>
     <div>
-        <form id="download-image-form" action="{{downloadImageServiceUrl}}">
+        <form>
             <div>
                 <label>Specify size:</label>
                 <input type="radio" name="size" value="original" checked>
@@ -32,14 +32,5 @@
             </div>
         </form>
     </div>
-
-    <script>
-        $(document).ready(function () {
-            $('#download-image-form').submit(function (event) {
-                $.post($(this).attr('action'), $(this).serialize());
-                event.preventDefault();
-            });
-        });
-    </script>
 </div>
 

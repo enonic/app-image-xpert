@@ -22,11 +22,16 @@ exports.get = function (req) {
         imagePath: image._path
     });
 
+    var downloadImageServiceUrl = portalLib.serviceUrl({
+        service: "download-image"
+    });
+
     var view = resolve('download.html');
     var body = mustacheLib.render(view, {
         displayName: image.displayName,
         imageUrl: imageUrl,
-        infoPageUrl: infoPageUrl
+        infoPageUrl: infoPageUrl,
+        downloadImageServiceUrl: downloadImageServiceUrl
     });
 
     return {

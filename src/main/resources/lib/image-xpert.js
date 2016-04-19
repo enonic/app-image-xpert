@@ -32,24 +32,36 @@ exports.getImages = function (params) {
     }).hits;
 };
 
+exports.getRandomImage = function () {
+    //TODO
+    return exports.getImages()[0];
+};
+
 /******************************************
  * URL generation functions
  *****************************************/
 
-exports.generateUploadUrl = function (params) {
+exports.generateUploadUrl = function () {
     return portalLib.pageUrl({
         path: "/image-xpert/upload"
     });
-}
+};
 
 exports.generateDownloadUrl = function (params) {
     var params = params && params.imageId ? {
         image: params.imageId
     } : undefined;
     return portalLib.pageUrl({
-        path: "/image-xpert/download"
+        path: "/image-xpert/download",
+        params: params
     });
-}
+};
+
+exports.generateInfoPageUrl = function (params) {
+    return portalLib.pageUrl({
+        path: params.imagePath
+    });
+};
 
 exports.generateGalleryUrl = function (params) {
     var params = params && params.categoryId ? {

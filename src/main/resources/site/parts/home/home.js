@@ -12,7 +12,7 @@ exports.get = function (req) {
                 id: category.data.binaryImage,
                 scale: "square(64)"
             });
-            var linkUrl = imageXpertLib.generateGalleryUrl({
+            var linkUrl = imageXpertLib.generateGalleryPageUrl({
                 categoryId: category._id
             });
             return {
@@ -22,7 +22,7 @@ exports.get = function (req) {
             };
         });
 
-    var uploadPageUrl = imageXpertLib.generateUploadUrl();
+    var uploadPageUrl = imageXpertLib.generateUploadPageUrl();
 
     var view = resolve('home.html');
     var body = mustacheLib.render(view, {

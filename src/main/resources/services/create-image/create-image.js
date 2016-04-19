@@ -7,7 +7,7 @@ exports.post = function (req) {
     log.info("Create image multipartForm:" + JSON.stringify(multipartForm, null, 2));
     var image = createImage();
     log.info("created image: %s", JSON.stringify(image, null, 2));
-    var redirectUrl = imageXpertLib.generateGalleryUrl({categoryId: image.data.category});
+    var redirectUrl = imageXpertLib.generateGalleryPageUrl({categoryId: image.data.category});
 
     return {
         redirect: redirectUrl

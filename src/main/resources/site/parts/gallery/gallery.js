@@ -10,7 +10,7 @@ exports.get = function (req) {
             return category.data.binaryImage;
         }).
         map(function (category) {
-            var linkUrl = imageXpertLib.generateGalleryUrl({
+            var linkUrl = imageXpertLib.generateGalleryPageUrl({
                 categoryId: category._id
             });
             return {
@@ -19,7 +19,7 @@ exports.get = function (req) {
                 checked: ""
             };
         });
-    var noCategoryUrl = imageXpertLib.generateGalleryUrl();
+    var noCategoryUrl = imageXpertLib.generateGalleryPageUrl();
     categories.push({
         displayName: "None",
         linkUrl: noCategoryUrl,
@@ -41,13 +41,13 @@ exports.get = function (req) {
                     id: image.data.binary,
                     scale: "square(256)"
                 }),
-                downloadPageUrl: imageXpertLib.generateDownloadUrl({
+                downloadPageUrl: imageXpertLib.generateDownloadPageUrl({
                     imageId: image._id
                 })
             }
         });
 
-    var uploadPageUrl = imageXpertLib.generateUploadUrl();
+    var uploadPageUrl = imageXpertLib.generateUploadPageUrl();
 
     var view = resolve('gallery.html');
     var body = mustacheLib.render(view, {

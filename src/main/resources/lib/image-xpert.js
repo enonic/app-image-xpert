@@ -41,13 +41,13 @@ exports.getRandomImage = function () {
  * URL generation functions
  *****************************************/
 
-exports.generateUploadUrl = function () {
+exports.generateUploadPageUrl = function () {
     return portalLib.pageUrl({
         path: "/image-xpert/upload"
     });
 };
 
-exports.generateDownloadUrl = function (params) {
+exports.generateDownloadPageUrl = function (params) {
     var params = params && params.imageId ? {
         image: params.imageId
     } : undefined;
@@ -63,7 +63,7 @@ exports.generateInfoPageUrl = function (params) {
     });
 };
 
-exports.generateGalleryUrl = function (params) {
+exports.generateGalleryPageUrl = function (params) {
     var params = params && params.categoryId ? {
         category: params.categoryId
     } : undefined;

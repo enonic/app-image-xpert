@@ -22,7 +22,6 @@ exports.get = function (req) {
         imagePath: image._path
     });
 
-
     var view = resolve('download.html');
     var body = mustacheLib.render(view, {
         displayName: image.displayName,
@@ -35,4 +34,5 @@ exports.get = function (req) {
         body: body
     };
 };
+
 

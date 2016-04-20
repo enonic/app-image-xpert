@@ -5,6 +5,11 @@
     <div>
         <span>Original size: {{imageWidth}}x{{imageHeight}}</span>
     </div>
+    {{#geoLocation}}
+    <div>
+        <span>Location: {{.}}</span>
+    </div>
+    {{/geoLocation}}
     <img src="{{imageUrl}}" alt="{{displayName}}">
 </div>
 

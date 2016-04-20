@@ -48,17 +48,18 @@ function createImage() {
             data: portalLib.getMultipartStream("file")
         });
 
-        // BUG in Enonic XP
-        //var caption = portalLib.getMultipartText("caption");
-        //log.info("caption: %s", caption);
-        //contentLib.modify({
-        //    key: media._id,
-        //    editor: function (media) {
-        //        log.info("media: %s", JSON.stringify(media, null, 2));
-        //        media.data.caption = caption;
-        //        return media;
-        //    }
-        //});
+        var caption = portalLib.getMultipartText("caption");
+        var artist = portalLib.getMultipartText("artist");
+        var tags = portalLib.getMultipartText("tags");
+        contentLib.modify({
+            key: media._id,
+            editor: function (media) {
+                media.data.caption = caption;
+                media.data.artist = artist;
+                media.data.tags = tags;
+                return media;
+            }
+        });
 
 
         //Links the Image content to the Image media

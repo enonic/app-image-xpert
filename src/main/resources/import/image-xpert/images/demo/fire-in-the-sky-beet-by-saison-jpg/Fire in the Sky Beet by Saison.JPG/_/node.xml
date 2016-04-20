@@ -57,7 +57,7 @@
             <string name="artist">Jørgen Sivesind</string>
             <string isNull="true" name="copyright"/>
             <string name="tags">Saison Restaurant</string>
-            <string name="tags">San Fransisco</string>
+            <string name="tags">San Francisco</string>
             <string name="tags">beet</string>
         </property-set>
         <property-set name="x">

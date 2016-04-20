@@ -58,7 +58,7 @@
             <string isNull="true" name="copyright"/>
             <string name="tags">salad</string>
             <string name="tags">Saison Restaurant</string>
-            <string name="tags">San Fransisco</string>
+            <string name="tags">San Francisco</string>
         </property-set>
         <property-set name="x">
             <property-set name="media">

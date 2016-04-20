@@ -27,7 +27,7 @@ exports.getImages = function (params) {
         var binaryImageQuery = "ngram('_allText', '" + params.searchQuery + "', 'AND')";
         var binaryImagesIds = contentLib.query({
             start: 0,
-            count: 20,
+            count: 100,
             query: binaryImageQuery,
             contentTypes: ["media:image"]
         }).

@@ -23,7 +23,7 @@ exports.get = function (req) {
         artist = binary.data.artist.toString();
     }
 
-    var geoLocation;
+    var geoLocation = binary.x.base && binary.x.base.gpsInfo && binary.x.base.gpsInfo.geoPoint;
 
 
     var imageWidth = binary.x.media.imageInfo.imageWidth.toFixed(0);
@@ -39,7 +39,7 @@ exports.get = function (req) {
         displayName: image.displayName,
         createdDate: createdDate.toDateString(),
         artist: artist,
-        geoLocation: binary.x.base && binary.x.base.gpsInfo && binary.x.base.gpsInfo.geoPoint,
+        geoLocation: geoLocation,
         imageWidth: imageWidth,
         imageHeight: imageHeight,
         imageUrl: imageUrl

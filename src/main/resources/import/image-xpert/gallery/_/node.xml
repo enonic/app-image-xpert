@@ -2,7 +2,7 @@
     <id>68b8ee28-7e7a-476b-b7af-2f4fcde87c2f</id>
     <childOrder>modifiedtime DESC</childOrder>
     <nodeType>content</nodeType>
-    <timestamp>2016-04-18T10:16:56.419Z</timestamp>
+    <timestamp>2016-04-20T09:50:10.969Z</timestamp>
     <inheritPermissions>true</inheritPermissions>
     <permissions>
         <principal key="role:cms.cm.app">
@@ -41,13 +41,13 @@
         <string name="displayName">Gallery</string>
         <string name="type">com.enonic.app.imagexpert:landing-page</string>
         <string name="owner">user:system:su</string>
-        <dateTime name="modifiedTime">2016-04-18T10:16:56.418Z</dateTime>
+        <dateTime name="modifiedTime">2016-04-20T09:50:10.969Z</dateTime>
         <string name="modifier">user:system:su</string>
         <string name="creator">user:system:su</string>
         <dateTime name="createdTime">2016-04-18T10:12:47.807Z</dateTime>
         <property-set name="data"/>
         <property-set name="page">
-            <string name="controller">com.enonic.app.imagexpert:main</string>
+            <string name="controller">com.enonic.app.imagexpert:gallery</string>
             <reference isNull="true" name="template"/>
             <property-set name="region">
                 <string name="name">main</string>
@@ -56,6 +56,14 @@
                     <property-set name="PartComponent">
                         <string name="name">gallery</string>
                         <string name="template">com.enonic.app.imagexpert:gallery</string>
+                        <property-set name="config"/>
+                    </property-set>
+                </property-set>
+                <property-set name="component">
+                    <string name="type">PartComponent</string>
+                    <property-set name="PartComponent">
+                        <string name="name">upload</string>
+                        <string name="template">com.enonic.app.imagexpert:upload</string>
                         <property-set name="config"/>
                     </property-set>
                 </property-set>

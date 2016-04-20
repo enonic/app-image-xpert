@@ -2,7 +2,7 @@
     <id>351e270a-cecc-422e-a4e6-76df841480d5</id>
     <childOrder>modifiedtime DESC</childOrder>
     <nodeType>content</nodeType>
-    <timestamp>2016-04-20T08:07:16.711Z</timestamp>
+    <timestamp>2016-04-20T13:30:15.706Z</timestamp>
     <inheritPermissions>true</inheritPermissions>
     <permissions>
         <principal key="role:cms.cm.app">
@@ -41,7 +41,7 @@
         <string name="displayName">Seared Spot Prawn by Coi.JPG</string>
         <string name="type">media:image</string>
         <string name="owner">user:system:su</string>
-        <dateTime name="modifiedTime">2016-04-20T08:07:16.710Z</dateTime>
+        <dateTime name="modifiedTime">2016-04-20T13:30:15.705Z</dateTime>
         <string name="modifier">user:system:su</string>
         <string name="creator">user:system:su</string>
         <dateTime name="createdTime">2016-04-20T08:01:26.867Z</dateTime>
@@ -55,7 +55,7 @@
             </property-set>
             <string name="caption">Seared Spot Prawn by Coi</string>
             <string name="artist">Jørgen Sivesind</string>
-            <string isNull="true" name="copyright"/>
+            <string name="copyright">Jørgen Sivesind</string>
             <string name="tags">Coi Restaurant</string>
             <string name="tags">Seared Spot Prawn</string>
             <string name="tags">seafood</string>
@@ -97,8 +97,8 @@
             </property-set>
             <property-set name="base">
                 <property-set name="gpsInfo">
-                    <geoPoint isNull="true" name="geoPoint"/>
-                    <string isNull="true" name="altitude"/>
+                    <geoPoint name="geoPoint">37.7981127,-122.4055948</geoPoint>
+                    <string name="altitude">13</string>
                     <string isNull="true" name="direction"/>
                 </property-set>
             </property-set>

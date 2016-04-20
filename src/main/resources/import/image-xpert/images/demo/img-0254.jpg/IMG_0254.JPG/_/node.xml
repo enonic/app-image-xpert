@@ -2,7 +2,7 @@
     <id>d643eaa7-ebba-4238-85a3-b08444104a76</id>
     <childOrder>modifiedtime DESC</childOrder>
     <nodeType>content</nodeType>
-    <timestamp>2016-04-19T13:47:00.549Z</timestamp>
+    <timestamp>2016-04-20T13:14:06.884Z</timestamp>
     <inheritPermissions>true</inheritPermissions>
     <permissions>
         <principal key="role:cms.cm.app">
@@ -41,7 +41,7 @@
         <string name="displayName">IMG_0254.JPG</string>
         <string name="type">media:image</string>
         <string name="owner">user:system:su</string>
-        <dateTime name="modifiedTime">2016-04-19T13:47:00.548Z</dateTime>
+        <dateTime name="modifiedTime">2016-04-20T13:14:06.883Z</dateTime>
         <string name="modifier">user:system:su</string>
         <string name="creator">user:system:su</string>
         <dateTime name="createdTime">2016-04-18T19:48:22.838Z</dateTime>
@@ -73,6 +73,8 @@
             <string name="tags">Sagdalen</string>
             <string name="tags">17th century head saw</string>
             <string name="tags">river</string>
+            <string name="tags">saw</string>
+            <string name="tags">wood</string>
         </property-set>
         <property-set name="x">
             <property-set name="media">
@@ -112,7 +114,7 @@
             <property-set name="base">
                 <property-set name="gpsInfo">
                     <geoPoint isNull="true" name="geoPoint"/>
-                    <string isNull="true" name="altitude"/>
+                    <string name="altitude">127</string>
                     <string isNull="true" name="direction"/>
                 </property-set>
             </property-set>

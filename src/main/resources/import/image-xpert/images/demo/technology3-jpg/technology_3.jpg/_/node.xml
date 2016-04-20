@@ -1,8 +1,8 @@
 <node>
-    <id>d87ee5fe-704b-43f1-aa8c-8e461696c7a9</id>
+    <id>27e4a5cb-10bc-4377-9d40-10bec7410170</id>
     <childOrder>modifiedtime DESC</childOrder>
     <nodeType>content</nodeType>
-    <timestamp>2016-04-20T08:04:39.499Z</timestamp>
+    <timestamp>2016-04-20T12:09:10.261Z</timestamp>
     <inheritPermissions>true</inheritPermissions>
     <permissions>
         <principal key="role:cms.cm.app">
@@ -38,62 +38,65 @@
     </permissions>
     <data>
         <boolean name="valid">true</boolean>
-        <string name="displayName">San Francisco Bay Bridge at Night.JPG</string>
+        <string name="displayName">technology_3.jpg</string>
         <string name="type">media:image</string>
         <string name="owner">user:system:su</string>
-        <dateTime name="modifiedTime">2016-04-20T08:04:39.498Z</dateTime>
+        <dateTime name="modifiedTime">2016-04-20T12:09:10.260Z</dateTime>
         <string name="modifier">user:system:su</string>
         <string name="creator">user:system:su</string>
-        <dateTime name="createdTime">2016-04-20T08:03:13.911Z</dateTime>
+        <dateTime name="createdTime">2016-04-20T12:07:57.578Z</dateTime>
         <property-set name="data">
             <property-set name="media">
-                <string name="attachment">San Francisco Bay Bridge at Night.JPG</string>
+                <string name="attachment">technology_3.jpg</string>
                 <property-set name="focalPoint">
                     <double name="x">0.5</double>
                     <double name="y">0.5</double>
                 </property-set>
             </property-set>
-            <string name="caption">San Francisco Bay Bridge at Night</string>
-            <string name="artist">Jørgen Sivesind</string>
+            <string isNull="true" name="caption"/>
+            <string name="artist">Unsplash</string>
             <string isNull="true" name="copyright"/>
-            <string name="tags">San Francisco</string>
-            <string name="tags">San Francisco Bay Bridge</string>
-            <string name="tags">bridge</string>
-            <string name="tags">night</string>
+            <string name="tags">keyboard</string>
+            <string name="tags">Mac</string>
+            <string name="tags">headset</string>
+            <string name="tags">hand</string>
+            <string name="tags">mouse</string>
+            <string name="tags">cup</string>
+            <string name="tags">pencil</string>
         </property-set>
         <property-set name="x">
             <property-set name="media">
                 <property-set name="imageInfo">
-                    <string name="colorSpace">1</string>
+                    <long name="imageHeight">810</long>
+                    <string name="colorSpace">sRGB</string>
+                    <string name="colorSpace">RGB</string>
                     <string name="contentType">image/jpeg</string>
-                    <long name="imageWidth">2880</long>
-                    <long name="imageHeight">1920</long>
-                    <long name="pixelSize">5529600</long>
-                    <long name="byteSize">2717675</long>
+                    <long name="imageWidth">1080</long>
+                    <long name="pixelSize">874800</long>
+                    <long name="byteSize">154365</long>
                     <string isNull="true" name="description"/>
                     <string isNull="true" name="fileSource"/>
                 </property-set>
                 <property-set name="cameraInfo">
-                    <string name="focalLength">40.0 mm</string>
-                    <string name="make">Canon</string>
-                    <string name="meteringMode">Evaluative</string>
-                    <string name="orientation">Top, left side (Horizontal / normal)</string>
-                    <string name="whiteBalance">Auto white balance</string>
-                    <string name="aperture">96</string>
-                    <string name="aperture">F2.8</string>
-                    <string name="exposureProgram">Aperture priority</string>
-                    <string name="exposureMode">Av-priority</string>
-                    <string name="model">Canon EOS 5D Mark III</string>
-                    <localDateTime name="date">2015-10-08T06:23:05.000Z</localDateTime>
-                    <string name="shutterTime">164</string>
-                    <string name="iso">10000</string>
-                    <string name="flash">Flash did not fire, auto</string>
-                    <string name="exposureBias">0 EV</string>
+                    <localDateTime isNull="true" name="date"/>
+                    <string isNull="true" name="make"/>
+                    <string isNull="true" name="model"/>
                     <string isNull="true" name="lens"/>
+                    <string isNull="true" name="iso"/>
+                    <string isNull="true" name="focalLength"/>
                     <string isNull="true" name="focalLength35"/>
+                    <string isNull="true" name="exposureBias"/>
+                    <string isNull="true" name="aperture"/>
+                    <string isNull="true" name="shutterTime"/>
+                    <string isNull="true" name="flash"/>
                     <string isNull="true" name="autoFlashCompensation"/>
+                    <string isNull="true" name="whiteBalance"/>
+                    <string isNull="true" name="exposureProgram"/>
                     <string isNull="true" name="shootingMode"/>
+                    <string isNull="true" name="meteringMode"/>
+                    <string isNull="true" name="exposureMode"/>
                     <string isNull="true" name="focusDistance"/>
+                    <string isNull="true" name="orientation"/>
                 </property-set>
             </property-set>
             <property-set name="base">
@@ -105,11 +108,11 @@
             </property-set>
         </property-set>
         <property-set name="attachment">
-            <string name="name">San Francisco Bay Bridge at Night.JPG</string>
+            <string name="name">technology_3.jpg</string>
             <string name="label">source</string>
-            <binaryReference name="binary">San Francisco Bay Bridge at Night.JPG</binaryReference>
+            <binaryReference name="binary">technology_3.jpg</binaryReference>
             <string name="mimeType">image/jpeg</string>
-            <long name="size">2717675</long>
+            <long name="size">154365</long>
         </property-set>
     </data>
     <indexConfigs>

@@ -2,7 +2,7 @@
     <id>ceb5b51f-5e3d-416c-b252-583681a61984</id>
     <childOrder>modifiedtime DESC</childOrder>
     <nodeType>content</nodeType>
-    <timestamp>2016-04-19T14:20:53.270Z</timestamp>
+    <timestamp>2016-04-20T12:43:38.210Z</timestamp>
     <inheritPermissions>true</inheritPermissions>
     <permissions>
         <principal key="role:cms.cm.app">
@@ -41,7 +41,7 @@
         <string name="displayName">IMG_1483.JPG</string>
         <string name="type">media:image</string>
         <string name="owner">user:system:su</string>
-        <dateTime name="modifiedTime">2016-04-19T14:20:53.269Z</dateTime>
+        <dateTime name="modifiedTime">2016-04-20T12:43:38.210Z</dateTime>
         <string name="modifier">user:system:su</string>
         <string name="creator">user:system:su</string>
         <dateTime name="createdTime">2016-04-18T19:36:55.924Z</dateTime>
@@ -53,11 +53,12 @@
                     <double name="y">0.5</double>
                 </property-set>
             </property-set>
-            <string isNull="true" name="caption"/>
+            <string name="caption">Nature takes its toll</string>
             <string name="artist">Jørgen Sivesind</string>
-            <string isNull="true" name="copyright"/>
+            <string name="copyright">Jørgen Sivesind</string>
             <string name="tags">Leaky boat</string>
             <string name="tags">Fetsund Log driving museum</string>
+            <string name="tags">water</string>
         </property-set>
         <property-set name="x">
             <property-set name="media">

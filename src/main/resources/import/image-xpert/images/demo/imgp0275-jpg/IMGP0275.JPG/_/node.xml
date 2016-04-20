@@ -2,7 +2,7 @@
     <id>ed1fa3a8-ed93-4374-b5cc-55c9b0178493</id>
     <childOrder>modifiedtime DESC</childOrder>
     <nodeType>content</nodeType>
-    <timestamp>2016-04-20T08:12:51.321Z</timestamp>
+    <timestamp>2016-04-20T13:44:17.855Z</timestamp>
     <inheritPermissions>true</inheritPermissions>
     <permissions>
         <principal key="role:cms.cm.app">
@@ -41,7 +41,7 @@
         <string name="displayName">IMGP0275.JPG</string>
         <string name="type">media:image</string>
         <string name="owner">user:system:su</string>
-        <dateTime name="modifiedTime">2016-04-20T08:12:51.320Z</dateTime>
+        <dateTime name="modifiedTime">2016-04-20T13:44:17.855Z</dateTime>
         <string name="modifier">user:system:su</string>
         <string name="creator">user:system:su</string>
         <dateTime name="createdTime">2016-04-19T14:45:17.314Z</dateTime>
@@ -55,7 +55,7 @@
             </property-set>
             <string name="caption">Old Wall Cottage</string>
             <string name="artist">Jørgen Sivesind</string>
-            <string isNull="true" name="copyright"/>
+            <string name="copyright">Jørgen Sivesind</string>
             <string name="tags">English garden</string>
             <string name="tags">Walton</string>
             <string name="tags">flowers</string>
@@ -98,8 +98,8 @@
             <property-set name="base">
                 <property-set name="gpsInfo">
                     <string name="direction">339.55 degrees</string>
-                    <geoPoint isNull="true" name="geoPoint"/>
-                    <string isNull="true" name="altitude"/>
+                    <geoPoint name="geoPoint">54.9403179,-2.8479222</geoPoint>
+                    <string name="altitude">58</string>
                 </property-set>
             </property-set>
         </property-set>

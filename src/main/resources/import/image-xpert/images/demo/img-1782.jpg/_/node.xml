@@ -2,7 +2,7 @@
     <id>e5babfb0-0cb5-46b4-8059-2b5b17c1d600</id>
     <childOrder>modifiedtime DESC</childOrder>
     <nodeType>content</nodeType>
-    <timestamp>2016-04-18T19:38:14.324Z</timestamp>
+    <timestamp>2016-04-20T12:42:51.070Z</timestamp>
     <inheritPermissions>true</inheritPermissions>
     <permissions>
         <principal key="role:cms.cm.app">
@@ -41,12 +41,12 @@
         <string name="displayName">IMG_1782.JPG</string>
         <string name="type">com.enonic.app.imagexpert:image</string>
         <string name="owner">user:system:su</string>
-        <dateTime name="modifiedTime">2016-04-18T19:36:47.049Z</dateTime>
+        <dateTime name="modifiedTime">2016-04-20T12:42:51.070Z</dateTime>
         <string name="modifier">user:system:su</string>
         <string name="creator">user:system:su</string>
         <dateTime name="createdTime">2016-04-18T19:36:46.839Z</dateTime>
         <property-set name="data">
-            <reference name="category">572c461e-71cb-423c-b235-1ab3bb2475c5</reference>
+            <reference name="category">857b31d1-5485-47db-a4c8-e6380433a695</reference>
             <reference name="binary">606a5ead-6f64-42c3-9095-fbded625b711</reference>
         </property-set>
     </data>

@@ -1,8 +1,8 @@
 <node>
-    <id>6c402006-695a-46da-a9e3-8e503b5018d3</id>
+    <id>810cb627-0f0f-46bc-b4db-0ea479530679</id>
     <childOrder>modifiedtime DESC</childOrder>
     <nodeType>content</nodeType>
-    <timestamp>2016-04-20T08:03:48.515Z</timestamp>
+    <timestamp>2016-04-20T11:26:38.316Z</timestamp>
     <inheritPermissions>true</inheritPermissions>
     <permissions>
         <principal key="role:cms.cm.app">
@@ -41,12 +41,12 @@
         <string name="displayName">San Francisco Bay Bridge at Night.JPG</string>
         <string name="type">com.enonic.app.imagexpert:image</string>
         <string name="owner">user:system:su</string>
-        <dateTime name="modifiedTime">2016-04-20T08:03:48.515Z</dateTime>
+        <dateTime name="modifiedTime">2016-04-20T11:26:38.302Z</dateTime>
         <string name="modifier">user:system:su</string>
         <string name="creator">user:system:su</string>
-        <dateTime name="createdTime">2016-04-20T08:02:56.158Z</dateTime>
+        <dateTime name="createdTime">2016-04-20T11:26:08.660Z</dateTime>
         <property-set name="data">
-            <reference name="binary">d87ee5fe-704b-43f1-aa8c-8e461696c7a9</reference>
+            <reference name="binary">9c2c17c9-4895-44ae-8f51-38d942f27dee</reference>
             <reference name="category">857b31d1-5485-47db-a4c8-e6380433a695</reference>
         </property-set>
     </data>
@@ -82,6 +82,36 @@
                     </indexValueProcessors>
                 </indexConfig>
                 <path>data.htmlarea_text</path>
+            </pathIndexConfig>
+            <pathIndexConfig>
+                <indexConfig>
+                    <decideByType>false</decideByType>
+                    <enabled>true</enabled>
+                    <nGram>false</nGram>
+                    <fulltext>false</fulltext>
+                    <includeInAllText>false</includeInAllText>
+                </indexConfig>
+                <path>creator</path>
+            </pathIndexConfig>
+            <pathIndexConfig>
+                <indexConfig>
+                    <decideByType>false</decideByType>
+                    <enabled>true</enabled>
+                    <nGram>false</nGram>
+                    <fulltext>false</fulltext>
+                    <includeInAllText>false</includeInAllText>
+                </indexConfig>
+                <path>createdTime</path>
+            </pathIndexConfig>
+            <pathIndexConfig>
+                <indexConfig>
+                    <decideByType>false</decideByType>
+                    <enabled>true</enabled>
+                    <nGram>false</nGram>
+                    <fulltext>false</fulltext>
+                    <includeInAllText>false</includeInAllText>
+                </indexConfig>
+                <path>modifiedTime</path>
             </pathIndexConfig>
             <pathIndexConfig>
                 <indexConfig>
@@ -162,36 +192,6 @@
                     <includeInAllText>false</includeInAllText>
                 </indexConfig>
                 <path>type</path>
-            </pathIndexConfig>
-            <pathIndexConfig>
-                <indexConfig>
-                    <decideByType>false</decideByType>
-                    <enabled>true</enabled>
-                    <nGram>false</nGram>
-                    <fulltext>false</fulltext>
-                    <includeInAllText>false</includeInAllText>
-                </indexConfig>
-                <path>creator</path>
-            </pathIndexConfig>
-            <pathIndexConfig>
-                <indexConfig>
-                    <decideByType>false</decideByType>
-                    <enabled>true</enabled>
-                    <nGram>false</nGram>
-                    <fulltext>false</fulltext>
-                    <includeInAllText>false</includeInAllText>
-                </indexConfig>
-                <path>createdTime</path>
-            </pathIndexConfig>
-            <pathIndexConfig>
-                <indexConfig>
-                    <decideByType>false</decideByType>
-                    <enabled>true</enabled>
-                    <nGram>false</nGram>
-                    <fulltext>false</fulltext>
-                    <includeInAllText>false</includeInAllText>
-                </indexConfig>
-                <path>modifiedTime</path>
             </pathIndexConfig>
         </pathIndexConfigs>
     </indexConfigs>

@@ -2,7 +2,7 @@
     <id>f145be82-e7dc-4b0c-b48a-0d63c2a4d6bb</id>
     <childOrder>modifiedtime DESC</childOrder>
     <nodeType>content</nodeType>
-    <timestamp>2016-04-20T08:06:00.997Z</timestamp>
+    <timestamp>2016-04-20T13:29:59.441Z</timestamp>
     <inheritPermissions>true</inheritPermissions>
     <permissions>
         <principal key="role:cms.cm.app">
@@ -41,7 +41,7 @@
         <string name="displayName">Tomato By Saison.JPG</string>
         <string name="type">media:image</string>
         <string name="owner">user:system:su</string>
-        <dateTime name="modifiedTime">2016-04-20T08:06:00.996Z</dateTime>
+        <dateTime name="modifiedTime">2016-04-20T13:29:59.440Z</dateTime>
         <string name="modifier">user:system:su</string>
         <string name="creator">user:system:su</string>
         <dateTime name="createdTime">2016-04-20T08:00:49.612Z</dateTime>
@@ -55,7 +55,7 @@
             </property-set>
             <string name="caption">Tomato by Saison</string>
             <string name="artist">Jørgen Sivesind</string>
-            <string isNull="true" name="copyright"/>
+            <string name="copyright">Jørgen Sivesind</string>
             <string name="tags">tomato</string>
             <string name="tags">Saison Restaurant</string>
             <string name="tags">San Francisco</string>
@@ -97,8 +97,8 @@
             </property-set>
             <property-set name="base">
                 <property-set name="gpsInfo">
-                    <geoPoint isNull="true" name="geoPoint"/>
-                    <string isNull="true" name="altitude"/>
+                    <geoPoint name="geoPoint">37.7795396,-122.394457</geoPoint>
+                    <string name="altitude">4</string>
                     <string isNull="true" name="direction"/>
                 </property-set>
             </property-set>

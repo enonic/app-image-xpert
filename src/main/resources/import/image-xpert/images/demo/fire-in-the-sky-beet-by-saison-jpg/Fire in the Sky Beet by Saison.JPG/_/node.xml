@@ -2,7 +2,7 @@
     <id>bc7d3b4e-2f12-4f71-ab1c-df62bddef52c</id>
     <childOrder>modifiedtime DESC</childOrder>
     <nodeType>content</nodeType>
-    <timestamp>2016-04-20T07:17:14Z</timestamp>
+    <timestamp>2016-04-20T13:29:18.739Z</timestamp>
     <inheritPermissions>true</inheritPermissions>
     <permissions>
         <principal key="role:cms.cm.app">
@@ -41,7 +41,7 @@
         <string name="displayName">Fire in the Sky Beet by Saison.JPG</string>
         <string name="type">media:image</string>
         <string name="owner">user:system:su</string>
-        <dateTime name="modifiedTime">2016-04-20T07:17:13.999Z</dateTime>
+        <dateTime name="modifiedTime">2016-04-20T13:29:18.739Z</dateTime>
         <string name="modifier">user:system:su</string>
         <string name="creator">user:system:su</string>
         <dateTime name="createdTime">2016-04-20T07:15:38.873Z</dateTime>
@@ -55,7 +55,7 @@
             </property-set>
             <string name="caption">Fire in the Sky Beet</string>
             <string name="artist">Jørgen Sivesind</string>
-            <string isNull="true" name="copyright"/>
+            <string name="copyright">Jørgen Sivesind</string>
             <string name="tags">Saison Restaurant</string>
             <string name="tags">San Francisco</string>
             <string name="tags">beet</string>
@@ -97,8 +97,8 @@
             </property-set>
             <property-set name="base">
                 <property-set name="gpsInfo">
-                    <geoPoint isNull="true" name="geoPoint"/>
-                    <string isNull="true" name="altitude"/>
+                    <geoPoint name="geoPoint">37.7795396,-122.394457</geoPoint>
+                    <string name="altitude">4</string>
                     <string isNull="true" name="direction"/>
                 </property-set>
             </property-set>

@@ -2,7 +2,7 @@
     <id>ba60ae1e-c3a3-479d-898d-fa6163b92cb5</id>
     <childOrder>modifiedtime DESC</childOrder>
     <nodeType>content</nodeType>
-    <timestamp>2016-04-20T08:10:22.156Z</timestamp>
+    <timestamp>2016-04-20T13:29:46.074Z</timestamp>
     <inheritPermissions>true</inheritPermissions>
     <permissions>
         <principal key="role:cms.cm.app">
@@ -41,7 +41,7 @@
         <string name="displayName">Salad by Saison.JPG</string>
         <string name="type">media:image</string>
         <string name="owner">user:system:su</string>
-        <dateTime name="modifiedTime">2016-04-20T08:10:22.156Z</dateTime>
+        <dateTime name="modifiedTime">2016-04-20T13:29:46.073Z</dateTime>
         <string name="modifier">user:system:su</string>
         <string name="creator">user:system:su</string>
         <dateTime name="createdTime">2016-04-20T07:59:26.313Z</dateTime>
@@ -55,7 +55,7 @@
             </property-set>
             <string name="caption">Salad to match the River Goat by Saison</string>
             <string name="artist">Jørgen Sivesind</string>
-            <string isNull="true" name="copyright"/>
+            <string name="copyright">Jørgen Sivesind</string>
             <string name="tags">salad</string>
             <string name="tags">Saison Restaurant</string>
             <string name="tags">San Francisco</string>
@@ -65,9 +65,9 @@
                 <property-set name="imageInfo">
                     <string name="colorSpace">1</string>
                     <string name="contentType">image/jpeg</string>
-                    <long name="imageWidth">2880</long>
-                    <long name="imageHeight">1920</long>
-                    <long name="pixelSize">5529600</long>
+                    <long name="imageWidth">2025</long>
+                    <long name="imageHeight">1350</long>
+                    <long name="pixelSize">2733750</long>
                     <long name="byteSize">1630329</long>
                     <string isNull="true" name="description"/>
                     <string isNull="true" name="fileSource"/>
@@ -97,8 +97,8 @@
             </property-set>
             <property-set name="base">
                 <property-set name="gpsInfo">
-                    <geoPoint isNull="true" name="geoPoint"/>
-                    <string isNull="true" name="altitude"/>
+                    <geoPoint name="geoPoint">37.7795396,-122.394457</geoPoint>
+                    <string name="altitude">4</string>
                     <string isNull="true" name="direction"/>
                 </property-set>
             </property-set>

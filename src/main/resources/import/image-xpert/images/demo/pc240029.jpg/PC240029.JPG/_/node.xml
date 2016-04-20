@@ -2,7 +2,7 @@
     <id>cdb7d509-5453-45ea-b622-535fbb9b33f0</id>
     <childOrder>modifiedtime DESC</childOrder>
     <nodeType>content</nodeType>
-    <timestamp>2016-04-18T19:40:40.175Z</timestamp>
+    <timestamp>2016-04-19T14:17:13.712Z</timestamp>
     <inheritPermissions>true</inheritPermissions>
     <permissions>
         <principal key="role:cms.cm.app">
@@ -40,26 +40,50 @@
         <boolean name="valid">true</boolean>
         <string name="displayName">PC240029.JPG</string>
         <string name="type">media:image</string>
-        <dateTime name="createdTime">2016-04-18T19:40:18.126Z</dateTime>
-        <string name="creator">user:system:su</string>
-        <string name="modifier">user:system:su</string>
-        <dateTime name="modifiedTime">2016-04-18T19:40:18.126Z</dateTime>
         <string name="owner">user:system:su</string>
+        <dateTime name="modifiedTime">2016-04-19T14:17:13.711Z</dateTime>
+        <string name="modifier">user:system:su</string>
+        <string name="creator">user:system:su</string>
+        <dateTime name="createdTime">2016-04-18T19:40:18.126Z</dateTime>
         <property-set name="data">
             <property-set name="media">
                 <string name="attachment">PC240029.JPG</string>
                 <property-set name="focalPoint">
-                    <double name="x">0.5</double>
-                    <double name="y">0.5</double>
+                    <double name="x">0.4125</double>
+                    <double name="y">0.4789340461771385</double>
+                </property-set>
+                <property-set name="cropPosition">
+                    <double name="left">0.0</double>
+                    <double name="top">0.0</double>
+                    <double name="right">1.0</double>
+                    <double name="bottom">1.0</double>
+                    <double name="zoom">1.0</double>
+                </property-set>
+                <property-set name="zoomPosition">
+                    <double name="left">0.0</double>
+                    <double name="top">0.0</double>
+                    <double name="right">1.0</double>
+                    <double name="bottom">1.0</double>
                 </property-set>
             </property-set>
-            <string name="caption"/>
-            <string name="artist"/>
-            <string name="copyright"/>
-            <string name="tags"/>
+            <string isNull="true" name="caption"/>
+            <string name="artist">Jørgen Sivesind</string>
+            <string isNull="true" name="copyright"/>
+            <string name="tags">old woman</string>
+            <string name="tags">funny</string>
         </property-set>
         <property-set name="x">
             <property-set name="media">
+                <property-set name="imageInfo">
+                    <string name="fileSource">Digital Still Camera (DSC)</string>
+                    <long name="imageWidth">990</long>
+                    <long name="imageHeight">1321</long>
+                    <string name="description">OLYMPUS DIGITAL CAMERA</string>
+                    <string name="colorSpace">sRGB</string>
+                    <string name="contentType">image/jpeg</string>
+                    <long name="pixelSize">1307790</long>
+                    <long name="byteSize">323870</long>
+                </property-set>
                 <property-set name="cameraInfo">
                     <string name="focalLength">9.7 mm</string>
                     <string name="aperture">F3.2</string>
@@ -75,16 +99,18 @@
                     <string name="flash">Flash fired, auto</string>
                     <string name="exposureBias">-0.7 EV</string>
                     <string name="exposureMode">Manual exposure</string>
+                    <string isNull="true" name="lens"/>
+                    <string isNull="true" name="focalLength35"/>
+                    <string isNull="true" name="autoFlashCompensation"/>
+                    <string isNull="true" name="shootingMode"/>
+                    <string isNull="true" name="focusDistance"/>
                 </property-set>
-                <property-set name="imageInfo">
-                    <string name="fileSource">Digital Still Camera (DSC)</string>
-                    <long name="imageWidth">990</long>
-                    <long name="imageHeight">1321</long>
-                    <string name="description">OLYMPUS DIGITAL CAMERA         </string>
-                    <string name="colorSpace">sRGB</string>
-                    <string name="contentType">image/jpeg</string>
-                    <long name="pixelSize">1307790</long>
-                    <long name="byteSize">323870</long>
+            </property-set>
+            <property-set name="base">
+                <property-set name="gpsInfo">
+                    <geoPoint isNull="true" name="geoPoint"/>
+                    <string isNull="true" name="altitude"/>
+                    <string isNull="true" name="direction"/>
                 </property-set>
             </property-set>
         </property-set>

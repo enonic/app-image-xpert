@@ -2,7 +2,7 @@
     <id>6313491a-b9ed-418a-9d19-4ba029157ad6</id>
     <childOrder>modifiedtime DESC</childOrder>
     <nodeType>content</nodeType>
-    <timestamp>2016-04-18T19:44:42.584Z</timestamp>
+    <timestamp>2016-04-19T13:57:33.341Z</timestamp>
     <inheritPermissions>true</inheritPermissions>
     <permissions>
         <principal key="role:cms.cm.app">
@@ -40,11 +40,11 @@
         <boolean name="valid">true</boolean>
         <string name="displayName">I5D_4964.JPG</string>
         <string name="type">media:image</string>
-        <dateTime name="createdTime">2016-04-18T19:43:14.008Z</dateTime>
-        <string name="creator">user:system:su</string>
-        <string name="modifier">user:system:su</string>
-        <dateTime name="modifiedTime">2016-04-18T19:43:14.008Z</dateTime>
         <string name="owner">user:system:su</string>
+        <dateTime name="modifiedTime">2016-04-19T13:57:33.340Z</dateTime>
+        <string name="modifier">user:system:su</string>
+        <string name="creator">user:system:su</string>
+        <dateTime name="createdTime">2016-04-18T19:43:14.008Z</dateTime>
         <property-set name="data">
             <property-set name="media">
                 <string name="attachment">I5D_4964.JPG</string>
@@ -53,13 +53,25 @@
                     <double name="y">0.5</double>
                 </property-set>
             </property-set>
-            <string name="caption"/>
-            <string name="artist"/>
-            <string name="copyright"/>
-            <string name="tags"/>
+            <string isNull="true" name="caption"/>
+            <string name="artist">Jørgen Sivesind</string>
+            <string isNull="true" name="copyright"/>
+            <string name="tags">Hærfangkjerka</string>
+            <string name="tags">rock formation</string>
+            <string name="tags">church spire</string>
         </property-set>
         <property-set name="x">
             <property-set name="media">
+                <property-set name="imageInfo">
+                    <string name="colorSpace">1</string>
+                    <string name="contentType">image/jpeg</string>
+                    <long name="imageWidth">2880</long>
+                    <long name="imageHeight">1920</long>
+                    <long name="pixelSize">5529600</long>
+                    <long name="byteSize">2476224</long>
+                    <string isNull="true" name="description"/>
+                    <string isNull="true" name="fileSource"/>
+                </property-set>
                 <property-set name="cameraInfo">
                     <string name="focalLength">35.0 mm</string>
                     <string name="make">Canon</string>
@@ -76,14 +88,18 @@
                     <string name="iso">100</string>
                     <string name="flash">Flash did not fire, auto</string>
                     <string name="exposureBias">0 EV</string>
+                    <string isNull="true" name="lens"/>
+                    <string isNull="true" name="focalLength35"/>
+                    <string isNull="true" name="autoFlashCompensation"/>
+                    <string isNull="true" name="shootingMode"/>
+                    <string isNull="true" name="focusDistance"/>
                 </property-set>
-                <property-set name="imageInfo">
-                    <string name="colorSpace">1</string>
-                    <string name="contentType">image/jpeg</string>
-                    <long name="imageWidth">2880</long>
-                    <long name="imageHeight">1920</long>
-                    <long name="pixelSize">5529600</long>
-                    <long name="byteSize">2476224</long>
+            </property-set>
+            <property-set name="base">
+                <property-set name="gpsInfo">
+                    <geoPoint isNull="true" name="geoPoint"/>
+                    <string isNull="true" name="altitude"/>
+                    <string isNull="true" name="direction"/>
                 </property-set>
             </property-set>
         </property-set>

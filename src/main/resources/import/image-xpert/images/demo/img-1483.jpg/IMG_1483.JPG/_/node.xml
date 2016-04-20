@@ -2,7 +2,7 @@
     <id>ceb5b51f-5e3d-416c-b252-583681a61984</id>
     <childOrder>modifiedtime DESC</childOrder>
     <nodeType>content</nodeType>
-    <timestamp>2016-04-18T19:38:14.299Z</timestamp>
+    <timestamp>2016-04-19T14:20:53.270Z</timestamp>
     <inheritPermissions>true</inheritPermissions>
     <permissions>
         <principal key="role:cms.cm.app">
@@ -40,11 +40,11 @@
         <boolean name="valid">true</boolean>
         <string name="displayName">IMG_1483.JPG</string>
         <string name="type">media:image</string>
-        <dateTime name="createdTime">2016-04-18T19:36:55.924Z</dateTime>
-        <string name="creator">user:system:su</string>
-        <string name="modifier">user:system:su</string>
-        <dateTime name="modifiedTime">2016-04-18T19:36:55.924Z</dateTime>
         <string name="owner">user:system:su</string>
+        <dateTime name="modifiedTime">2016-04-19T14:20:53.269Z</dateTime>
+        <string name="modifier">user:system:su</string>
+        <string name="creator">user:system:su</string>
+        <dateTime name="createdTime">2016-04-18T19:36:55.924Z</dateTime>
         <property-set name="data">
             <property-set name="media">
                 <string name="attachment">IMG_1483.JPG</string>
@@ -53,13 +53,24 @@
                     <double name="y">0.5</double>
                 </property-set>
             </property-set>
-            <string name="caption"/>
-            <string name="artist"/>
-            <string name="copyright"/>
-            <string name="tags"/>
+            <string isNull="true" name="caption"/>
+            <string name="artist">Jørgen Sivesind</string>
+            <string isNull="true" name="copyright"/>
+            <string name="tags">Leaky boat</string>
+            <string name="tags">Fetsund Log driving museum</string>
         </property-set>
         <property-set name="x">
             <property-set name="media">
+                <property-set name="imageInfo">
+                    <string name="colorSpace">sRGB</string>
+                    <string name="contentType">image/jpeg</string>
+                    <long name="imageWidth">3504</long>
+                    <long name="imageHeight">2336</long>
+                    <long name="pixelSize">8185344</long>
+                    <long name="byteSize">3822506</long>
+                    <string isNull="true" name="description"/>
+                    <string isNull="true" name="fileSource"/>
+                </property-set>
                 <property-set name="cameraInfo">
                     <string name="focalLength">85.0 mm</string>
                     <string name="make">Canon</string>
@@ -76,14 +87,18 @@
                     <string name="iso">100</string>
                     <string name="flash">Flash did not fire, auto</string>
                     <string name="exposureBias">2/3 EV</string>
+                    <string isNull="true" name="lens"/>
+                    <string isNull="true" name="focalLength35"/>
+                    <string isNull="true" name="autoFlashCompensation"/>
+                    <string isNull="true" name="shootingMode"/>
+                    <string isNull="true" name="focusDistance"/>
                 </property-set>
-                <property-set name="imageInfo">
-                    <string name="colorSpace">sRGB</string>
-                    <string name="contentType">image/jpeg</string>
-                    <long name="imageWidth">3504</long>
-                    <long name="imageHeight">2336</long>
-                    <long name="pixelSize">8185344</long>
-                    <long name="byteSize">3822506</long>
+            </property-set>
+            <property-set name="base">
+                <property-set name="gpsInfo">
+                    <geoPoint isNull="true" name="geoPoint"/>
+                    <string isNull="true" name="altitude"/>
+                    <string isNull="true" name="direction"/>
                 </property-set>
             </property-set>
         </property-set>

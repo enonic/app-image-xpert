@@ -2,7 +2,7 @@
     <id>3a9a10ff-a9d4-4ee2-8412-42008c79c60b</id>
     <childOrder>modifiedtime DESC</childOrder>
     <nodeType>content</nodeType>
-    <timestamp>2016-04-18T19:44:42.725Z</timestamp>
+    <timestamp>2016-04-19T14:16:20.896Z</timestamp>
     <inheritPermissions>true</inheritPermissions>
     <permissions>
         <principal key="role:cms.cm.app">
@@ -40,11 +40,11 @@
         <boolean name="valid">true</boolean>
         <string name="displayName">IMG_7908.JPG</string>
         <string name="type">media:image</string>
-        <dateTime name="createdTime">2016-04-18T19:42:28.224Z</dateTime>
-        <string name="creator">user:system:su</string>
-        <string name="modifier">user:system:su</string>
-        <dateTime name="modifiedTime">2016-04-18T19:42:28.224Z</dateTime>
         <string name="owner">user:system:su</string>
+        <dateTime name="modifiedTime">2016-04-19T14:16:20.895Z</dateTime>
+        <string name="modifier">user:system:su</string>
+        <string name="creator">user:system:su</string>
+        <dateTime name="createdTime">2016-04-18T19:42:28.224Z</dateTime>
         <property-set name="data">
             <property-set name="media">
                 <string name="attachment">IMG_7908.JPG</string>
@@ -53,13 +53,25 @@
                     <double name="y">0.5</double>
                 </property-set>
             </property-set>
-            <string name="caption"/>
-            <string name="artist"/>
-            <string name="copyright"/>
-            <string name="tags"/>
+            <string isNull="true" name="caption"/>
+            <string name="artist">Jørgen Sivesind</string>
+            <string isNull="true" name="copyright"/>
+            <string name="tags">Red rose</string>
+            <string name="tags">frozen</string>
         </property-set>
         <property-set name="x">
             <property-set name="media">
+                <property-set name="imageInfo">
+                    <string name="colorSpace">RGB</string>
+                    <string name="colorSpace">sRGB</string>
+                    <long name="imageWidth">3504</long>
+                    <long name="imageHeight">2336</long>
+                    <string name="contentType">image/jpeg</string>
+                    <long name="pixelSize">8185344</long>
+                    <long name="byteSize">4617139</long>
+                    <string isNull="true" name="description"/>
+                    <string isNull="true" name="fileSource"/>
+                </property-set>
                 <property-set name="cameraInfo">
                     <string name="focalLength">150.0 mm</string>
                     <string name="aperture">F3.2</string>
@@ -75,15 +87,18 @@
                     <string name="flash">Flash did not fire, auto</string>
                     <string name="exposureBias">-2/3 EV</string>
                     <string name="exposureMode">Auto exposure</string>
+                    <string isNull="true" name="lens"/>
+                    <string isNull="true" name="focalLength35"/>
+                    <string isNull="true" name="autoFlashCompensation"/>
+                    <string isNull="true" name="shootingMode"/>
+                    <string isNull="true" name="focusDistance"/>
                 </property-set>
-                <property-set name="imageInfo">
-                    <string name="colorSpace">RGB</string>
-                    <string name="colorSpace">sRGB</string>
-                    <long name="imageWidth">3504</long>
-                    <long name="imageHeight">2336</long>
-                    <string name="contentType">image/jpeg</string>
-                    <long name="pixelSize">8185344</long>
-                    <long name="byteSize">4617139</long>
+            </property-set>
+            <property-set name="base">
+                <property-set name="gpsInfo">
+                    <geoPoint isNull="true" name="geoPoint"/>
+                    <string isNull="true" name="altitude"/>
+                    <string isNull="true" name="direction"/>
                 </property-set>
             </property-set>
         </property-set>

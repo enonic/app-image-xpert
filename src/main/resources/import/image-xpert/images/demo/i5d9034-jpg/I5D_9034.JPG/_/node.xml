@@ -1,0 +1,259 @@
+<node>
+    <id>85f7f815-bb92-49d7-af9c-27e1c98222ff</id>
+    <childOrder>modifiedtime DESC</childOrder>
+    <nodeType>content</nodeType>
+    <timestamp>2016-04-19T14:34:49.328Z</timestamp>
+    <inheritPermissions>true</inheritPermissions>
+    <permissions>
+        <principal key="role:cms.cm.app">
+            <allow type="array">
+                <value>READ</value>
+            </allow>
+            <deny type="array"/>
+        </principal>
+        <principal key="role:system.admin">
+            <allow type="array">
+                <value>READ</value>
+                <value>CREATE</value>
+                <value>MODIFY</value>
+                <value>DELETE</value>
+                <value>PUBLISH</value>
+                <value>READ_PERMISSIONS</value>
+                <value>WRITE_PERMISSIONS</value>
+            </allow>
+            <deny type="array"/>
+        </principal>
+        <principal key="role:cms.admin">
+            <allow type="array">
+                <value>READ</value>
+                <value>CREATE</value>
+                <value>MODIFY</value>
+                <value>DELETE</value>
+                <value>PUBLISH</value>
+                <value>READ_PERMISSIONS</value>
+                <value>WRITE_PERMISSIONS</value>
+            </allow>
+            <deny type="array"/>
+        </principal>
+    </permissions>
+    <data>
+        <boolean name="valid">true</boolean>
+        <string name="displayName">I5D_9034.JPG</string>
+        <string name="type">media:image</string>
+        <string name="owner">user:system:su</string>
+        <dateTime name="modifiedTime">2016-04-19T14:34:49.327Z</dateTime>
+        <string name="modifier">user:system:su</string>
+        <string name="creator">user:system:su</string>
+        <dateTime name="createdTime">2016-04-19T14:31:51.545Z</dateTime>
+        <property-set name="data">
+            <property-set name="media">
+                <string name="attachment">I5D_9034.JPG</string>
+                <property-set name="focalPoint">
+                    <double name="x">0.5</double>
+                    <double name="y">0.5</double>
+                </property-set>
+            </property-set>
+            <string name="caption">An elephant in the Norwegian woods</string>
+            <string name="artist">Anita Evjen</string>
+            <string isNull="true" name="copyright"/>
+            <string name="tags">tree stub</string>
+            <string name="tags">elephant</string>
+            <string name="tags">Østmarka</string>
+        </property-set>
+        <property-set name="x">
+            <property-set name="media">
+                <property-set name="imageInfo">
+                    <string name="colorSpace">1</string>
+                    <string name="contentType">image/jpeg</string>
+                    <long name="imageWidth">2880</long>
+                    <long name="imageHeight">1920</long>
+                    <long name="pixelSize">5529600</long>
+                    <long name="byteSize">2882238</long>
+                    <string isNull="true" name="description"/>
+                    <string isNull="true" name="fileSource"/>
+                </property-set>
+                <property-set name="cameraInfo">
+                    <string name="focalLength">150.0 mm</string>
+                    <string name="make">Canon</string>
+                    <string name="meteringMode">Unknown (1)</string>
+                    <string name="orientation">Top, left side (Horizontal / normal)</string>
+                    <string name="whiteBalance">Auto white balance</string>
+                    <string name="aperture">96</string>
+                    <string name="aperture">F2.8</string>
+                    <string name="exposureProgram">Program normal</string>
+                    <string name="exposureMode">Program</string>
+                    <string name="model">Canon EOS 5D Mark III</string>
+                    <localDateTime name="date">2016-04-17T18:40:55.000Z</localDateTime>
+                    <string name="shutterTime">216</string>
+                    <string name="iso">12800</string>
+                    <string name="flash">Flash did not fire, auto</string>
+                    <string name="exposureBias">0 EV</string>
+                    <string isNull="true" name="lens"/>
+                    <string isNull="true" name="focalLength35"/>
+                    <string isNull="true" name="autoFlashCompensation"/>
+                    <string isNull="true" name="shootingMode"/>
+                    <string isNull="true" name="focusDistance"/>
+                </property-set>
+            </property-set>
+            <property-set name="base">
+                <property-set name="gpsInfo">
+                    <geoPoint isNull="true" name="geoPoint"/>
+                    <string isNull="true" name="altitude"/>
+                    <string isNull="true" name="direction"/>
+                </property-set>
+            </property-set>
+        </property-set>
+        <property-set name="attachment">
+            <string name="name">I5D_9034.JPG</string>
+            <string name="label">source</string>
+            <binaryReference name="binary">I5D_9034.JPG</binaryReference>
+            <string name="mimeType">image/jpeg</string>
+            <long name="size">2882238</long>
+        </property-set>
+    </data>
+    <indexConfigs>
+        <analyzer>document_index_default</analyzer>
+        <defaultConfig>
+            <decideByType>true</decideByType>
+            <enabled>true</enabled>
+            <nGram>false</nGram>
+            <fulltext>false</fulltext>
+            <includeInAllText>false</includeInAllText>
+        </defaultConfig>
+        <pathIndexConfigs>
+            <pathIndexConfig>
+                <indexConfig>
+                    <decideByType>false</decideByType>
+                    <enabled>false</enabled>
+                    <nGram>false</nGram>
+                    <fulltext>false</fulltext>
+                    <includeInAllText>false</includeInAllText>
+                </indexConfig>
+                <path>page.regions</path>
+            </pathIndexConfig>
+            <pathIndexConfig>
+                <indexConfig>
+                    <decideByType>false</decideByType>
+                    <enabled>true</enabled>
+                    <nGram>true</nGram>
+                    <fulltext>true</fulltext>
+                    <includeInAllText>true</includeInAllText>
+                    <indexValueProcessors>
+                        <indexValueProcessor>htmlStripper</indexValueProcessor>
+                    </indexValueProcessors>
+                </indexConfig>
+                <path>data.htmlarea_text</path>
+            </pathIndexConfig>
+            <pathIndexConfig>
+                <indexConfig>
+                    <decideByType>false</decideByType>
+                    <enabled>true</enabled>
+                    <nGram>false</nGram>
+                    <fulltext>false</fulltext>
+                    <includeInAllText>false</includeInAllText>
+                </indexConfig>
+                <path>modifier</path>
+            </pathIndexConfig>
+            <pathIndexConfig>
+                <indexConfig>
+                    <decideByType>false</decideByType>
+                    <enabled>true</enabled>
+                    <nGram>false</nGram>
+                    <fulltext>false</fulltext>
+                    <includeInAllText>false</includeInAllText>
+                </indexConfig>
+                <path>owner</path>
+            </pathIndexConfig>
+            <pathIndexConfig>
+                <indexConfig>
+                    <decideByType>false</decideByType>
+                    <enabled>true</enabled>
+                    <nGram>false</nGram>
+                    <fulltext>false</fulltext>
+                    <includeInAllText>false</includeInAllText>
+                </indexConfig>
+                <path>attachment</path>
+            </pathIndexConfig>
+            <pathIndexConfig>
+                <indexConfig>
+                    <decideByType>false</decideByType>
+                    <enabled>true</enabled>
+                    <nGram>false</nGram>
+                    <fulltext>false</fulltext>
+                    <includeInAllText>false</includeInAllText>
+                </indexConfig>
+                <path>x</path>
+            </pathIndexConfig>
+            <pathIndexConfig>
+                <indexConfig>
+                    <decideByType>true</decideByType>
+                    <enabled>true</enabled>
+                    <nGram>false</nGram>
+                    <fulltext>false</fulltext>
+                    <includeInAllText>false</includeInAllText>
+                </indexConfig>
+                <path>data</path>
+            </pathIndexConfig>
+            <pathIndexConfig>
+                <indexConfig>
+                    <decideByType>false</decideByType>
+                    <enabled>true</enabled>
+                    <nGram>false</nGram>
+                    <fulltext>false</fulltext>
+                    <includeInAllText>false</includeInAllText>
+                </indexConfig>
+                <path>page</path>
+            </pathIndexConfig>
+            <pathIndexConfig>
+                <indexConfig>
+                    <decideByType>false</decideByType>
+                    <enabled>false</enabled>
+                    <nGram>false</nGram>
+                    <fulltext>false</fulltext>
+                    <includeInAllText>false</includeInAllText>
+                </indexConfig>
+                <path>site</path>
+            </pathIndexConfig>
+            <pathIndexConfig>
+                <indexConfig>
+                    <decideByType>false</decideByType>
+                    <enabled>true</enabled>
+                    <nGram>false</nGram>
+                    <fulltext>false</fulltext>
+                    <includeInAllText>false</includeInAllText>
+                </indexConfig>
+                <path>type</path>
+            </pathIndexConfig>
+            <pathIndexConfig>
+                <indexConfig>
+                    <decideByType>false</decideByType>
+                    <enabled>true</enabled>
+                    <nGram>false</nGram>
+                    <fulltext>false</fulltext>
+                    <includeInAllText>false</includeInAllText>
+                </indexConfig>
+                <path>creator</path>
+            </pathIndexConfig>
+            <pathIndexConfig>
+                <indexConfig>
+                    <decideByType>false</decideByType>
+                    <enabled>true</enabled>
+                    <nGram>false</nGram>
+                    <fulltext>false</fulltext>
+                    <includeInAllText>false</includeInAllText>
+                </indexConfig>
+                <path>createdTime</path>
+            </pathIndexConfig>
+            <pathIndexConfig>
+                <indexConfig>
+                    <decideByType>false</decideByType>
+                    <enabled>true</enabled>
+                    <nGram>false</nGram>
+                    <fulltext>false</fulltext>
+                    <includeInAllText>false</includeInAllText>
+                </indexConfig>
+                <path>modifiedTime</path>
+            </pathIndexConfig>
+        </pathIndexConfigs>
+    </indexConfigs>
+</node>

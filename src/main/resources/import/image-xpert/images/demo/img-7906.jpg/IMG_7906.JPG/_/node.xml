@@ -2,7 +2,7 @@
     <id>238347a9-10c7-4877-8b58-659b78b2b76b</id>
     <childOrder>modifiedtime DESC</childOrder>
     <nodeType>content</nodeType>
-    <timestamp>2016-04-18T19:49:48.648Z</timestamp>
+    <timestamp>2016-04-19T13:52:07.456Z</timestamp>
     <inheritPermissions>true</inheritPermissions>
     <permissions>
         <principal key="role:cms.cm.app">
@@ -40,11 +40,11 @@
         <boolean name="valid">true</boolean>
         <string name="displayName">IMG_7906.JPG</string>
         <string name="type">media:image</string>
-        <dateTime name="createdTime">2016-04-18T19:47:53.932Z</dateTime>
-        <string name="creator">user:system:su</string>
-        <string name="modifier">user:system:su</string>
-        <dateTime name="modifiedTime">2016-04-18T19:47:53.932Z</dateTime>
         <string name="owner">user:system:su</string>
+        <dateTime name="modifiedTime">2016-04-19T13:52:07.455Z</dateTime>
+        <string name="modifier">user:system:su</string>
+        <string name="creator">user:system:su</string>
+        <dateTime name="createdTime">2016-04-18T19:47:53.932Z</dateTime>
         <property-set name="data">
             <property-set name="media">
                 <string name="attachment">IMG_7906.JPG</string>
@@ -53,13 +53,26 @@
                     <double name="y">0.5</double>
                 </property-set>
             </property-set>
-            <string name="caption"/>
-            <string name="artist"/>
-            <string name="copyright"/>
-            <string name="tags"/>
+            <string isNull="true" name="caption"/>
+            <string name="artist">Jørgen Sivesind</string>
+            <string isNull="true" name="copyright"/>
+            <string name="tags">Skedsmo Church</string>
+            <string name="tags">Icy gate detail</string>
+            <string name="tags">circles</string>
         </property-set>
         <property-set name="x">
             <property-set name="media">
+                <property-set name="imageInfo">
+                    <string name="colorSpace">RGB</string>
+                    <string name="colorSpace">sRGB</string>
+                    <long name="imageWidth">3285</long>
+                    <long name="imageHeight">2188</long>
+                    <string name="contentType">image/jpeg</string>
+                    <long name="pixelSize">7187580</long>
+                    <long name="byteSize">4059032</long>
+                    <string isNull="true" name="description"/>
+                    <string isNull="true" name="fileSource"/>
+                </property-set>
                 <property-set name="cameraInfo">
                     <string name="focalLength">150.0 mm</string>
                     <string name="aperture">F3.2</string>
@@ -75,15 +88,18 @@
                     <string name="flash">Flash did not fire, auto</string>
                     <string name="exposureBias">-2/3 EV</string>
                     <string name="exposureMode">Auto exposure</string>
+                    <string isNull="true" name="lens"/>
+                    <string isNull="true" name="focalLength35"/>
+                    <string isNull="true" name="autoFlashCompensation"/>
+                    <string isNull="true" name="shootingMode"/>
+                    <string isNull="true" name="focusDistance"/>
                 </property-set>
-                <property-set name="imageInfo">
-                    <string name="colorSpace">RGB</string>
-                    <string name="colorSpace">sRGB</string>
-                    <long name="imageWidth">3285</long>
-                    <long name="imageHeight">2188</long>
-                    <string name="contentType">image/jpeg</string>
-                    <long name="pixelSize">7187580</long>
-                    <long name="byteSize">4059032</long>
+            </property-set>
+            <property-set name="base">
+                <property-set name="gpsInfo">
+                    <geoPoint isNull="true" name="geoPoint"/>
+                    <string isNull="true" name="altitude"/>
+                    <string isNull="true" name="direction"/>
                 </property-set>
             </property-set>
         </property-set>

@@ -2,7 +2,7 @@
     <id>1762e0c6-115e-4049-9ed2-7ae1bd8ab5ce</id>
     <childOrder>modifiedtime DESC</childOrder>
     <nodeType>content</nodeType>
-    <timestamp>2016-04-18T19:40:40.146Z</timestamp>
+    <timestamp>2016-04-19T13:29:32.179Z</timestamp>
     <inheritPermissions>true</inheritPermissions>
     <permissions>
         <principal key="role:cms.cm.app">
@@ -40,26 +40,49 @@
         <boolean name="valid">true</boolean>
         <string name="displayName">EnsomhetKanVæreVakkert.JPG</string>
         <string name="type">media:image</string>
-        <dateTime name="createdTime">2016-04-18T19:40:25.402Z</dateTime>
-        <string name="creator">user:system:su</string>
-        <string name="modifier">user:system:su</string>
-        <dateTime name="modifiedTime">2016-04-18T19:40:25.402Z</dateTime>
         <string name="owner">user:system:su</string>
+        <dateTime name="modifiedTime">2016-04-19T13:29:32.179Z</dateTime>
+        <string name="modifier">user:system:su</string>
+        <string name="creator">user:system:su</string>
+        <dateTime name="createdTime">2016-04-18T19:40:25.402Z</dateTime>
         <property-set name="data">
             <property-set name="media">
                 <string name="attachment">EnsomhetKanVæreVakkert.JPG</string>
                 <property-set name="focalPoint">
-                    <double name="x">0.5</double>
-                    <double name="y">0.5</double>
+                    <double name="x">0.4390625</double>
+                    <double name="y">0.40546875</double>
+                </property-set>
+                <property-set name="cropPosition">
+                    <double name="left">0.0</double>
+                    <double name="top">0.0</double>
+                    <double name="right">1.0</double>
+                    <double name="bottom">1.0</double>
+                    <double name="zoom">1.0</double>
+                </property-set>
+                <property-set name="zoomPosition">
+                    <double name="left">0.0</double>
+                    <double name="top">0.0</double>
+                    <double name="right">1.0</double>
+                    <double name="bottom">1.0</double>
                 </property-set>
             </property-set>
-            <string name="caption"/>
-            <string name="artist"/>
-            <string name="copyright"/>
-            <string name="tags"/>
+            <string isNull="true" name="caption"/>
+            <string name="artist">Jørgen Sivesind</string>
+            <string isNull="true" name="copyright"/>
+            <string name="tags">people</string>
         </property-set>
         <property-set name="x">
             <property-set name="media">
+                <property-set name="imageInfo">
+                    <string name="colorSpace">sRGB</string>
+                    <string name="contentType">image/jpeg</string>
+                    <long name="imageWidth">3504</long>
+                    <long name="imageHeight">2336</long>
+                    <long name="pixelSize">8185344</long>
+                    <long name="byteSize">4412550</long>
+                    <string isNull="true" name="description"/>
+                    <string isNull="true" name="fileSource"/>
+                </property-set>
                 <property-set name="cameraInfo">
                     <string name="focalLength">30.0 mm</string>
                     <string name="make">Canon</string>
@@ -76,14 +99,18 @@
                     <string name="iso">400</string>
                     <string name="flash">Flash did not fire, auto</string>
                     <string name="exposureBias">-2/3 EV</string>
+                    <string isNull="true" name="lens"/>
+                    <string isNull="true" name="focalLength35"/>
+                    <string isNull="true" name="autoFlashCompensation"/>
+                    <string isNull="true" name="shootingMode"/>
+                    <string isNull="true" name="focusDistance"/>
                 </property-set>
-                <property-set name="imageInfo">
-                    <string name="colorSpace">sRGB</string>
-                    <string name="contentType">image/jpeg</string>
-                    <long name="imageWidth">3504</long>
-                    <long name="imageHeight">2336</long>
-                    <long name="pixelSize">8185344</long>
-                    <long name="byteSize">4412550</long>
+            </property-set>
+            <property-set name="base">
+                <property-set name="gpsInfo">
+                    <geoPoint isNull="true" name="geoPoint"/>
+                    <string isNull="true" name="altitude"/>
+                    <string isNull="true" name="direction"/>
                 </property-set>
             </property-set>
         </property-set>

@@ -2,7 +2,7 @@
     <id>881930d4-1d61-4a0c-9d3f-0f043c99239a</id>
     <childOrder>modifiedtime DESC</childOrder>
     <nodeType>content</nodeType>
-    <timestamp>2016-04-18T19:49:48.703Z</timestamp>
+    <timestamp>2016-04-19T13:54:20.621Z</timestamp>
     <inheritPermissions>true</inheritPermissions>
     <permissions>
         <principal key="role:cms.cm.app">
@@ -40,11 +40,11 @@
         <boolean name="valid">true</boolean>
         <string name="displayName">PB280109 copy.jpg</string>
         <string name="type">media:image</string>
-        <dateTime name="createdTime">2016-04-18T19:47:19.980Z</dateTime>
-        <string name="creator">user:system:su</string>
-        <string name="modifier">user:system:su</string>
-        <dateTime name="modifiedTime">2016-04-18T19:47:19.980Z</dateTime>
         <string name="owner">user:system:su</string>
+        <dateTime name="modifiedTime">2016-04-19T13:54:20.620Z</dateTime>
+        <string name="modifier">user:system:su</string>
+        <string name="creator">user:system:su</string>
+        <dateTime name="createdTime">2016-04-18T19:47:19.980Z</dateTime>
         <property-set name="data">
             <property-set name="media">
                 <string name="attachment">PB280109 copy.jpg</string>
@@ -53,13 +53,26 @@
                     <double name="y">0.5</double>
                 </property-set>
             </property-set>
-            <string name="caption"/>
-            <string name="artist"/>
-            <string name="copyright"/>
-            <string name="tags"/>
+            <string isNull="true" name="caption"/>
+            <string name="artist">Jørgen Sivesind</string>
+            <string isNull="true" name="copyright"/>
+            <string name="tags">Oslo City Hall</string>
+            <string name="tags">Oslo</string>
+            <string name="tags">night</string>
         </property-set>
         <property-set name="x">
             <property-set name="media">
+                <property-set name="imageInfo">
+                    <string name="fileSource">Digital Still Camera (DSC)</string>
+                    <string name="colorSpace">RGB</string>
+                    <string name="colorSpace">sRGB</string>
+                    <long name="imageWidth">2201</long>
+                    <long name="imageHeight">1651</long>
+                    <string name="description">OLYMPUS DIGITAL CAMERA</string>
+                    <string name="contentType">image/jpeg</string>
+                    <long name="pixelSize">3633851</long>
+                    <long name="byteSize">1567335</long>
+                </property-set>
                 <property-set name="cameraInfo">
                     <string name="focalLength">11.5 mm</string>
                     <string name="aperture">F3.2</string>
@@ -75,17 +88,18 @@
                     <string name="flash">Flash did not fire, auto</string>
                     <string name="exposureBias">0 EV</string>
                     <string name="exposureMode">Auto exposure</string>
+                    <string isNull="true" name="lens"/>
+                    <string isNull="true" name="focalLength35"/>
+                    <string isNull="true" name="autoFlashCompensation"/>
+                    <string isNull="true" name="shootingMode"/>
+                    <string isNull="true" name="focusDistance"/>
                 </property-set>
-                <property-set name="imageInfo">
-                    <string name="fileSource">Digital Still Camera (DSC)</string>
-                    <string name="colorSpace">RGB</string>
-                    <string name="colorSpace">sRGB</string>
-                    <long name="imageWidth">2201</long>
-                    <long name="imageHeight">1651</long>
-                    <string name="description">OLYMPUS DIGITAL CAMERA</string>
-                    <string name="contentType">image/jpeg</string>
-                    <long name="pixelSize">3633851</long>
-                    <long name="byteSize">1567335</long>
+            </property-set>
+            <property-set name="base">
+                <property-set name="gpsInfo">
+                    <geoPoint isNull="true" name="geoPoint"/>
+                    <string isNull="true" name="altitude"/>
+                    <string isNull="true" name="direction"/>
                 </property-set>
             </property-set>
         </property-set>

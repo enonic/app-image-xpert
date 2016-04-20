@@ -16,7 +16,7 @@ exports.get = function (req) {
             return {
                 displayName: category.displayName,
                 linkUrl: linkUrl,
-                categoryId: category._id,
+                id: category._id,
                 checked: (req.params.category == category._id) ? "checked" : ""
             };
         });
@@ -51,14 +51,21 @@ exports.get = function (req) {
 
     var homePageUrl = imageXpertLib.generateHomeUrl();
     var uploadPageUrl = imageXpertLib.generateUploadPageUrl();
+    var imageCount = (images.length == 0 ? "no" : images.length) + " result";
+    if (images.length !== 1) {
+        imageCount+="s";
+    }
 
     var view = resolve('gallery.html');
     var body = mustacheLib.render(view, {
         categories: categories,
         images: images,
+        imageCount: imageCount,
         homePageUrl: homePageUrl,
         uploadPageUrl: uploadPageUrl,
-        assetUrl: portalLib.assetUrl('')
+        assetUrl: portalLib.assetUrl(''),
+        searchQuery: req.params.search,
+        categoryId: req.params.category
     });
 
     return {

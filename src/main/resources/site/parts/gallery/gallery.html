@@ -7,7 +7,7 @@
                 {{#categories}}
                 <li>
                     <a href="{{linkUrl}}">
-                        <input type="radio" name="category" value="{{categoryId}}" {{checked}}>
+                        <input type="radio" name="category" value="{{id}}" {{checked}}>
                     <label class="category-radio">
                         <em class="icon icon-check"></em> {{displayName}}
                     </label>
@@ -19,13 +19,15 @@
             <ul class="search-and-upload-container">
                 <li class="search-container">
                     <div class="search-input">
-                        <input type="text" placeholder="Search for photos">
-                        <a class="search-button" href="gallery.html"><img src="{{assetUrl}}/img/search-icon.svg"></a>
+                        <form id="search-form" class="search-input">
+                            <input name="search" type="text" placeholder="Search for photos">
+                            <a class="search-button" onclick="submit();"><img src="{{assetUrl}}/img/search-icon.svg"></a>
+                        </form>
                     </div>
                 </li>
 
                 <li class="upload-container">
-                    <a class="upload" href="{{uploadPageUrl}}"><img src="{{assetUrl}}/img/upload_image.svg"></a>
+                    <a class="upload" href="{{uploadPageUrl}}"><img src="{{assetUrl}}/img/upload_image.svg" title="Upload image"></a>
                 </li>
 
             </ul>
@@ -34,6 +36,11 @@
     </div>
 
     <div class="gallery-body">
+        {{#searchQuery}}
+        <div class="gallery-search" {{#categoryId}}style="display: none;"{{/categoryId}}>
+            <span>Your search for "<em>{{.}}</em>" produced {{imageCount}}</span>
+        </div>
+        {{/searchQuery}}
         {{#images}}
         <figure class="galery-image">
             <img src="{{imageUrl}}" alt="{{displayName}}">

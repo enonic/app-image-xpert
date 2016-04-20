@@ -11,6 +11,10 @@ exports.get = function (req) {
         key: image.data.binary
     });
 
+    if (!binary) {
+        return "<div></div>";
+    }
+
 
     log.info("binary:%s", JSON.stringify(binary, null, 2));
 

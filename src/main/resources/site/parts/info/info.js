@@ -11,10 +11,17 @@ exports.get = function (req) {
         key: image.data.binary
     });
 
+
+    log.info("binary:%s", JSON.stringify(binary, null, 2));
+
     var artist;
     if (binary.data.artist) {
         artist = binary.data.artist.toString();
     }
+
+    var geoLocation;
+
+
     var imageWidth = binary.x.media.imageInfo.imageWidth.toFixed(0);
     var imageHeight = binary.x.media.imageInfo.imageHeight.toFixed(0);
     var imageUrl = portalLib.imageUrl({
@@ -28,11 +35,10 @@ exports.get = function (req) {
         displayName: image.displayName,
         createdDate: createdDate.toDateString(),
         artist: artist,
+        geoLocation: binary.x.base.gpsInfo.geoPoint,
         imageWidth: imageWidth,
         imageHeight: imageHeight,
         imageUrl: imageUrl
-
-
     });
 
     return {

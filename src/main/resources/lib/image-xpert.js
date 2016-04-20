@@ -117,3 +117,10 @@ exports.generateGalleryPageUrl = function (params) {
         params: params
     });
 };
+
+exports.generateHomeUrl = function (params) {
+    return portalLib.pageUrl({
+        path: "/image-xpert"
+    });
+};
+

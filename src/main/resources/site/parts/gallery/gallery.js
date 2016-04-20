@@ -16,16 +16,10 @@ exports.get = function (req) {
             return {
                 displayName: category.displayName,
                 linkUrl: linkUrl,
-                checked: ""
+                categoryId: category._id,
+                checked: (req.params.category == category._id) ? "checked" : ""
             };
         });
-    var noCategoryUrl = imageXpertLib.generateGalleryPageUrl();
-    categories.push({
-        displayName: "None",
-        linkUrl: noCategoryUrl,
-        checked: ""
-    });
-
 
     //Retrieves the images for the current category and search query
     var getImagesParams = {
@@ -42,7 +36,7 @@ exports.get = function (req) {
                 artist: artist,
                 imageUrl: portalLib.imageUrl({
                     id: image.data.binary,
-                    scale: "square(256)"
+                    scale: "max(1200)"
                 }),
                 downloadPageUrl: imageXpertLib.generateDownloadPageUrl({
                     imageId: image._id
@@ -50,13 +44,16 @@ exports.get = function (req) {
             }
         });
 
+    var homePageUrl = imageXpertLib.generateHomeUrl();
     var uploadPageUrl = imageXpertLib.generateUploadPageUrl();
 
     var view = resolve('gallery.html');
     var body = mustacheLib.render(view, {
         categories: categories,
         images: images,
-        uploadPageUrl: uploadPageUrl
+        homePageUrl: homePageUrl,
+        uploadPageUrl: uploadPageUrl,
+        assetUrl: portalLib.assetUrl('')
     });
 
     return {

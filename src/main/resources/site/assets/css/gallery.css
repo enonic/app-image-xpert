@@ -55,7 +55,16 @@
     float: left;
     margin-right: 30px;
     white-space: nowrap;
+}
+
+.select-category-container a {
     color: white;
+    text-decoration: none;
+}
+
+.select-category-container input {
+    height: 15px;
+    pointer-events: none;
 }
 
 .search-and-upload-container {
@@ -118,7 +127,7 @@
     opacity: 0.7;
 }
 
-.logo-container a:hover, .category-radio:hover, .category-radio input:hover {
+.logo-container a:hover, .select-category-container li:hover, .category-radio input:hover, .select-category-container label:hover {
     cursor: pointer;
     opacity: 0.8;
 }

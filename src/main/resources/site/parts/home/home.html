@@ -1,25 +1,27 @@
-<div class="search">
-    <form id="search-form" action="{{galleryPageUrl}}" class="search-input">
-        <input name="search" type="text" placeholder="Search our library for amazing photos, places or things">
-        <a class="search-button" onclick="$('#search-form').submit();"><img src="{{assetUrl}}/img/search-icon.svg"></a>
-    </form>
-</div>
-<div class="browse">
-    <h1>or browse by category</h1>
+<div class="main-container">
+    <div class="search">
+        <form id="search-form" action="{{galleryPageUrl}}" class="search-input">
+            <input name="search" type="text" placeholder="Search our library for amazing photos, places or things">
+            <a class="search-button" onclick="$('#search-form').submit();"><img src="{{assetUrl}}/img/search-icon.svg"></a>
+        </form>
+    </div>
+    <div class="browse">
+        <h1>or browse by category</h1>
 
-    <div class="category-image-row">
-        {{#categories}}
-        {{#newRow}}
+        <div class="category-image-row">
+            {{#categories}}
+            {{#newRow}}
+        </div>
+        <div class="category-image-row">
+            {{/newRow}}
+            <a href="{{linkUrl}}">
+                <div class="category-image {{displayName}}"><img src="{{imageUrl}}"></div>
+            </a>
+            {{/categories}}
+        </div>
     </div>
-    <div class="category-image-row">
-        {{/newRow}}
-        <a href="{{linkUrl}}">
-            <div class="category-image {{displayName}}"><img src="{{imageUrl}}"></div>
-        </a>
-        {{/categories}}
+    <div class="upload">
+        <a href="{{uploadPageUrl}}"><img src="{{assetUrl}}/img/upload_image.svg"></a>
+        <br>
     </div>
-</div>
-<div class="upload">
-    <a href="{{uploadPageUrl}}"><img src="{{assetUrl}}/img/upload_image.svg"></a>
-    <br>
 </div>

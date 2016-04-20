@@ -1,25 +1,49 @@
-<div>
-    <div>
-        <form>
-            {{#categories}}
-            <input type="radio" name="category" value="{{linkUrl}}" {{checked}}>{{displayName}}<br>
-            {{/categories}}
-            <input type="text" name="searchQuery" value="Search">
-        </form>
+<div class="main-container">
+    <div class="gallery-header">
+        <div class="gallery-header-container">
+            <div class="logo-container"><a href="{{homePageUrl}}" class="main-logo">Image XPert</a></div>
+
+            <ul class="select-category-container">
+                {{#categories}}
+                <li>
+                    <a href="{{linkUrl}}">
+                        <input type="radio" name="category" value="{{categoryId}}" {{checked}}>
+                    <label class="category-radio">
+                        <em class="icon icon-check"></em> {{displayName}}
+                    </label>
+                    </a>
+                </li>
+                {{/categories}}
+            </ul>
+
+            <ul class="search-and-upload-container">
+                <li class="search-container">
+                    <div class="search-input">
+                        <input type="text" placeholder="Search for photos">
+                        <a class="search-button" href="gallery.html"><img src="{{assetUrl}}/img/search-icon.svg"></a>
+                    </div>
+                </li>
+
+                <li class="upload-container">
+                    <a class="upload" href="{{uploadPageUrl}}"><img src="{{assetUrl}}/img/upload_image.svg"></a>
+                </li>
+
+            </ul>
+
+        </div>
     </div>
-    <div>
-        <a href="{{uploadPageUrl}}">Upload image</a>
-    </div>
-    <div>
+
+    <div class="gallery-body">
         {{#images}}
-        <figure>
+        <figure class="galery-image">
             <img src="{{imageUrl}}" alt="{{displayName}}">
             {{#artist}}
             <figcaption>by {{.}}</figcaption>
             {{/artist}}
+            <!--
             <a href="{{downloadPageUrl}}">Download image</a>
+            -->
         </figure>
         {{/images}}
     </div>
 </div>
-

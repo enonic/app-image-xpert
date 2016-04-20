@@ -29,6 +29,9 @@ exports.get = function (req) {
     var images = imageXpertLib.getImages(getImagesParams).
         map(function (image) {
             var imageBinary = imageXpertLib.getContentByKey(image.data.binary);
+            if (!imageBinary) {
+                return undefined;
+            }
             var artist = imageBinary.data.artist ? imageBinary.data.artist.toString() : undefined;
 
             return {
@@ -42,6 +45,8 @@ exports.get = function (req) {
                     imageId: image._id
                 })
             }
+        }).filter(function (image) {
+            return !!image
         });
 
     var homePageUrl = imageXpertLib.generateHomeUrl();

@@ -62,36 +62,30 @@ body {
     margin-bottom: 0;
 }
 
-.search-input {
+.search form {
     background: rgba(51, 51, 51, 0.5);
     padding: 4px;
     width: 100%;
-    display: table;
+    position: relative;
 }
 
-.search-input input {
+.search-input {
     width: 100%;
-    padding: 0.4em 0.4em 0.4em 1em;
+    max-width: 530px;
+    padding: 0.4em 2.5em 0.4em 1em;
     font-size: 20px;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-weight: 300;
     color: #333333;
     border: none;
     outline: none;
-    display: table-cell;
 }
 
 .search-button {
-    cursor: pointer;
-    background-color: white;
-    display: table-cell;
-    padding-right: 30px;
-    padding-top: 6px;
-    vertical-align: top;
-}
-
-.search-button img {
+    display: block;
     position: absolute;
+    right: 15px;
+    top: 10px;
 }
 
 .browse {

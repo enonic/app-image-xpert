@@ -80,36 +80,33 @@
     width: 230px;
 }
 
-.search-container .search-input {
+.search-container form {
     position: relative;
-    display: table;
-    margin-top: 5px;
+    /*display: table;*/
+    margin-top: 10px;
+    max-width: 175px;
 }
 
-.search-container .search-input input {
+.search-container .search-input {
+    max-width: 145px;
     width: 100%;
     padding: 0.4em;
-    padding-right: 0.6em;
+    padding-right: 2.5em;
     font-size: 14px;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-weight: 300;
     color: #333333;
     border: none;
     outline: none;
-    display: table-cell;
-    vertical-align: middle;
 }
 
 .search-container .search-button {
-    background-color: white;
-    display: table-cell;
-    padding-top: 5px;
-    padding-right: 30px;
-    vertical-align: top;
+    position: absolute;
+    top: 5px;
+    right: 0;
 }
 
-.search-container .search-button img {
-    position: absolute;
+.search-container .search-button input {
     width: 18px;
 }
 

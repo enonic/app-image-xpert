@@ -64,7 +64,7 @@ exports.get = function (req) {
         homePageUrl: homePageUrl,
         uploadPageUrl: uploadPageUrl,
         assetUrl: portalLib.assetUrl(''),
-        searchQuery: req.params.search,
+        searchQuery: req.params.search || undefined,
         categoryId: req.params.category
     });
 

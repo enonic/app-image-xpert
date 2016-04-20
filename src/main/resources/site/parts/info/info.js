@@ -39,7 +39,7 @@ exports.get = function (req) {
         displayName: image.displayName,
         createdDate: createdDate.toDateString(),
         artist: artist,
-        geoLocation: binary.x.base.gpsInfo.geoPoint,
+        geoLocation: binary.x.base && binary.x.base.gpsInfo && binary.x.base.gpsInfo.geoPoint,
         imageWidth: imageWidth,
         imageHeight: imageHeight,
         imageUrl: imageUrl

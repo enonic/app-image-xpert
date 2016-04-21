@@ -54,9 +54,12 @@
                 </property-set>
             </property-set>
             <string name="caption"/>
-            <string name="artist"/>
+            <string name="artist">Unsplash</string>
             <string name="copyright"/>
-            <string name="tags"/>
+            <string name="tags">train tracks</string>
+            <string name="tags">balance</string>
+            <string name="tags">direction</string>
+            <string name="tags">couple</string>
         </property-set>
         <property-set name="x">
             <property-set name="media">

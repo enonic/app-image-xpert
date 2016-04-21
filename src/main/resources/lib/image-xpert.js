@@ -22,6 +22,7 @@ exports.getCategories = function () {
 
 exports.getImages = function (params) {
 
+    //Retrieves the binary images corresponding to the search query
     var binaryImagesIds;
     if (params && params.searchQuery) {
         var binaryImageQuery = "ngram('_allText', '" + params.searchQuery + "', 'AND')";
@@ -41,23 +42,17 @@ exports.getImages = function (params) {
         }
     }
 
-
+    //If this is a search by query
     var imageQuery;
     if (binaryImagesIds) {
+        // Searches for the image contents containing the image binaries found
         imageQuery = "data.binary IN ('" + binaryImagesIds.join("','") + "') ";
 
-    } else {
-        imageQuery = undefined;
+    } else if (params && params.categoryId) {
+        // Else if this is a search by category, search by category
+        imageQuery = "data.category = '" + params.categoryId + "'";
     }
 
-    if (params && params.categoryId) {
-        if (imageQuery) {
-            imageQuery = imageQuery + " AND ";
-        } else {
-            imageQuery = "";
-        }
-        imageQuery = imageQuery + ("data.category = '" + params.categoryId + "'");
-    }
     return contentLib.query({
         start: 0,
         count: 10,

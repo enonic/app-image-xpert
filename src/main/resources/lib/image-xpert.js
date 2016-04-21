@@ -25,7 +25,7 @@ exports.getImages = function (params) {
     //Retrieves the binary images corresponding to the search query
     var binaryImagesIds;
     if (params && params.searchQuery) {
-        var binaryImageQuery = "ngram('_allText', '" + params.searchQuery + "', 'AND')";
+        var binaryImageQuery = "ngram('_allText', '" + params.searchQuery + "', 'OR')";
         var binaryImagesIds = contentLib.query({
             start: 0,
             count: 10,
@@ -43,24 +43,38 @@ exports.getImages = function (params) {
     }
 
     //If this is a search by query
-    var imageQuery;
     var imageSort;
     if (binaryImagesIds) {
-        // Searches for the image contents containing the image binaries found
-        imageQuery = "data.binary IN ('" + binaryImagesIds.join("','") + "') ";
+        // Searches and return the image contents containing the image binaries found
+        return binaryImagesIds.map(function (binaryImageId) {
+            var imagesFound = contentLib.query({
+                start: 0,
+                count: 1,
+                query: "data.binary = '" + binaryImageId + "'",
+                contentTypes: [app.name + ":image"],
+                sort: imageSort
+            }).hits;
+            return imagesFound.length > 0 ? imagesFound[0] : undefined;
+        }).filter(function (image) {
+            return !!image;
+        });
+    }
 
-    } else if (params && params.categoryId) {
-        // Else if this is a search by category, search by category
+    //Else if this is a search by category
+    var imageQuery;
+    if (params && params.categoryId) {
+        // Searches by category
         imageQuery = "data.category = '" + params.categoryId + "'";
         imageSort = "createdTime DESC";
     }
 
+    //Returns the ten last created images
     return contentLib.query({
         start: 0,
         count: 10,
         query: imageQuery,
         contentTypes: [app.name + ":image"],
-        sort: imageSort
+        sort: "createdTime DESC"
     }).hits;
 
 };

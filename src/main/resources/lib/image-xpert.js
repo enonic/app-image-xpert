@@ -98,33 +98,37 @@ exports.getRandomImage = function () {
  *****************************************/
 
 exports.generateUploadPageUrl = function () {
+    var sitePath = portalLib.getSite()._path;
     return portalLib.pageUrl({
-        path: "/image-xpert/upload"
+        path: sitePath + "/upload"
     });
 };
 
 exports.generateDownloadPageUrl = function (params) {
+    var sitePath = portalLib.getSite()._path;
     var params = params && params.imageId ? {
         image: params.imageId
     } : undefined;
     return portalLib.pageUrl({
-        path: "/image-xpert/download",
+        path: sitePath + "/download",
         params: params
     });
 };
 
 exports.generateInfoPageUrl = function (params) {
+    var sitePath = portalLib.getSite()._path;
     return portalLib.pageUrl({
         path: params.imagePath
     });
 };
 
 exports.generateGalleryPageUrl = function (params) {
+    var sitePath = portalLib.getSite()._path;
     var params = params && params.categoryId ? {
         category: params.categoryId
     } : undefined;
     return portalLib.pageUrl({
-        path: "/image-xpert/gallery",
+        path: sitePath + "/gallery",
         params: params
     });
 };

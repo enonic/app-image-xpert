@@ -2,7 +2,7 @@
     <id>cdb7d509-5453-45ea-b622-535fbb9b33f0</id>
     <childOrder>modifiedtime DESC</childOrder>
     <nodeType>content</nodeType>
-    <timestamp>2016-04-19T14:17:13.712Z</timestamp>
+    <timestamp>2016-04-20T12:45:30.813Z</timestamp>
     <inheritPermissions>true</inheritPermissions>
     <permissions>
         <principal key="role:cms.cm.app">
@@ -41,7 +41,7 @@
         <string name="displayName">PC240029.JPG</string>
         <string name="type">media:image</string>
         <string name="owner">user:system:su</string>
-        <dateTime name="modifiedTime">2016-04-19T14:17:13.711Z</dateTime>
+        <dateTime name="modifiedTime">2016-04-20T12:45:30.812Z</dateTime>
         <string name="modifier">user:system:su</string>
         <string name="creator">user:system:su</string>
         <dateTime name="createdTime">2016-04-18T19:40:18.126Z</dateTime>
@@ -66,9 +66,9 @@
                     <double name="bottom">1.0</double>
                 </property-set>
             </property-set>
-            <string isNull="true" name="caption"/>
+            <string name="caption">My grandmother was a funny woman!</string>
             <string name="artist">Jørgen Sivesind</string>
-            <string isNull="true" name="copyright"/>
+            <string name="copyright">Jørgen Sivesind</string>
             <string name="tags">old woman</string>
             <string name="tags">funny</string>
         </property-set>

@@ -2,7 +2,7 @@
     <id>3a9a10ff-a9d4-4ee2-8412-42008c79c60b</id>
     <childOrder>modifiedtime DESC</childOrder>
     <nodeType>content</nodeType>
-    <timestamp>2016-04-19T14:16:20.896Z</timestamp>
+    <timestamp>2016-04-20T12:46:17.662Z</timestamp>
     <inheritPermissions>true</inheritPermissions>
     <permissions>
         <principal key="role:cms.cm.app">
@@ -41,7 +41,7 @@
         <string name="displayName">IMG_7908.JPG</string>
         <string name="type">media:image</string>
         <string name="owner">user:system:su</string>
-        <dateTime name="modifiedTime">2016-04-19T14:16:20.895Z</dateTime>
+        <dateTime name="modifiedTime">2016-04-20T12:46:17.661Z</dateTime>
         <string name="modifier">user:system:su</string>
         <string name="creator">user:system:su</string>
         <dateTime name="createdTime">2016-04-18T19:42:28.224Z</dateTime>
@@ -53,9 +53,9 @@
                     <double name="y">0.5</double>
                 </property-set>
             </property-set>
-            <string isNull="true" name="caption"/>
+            <string name="caption">Frozen rose</string>
             <string name="artist">Jørgen Sivesind</string>
-            <string isNull="true" name="copyright"/>
+            <string name="copyright">Jørgen Sivesind</string>
             <string name="tags">Red rose</string>
             <string name="tags">frozen</string>
         </property-set>

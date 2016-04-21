@@ -2,7 +2,7 @@
     <id>fd355a5e-6306-44ee-8d6d-4cbee4689b02</id>
     <childOrder>modifiedtime DESC</childOrder>
     <nodeType>content</nodeType>
-    <timestamp>2016-04-19T14:06:15.803Z</timestamp>
+    <timestamp>2016-04-20T13:16:00.147Z</timestamp>
     <inheritPermissions>true</inheritPermissions>
     <permissions>
         <principal key="role:cms.cm.app">
@@ -41,7 +41,7 @@
         <string name="displayName">IMG_0832.JPG</string>
         <string name="type">media:image</string>
         <string name="owner">user:system:su</string>
-        <dateTime name="modifiedTime">2016-04-19T14:06:15.802Z</dateTime>
+        <dateTime name="modifiedTime">2016-04-20T13:16:00.146Z</dateTime>
         <string name="modifier">user:system:su</string>
         <string name="creator">user:system:su</string>
         <dateTime name="createdTime">2016-04-18T19:42:47.541Z</dateTime>
@@ -99,7 +99,7 @@
             <property-set name="base">
                 <property-set name="gpsInfo">
                     <geoPoint isNull="true" name="geoPoint"/>
-                    <string isNull="true" name="altitude"/>
+                    <string name="altitude">143</string>
                     <string isNull="true" name="direction"/>
                 </property-set>
             </property-set>

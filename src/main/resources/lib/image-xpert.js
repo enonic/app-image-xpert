@@ -22,9 +22,10 @@ exports.getCategories = function () {
 
 exports.getImages = function (params) {
 
+    //Retrieves the binary images corresponding to the search query
     var binaryImagesIds;
     if (params && params.searchQuery) {
-        var binaryImageQuery = "ngram('_allText', '" + params.searchQuery + "', 'AND')";
+        var binaryImageQuery = "ngram('_allText', '" + params.searchQuery + "', 'OR')";
         var binaryImagesIds = contentLib.query({
             start: 0,
             count: 10,
@@ -41,23 +42,33 @@ exports.getImages = function (params) {
         }
     }
 
-
-    var imageQuery;
+    //If this is a search by query
+    var imageSort;
     if (binaryImagesIds) {
-        imageQuery = "data.binary IN ('" + binaryImagesIds.join("','") + "') ";
-
-    } else {
-        imageQuery = undefined;
+        // Searches and return the image contents containing the image binaries found
+        return binaryImagesIds.map(function (binaryImageId) {
+            var imagesFound = contentLib.query({
+                start: 0,
+                count: 1,
+                query: "data.binary = '" + binaryImageId + "'",
+                contentTypes: [app.name + ":image"],
+                sort: imageSort
+            }).hits;
+            return imagesFound.length > 0 ? imagesFound[0] : undefined;
+        }).filter(function (image) {
+            return !!image;
+        });
     }
 
+    //Else if this is a search by category
+    var imageQuery;
     if (params && params.categoryId) {
-        if (imageQuery) {
-            imageQuery = imageQuery + " AND ";
-        } else {
-            imageQuery = "";
-        }
-        imageQuery = imageQuery + ("data.category = '" + params.categoryId + "'");
+        // Searches by category
+        imageQuery = "data.category = '" + params.categoryId + "'";
+        imageSort = "createdTime DESC";
     }
+
+    //Returns the ten last created images
     return contentLib.query({
         start: 0,
         count: 10,
@@ -87,33 +98,37 @@ exports.getRandomImage = function () {
  *****************************************/
 
 exports.generateUploadPageUrl = function () {
+    var sitePath = portalLib.getSite()._path;
     return portalLib.pageUrl({
-        path: "/image-xpert/upload"
+        path: sitePath + "/upload"
     });
 };
 
 exports.generateDownloadPageUrl = function (params) {
+    var sitePath = portalLib.getSite()._path;
     var params = params && params.imageId ? {
         image: params.imageId
     } : undefined;
     return portalLib.pageUrl({
-        path: "/image-xpert/download",
+        path: sitePath + "/download",
         params: params
     });
 };
 
 exports.generateInfoPageUrl = function (params) {
+    var sitePath = portalLib.getSite()._path;
     return portalLib.pageUrl({
         path: params.imagePath
     });
 };
 
 exports.generateGalleryPageUrl = function (params) {
+    var sitePath = portalLib.getSite()._path;
     var params = params && params.categoryId ? {
         category: params.categoryId
     } : undefined;
     return portalLib.pageUrl({
-        path: "/image-xpert/gallery",
+        path: sitePath + "/gallery",
         params: params
     });
 };

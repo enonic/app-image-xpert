@@ -44,6 +44,7 @@ exports.getImages = function (params) {
 
     //If this is a search by query
     var imageQuery;
+    var imageSort;
     if (binaryImagesIds) {
         // Searches for the image contents containing the image binaries found
         imageQuery = "data.binary IN ('" + binaryImagesIds.join("','") + "') ";
@@ -51,6 +52,7 @@ exports.getImages = function (params) {
     } else if (params && params.categoryId) {
         // Else if this is a search by category, search by category
         imageQuery = "data.category = '" + params.categoryId + "'";
+        imageSort = "createdTime DESC";
     }
 
     return contentLib.query({
@@ -58,7 +60,7 @@ exports.getImages = function (params) {
         count: 10,
         query: imageQuery,
         contentTypes: [app.name + ":image"],
-        sort: "createdTime DESC"
+        sort: imageSort
     }).hits;
 
 };

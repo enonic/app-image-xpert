@@ -42,9 +42,11 @@
         {{#images}}
         <figure class="galery-image">
             <img src="{{imageUrl}}" alt="{{displayName}}">
-            {{#artist}}
-            <figcaption>by {{.}}</figcaption>
-            {{/artist}}
+            <figcaption>
+            {{#caption}}<b>{{.}}</b>{{/caption}}
+            {{#artist}}by {{.}}{{/artist}}
+            {{#copyright}}<small>&copy; {{.}}</small>{{/copyright}}
+            </figcaption>
             <!--
             <a href="{{downloadPageUrl}}">Download image</a>
             -->

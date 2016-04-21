@@ -49,7 +49,6 @@ body {
     margin-left: -504px;
     margin-top: -370px;
     background-color: rgba(0, 0, 0, 0.5);
-
     -webkit-transition: opacity 300ms ease-in;
     -moz-transition: opacity 300ms ease-in;
     transition: opacity 300ms ease-in;
@@ -182,6 +181,7 @@ body {
 .upload {
     margin: auto;
     margin-top: 30px;
+    width: 70px;
 }
 
 .upload img {
@@ -189,7 +189,7 @@ body {
     width: 70px;
 }
 
-.upload img:hover {
+.upload:hover {
     cursor: pointer;
     opacity: 0.7;
 }

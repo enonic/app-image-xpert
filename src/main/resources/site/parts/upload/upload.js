@@ -6,7 +6,11 @@ exports.get = function (req) {
     var imageCreationServiceUrl = portal.serviceUrl({service: "create-image"});
     var categories = imageXpertLib.getCategories().
         map(function (category) {
-            return {"id": category._id, "displayName": category.displayName};
+            return {
+                id: category._id,
+                displayName: category.displayName,
+                checked: (req.params.category == category._id) ? "checked" : ""
+            };
         });
 
     var params = {

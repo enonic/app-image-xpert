@@ -14,21 +14,18 @@
     left: 50%;
     top: 50%;
     margin-left: -400px;
-    margin-top: -270px;/*
+    margin-top: -320px;/*
     -webkit-transition: opacity 300ms ease-in;
     -moz-transition: opacity 300ms ease-in;
     transition: opacity 300ms ease-in;*/
     pointer-events: auto;
-    background-color: #333333;
+    background-color: rgba(51, 51, 51, 0.85);
     -webkit-box-shadow: 5px 5px 25px 0px rgba(0,0,0,0.75);
     -moz-box-shadow: 5px 5px 25px 0px rgba(0,0,0,0.75);
     box-shadow: 5px 5px 25px 0px rgba(0,0,0,0.75);
     border-radius: 5px;
 }
 
-.upload-container .upload-cancel {
-    pointer-events: none;
-}
 .upload-container h2 {
     margin-left: 10px;
 }

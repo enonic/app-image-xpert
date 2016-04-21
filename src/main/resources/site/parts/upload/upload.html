@@ -17,7 +17,7 @@
                 <div class="category-container">
                     {{#categories}}
                     <div class="category-input">
-                        <input type="radio" name="category" value="{{id}}">
+                        <input type="radio" name="category" value="{{id}}" {{checked}}>
                         <label>{{displayName}}</label>
                     </div>
                     {{/categories}}
@@ -39,7 +39,7 @@
 
         <div class="button-toolbar">
             <button type="submit" name="upload" class="upload-button">Upload</button>
-            <a href="#" onclick="toggleLayers();"><button class="upload-cancel">Cancel</button></a>
+            <button type="reset" class="upload-cancel" onclick="toggleLayers();">Cancel</button>
         </div>
     </form>
 </div>

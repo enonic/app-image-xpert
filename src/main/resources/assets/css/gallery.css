@@ -1,3 +1,14 @@
+.main-container.hidden{
+    -webkit-animation: blur 1s;
+    animation-fill-mode: forwards;
+    pointer-events: none;
+}
+
+@-webkit-keyframes blur {
+    0%  { -webkit-filter: blur(2px); }
+    100% { -webkit-filter: blur(5px); }
+}
+
 .gallery-header {
     -webkit-transform: translateZ(0);
     transform: translateZ(0);
@@ -82,7 +93,6 @@
 
 .search-container form {
     position: relative;
-    /*display: table;*/
     margin-top: 10px;
     max-width: 175px;
 }
@@ -115,11 +125,11 @@
     height: 48px;
 }
 
-.upload-box .upload img {
+.upload-box img {
     height: 48px;
 }
 
-.upload-box .upload:hover {
+.upload-box img:hover {
     cursor: pointer;
     opacity: 0.7;
 }

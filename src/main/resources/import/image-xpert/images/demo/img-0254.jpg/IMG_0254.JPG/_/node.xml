@@ -68,7 +68,7 @@
             </property-set>
             <string isNull="true" name="caption"/>
             <string name="artist">Jørgen Sivesind</string>
-            <string isNull="true" name="copyright"/>
+            <string name="copyright">Jørgen Sivesind</string>
             <string name="tags">Strømmensaga</string>
             <string name="tags">Sagdalen</string>
             <string name="tags">17th century head saw</string>

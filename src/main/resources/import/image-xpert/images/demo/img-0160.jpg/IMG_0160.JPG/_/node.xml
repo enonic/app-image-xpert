@@ -53,9 +53,9 @@
                     <double name="y">0.5</double>
                 </property-set>
             </property-set>
-            <string isNull="true" name="caption"/>
+            <string name="caption">Quiet morning lake 2</string>
             <string name="artist">Jørgen Sivesind</string>
-            <string isNull="true" name="copyright"/>
+            <string name="copyright">Jørgen Sivesind</string>
             <string name="tags">Østmarka</string>
             <string name="tags">Møne lake</string>
             <string name="tags">birch</string>

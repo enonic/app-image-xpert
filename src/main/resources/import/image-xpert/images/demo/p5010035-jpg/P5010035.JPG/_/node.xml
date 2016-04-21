@@ -53,9 +53,9 @@
                     <double name="y">0.5</double>
                 </property-set>
             </property-set>
-            <string isNull="true" name="caption"/>
+            <string name="caption">Dandelion head</string>
             <string name="artist">Jørgen Sivesind</string>
-            <string isNull="true" name="copyright"/>
+            <string name="copyright">Jørgen Sivesind</string>
             <string name="tags">Dandelion</string>
             <string name="tags">flower</string>
         </property-set>

@@ -66,9 +66,9 @@
                     <double name="bottom">1.0</double>
                 </property-set>
             </property-set>
-            <string isNull="true" name="caption"/>
+            <string name="caption">Black-headed Gull</string>
             <string name="artist">Jørgen Sivesind</string>
-            <string isNull="true" name="copyright"/>
+            <string name="copyright">Jørgen Sivesind</string>
             <string name="tags">black-headed gull</string>
             <string name="tags">bird</string>
             <string name="tags">flight</string>

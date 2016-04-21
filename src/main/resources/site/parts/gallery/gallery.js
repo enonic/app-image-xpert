@@ -32,11 +32,16 @@ exports.get = function (req) {
             if (!imageBinary) {
                 return undefined;
             }
+
+            var caption = imageBinary.data.caption ? imageBinary.data.caption.toString() : undefined;
             var artist = imageBinary.data.artist ? imageBinary.data.artist.toString() : undefined;
+            var copyright = imageBinary.data.copyright ? imageBinary.data.copyright.toString() : undefined;
 
             return {
                 displayName: image.displayName,
+                caption: caption,
                 artist: artist,
+                copyright: copyright,
                 imageUrl: portalLib.imageUrl({
                     id: image.data.binary,
                     scale: "max(1200)"

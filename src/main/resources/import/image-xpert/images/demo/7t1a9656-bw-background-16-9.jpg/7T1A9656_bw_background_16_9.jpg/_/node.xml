@@ -68,7 +68,7 @@
             </property-set>
             <string isNull="true" name="caption"/>
             <string name="artist">Jørgen Sivesind</string>
-            <string isNull="true" name="copyright"/>
+            <string name="copyright">Jørgen Sivesind</string>
             <string name="tags">puffin</string>
             <string name="tags">Runde Island</string>
             <string name="tags">black &amp; white</string>

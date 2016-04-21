@@ -53,11 +53,12 @@
                     <double name="y">0.5</double>
                 </property-set>
             </property-set>
-            <string isNull="true" name="caption"/>
+            <string name="caption">Icy gate detail</string>
             <string name="artist">Jørgen Sivesind</string>
-            <string isNull="true" name="copyright"/>
+            <string name="copyright">Jørgen Sivesind</string>
             <string name="tags">Skedsmo Church</string>
-            <string name="tags">Icy gate detail</string>
+            <string name="tags">Icy gate</string>
+            <string name="tags">detail</string>
             <string name="tags">circles</string>
         </property-set>
         <property-set name="x">

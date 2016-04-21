@@ -55,7 +55,7 @@
             </property-set>
             <string name="caption">An elephant in the Norwegian woods</string>
             <string name="artist">Anita Evjen</string>
-            <string isNull="true" name="copyright"/>
+            <string name="copyright">Anita Evjen</string>
             <string name="tags">tree stub</string>
             <string name="tags">elephant</string>
             <string name="tags">Østmarka</string>

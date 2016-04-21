@@ -5,6 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Image XPert by Enonic</title>
     <link rel="stylesheet" data-th-href="${portal.assetUrl({'_path=css/main.css'})}" type="text/css"/>
+    <link rel="stylesheet" data-th-href="${portal.assetUrl({'_path=css/upload.css'})}" type="text/css"/>
+    <script type="text/javascript">
+        function toggleLayers() {
+            document.querySelector(".main-container").classList.toggle("hidden");
+            document.querySelector(".upload-container").classList.toggle("hidden");
+        }
+        function previewImage(event) {
+            var previewEl = document.querySelector('.upload-container .image-preview');
+            previewEl.style.display = "block";
+            previewEl.src = URL.createObjectURL(event.target.files[0]);
+        };
+    </script>
 </head>
 
 <body data-portal-component-type="page" data-th-class="${editable}? 'edit'">

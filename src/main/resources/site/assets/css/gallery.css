@@ -115,11 +115,11 @@
     height: 48px;
 }
 
-.upload-container .upload img {
+.upload-box .upload img {
     height: 48px;
 }
 
-.upload-container .upload:hover {
+.upload-box .upload:hover {
     cursor: pointer;
     opacity: 0.7;
 }

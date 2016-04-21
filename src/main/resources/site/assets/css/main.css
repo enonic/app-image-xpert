@@ -34,7 +34,12 @@ body {
     }
 }
 
-.main-container {
+.main-container.hidden{
+    opacity: 0;
+}
+
+.main-container{
+    opacity: 1;
     position: absolute;
     height: 700px;
     width: 970px;
@@ -44,6 +49,11 @@ body {
     margin-left: -504px;
     margin-top: -370px;
     background-color: rgba(0, 0, 0, 0.5);
+
+    -webkit-transition: opacity 300ms ease-in;
+    -moz-transition: opacity 300ms ease-in;
+    transition: opacity 300ms ease-in;
+    opacity: 1;
 }
 
 .search {
@@ -179,7 +189,7 @@ body {
     width: 70px;
 }
 
-.upload:hover {
+.upload img:hover {
     cursor: pointer;
     opacity: 0.7;
 }

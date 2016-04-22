@@ -162,3 +162,14 @@
     font-size: 18px;
     font-family: "Helvetica Neue",helvetica,arial,sans-serif;
 }
+
+.galery-image .image-caption {
+    display: table;
+    white-space: nowrap;
+}
+
+.galery-image .image-caption em {
+    width: 100%;
+    text-align: right;
+    display: table-cell;
+}

@@ -1,46 +1,38 @@
-<div>
-    <div>
-        <img src="{{imageUrl}}" alt="{{displayName}}">
-        <a href="{{infoPageUrl}}">Info</a>
-    </div>
-    <div>
-        <form id="download-image-form" method="post" action="{{downloadImageServiceUrl}}">
-            <div>
-                <label>Specify size:</label>
-                <input type="radio" name="size" value="original" checked>
-                <label>Original</label>
-                <input type="radio" name="size" value="custom">
-                <label>Resize to</label>
-                <input type="text" name="width" value="Width">
-                <label>x</label>
-                <input type="text" name="height" value="Height">
-            </div>
-            <div>
-                <label>Select format:</label>
-                <input type="radio" name="format" value="original" checked>
-                <label>Original</label>
-                <input type="radio" name="format" value="custom">
-                <select name="formatname" form="download-image-form">
-                    <option value="jpg">JPEG</option>
-                    <option value="png">PNG</option>
-                    <option value="bmp">BMP</option>
-                </select>
-            </div>
-            <div>
-                <input name="binary" type="hidden" value="{{binaryImageId}}"/>
-                <button type="submit" name="download">Download</button>
-                <button type="reset" name="cancel">Cancel</button>
-            </div>
-        </form>
-    </div>
-
-    <!--script>
-        $(document).ready(function () {
-            $('#download-image-form').submit(function (event) {
-                $.post($(this).attr('action'), $(this).serialize());
-                event.preventDefault();
-            });
-        });
-    </script-->
+<div class="main-container">
+    <img class="fake-image" src="" onload="syncImage()"></img>
+    <div class="image-placeholder" data-src="{{imageUrl}}"></div>
+    <div class="image-info-overlay"></div>
 </div>
 
+<div class="download-container hidden">
+    <h2>Download image</h2>
+
+    <form action="{{downloadImageServiceUrl}}" method="post">
+        <div>
+            <label>Specify size:</label>
+            <input type="radio" name="size" value="original" checked>
+            <label>Original</label>
+            <input type="radio" name="size" value="custom">
+            <label>Resize to</label>
+            <input type="text" name="width" value="Width">
+            <label>x</label>
+            <input type="text" name="height" value="Height">
+        </div>
+        <div>
+            <label>Select format:</label>
+            <input type="radio" name="format" value="original" checked>
+            <label>Original</label>
+            <input type="radio" name="format" value="custom">
+            <select name="formatname">
+                <option value="jpg">JPEG</option>
+                <option value="png">PNG</option>
+                <option value="bmp">BMP</option>
+            </select>
+        </div>
+        <div class="button-toolbar">
+            <input name="binary" type="hidden" value="{{binaryImageId}}"/>
+            <button type="submit" name="download" class="download-button">Download</button>
+            <button type="reset" name="cancel" onclick="toggleLayers();" class="download-cancel">Cancel</button>
+        </div>
+    </form>
+</div>

@@ -147,12 +147,23 @@
     margin-right: auto;
 }
 
-.galery-image {
+.gallery-image-figure {
     width: 100%;
     margin: 0 0 40px 0;
 }
 
-.galery-image img {
+.gallery-image-figure .image-caption {
+    display: table;
+    white-space: nowrap;
+}
+
+.gallery-image-figure .image-caption em {
+    width: 100%;
+    text-align: right;
+    display: table-cell;
+}
+
+.gallery-image {
     width: 100%;
 }
 
@@ -161,15 +172,4 @@
     text-align: center;
     font-size: 18px;
     font-family: "Helvetica Neue",helvetica,arial,sans-serif;
-}
-
-.galery-image .image-caption {
-    display: table;
-    white-space: nowrap;
-}
-
-.galery-image .image-caption em {
-    width: 100%;
-    text-align: right;
-    display: table-cell;
 }

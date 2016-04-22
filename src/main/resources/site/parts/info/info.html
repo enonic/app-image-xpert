@@ -1,15 +1,46 @@
-<div>
-    <div>
-        <span>Added  {{createdDate}}{{#artist}} by {{.}}{{/artist}}</span>
-    </div>
-    <div>
-        <span>Original size: {{imageWidth}}x{{imageHeight}}</span>
-    </div>
-    {{#geoLocation}}
-    <div>
-        <span>Location: {{.}}</span>
-    </div>
-    {{/geoLocation}}
-    <img src="{{imageUrl}}" alt="{{displayName}}">
-</div>
+<div class="image-info-container">
+    <div class="image-info-vertical-wrapper">
+        <div class="image-info-vertical-cell">
+            <div class="image-meta-container">
+                <div class="image-row">
+                    <div class="image-info-column">
+                        <h2 class="image-info-heading">Taken</h2>
+                        <h3 class="image-info-meta">{{takenDate}}</h3>
+                    </div>
 
+                    <div class="image-info-column">
+                        <h2 class="image-info-heading">Published</h2>
+                        <h3 class="image-info-meta">{{createdDate}}</h3>
+                    </div>
+                </div>
+
+                <div class="image-row">
+                    <div class="image-info-column">
+                        <h2 class="image-info-heading">Taken by</h2>
+                        <h3 class="image-info-meta">{{artist}}</h3>
+                    </div>
+
+                    <div class="image-info-column">
+                        <h2 class="image-info-heading">Dimensions</h2>
+                        <h3 class="image-info-meta">{{imageWidth}}x{{imageHeight}}</h3>
+                    </div>
+                </div>
+
+                <div class="image-row">
+                    <div class="image-info-column">
+                        <h2 class="image-info-heading">Camera make</h2>
+                        <h3 class="image-info-meta">{{cameraMake}}</h3>
+                    </div>
+
+                    <div class="image-info-column">
+                        <h2 class="image-info-heading">Camera model</h2>
+                        <h3 class="image-info-meta">{{cameraModel}}</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="image-info-footer">
+        <img src="{{assetUrl}}/img/download_image.svg" title="Upload image" onclick="toggleLayers();">
+    </div>
+</div>

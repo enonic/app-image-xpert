@@ -1,0 +1,69 @@
+.download-container.hidden{
+    opacity: 0;
+    pointer-events: none;
+}
+
+.download-container{
+    z-index: 30;
+    color: white;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    opacity: 1;
+    position: absolute;
+    height: 600px;
+    width: 750px;
+    padding: 20px;
+    left: 50%;
+    top: 50%;
+    margin-left: -400px;
+    margin-top: -320px;
+    pointer-events: auto;
+    background-color: rgba(51, 51, 51, 0.85);
+    -webkit-box-shadow: 5px 5px 25px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 5px 5px 25px 0px rgba(0,0,0,0.75);
+    box-shadow: 5px 5px 25px 0px rgba(0,0,0,0.75);
+    border-radius: 5px;
+}
+
+.download-container h2 {
+    margin-left: 10px;
+}
+.download-container button {
+    padding: 10px;
+    width: 100px;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+}
+
+.download-container form > div {
+    margin: 20px 10px;
+}
+
+.download-container div.text-input {
+    margin-right: 15px;
+}
+
+.download-container label {
+    line-height: 35px;
+}
+
+.download-container input[type="text"] {
+    height: 30px;
+    font-size: 14px;
+    width: 100%;
+    padding-left: 4px;
+}
+
+.download-container .button-toolbar {
+    text-align: right;
+    margin-top: 40px;
+}
+
+.download-container .button-toolbar .download-button {
+    margin-right: 15px;
+    font-weight: bold;
+}
+
+.download-container .button-toolbar button {
+    padding: 8px;
+}

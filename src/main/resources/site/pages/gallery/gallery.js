@@ -12,13 +12,16 @@ function handleGet(req) {
     var reqContent = portal.getContent();
     var jQueryAssetUrl = portal.assetUrl({path: "js/jquery-2.1.4.min.js"});
 
+    var category = req.params.category ? imageXpertLib.getContentByKey(req.params.category).displayName : "Search";
+
     var params = {
         context: req,
         site: site,
         reqContent: reqContent,
         mainRegion: reqContent.page.regions["main"],
         editable: editMode,
-        jQueryAssetUrl: jQueryAssetUrl
+        jQueryAssetUrl: jQueryAssetUrl,
+        selectedCategory: category
     };
     var body = thymeleaf.render(view, params);
 

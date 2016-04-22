@@ -40,8 +40,8 @@
         </div>
         {{/searchQuery}}
         {{#images}}
-        <figure class="galery-image">
-            <img src="{{imageUrl}}" alt="{{displayName}}">
+        <figure class="gallery-image-figure">
+            <a href="{{downloadPageUrl}}"><img class="gallery-image" src="{{imageUrl}}" alt="{{displayName}}"></a>
             <figcaption class="image-caption">
             {{#caption}}<b>{{.}}</b>{{/caption}}
             {{#artist}}by {{.}}{{/artist}}

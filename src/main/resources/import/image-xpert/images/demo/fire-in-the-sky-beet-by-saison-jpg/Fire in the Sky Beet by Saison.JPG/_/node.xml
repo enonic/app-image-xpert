@@ -54,7 +54,7 @@
                 </property-set>
             </property-set>
             <string name="caption">Fire in the Sky Beet</string>
-            <string name="artist">Jørgen Sivesind</string>
+            <string isNull="true" name="artist"/>
             <string name="copyright">Jørgen Sivesind</string>
             <string name="tags">Saison Restaurant</string>
             <string name="tags">San Francisco</string>

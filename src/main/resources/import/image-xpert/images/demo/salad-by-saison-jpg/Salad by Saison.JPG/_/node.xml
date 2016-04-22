@@ -54,7 +54,7 @@
                 </property-set>
             </property-set>
             <string name="caption">Salad to match the River Goat by Saison</string>
-            <string name="artist">Jørgen Sivesind</string>
+            <string isNull="true" name="artist"/>
             <string name="copyright">Jørgen Sivesind</string>
             <string name="tags">salad</string>
             <string name="tags">Saison Restaurant</string>

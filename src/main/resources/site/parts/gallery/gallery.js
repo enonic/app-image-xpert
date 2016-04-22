@@ -37,6 +37,10 @@ exports.get = function (req) {
             var artist = imageBinary.data.artist ? imageBinary.data.artist.toString() : undefined;
             var copyright = imageBinary.data.copyright ? imageBinary.data.copyright.toString() : undefined;
 
+            if (artist && copyright && artist.toLowerCase() == copyright.toLowerCase()) {
+                artist = null;
+            }
+
             return {
                 displayName: image.displayName,
                 caption: caption,

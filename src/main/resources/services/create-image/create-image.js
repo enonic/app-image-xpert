@@ -3,11 +3,8 @@ var contentLib = require('/lib/xp/content');
 var imageXpertLib = require('/lib/image-xpert');
 
 exports.post = function (req) {
-    var multipartForm = portalLib.getMultipartForm();
-    log.info("Create image multipartForm:" + JSON.stringify(multipartForm, null, 2));
     var image = createImage();
-    log.info("created image: %s", JSON.stringify(image, null, 2));
-    var redirectUrl = imageXpertLib.generateGalleryPageUrl({categoryId: image.data.category});
+    var redirectUrl = imageXpertLib.generateGalleryPageUrl({categoryId: image && image.data && image.data.category});
 
     return {
         redirect: redirectUrl
@@ -23,12 +20,12 @@ function createImage() {
         var category = imageXpertLib.getContentByKey(categoryId);
         if (!category || category.type != (app.name + ":category" )) {
             log.error('No category: %s', categoryName);
-            return;
+            return null;
         }
 
         //Creates the Image content
         var content = contentLib.create({
-            parentPath: '/image-xpert/images',
+            parentPath: imageXpertLib.generateImageFolderPath(),
             displayName: part.fileName,
             contentType: app.name + ":image",
             branch: "draft",
@@ -48,6 +45,7 @@ function createImage() {
             data: portalLib.getMultipartStream("file")
         });
 
+        //Updates the Image media
         var caption = portalLib.getMultipartText("caption");
         var artist = portalLib.getMultipartText("artist");
         var tags = portalLib.getMultipartText("tags");

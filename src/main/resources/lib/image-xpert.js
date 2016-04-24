@@ -94,7 +94,7 @@ exports.getRandomImage = function () {
 };
 
 /******************************************
- * URL generation functions
+ * URL and path generation functions
  *****************************************/
 
 exports.generateUploadPageUrl = function () {
@@ -134,8 +134,13 @@ exports.generateGalleryPageUrl = function (params) {
 };
 
 exports.generateHomeUrl = function (params) {
+    var sitePath = portalLib.getSite()._path;
     return portalLib.pageUrl({
-        path: "/image-xpert"
+        path: sitePath
     });
+};
+
+exports.generateImageFolderPath = function () {
+    return portalLib.getSite()._path + "/images";
 };
 

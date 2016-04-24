@@ -36,13 +36,15 @@ exports.get = function (req) {
         displayName: image.displayName,
         createdDate: createdDate.toDateString(),
         artist: artist,
+        lat: geoLocation ? geoLocation.split(",")[0] : "",
+        lng: geoLocation ? geoLocation.split(",")[1] : "",
         geoLocation: geoLocation,
         imageWidth: imageWidth,
         imageHeight: imageHeight,
         contentType: binary.x.media.imageInfo.contentType,
-        takenDate: new Date(binary.x.media.cameraInfo.date).toDateString(),
-        cameraMake: binary.x.media.cameraInfo.make,
-        cameraModel: binary.x.media.cameraInfo.model,
+        takenDate: binary.x.media.cameraInfo && binary.x.media.cameraInfo.date ? new Date(binary.x.media.cameraInfo.date).toDateString() : "N/A",
+        cameraMake: binary.x.media.cameraInfo && binary.x.media.cameraInfo.make ? binary.x.media.cameraInfo.make : "N/A",
+        cameraModel: binary.x.media.cameraInfo && binary.x.media.cameraInfo.model ? binary.x.media.cameraInfo.model : "N/A",
         assetUrl: portalLib.assetUrl('')
     });
 

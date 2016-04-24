@@ -37,9 +37,28 @@
                         <h3 class="image-info-meta">{{cameraModel}}</h3>
                     </div>
                 </div>
+
+
+                {{#geoLocation}}
+                <div class="image-row map">
+                <div id="map" class="image-location"></div>
+                <script>
+                    var map;
+                    function initMap() {
+                        map = new google.maps.Map(document.getElementById('map'), {
+                            center: {lat: {{lat}}, lng: {{lng}}},
+                    zoom: 10
+                    });
+                    }
+                </script>
+                <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBfipgSkJAXgpsE3jr-PlDXi9mW3Uix5fM&callback=initMap"
+                        async defer></script>
+                </div>
+                {{/geoLocation}}
             </div>
-        </div>
     </div>
+    </div>
+
     <div class="image-info-footer">
         <img src="{{assetUrl}}/img/download_image.svg" title="Upload image" onclick="toggleLayers();">
     </div>

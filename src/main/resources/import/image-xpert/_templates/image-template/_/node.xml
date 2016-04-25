@@ -2,7 +2,7 @@
     <id>37022f27-2aba-4f6f-8346-d5b5a6f2aa04</id>
     <childOrder>modifiedtime DESC</childOrder>
     <nodeType>content</nodeType>
-    <timestamp>2016-04-20T12:43:37.113Z</timestamp>
+    <timestamp>2016-04-25T13:47:41.486Z</timestamp>
     <inheritPermissions>true</inheritPermissions>
     <permissions>
         <principal key="role:cms.cm.app">
@@ -41,7 +41,7 @@
         <string name="displayName">Image template</string>
         <string name="type">portal:page-template</string>
         <string name="owner">user:system:su</string>
-        <dateTime name="modifiedTime">2016-04-20T12:43:37.103Z</dateTime>
+        <dateTime name="modifiedTime">2016-04-25T13:47:41.485Z</dateTime>
         <string name="modifier">user:system:su</string>
         <string name="creator">user:system:su</string>
         <dateTime name="createdTime">2016-04-18T20:48:28.148Z</dateTime>
@@ -49,10 +49,18 @@
             <string name="supports">com.enonic.app.imagexpert:image</string>
         </property-set>
         <property-set name="page">
-            <string name="controller">com.enonic.app.imagexpert:gallery</string>
+            <string name="controller">com.enonic.app.imagexpert:image</string>
             <reference isNull="true" name="template"/>
             <property-set name="region">
                 <string name="name">main</string>
+                <property-set name="component">
+                    <string name="type">PartComponent</string>
+                    <property-set name="PartComponent">
+                        <string name="name">download</string>
+                        <string name="template">com.enonic.app.imagexpert:download</string>
+                        <property-set name="config"/>
+                    </property-set>
+                </property-set>
                 <property-set name="component">
                     <string name="type">PartComponent</string>
                     <property-set name="PartComponent">

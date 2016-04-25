@@ -8,6 +8,9 @@ exports.get = function (req) {
     if (req.params.image) {
         image = imageXpertLib.getContentByKey(req.params.image);
     } else {
+        image = portalLib.getContent();
+    }
+    if (!image || image.type != app.name + ":image") {
         image = imageXpertLib.getRandomImage();
     }
 

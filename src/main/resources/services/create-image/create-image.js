@@ -25,7 +25,7 @@ function createImage() {
 
         //Creates the Image content
         var content = contentLib.create({
-            parentPath: imageXpertLib.generateImageFolderPath(),
+            parentPath: imageXpertLib.generateCurrentImageFolderPath(),
             displayName: part.fileName,
             contentType: app.name + ":image",
             branch: "draft",
@@ -39,7 +39,7 @@ function createImage() {
             name: part.fileName,
             parentPath: content._path,
             mimeType: part.contentType,
-            branch: "draft", //TODO The lib function is missing a parameter branch
+            branch: "draft",
             focalX: 0.5,
             focalY: 0.5,
             data: portalLib.getMultipartStream("file")

@@ -137,3 +137,31 @@ exports.generateImageFolderPath = function () {
     return portalLib.getSite()._path + "/images";
 };
 
+exports.generateCurrentImageFolderPath = function () {
+    var imageFolderPath = exports.generateImageFolderPath();
+
+    var currentDate = new Date();
+    var folder = createOrGetFolder(imageFolderPath, currentDate.getFullYear());
+    var folder = createOrGetFolder(folder._path, (currentDate.getMonth() + 1).toFixed(0));
+    var folder = createOrGetFolder(folder._path, currentDate.getDate());
+    return folder._path;
+};
+
+function createOrGetFolder(parentPath, displayName) {
+    var folder = contentLib.get({
+        key: parentPath + "/" + displayName,
+        branch: 'draft'
+    });
+
+    if (!folder) {
+        folder = contentLib.create({
+            parentPath: parentPath,
+            displayName: displayName,
+            contentType: "base:folder",
+            branch: "draft",
+            data: {}
+        });
+    }
+    return folder;
+}
+

@@ -97,13 +97,6 @@ exports.getRandomImage = function () {
  * URL and path generation functions
  *****************************************/
 
-exports.generateUploadPageUrl = function () {
-    var sitePath = portalLib.getSite()._path;
-    return portalLib.pageUrl({
-        path: sitePath + "/upload"
-    });
-};
-
 exports.generateDownloadPageUrl = function (params) {
     var sitePath = portalLib.getSite()._path;
     var params = params && params.imageId ? {

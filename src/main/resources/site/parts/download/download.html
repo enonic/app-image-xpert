@@ -8,26 +8,50 @@
     <h2>Download image</h2>
 
     <form action="{{downloadImageServiceUrl}}" method="post">
-        <div>
-            <label>Specify size:</label>
-            <input type="radio" name="size" value="original" checked>
-            <label>Original</label>
-            <input type="radio" name="size" value="custom">
-            <label>Resize to</label>
-            <input type="text" name="width" value="Width">
-            <label>x</label>
-            <input type="text" name="height" value="Height">
-        </div>
-        <div>
-            <label>Select format:</label>
-            <input type="radio" name="format" value="original" checked>
-            <label>Original</label>
-            <input type="radio" name="format" value="custom">
-            <select name="formatname">
-                <option value="jpg">JPEG</option>
-                <option value="png">PNG</option>
-                <option value="bmp">BMP</option>
-            </select>
+        <div class="fieldset-container">
+            <fieldset>
+                <legend>Specify size</legend>
+
+                <label>Original:
+                    <input type="radio" name="size" value="original" checked>
+                </label>
+                <span style="margin-left: 27px;">{{imageWidth}}&nbsp;&nbsp;&nbsp;X&nbsp;&nbsp;&nbsp;{{imageHeight}}</span>
+                <br>
+                <div class="size-container">
+                    <div class="input-size-label">
+                        <label>Custom:&nbsp;
+                            <input type="radio" name="size" value="custom">
+                        </label>
+                    </div>
+                    <div class="input-size">
+                        <input type="text" name="width" placeholder="width"><br>
+                        <span>px</span>
+                    </div>
+                    <span>&nbsp;X&nbsp;</span>
+                    <div class="input-size">
+                        <input type="text" name="height" placeholder="height"><br>
+                        <span>px</span>
+                    </div>
+                </div>
+            </fieldset>
+            <fieldset>
+                <legend>Specify format</legend>
+                <label>Original:&nbsp;
+                    <input type="radio" name="format" value="original" checked>
+                </label>
+                <span>{{contentType}}</span>
+                <br>
+                <label>Custom:&nbsp;
+                    <input type="radio" name="format" value="custom">
+                </label>
+                <select name="formatname">
+                    <option value="jpg">JPEG</option>
+                    <option value="png">PNG</option>
+                    <option value="gif">GIF</option>
+                    <option value="bmp">BMP</option>
+                </select>
+            </fieldset>
+
         </div>
         <div class="button-toolbar">
             <input name="binary" type="hidden" value="{{binaryImageId}}"/>

@@ -9,13 +9,13 @@
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     opacity: 1;
     position: absolute;
-    height: 600px;
-    width: 750px;
+    height: 350px;
+    width: 600px;
     padding: 20px;
     left: 50%;
     top: 50%;
-    margin-left: -400px;
-    margin-top: -320px;
+    margin-left: -330px;
+    margin-top: -280px;
     pointer-events: auto;
     background-color: rgba(51, 51, 51, 0.85);
     -webkit-box-shadow: 5px 5px 25px 0px rgba(0,0,0,0.75);
@@ -35,28 +35,24 @@
     border: none;
 }
 
-.download-container form > div {
-    margin: 20px 10px;
-}
-
 .download-container div.text-input {
     margin-right: 15px;
 }
 
 .download-container label {
-    line-height: 35px;
+    line-height: 50px;
+    color: darkgray;
 }
-
 .download-container input[type="text"] {
-    height: 30px;
+    height: 25px;
     font-size: 14px;
-    width: 100%;
+    width: 45px;
     padding-left: 4px;
 }
 
 .download-container .button-toolbar {
     text-align: right;
-    margin-top: 40px;
+    margin-top: 50px;
 }
 
 .download-container .button-toolbar .download-button {
@@ -66,4 +62,59 @@
 
 .download-container .button-toolbar button {
     padding: 8px;
+}
+
+.fieldset-container {
+    display: flex;
+}
+
+.fieldset-container fieldset {
+    flex: 1;
+    padding: 5px 20px 10px 25px;
+}
+
+.fieldset-container fieldset legend {
+    font-size: 16px;
+    color: darkgray;
+}
+
+.fieldset-container fieldset label input {
+    float: left;
+    height: 43px;
+    margin-right: 7px;
+}
+
+.fieldset-container fieldset:first-child {
+    margin-right: 15px;
+}
+
+.download-container .size-container {
+    display: table;
+}
+
+.download-container .size-container > div {
+    display: table-cell;
+}
+
+.download-container .size-container .input-size-label {
+    white-space: nowrap;
+}
+
+.download-container .size-container .input-size {
+    text-align: center;
+    width: 85px;
+}
+
+.download-container .size-container .input-size span {
+    font-size: 12px;
+    color: darkgray;
+}
+
+.download-container .size-container .input-size-label input {
+    position: absolute;
+    left: 50px;
+}
+
+.download-container .size-container .input-size-label {
+    padding-left: 25px;
 }

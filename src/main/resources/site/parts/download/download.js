@@ -17,6 +17,9 @@ exports.get = function (req) {
         key: image.data.binary
     });
 
+    var imageWidth = binary.x.media.imageInfo.imageWidth.toFixed(0);
+    var imageHeight = binary.x.media.imageInfo.imageHeight.toFixed(0);
+
     var imageUrl = portalLib.imageUrl({
         id: image.data.binary,
         scale: "block(1,1)"
@@ -34,7 +37,10 @@ exports.get = function (req) {
         imageUrl: imageUrl,
         binaryImageId: image.data.binary,
         infoPageUrl: infoPageUrl,
-        downloadImageServiceUrl: downloadImageServiceUrl
+        downloadImageServiceUrl: downloadImageServiceUrl,
+        imageWidth: imageWidth,
+        imageHeight: imageHeight,
+        contentType: binary.x.media.imageInfo.contentType
     });
 
     return {

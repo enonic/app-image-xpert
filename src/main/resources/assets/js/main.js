@@ -7,3 +7,6 @@ function previewImage(event) {
     previewEl.style.display = "block";
     previewEl.src = URL.createObjectURL(event.target.files[0]);
 }
+function onImageLoad(image) {
+    image.style.height = "";
+}

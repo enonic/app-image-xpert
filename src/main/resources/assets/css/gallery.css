@@ -173,3 +173,39 @@
     font-size: 18px;
     font-family: "Helvetica Neue",helvetica,arial,sans-serif;
 }
+
+.upload-success {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.8);
+    top: 0;
+    left: 0;
+    position: fixed;
+    z-index: 100;
+    display: none;
+    opacity: 1;
+}
+
+.upload-success p {
+    font-size: 18px;
+    font-family: "Helvetica Neue",helvetica,arial,sans-serif;
+    top: 50%;
+    left: 50%;
+    position: absolute;
+    margin-left: -140px;
+    color: black;
+    font-size: 24px;
+}
+
+.upload-success.visible {
+    display: block;
+    -webkit-animation: opacity 3s;
+    animation-fill-mode: forwards;
+    pointer-events: none;
+}
+
+@-webkit-keyframes opacity {
+    0%  { opacity: 1; }
+    50%  { opacity: 1; }
+    100% { opacity: 0; }
+}

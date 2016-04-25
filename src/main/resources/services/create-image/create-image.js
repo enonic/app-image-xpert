@@ -7,7 +7,7 @@ exports.post = function (req) {
     var redirectUrl = imageXpertLib.generateGalleryPageUrl({categoryId: image && image.data && image.data.category});
 
     return {
-        redirect: redirectUrl
+        redirect: redirectUrl + "&upload=true"
     };
 };
 

@@ -7,6 +7,14 @@
     <link rel="stylesheet" data-th-href="${portal.assetUrl({'_path=css/gallery.css'})}" type="text/css"/>
     <link rel="stylesheet" data-th-href="${portal.assetUrl({'_path=css/upload.css'})}" type="text/css"/>
     <script type="text/javascript" data-th-src="${portal.assetUrl({'_path=js/main.js'})}"></script>
+    <script type="text/javascript">
+        window.onload= function() {
+            if (document.location.search.indexOf("upload=true") > -1) {
+                var uploadSuccessEl = document.querySelector(".upload-success");
+                uploadSuccessEl.classList.add("visible");
+            }
+        }
+    </script>
 </head>
 
 <body data-portal-component-type="page" data-th-class="${editable}? 'edit'">

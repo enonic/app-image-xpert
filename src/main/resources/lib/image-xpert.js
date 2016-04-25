@@ -139,13 +139,13 @@ exports.generateImageFolderPath = function () {
 
 exports.generateCurrentImageFolderPath = function () {
     var imageFolderPath = exports.generateImageFolderPath();
-
-    var currentDate = new Date();
-    var folder = createOrGetFolder(imageFolderPath, currentDate.getFullYear());
-    var folder = createOrGetFolder(folder._path, (currentDate.getMonth() + 1).toFixed(0));
-    var folder = createOrGetFolder(folder._path, currentDate.getDate());
+    var folder = createOrGetFolder(imageFolderPath, getIsoCurrentDate());
     return folder._path;
 };
+
+function getIsoCurrentDate() {
+    return new Date().toISOString().substring(0, 10);
+}
 
 function createOrGetFolder(parentPath, displayName) {
     var folder = contentLib.get({

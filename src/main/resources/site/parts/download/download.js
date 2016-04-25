@@ -4,11 +4,9 @@ var imageXpertLib = require('/lib/image-xpert');
 var contentLib = require('/lib/xp/content');
 
 exports.get = function (req) {
-    var imageId = req.params.image;
-
     var image;
-    if (imageId) {
-        image = imageXpertLib.getContentByKey(imageId);
+    if (req.params.image) {
+        image = imageXpertLib.getContentByKey(req.params.image);
     } else {
         image = imageXpertLib.getRandomImage();
     }

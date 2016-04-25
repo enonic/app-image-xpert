@@ -24,9 +24,6 @@ exports.get = function (req) {
         return "<div></div>";
     }
 
-
-    log.info("binary:%s", JSON.stringify(binary, null, 2));
-
     var artist;
     if (binary.data.artist) {
         artist = binary.data.artist.toString();
@@ -42,7 +39,7 @@ exports.get = function (req) {
     var body = mustacheLib.render(view, {
         displayName: image.displayName,
         createdDate: createdDate.toDateString(),
-        artist: artist,
+        artist: artist || "N/A",
         lat: geoLocation ? geoLocation.split(",")[0] : "",
         lng: geoLocation ? geoLocation.split(",")[1] : "",
         geoLocation: geoLocation,

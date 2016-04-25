@@ -21,9 +21,8 @@ exports.get = function (req) {
     var imageWidth = binary.x.media.imageInfo.imageWidth.toFixed(0);
     var imageHeight = binary.x.media.imageInfo.imageHeight.toFixed(0);
 
-    var imageUrl = portalLib.imageUrl({
-        id: image.data.binary,
-        scale: "block(1,1)"
+    var imageUrl = portalLib.attachmentUrl({
+        id: image.data.binary
     });
 
     var infoPageUrl = imageXpertLib.generateInfoPageUrl({

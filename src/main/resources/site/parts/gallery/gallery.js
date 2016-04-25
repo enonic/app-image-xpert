@@ -59,10 +59,9 @@ exports.get = function (req) {
         });
 
     var homePageUrl = imageXpertLib.generateHomeUrl();
-    var uploadPageUrl = imageXpertLib.generateUploadPageUrl();
     var imageCount = (images.length == 0 ? "no" : images.length) + " result";
     if (images.length !== 1) {
-        imageCount+="s";
+        imageCount += "s";
     }
 
     var view = resolve('gallery.html');
@@ -71,7 +70,6 @@ exports.get = function (req) {
         images: images,
         imageCount: imageCount,
         homePageUrl: homePageUrl,
-        uploadPageUrl: uploadPageUrl,
         assetUrl: portalLib.assetUrl(''),
         searchQuery: req.params.search || undefined,
         categoryId: req.params.category

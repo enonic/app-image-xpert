@@ -26,13 +26,11 @@ exports.get = function (req) {
             });
 
     var galleryPageUrl = imageXpertLib.generateGalleryPageUrl();
-    var uploadPageUrl = imageXpertLib.generateUploadPageUrl();
 
     var view = resolve('home.html');
     var body = mustacheLib.render(view, {
         categories: categories,
         galleryPageUrl: galleryPageUrl,
-        uploadPageUrl: uploadPageUrl,
         assetUrl: portalLib.assetUrl('')
     });
 

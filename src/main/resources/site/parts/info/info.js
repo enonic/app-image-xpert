@@ -4,9 +4,16 @@ var mustacheLib = require('/lib/xp/mustache');
 var imageXpertLib = require('/lib/image-xpert');
 
 exports.get = function (req) {
-    var imageId = req.params.image;
+    var image;
+    if (req.params.image) {
+        image = imageXpertLib.getContentByKey(req.params.image);
+    } else {
+        image = portalLib.getContent();
+    }
+    if (!image || image.type != app.name + ":image") {
+        image = imageXpertLib.getRandomImage();
+    }
 
-    var image = imageXpertLib.getContentByKey(imageId);
     var createdDate = new Date(image.createdTime);
 
     var binary = contentLib.get({
@@ -16,9 +23,6 @@ exports.get = function (req) {
     if (!binary) {
         return "<div></div>";
     }
-
-
-    log.info("binary:%s", JSON.stringify(binary, null, 2));
 
     var artist;
     if (binary.data.artist) {
@@ -35,14 +39,16 @@ exports.get = function (req) {
     var body = mustacheLib.render(view, {
         displayName: image.displayName,
         createdDate: createdDate.toDateString(),
-        artist: artist,
+        artist: artist || "N/A",
         lat: geoLocation ? geoLocation.split(",")[0] : "",
         lng: geoLocation ? geoLocation.split(",")[1] : "",
         geoLocation: geoLocation,
         imageWidth: imageWidth,
         imageHeight: imageHeight,
         contentType: binary.x.media.imageInfo.contentType,
-        takenDate: binary.x.media.cameraInfo && binary.x.media.cameraInfo.date ? new Date(binary.x.media.cameraInfo.date).toDateString() : "N/A",
+        takenDate: binary.x.media.cameraInfo && binary.x.media.cameraInfo.date
+            ? new Date(binary.x.media.cameraInfo.date).toDateString()
+            : "N/A",
         cameraMake: binary.x.media.cameraInfo && binary.x.media.cameraInfo.make ? binary.x.media.cameraInfo.make : "N/A",
         cameraModel: binary.x.media.cameraInfo && binary.x.media.cameraInfo.model ? binary.x.media.cameraInfo.model : "N/A",
         assetUrl: portalLib.assetUrl('')

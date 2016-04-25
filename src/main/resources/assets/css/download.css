@@ -1,13 +1,9 @@
-.download-container.hidden{
+.download-container {
     opacity: 0;
     pointer-events: none;
-}
-
-.download-container{
     z-index: 30;
     color: white;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    opacity: 1;
     position: absolute;
     height: 350px;
     width: 600px;
@@ -22,6 +18,12 @@
     -moz-box-shadow: 5px 5px 25px 0px rgba(0,0,0,0.75);
     box-shadow: 5px 5px 25px 0px rgba(0,0,0,0.75);
     border-radius: 5px;
+    -webkit-transition: opacity 0.5s ease-in-out, -webkit-transform 0.5s ease-in-out, visibility 0.5s linear;
+    transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out, visibility 0.5s linear;
+}
+
+#mainRegion.download .download-container{
+    opacity: 1;
 }
 
 .download-container h2 {

@@ -1,7 +1,9 @@
-function toggleLayers() {
-    document.querySelector(".main-container").classList.toggle("hidden");
-    document.querySelector(".image-info-container").classList.toggle("hidden");
-    document.querySelector(".download-container").classList.toggle("hidden");
+function toggleClass(cls) {
+    var mainRegion = document.querySelector("#mainRegion");
+    mainRegion.classList.remove("download", "info");
+    if (cls) {
+        mainRegion.classList.add(cls);
+    }
 }
 function debounce(func, wait) {
     var timeout;
@@ -40,7 +42,7 @@ function requestImage(serviceUrl) {
     var form = document.querySelector(".download-form");
     var request = new XMLHttpRequest();
 
-    toggleLayers();
+    toggleClass();
 
     request.onload = function () {
         if (request.responseText !== "") {

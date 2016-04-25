@@ -40,7 +40,8 @@ exports.get = function (req) {
         downloadImageServiceUrl: downloadImageServiceUrl,
         imageWidth: imageWidth,
         imageHeight: imageHeight,
-        contentType: binary.x.media.imageInfo.contentType
+        contentType: binary.x.media.imageInfo.contentType,
+        assetUrl: portalLib.assetUrl('')
     });
 
     return {

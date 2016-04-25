@@ -1,3 +1,4 @@
+
 <div class="main-container">
     <img class="fake-image" src="" onload="syncImage()"></img>
     <div class="image-placeholder" data-src="{{imageUrl}}"></div>
@@ -7,7 +8,7 @@
 <div class="download-container hidden">
     <h2>Download image</h2>
 
-    <form action="{{downloadImageServiceUrl}}" method="post">
+    <form class="download-form" action="" method="post" onsubmit="return requestImage('{{downloadImageServiceUrl}}', this);">
         <div class="fieldset-container">
             <fieldset>
                 <legend>Specify size</legend>
@@ -58,5 +59,5 @@
             <button type="submit" name="download" class="download-button">Download</button>
             <button type="reset" name="cancel" onclick="toggleLayers();" class="download-cancel">Cancel</button>
         </div>
-    </form>
+
 </div>

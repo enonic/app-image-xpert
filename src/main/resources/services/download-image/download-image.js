@@ -20,7 +20,10 @@ exports.post = function (req) {
         scale: scale,
         format: req.params.format == "custom" ? req.params.formatname : undefined
     });
+
     return {
-        redirect: imageUrl
-    };
+        contentType: 'text/plain',
+        body: imageUrl
+    }
+
 };

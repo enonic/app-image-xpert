@@ -6,45 +6,10 @@
     <title>Image XPert / Download</title>
     <link rel="stylesheet" data-th-href="${portal.assetUrl({'_path=css/image.css'})}" type="text/css"/>
     <link rel="stylesheet" data-th-href="${portal.assetUrl({'_path=css/download.css'})}" type="text/css"/>
+    <script type="text/javascript" data-th-src="${portal.assetUrl({'_path=js/download.js'})}"></script>
 
     <script type="text/javascript">
         var imgPlaceholder;
-        function toggleLayers() {
-            document.querySelector(".main-container").classList.toggle("hidden");
-            document.querySelector(".image-info-container").classList.toggle("hidden");
-            document.querySelector(".download-container").classList.toggle("hidden");
-        }
-        function debounce(func, wait) {
-            var timeout;
-            return function() {
-                var context = this, args = arguments;
-                var later = function() {
-                    timeout = null;
-                    func.apply(context, args);
-                };
-                clearTimeout(timeout);
-                timeout = setTimeout(later, wait);
-            };
-        }
-
-        function syncImage() {
-            if (imgPlaceholder) {
-                var img = document.querySelector(".fake-image");
-                imgPlaceholder.style["background-image"] = "url('" + img.getAttribute("src") + "')";
-            }
-        }
-
-        function syncImageSize() {
-            if (imgPlaceholder) {
-                imgPlaceholder.style["width"] = window.innerWidth + "px";
-                imgPlaceholder.style["height"] = window.innerHeight + "px";
-            }
-        }
-
-        function loadImage() {
-            syncImageSize();
-            scaleImage();
-        }
 
         var scaleImage = debounce(function() {
             if (imgPlaceholder) {

@@ -5,7 +5,7 @@
         <div class="upload-file">
             <div>
                 <label>Select a file</label><br>
-                <input name="file" type="file" accept="image/*" onchange="previewImage(event)">
+                <input name="file" type="file" class="file-name" accept="image/*" onchange="previewImage(event);">
             </div>
             <div class="upload-preview">
                 <img class="image-preview" src="">
@@ -17,7 +17,7 @@
                 <div class="category-container">
                     {{#categories}}
                     <div class="category-input">
-                        <input type="radio" name="category" value="{{id}}" {{checked}}>
+                        <input type="radio" name="category" class="category-radio" value="{{id}}" {{checked}} onchange="validateForm();">
                         <label>{{displayName}}</label>
                     </div>
                     {{/categories}}
@@ -38,7 +38,7 @@
         </div>
 
         <div class="button-toolbar">
-            <button type="submit" name="upload" class="upload-button">Upload</button>
+            <button type="submit" name="upload" class="upload-button" disabled>Upload</button>
             <button type="reset" class="upload-cancel" onclick="toggleLayers();">Cancel</button>
         </div>
     </form>

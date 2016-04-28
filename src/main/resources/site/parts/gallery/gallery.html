@@ -16,19 +16,18 @@
                 {{/categories}}
             </ul>
 
-            <ul class="search-and-upload-container">
-                <li class="search-container">
-                    <form>
-                        <input name="search" class="search-input" type="text" placeholder="Search for photos">
-                        <a class="search-button"><input type="image" src="{{assetUrl}}/img/search-icon.svg"></a>
-                    </form>
-                </li>
+            <div class="search-container">
+                <form>
+                    <input name="search" class="search-input" type="text" placeholder="Search for photos">
+                    <a class="search-button"><input type="image" src="{{assetUrl}}/img/search-icon.svg"></a>
+                </form>
+            </div>
 
-                <li class="upload-box">
-                   <img src="{{assetUrl}}/img/upload_image.svg" title="Upload image" onclick="toggleLayers();">
-                </li>
+            <div class="upload-box">
+               <img src="{{assetUrl}}/img/upload_image.svg" title="Upload image" onclick="toggleLayers();">
+            </div>
 
-            </ul>
+
 
         </div>
     </div>

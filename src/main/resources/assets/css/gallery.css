@@ -26,21 +26,30 @@
 
 .gallery-header-container {
     position: relative;
-    min-width: 800px;
     max-width: calc(100% - 20%);
-    margin-left: auto;
-    margin-right: auto;
-    padding-left: 100px;
-    padding-right: 100px;
     display: table;
     height: 100%;
+    margin: 0 10px;
+}
+
+@media only screen and (min-width: 768px) {
+    .gallery-header-container {
+        min-width: 768px;
+        margin-left: auto;
+        margin-right: auto;
+    }
 }
 
 .logo-container {
     display: table-cell;
     height: 100%;
-    min-width: 200px;
     vertical-align: middle;
+}
+
+@media only screen and (min-width: 768px) {
+    .logo-container {
+        min-width: 200px;
+    }
 }
 
 .logo-container a {
@@ -54,6 +63,12 @@
     font-size: 24px;
 }
 
+@media only screen and (max-width: 768px) {
+    .logo-container a {
+        font-size: 18px;
+    }
+}
+
 .select-category-container {
     float: left;
     padding: 0;
@@ -61,6 +76,13 @@
     display: flex;
     vertical-align: middle;
 }
+
+@media only screen and (max-width: 768px) {
+    .select-category-container {
+        display: none;
+    }
+}
+
 
 .select-category-container li {
     float: left;
@@ -86,9 +108,23 @@
     min-width: 285px;
 }
 
+@media only screen and (max-width: 768px) {
+    .search-and-upload-container {
+        min-width: 220px;
+        padding-left: 25px;
+        vertical-align: top;
+    }
+}
+
 .search-container {
     float: left;
     width: 230px;
+}
+
+@media only screen and (max-width: 768px) {
+    .search-container {
+        width: 140px;
+    }
 }
 
 .search-container form {
@@ -101,13 +137,18 @@
     max-width: 145px;
     width: 100%;
     padding: 0.4em;
-    padding-right: 2.5em;
     font-size: 14px;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-weight: 300;
     color: #333333;
     border: none;
     outline: none;
+}
+
+@media only screen and (min-width: 768px) {
+    .search-container .search-input {
+        padding-right: 2.5em;
+    }
 }
 
 .search-container .search-button {
@@ -123,6 +164,12 @@
 .upload-container {
     float: right;
     height: 48px;
+}
+
+@media only screen and (max-width: 768px) {
+    .upload-box {
+        display: none;
+    }
 }
 
 .upload-box img {
@@ -187,7 +234,6 @@
 }
 
 .upload-success p {
-    font-size: 18px;
     font-family: "Helvetica Neue",helvetica,arial,sans-serif;
     top: 50%;
     left: 50%;

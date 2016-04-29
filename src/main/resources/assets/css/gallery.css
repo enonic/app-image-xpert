@@ -164,6 +164,13 @@
     right: 10px;
 }
 
+
+@media only screen and (max-width: 768px) {
+    .search-container .search-button {
+        top: 7px;
+    }
+}
+
 .search-container .search-button input {
     width: 18px;
 }
@@ -184,7 +191,7 @@
         display: none;
     }
     .search-container {
-        right: 30px;
+        right: 40px;
     }
 }
 
@@ -208,6 +215,12 @@
     padding: 0 50px;
     margin-left: auto;
     margin-right: auto;
+}
+
+@media only screen and (max-width: 768px) {
+    .gallery-body {
+        padding: 0 15px;
+    }
 }
 
 .gallery-image-figure {

@@ -15,7 +15,9 @@
         <div class="category-image-row">
             {{/newRow}}
             <a href="{{linkUrl}}">
-                <div class="category-image {{displayName}}"><img src="{{imageUrl}}"></div>
+                <div class="category-image {{displayName}}"><img src="{{imageUrl}}">
+                    <p class="category-name">{{displayName}}</p>
+                </div>
             </a>
             {{/categories}}
         </div>

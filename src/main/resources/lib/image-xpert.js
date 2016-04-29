@@ -133,13 +133,8 @@ exports.generateHomeUrl = function (params) {
     });
 };
 
-exports.generateImageFolderPath = function () {
-    return portalLib.getSite()._path + "/images";
-};
-
-exports.generateCurrentImageFolderPath = function () {
-    var imageFolderPath = exports.generateImageFolderPath();
-    var folder = createOrGetFolder(imageFolderPath, getIsoCurrentDate());
+exports.generateCurrentImageFolderPath = function (categoryPath) {
+    var folder = createOrGetFolder(categoryPath, getIsoCurrentDate());
     return folder._path;
 };
 

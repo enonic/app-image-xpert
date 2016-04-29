@@ -25,7 +25,7 @@ function createImage() {
 
         //Creates the Image content
         var content = contentLib.create({
-            parentPath: imageXpertLib.generateCurrentImageFolderPath(),
+            parentPath: imageXpertLib.generateCurrentImageFolderPath(category._path),
             displayName: part.fileName,
             contentType: app.name + ":image",
             branch: "draft",

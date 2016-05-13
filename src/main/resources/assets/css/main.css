@@ -5,6 +5,7 @@ body {
     -moz-animation: animate-opacity 2s;
     -o-animation: animate-opacity 2s;
     animation: animate-opacity 2s;
+    overflow-x: hidden;
 }
 
 .background-image {
@@ -40,6 +41,7 @@ body {
 
 .main-container{
     width: 100%;
+    height: 100%;
     opacity: 1;
     position: absolute;
     background-color: rgba(0, 0, 0, 0.5);
@@ -48,23 +50,34 @@ body {
     transition: opacity 300ms ease-in;
 }
 
-@media only screen and (min-width: 970px) {
+@media only screen and (min-width: 937px) {
     .main-container {
-        height: 700px;
-        width: 970px;
-        padding: 20px;
-        left: 50%;
+        width: 80%;
+        left: 8%;
+        padding: 0 20px;
+        height: auto;
         top: 50%;
-        margin-left: -504px;
         margin-top: -370px;
     }
 }
 
-
+@media only screen and (min-width: 1250px) {
+    .main-container {
+        width: 70%;
+        left: 50%;
+        margin-left: -36%;
+    }
+}
 @media only screen and (min-width: 768px) {
     .search {
         max-width: 560px;
         margin: 25px auto 0 auto;
+    }
+}
+
+@media only screen and (min-width: 937px) {
+    .browse-album {
+        margin-top: 40px;
     }
 }
 
@@ -130,76 +143,47 @@ body {
     }
 }
 
-.browse {
-    display: flex;
-    flex-direction: column;
+.browse-album {
+    text-align: center;
 }
 
-.browse h1 {
+.browse {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-flow: row wrap;
+    flex-flow: row wrap;
+    justify-content: center;
+}
+
+
+@media only screen and (min-width: 940px) {
+    .browse {
+        justify-content: flex-start;
+    }
+}
+
+.browse-album h1 {
     color: lavender;
     font-size: 22px;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    margin-bottom: 15px;
+    -webkit-margin-after: 1.4em;
 }
 
-@media only screen and (min-width: 970px) {
-    .browse {
-        margin-top: 30px;
-    }
-    .browse h1 {
-        margin-bottom: 0;
-    }
-}
-
-.category-image-row {
-    display: flex;
-    flex-direction: row;
-    margin: 30px 0;
-    padding: 0 35px;
-}
-
-@media only screen and (max-width: 970px) {
-    .category-image-row {
-        flex-direction: column;
-        margin: 0;
-    }
-    .category-name {
-        text-transform: uppercase;
-        color: white;
-        font-size: 22px;
-        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-        letter-spacing: 3px;
-        margin-top: 15px;
-    }
-}
-
-@media only screen and (min-width: 971px) {
-    .category-name {
-        display: none;
-    }
-}
-
-.category-image-row a {
-    text-decoration: none;
+.album-name {
+    text-transform: capitalize;
+    color: white;
+    font-size: 22px;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    margin-top: 10px;
 }
 
 .category-image {
-    width: 220px;
-    height: 147px;
-    margin: 0 40px;
-}
-
-@media only screen and (max-width: 970px) {
-    .category-image {
-        margin: 0 auto 30px auto;
-        height: 200px;
-    }
-}
-
-.category-image img {
-    width: 220px;
-    cursor: pointer;
-    box-shadow: 5px 2px 25px rgba(0, 0, 0, 0.8);
+    width: 250px;
+    text-align: center;
+    height: 275px;
 }
 
 .category-image:hover {
@@ -210,80 +194,6 @@ body {
     transition: opacity 500ms;
 }
 
-@media only screen and (max-width: 970px) {
-    .category-image:after {
-        display: none;
-    }
-}
-
-.category-image:after {
-    color: white;
-    font-size: 24px;
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    position: relative;
-    top: -85px;
-    cursor: pointer;
-    pointer-events: none;
-    opacity: 0;
-    content: "";
-}
-
-.category-image:hover:after {
-    opacity: 1;
-    -webkit-transition: opacity 500ms;
-    -moz-transition: opacity 500ms;
-    -o-transition: opacity 500ms;
-    transition: opacity 500ms;
-}
-
-.category-image.architecture:after {
-    content: "ARCHITECTURE";
-}
-
-.category-image.technology:after {
-    content: "TECHNOLOGY";
-}
-
-.category-image.food:after {
-    content: "FOOD";
-}
-
-.category-image.people:after {
-    content: "PEOPLE";
-}
-
-.category-image.nature:after {
-    content: "NATURE";
-}
-
-.category-image.animals:after {
-    content: "ANIMALS";
-}
-
-.upload {
-    margin: auto;
-    margin-top: 30px;
-    width: 70px;
-}
-
-@media only screen and (max-width: 768px) {
-    .upload {
-        display: none;
-    }
-}
-
-.upload img {
-    height: 70px;
-    width: 70px;
-}
-
-.upload:hover {
-    cursor: pointer;
-    opacity: 0.7;
-}
-
-.upload:after {
-    content: "UPLOAD";
-    color: white;
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+.category-image img:first-child ~ img {
+    display: none;
 }

@@ -24,11 +24,12 @@ exports.getImages = function (params) {
 
     //Retrieves the binary images corresponding to the search query
     var binaryImagesIds;
+    var count = params.count || 10;
     if (params && params.searchQuery) {
         var binaryImageQuery = "ngram('_allText', '" + params.searchQuery + "', 'OR')";
         var binaryImagesIds = contentLib.query({
             start: 0,
-            count: 10,
+            count: count,
             query: binaryImageQuery,
             contentTypes: ["media:image"]
         }).
@@ -71,7 +72,7 @@ exports.getImages = function (params) {
     //Returns the ten last created images
     return contentLib.query({
         start: 0,
-        count: 10,
+        count: count,
         query: imageQuery,
         contentTypes: [app.name + ":image"],
         sort: "createdTime DESC"

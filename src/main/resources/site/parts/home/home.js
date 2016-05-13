@@ -3,25 +3,38 @@ var mustacheLib = require('/lib/xp/mustache');
 var imageXpertLib = require('/lib/image-xpert');
 
 exports.get = function (req) {
-    var count = 0,
-        categories = imageXpertLib.getCategories().
+    var categories = imageXpertLib.getCategories().
             filter(function (category) {
                 return category.data.binaryImage;
             }).
             map(function (category) {
-                var imageUrl = portalLib.imageUrl({
+                /*var imageUrl = portalLib.imageUrl({
                     id: category.data.binaryImage,
-                    scale: "block(220,147)"
-                });
+                    scale: "square(220)"
+                });*/
                 var linkUrl = imageXpertLib.generateGalleryPageUrl({
                     categoryId: category._id
                 });
-                count++;
+                var getImagesParams = {
+                    categoryId: category._id,
+                    count: 3
+                };
                 return {
                     displayName: category.displayName.toLowerCase(),
-                    imageUrl: imageUrl,
-                    linkUrl: linkUrl,
-                    newRow: (count == 4)
+                    images: imageXpertLib.
+                        getImages(getImagesParams).
+                        map(function (image) {
+                            return {
+                                imageUrl: portalLib.imageUrl({
+                                    id: image.data.binary,
+                                    scale: "square(200)"
+                                })
+                            }
+                        }).
+                        filter(function (image) {
+                            return !!image
+                        }),
+                    linkUrl: linkUrl
                 };
             });
 

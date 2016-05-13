@@ -5,24 +5,23 @@
             <a class="search-button"><input type="image" src="{{assetUrl}}/img/search-icon.svg"></a>
         </form>
     </div>
-    <div class="browse">
-        <h1>or browse by category</h1>
+    <div class="browse-album">
+        <h1>or browse albums</h1>
+        <div class="browse">
 
-        <div class="category-image-row">
-            {{#categories}}
-            {{#newRow}}
-        </div>
-        <div class="category-image-row">
-            {{/newRow}}
-            <a href="{{linkUrl}}">
-                <div class="category-image {{displayName}}"><img src="{{imageUrl}}">
-                    <p class="category-name">{{displayName}}</p>
+        {{#categories}}
+            <div class="category-image">
+                <a href="{{linkUrl}}">
+                <div class="image-stack">
+                    {{#images}}
+                    <img src="{{imageUrl}}">
+                    {{/images}}
                 </div>
-            </a>
-            {{/categories}}
+                </a>
+                <div class="album-name">{{displayName}}</div>
+            </div>
+        {{/categories}}
+
         </div>
-    </div>
-    <div class="upload">
-        <img src="{{assetUrl}}/img/upload_image.svg" onclick="toggleLayers();"><br>
     </div>
 </div>

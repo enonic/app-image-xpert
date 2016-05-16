@@ -12,11 +12,12 @@
         {{#categories}}
             <div class="category-image">
                 <a href="{{linkUrl}}">
-                <div class="image-stack">
-                    {{#images}}
-                    <img src="{{imageUrl}}">
-                    {{/images}}
-                </div>
+                {{#imageUrl}}
+                <div class="image-stack {{stackType}}"><img src="{{imageUrl}}"></div>
+                {{/imageUrl}}
+                {{^imageUrl}}
+                <div class="empty-album"></div>
+                {{/imageUrl}}
                 </a>
                 <div class="album-name">{{displayName}}</div>
             </div>

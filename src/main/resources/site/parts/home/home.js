@@ -4,36 +4,24 @@ var imageXpertLib = require('/lib/image-xpert');
 
 exports.get = function (req) {
     var categories = imageXpertLib.getCategories().
-            filter(function (category) {
-                return category.data.binaryImage;
-            }).
             map(function (category) {
-                /*var imageUrl = portalLib.imageUrl({
-                    id: category.data.binaryImage,
-                    scale: "square(220)"
-                });*/
+                var imageUrl;
                 var linkUrl = imageXpertLib.generateGalleryPageUrl({
                     categoryId: category._id
                 });
-                var getImagesParams = {
-                    categoryId: category._id,
-                    count: 3
-                };
+                var categoryImage = imageXpertLib.getCategoryImage(category._id);
+
+                if (categoryImage) {
+                    imageUrl = portalLib.imageUrl({
+                        id: categoryImage.data.binary,
+                        scale: "square(150)"
+                    })
+                }
+
                 return {
                     displayName: category.displayName.toLowerCase(),
-                    images: imageXpertLib.
-                        getImages(getImagesParams).
-                        map(function (image) {
-                            return {
-                                imageUrl: portalLib.imageUrl({
-                                    id: image.data.binary,
-                                    scale: "square(200)"
-                                })
-                            }
-                        }).
-                        filter(function (image) {
-                            return !!image
-                        }),
+                    stackType: "stack-type-" + parseInt((Math.random() * 5) + 1),
+                    imageUrl: imageUrl,
                     linkUrl: linkUrl
                 };
             });

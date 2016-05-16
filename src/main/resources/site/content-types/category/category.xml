@@ -3,11 +3,5 @@
   <display-name>Category</display-name>
   <super-type>base:structured</super-type>
   <form>
-    <input name="binaryImage" type="ImageSelector">
-      <label>Image</label>
-      <indexed>true</indexed>
-      <occurrences minimum="1" maximum="1"/>
-      <config/>
-    </input>
   </form>
 </content-type>

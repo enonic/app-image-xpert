@@ -94,6 +94,15 @@ exports.getRandomImage = function () {
     }).hits[0];
 };
 
+exports.getCategoryImage = function (categoryId) {
+    return contentLib.query({
+        start: 0,
+        count: 1,
+        contentTypes: [app.name + ":image"],
+        query: "data.category = '" + categoryId + "'",
+        sort: "createdTime DESC"
+    }).hits[0];
+};
 /******************************************
  * URL and path generation functions
  *****************************************/

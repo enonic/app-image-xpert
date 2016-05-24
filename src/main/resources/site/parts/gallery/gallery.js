@@ -18,7 +18,7 @@ exports.get = function (req) {
             };
         });
 
-    //Retrieves the images for the current category and search query
+    //Retrieves the images for the current album or search query
     var getImagesParams = {
         albumId: req.params.album,
         searchQuery: req.params.search
@@ -69,7 +69,7 @@ exports.get = function (req) {
         homePageUrl: homePageUrl,
         assetUrl: portalLib.assetUrl(''),
         searchQuery: req.params.search || undefined,
-        categoryId: req.params.album
+        albumId: req.params.album
     });
 
     return {

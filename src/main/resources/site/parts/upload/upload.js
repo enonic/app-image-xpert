@@ -9,7 +9,7 @@ exports.get = function (req) {
             return {
                 id: album._id,
                 displayName: album.displayName,
-                checked: (req.params.category == album._id) ? "checked" : ""
+                checked: (req.params.album == album._id) ? "checked" : ""
             };
         });
 

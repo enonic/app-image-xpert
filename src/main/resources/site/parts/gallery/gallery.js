@@ -6,18 +6,15 @@ var imageXpertLib = require('/lib/image-xpert');
 exports.get = function (req) {
     //Retrieves the albums
     var albums = imageXpertLib.getAlbums().
-        filter(function (category) {
-            return category.data.binaryImage;
-        }).
-        map(function (category) {
+        map(function (album) {
             var linkUrl = imageXpertLib.generateGalleryPageUrl({
-                categoryId: category._id
+                categoryId: album._id
             });
             return {
-                displayName: category.displayName,
+                displayName: album.displayName,
                 linkUrl: linkUrl,
-                id: category._id,
-                checked: (req.params.category == category._id) ? "checked" : ""
+                id: album._id,
+                checked: (req.params.category == album._id) ? "checked" : ""
             };
         });
 

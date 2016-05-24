@@ -65,7 +65,7 @@ exports.getImages = function (params) {
     var imageQuery;
     if (params && params.categoryId) {
         // Searches by category
-        imageQuery = "data.category = '" + params.categoryId + "'";
+        imageQuery = "data.album = '" + params.categoryId + "'";
         imageSort = "createdTime DESC";
     }
 
@@ -99,7 +99,7 @@ exports.getCategoryImage = function (categoryId) {
         start: 0,
         count: 1,
         contentTypes: [app.name + ":image"],
-        query: "data.category = '" + categoryId + "'",
+        query: "data.album = '" + categoryId + "'",
         sort: "createdTime DESC"
     }).hits[0];
 };

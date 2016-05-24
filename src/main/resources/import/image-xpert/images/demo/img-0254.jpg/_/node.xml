@@ -46,7 +46,7 @@
         <string name="creator">user:system:su</string>
         <dateTime name="createdTime">2016-04-18T19:48:22.800Z</dateTime>
         <property-set name="data">
-            <reference name="category">857b31d1-5485-47db-a4c8-e6380433a695</reference>
+            <reference name="album">857b31d1-5485-47db-a4c8-e6380433a695</reference>
             <reference name="binary">d643eaa7-ebba-4238-85a3-b08444104a76</reference>
         </property-set>
     </data>

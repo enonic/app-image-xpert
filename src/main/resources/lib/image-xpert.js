@@ -94,12 +94,12 @@ exports.getRandomImage = function () {
     }).hits[0];
 };
 
-exports.getCategoryImage = function (categoryId) {
+exports.getAlbumImage = function (albumId) {
     return contentLib.query({
         start: 0,
         count: 1,
         contentTypes: [app.name + ":image"],
-        query: "data.album = '" + categoryId + "'",
+        query: "data.album = '" + albumId + "'",
         sort: "createdTime DESC"
     }).hits[0];
 };

@@ -6,17 +6,17 @@ exports.get = function (req) {
     var albums = imageXpertLib.getAlbums().
         map(function (album) {
             var imageUrl;
-            var linkUrl = imageXpertLib.generateGalleryPageUrl({
-                categoryId: album._id
-            });
-            var categoryImage = imageXpertLib.getCategoryImage(album._id);
-
-            if (categoryImage) {
+            var albumImage = imageXpertLib.getAlbumImage(album._id);
+            if (albumImage) {
                 imageUrl = portalLib.imageUrl({
-                    id: categoryImage.data.binary,
+                    id: albumImage.data.binary,
                     scale: "square(150)"
                 })
             }
+
+            var linkUrl = imageXpertLib.generateGalleryPageUrl({
+                categoryId: album._id
+            });
 
             return {
                 displayName: album.displayName.toLowerCase(),

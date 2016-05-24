@@ -3,16 +3,27 @@ var contentLib = require('/lib/xp/content');
 var imageXpertLib = require('/lib/image-xpert');
 
 exports.post = function (req) {
-    var image = createImage();
-    var redirectUrl = imageXpertLib.generateGalleryPageUrl({albumId: image && image.data && image.data.album});
+    var createdImages = createImages();
+    var redirectUrl = imageXpertLib.generateGalleryPageUrl({
+        albumId: createdImages.length > 0 ? createdImages[0].data.album : undefined
+    });
 
     return {
         redirect: redirectUrl + "&upload=true"
     };
 };
 
-function createImage() {
-    var part = portalLib.getMultipartItem("file");
+function createImages() {
+    var createdImages = [];
+    var nbImages = portalLib.getMultipartForm().file.length;
+    for (var index = 0; index < nbImages; index++) {
+        createdImages.push(createImage(index));
+    }
+    return createdImages;
+}
+
+function createImage(fileIndex) {
+    var part = portalLib.getMultipartItem("file", fileIndex);
     if (part.fileName && part.size > 0) {
 
         //Retrieves the album
@@ -42,7 +53,7 @@ function createImage() {
             branch: "draft",
             focalX: 0.5,
             focalY: 0.5,
-            data: portalLib.getMultipartStream("file")
+            data: portalLib.getMultipartStream("file", fileIndex)
         });
 
         //Updates the Image media

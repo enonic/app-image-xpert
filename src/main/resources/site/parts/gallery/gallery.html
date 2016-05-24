@@ -3,12 +3,12 @@
         <div class="gallery-header-container">
             <div class="logo-container"><a href="{{homePageUrl}}" class="main-logo">Image XPert</a></div>
 
-            <ul class="select-category-container">
+            <ul class="select-album-container">
                 {{#albums}}
                 <li>
                     <a href="{{linkUrl}}">
-                        <input type="radio" name="category" value="{{id}}" {{checked}}>
-                        <label class="category-radio">
+                        <input type="radio" name="album" value="{{id}}" {{checked}}>
+                        <label class="album-radio">
                             <em class="icon icon-check"></em> {{displayName}}
                         </label>
                     </a>

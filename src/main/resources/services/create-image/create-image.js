@@ -15,8 +15,8 @@ function createImage() {
     var part = portalLib.getMultipartItem("file");
     if (part.fileName && part.size > 0) {
 
-        //Retrieves the category
-        var albumId = portalLib.getMultipartText('category');
+        //Retrieves the album
+        var albumId = portalLib.getMultipartText('album');
         var album = imageXpertLib.getContentByKey(albumId);
         if (!album || album.type != (app.name + ":album" )) {
             log.error('No album: %s', albumId);

@@ -47,7 +47,7 @@
         <dateTime name="createdTime">2016-04-19T14:22:37.949Z</dateTime>
         <property-set name="data">
             <reference name="binary">eb42c4cd-48ab-4ccd-b253-1761425f721a</reference>
-            <reference name="category">a554b7e8-dc3c-4404-9364-f70943b51dbe</reference>
+            <reference name="album">a554b7e8-dc3c-4404-9364-f70943b51dbe</reference>
         </property-set>
     </data>
     <indexConfigs>

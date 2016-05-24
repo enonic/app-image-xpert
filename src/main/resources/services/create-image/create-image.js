@@ -4,7 +4,7 @@ var imageXpertLib = require('/lib/image-xpert');
 
 exports.post = function (req) {
     var image = createImage();
-    var redirectUrl = imageXpertLib.generateGalleryPageUrl({categoryId: image && image.data && image.data.category});
+    var redirectUrl = imageXpertLib.generateGalleryPageUrl({categoryId: image && image.data && image.data.album});
 
     return {
         redirect: redirectUrl + "&upload=true"
@@ -18,7 +18,7 @@ function createImage() {
         //Retrieves the category
         var categoryId = portalLib.getMultipartText('category');
         var category = imageXpertLib.getContentByKey(categoryId);
-        if (!category || category.type != (app.name + ":category" )) {
+        if (!category || category.type != (app.name + ":album" )) {
             log.error('No category: %s', categoryName);
             return null;
         }
@@ -30,7 +30,7 @@ function createImage() {
             contentType: app.name + ":image",
             branch: "draft",
             data: {
-                category: category._id
+                album: category._id
             }
         });
 

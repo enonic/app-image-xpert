@@ -4,7 +4,7 @@ var imageXpertLib = require('/lib/image-xpert');
 
 exports.get = function (req) {
     var imageCreationServiceUrl = portal.serviceUrl({service: "create-image"});
-    var categories = imageXpertLib.getCategories().
+    var albums = imageXpertLib.getAlbums().
         map(function (category) {
             return {
                 id: category._id,
@@ -15,7 +15,7 @@ exports.get = function (req) {
 
     var params = {
         imageCreationServiceUrl: imageCreationServiceUrl,
-        categories: categories
+        albums: albums
     };
 
     var view = resolve('upload.html');

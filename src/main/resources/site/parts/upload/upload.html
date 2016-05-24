@@ -15,12 +15,12 @@
             <fieldset>
                 <legend>Image category</legend>
                 <div class="category-container">
-                    {{#categories}}
+                    {{#albums}}
                     <div class="category-input">
                         <input type="radio" name="category" class="category-radio" value="{{id}}" {{checked}} onchange="validateForm();">
                         <label>{{displayName}}</label>
                     </div>
-                    {{/categories}}
+                    {{/albums}}
                 </div>
             </fieldset>
         </div>

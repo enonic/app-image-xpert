@@ -7,21 +7,23 @@
     </div>
     <div class="browse-album">
         <h1>or browse albums</h1>
+
         <div class="browse">
 
-        {{#categories}}
+            {{#albums}}
             <div class="category-image">
                 <a href="{{linkUrl}}">
-                {{#imageUrl}}
-                <div class="image-stack {{stackType}}"><img src="{{imageUrl}}"></div>
-                {{/imageUrl}}
-                {{^imageUrl}}
-                <div class="empty-album"></div>
-                {{/imageUrl}}
+                    {{#imageUrl}}
+                    <div class="image-stack {{stackType}}"><img src="{{imageUrl}}"></div>
+                    {{/imageUrl}}
+                    {{^imageUrl}}
+                    <div class="empty-album"></div>
+                    {{/imageUrl}}
                 </a>
+
                 <div class="album-name">{{displayName}}</div>
             </div>
-        {{/categories}}
+            {{/albums}}
 
         </div>
     </div>

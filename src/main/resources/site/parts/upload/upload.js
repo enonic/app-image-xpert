@@ -5,11 +5,11 @@ var imageXpertLib = require('/lib/image-xpert');
 exports.get = function (req) {
     var imageCreationServiceUrl = portal.serviceUrl({service: "create-image"});
     var albums = imageXpertLib.getAlbums().
-        map(function (category) {
+        map(function (album) {
             return {
-                id: category._id,
-                displayName: category.displayName,
-                checked: (req.params.category == category._id) ? "checked" : ""
+                id: album._id,
+                displayName: album.displayName,
+                checked: (req.params.album == album._id) ? "checked" : ""
             };
         });
 

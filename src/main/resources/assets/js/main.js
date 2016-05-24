@@ -14,11 +14,11 @@ function onImageLoad(image) {
     image.style.height = "";
 }
 function validateForm() {
-    var categoryArr = Array.prototype.slice.call(document.querySelectorAll(".category-radio")),
-        categorySelected = categoryArr.some(function(categoryButton) {
-            return categoryButton.checked;
+    var albumArr = Array.prototype.slice.call(document.querySelectorAll(".album-radio")),
+        albumSelected = albumArr.some(function(albumButton) {
+            return albumButton.checked;
         }),
         fileSelected = document.querySelector(".file-name").value != "";
 
-    document.querySelector(".upload-button").disabled = (categorySelected && fileSelected) ? "" : "true";
+    document.querySelector(".upload-button").disabled = (albumSelected && fileSelected) ? "" : "true";
 }

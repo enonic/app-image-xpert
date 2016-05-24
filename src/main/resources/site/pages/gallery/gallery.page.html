@@ -3,12 +3,12 @@
 <head>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Image XPert / <span th:text="${selectedCategory}" th:remove="tag"></span></title>
+    <title>Image XPert / <span th:text="${selectedAlbum}" th:remove="tag"></span></title>
     <link rel="stylesheet" data-th-href="${portal.assetUrl({'_path=css/gallery.css'})}" type="text/css"/>
     <link rel="stylesheet" data-th-href="${portal.assetUrl({'_path=css/upload.css'})}" type="text/css"/>
     <script type="text/javascript" data-th-src="${portal.assetUrl({'_path=js/main.js'})}"></script>
     <script type="text/javascript">
-        window.onload= function() {
+        window.onload = function () {
             if (document.location.search.indexOf("upload=true") > -1) {
                 var uploadSuccessEl = document.querySelector(".upload-success");
                 uploadSuccessEl.classList.add("visible");

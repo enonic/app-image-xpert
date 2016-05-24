@@ -4,22 +4,22 @@ var imageXpertLib = require('/lib/image-xpert');
 
 exports.get = function (req) {
     var albums = imageXpertLib.getAlbums().
-        map(function (category) {
+        map(function (album) {
             var imageUrl;
-            var linkUrl = imageXpertLib.generateGalleryPageUrl({
-                categoryId: category._id
-            });
-            var categoryImage = imageXpertLib.getCategoryImage(category._id);
-
-            if (categoryImage) {
+            var albumImage = imageXpertLib.getAlbumImage(album._id);
+            if (albumImage) {
                 imageUrl = portalLib.imageUrl({
-                    id: categoryImage.data.binary,
+                    id: albumImage.data.binary,
                     scale: "square(150)"
                 })
             }
 
+            var linkUrl = imageXpertLib.generateGalleryPageUrl({
+                albumId: album._id
+            });
+
             return {
-                displayName: category.displayName.toLowerCase(),
+                displayName: album.displayName.toLowerCase(),
                 stackType: "stack-type-" + parseInt((Math.random() * 5) + 1),
                 imageUrl: imageUrl,
                 linkUrl: linkUrl

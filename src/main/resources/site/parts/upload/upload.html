@@ -13,11 +13,11 @@
         </div>
         <div>
             <fieldset>
-                <legend>Image category</legend>
-                <div class="category-container">
+                <legend>Image album</legend>
+                <div class="album-container">
                     {{#albums}}
-                    <div class="category-input">
-                        <input type="radio" name="category" class="category-radio" value="{{id}}" {{checked}} onchange="validateForm();">
+                    <div class="album-input">
+                        <input type="radio" name="album" class="album-radio" value="{{id}}" {{checked}} onchange="validateForm();">
                         <label>{{displayName}}</label>
                     </div>
                     {{/albums}}

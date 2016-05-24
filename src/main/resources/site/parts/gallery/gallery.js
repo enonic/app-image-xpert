@@ -14,13 +14,13 @@ exports.get = function (req) {
                 displayName: album.displayName,
                 linkUrl: linkUrl,
                 id: album._id,
-                checked: (req.params.category == album._id) ? "checked" : ""
+                checked: (req.params.album == album._id) ? "checked" : ""
             };
         });
 
     //Retrieves the images for the current category and search query
     var getImagesParams = {
-        albumId: req.params.category,
+        albumId: req.params.album,
         searchQuery: req.params.search
     };
     var images = imageXpertLib.getImages(getImagesParams).
@@ -69,7 +69,7 @@ exports.get = function (req) {
         homePageUrl: homePageUrl,
         assetUrl: portalLib.assetUrl(''),
         searchQuery: req.params.search || undefined,
-        categoryId: req.params.category
+        categoryId: req.params.album
     });
 
     return {

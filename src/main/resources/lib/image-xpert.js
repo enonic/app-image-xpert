@@ -128,7 +128,7 @@ exports.generateInfoPageUrl = function (params) {
 exports.generateGalleryPageUrl = function (params) {
     var sitePath = portalLib.getSite()._path;
     var params = params && params.albumId ? {
-        category: params.albumId
+        album: params.albumId
     } : undefined;
     return portalLib.pageUrl({
         path: sitePath + "/gallery",

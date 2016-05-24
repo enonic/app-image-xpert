@@ -4,8 +4,8 @@ var imageXpertLib = require('/lib/image-xpert');
 
 
 exports.get = function (req) {
-    //Retrieves the categories
-    var categories = imageXpertLib.getCategories().
+    //Retrieves the albums
+    var albums = imageXpertLib.getAlbums().
         filter(function (category) {
             return category.data.binaryImage;
         }).
@@ -66,7 +66,7 @@ exports.get = function (req) {
 
     var view = resolve('gallery.html');
     var body = mustacheLib.render(view, {
-        categories: categories,
+        albums: albums,
         images: images,
         imageCount: imageCount,
         homePageUrl: homePageUrl,

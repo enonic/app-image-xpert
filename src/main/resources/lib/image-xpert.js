@@ -11,7 +11,7 @@ exports.getContentByKey = function (key) {
     });
 };
 
-exports.getCategories = function () {
+exports.getAlbums = function () {
     return contentLib.query({
         start: 0,
         count: -1,

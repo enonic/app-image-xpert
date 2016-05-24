@@ -61,11 +61,11 @@ exports.getImages = function (params) {
         });
     }
 
-    //Else if this is a search by category
+    //Else if this is a search by album
     var imageQuery;
-    if (params && params.categoryId) {
-        // Searches by category
-        imageQuery = "data.album = '" + params.categoryId + "'";
+    if (params && params.albumId) {
+        // Searches by album
+        imageQuery = "data.album = '" + params.albumId + "'";
         imageSort = "createdTime DESC";
     }
 
@@ -127,8 +127,8 @@ exports.generateInfoPageUrl = function (params) {
 
 exports.generateGalleryPageUrl = function (params) {
     var sitePath = portalLib.getSite()._path;
-    var params = params && params.categoryId ? {
-        category: params.categoryId
+    var params = params && params.albumId ? {
+        category: params.albumId
     } : undefined;
     return portalLib.pageUrl({
         path: sitePath + "/gallery",
@@ -143,8 +143,8 @@ exports.generateHomeUrl = function (params) {
     });
 };
 
-exports.generateCurrentImageFolderPath = function (categoryPath) {
-    var folder = createOrGetFolder(categoryPath, getIsoCurrentDate());
+exports.generateCurrentImageFolderPath = function (albumPath) {
+    var folder = createOrGetFolder(albumPath, getIsoCurrentDate());
     return folder._path;
 };
 

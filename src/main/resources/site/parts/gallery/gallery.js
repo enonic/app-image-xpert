@@ -8,7 +8,7 @@ exports.get = function (req) {
     var albums = imageXpertLib.getAlbums().
         map(function (album) {
             var linkUrl = imageXpertLib.generateGalleryPageUrl({
-                categoryId: album._id
+                albumId: album._id
             });
             return {
                 displayName: album.displayName,
@@ -20,7 +20,7 @@ exports.get = function (req) {
 
     //Retrieves the images for the current category and search query
     var getImagesParams = {
-        categoryId: req.params.category,
+        albumId: req.params.category,
         searchQuery: req.params.search
     };
     var images = imageXpertLib.getImages(getImagesParams).

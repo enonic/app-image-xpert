@@ -4,7 +4,7 @@ var imageXpertLib = require('/lib/image-xpert');
 
 exports.post = function (req) {
     var image = createImage();
-    var redirectUrl = imageXpertLib.generateGalleryPageUrl({categoryId: image && image.data && image.data.album});
+    var redirectUrl = imageXpertLib.generateGalleryPageUrl({albumId: image && image.data && image.data.album});
 
     return {
         redirect: redirectUrl + "&upload=true"
@@ -16,21 +16,21 @@ function createImage() {
     if (part.fileName && part.size > 0) {
 
         //Retrieves the category
-        var categoryId = portalLib.getMultipartText('category');
-        var category = imageXpertLib.getContentByKey(categoryId);
-        if (!category || category.type != (app.name + ":album" )) {
+        var albumId = portalLib.getMultipartText('category');
+        var album = imageXpertLib.getContentByKey(albumId);
+        if (!album || album.type != (app.name + ":album" )) {
             log.error('No category: %s', categoryName);
             return null;
         }
 
         //Creates the Image content
         var content = contentLib.create({
-            parentPath: imageXpertLib.generateCurrentImageFolderPath(category._path),
+            parentPath: imageXpertLib.generateCurrentImageFolderPath(album._path),
             displayName: part.fileName,
             contentType: app.name + ":image",
             branch: "draft",
             data: {
-                album: category._id
+                album: album._id
             }
         });
 

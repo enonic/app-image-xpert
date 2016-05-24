@@ -15,7 +15,7 @@ exports.get = function (req) {
             }
 
             var linkUrl = imageXpertLib.generateGalleryPageUrl({
-                categoryId: album._id
+                albumId: album._id
             });
 
             return {

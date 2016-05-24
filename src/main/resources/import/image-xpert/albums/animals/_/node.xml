@@ -39,7 +39,7 @@
     <data>
         <boolean name="valid">true</boolean>
         <string name="displayName">Animals</string>
-        <string name="type">com.enonic.app.imagexpert:category</string>
+        <string name="type">com.enonic.app.imagexpert:album</string>
         <string name="owner">user:system:su</string>
         <dateTime name="modifiedTime">2016-04-18T09:55:02.187Z</dateTime>
         <string name="modifier">user:system:su</string>

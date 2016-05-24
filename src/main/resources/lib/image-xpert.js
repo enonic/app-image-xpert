@@ -15,7 +15,7 @@ exports.getCategories = function () {
     return contentLib.query({
         start: 0,
         count: -1,
-        contentTypes: [app.name + ":category"],
+        contentTypes: [app.name + ":album"],
         sort: "displayName ASC"
     }).hits;
 }

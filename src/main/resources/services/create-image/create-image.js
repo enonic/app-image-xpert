@@ -18,7 +18,7 @@ function createImage() {
         //Retrieves the category
         var categoryId = portalLib.getMultipartText('category');
         var category = imageXpertLib.getContentByKey(categoryId);
-        if (!category || category.type != (app.name + ":category" )) {
+        if (!category || category.type != (app.name + ":album" )) {
             log.error('No category: %s', categoryName);
             return null;
         }

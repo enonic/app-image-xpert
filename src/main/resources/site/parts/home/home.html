@@ -12,7 +12,7 @@
                 <div class="empty-album"></div>
                 <div class="album-name">New album</div>
             </div>
-        {{#categories}}
+        {{#albums}}
             <div class="album">
                 {{#imageUrl}}
                 <a href="{{linkUrl}}"><div class="image-stack {{stackType}}"><img src="{{imageUrl}}"></div></a>
@@ -22,7 +22,7 @@
                 {{/imageUrl}}
                 <div class="album-name">{{displayName}}</div>
             </div>
-        {{/categories}}
+        {{/albums}}
 
         </div>
     </div>

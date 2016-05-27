@@ -22,3 +22,9 @@ function validateForm() {
 
     document.querySelector(".upload-button").disabled = (albumSelected && fileSelected) ? "" : "true";
 }
+function openFileUploadDialog() {
+    var fileUploadEl = document.querySelector('input[name="file"]');
+    if (fileUploadEl) {
+        fileUploadEl.click();
+    }
+}

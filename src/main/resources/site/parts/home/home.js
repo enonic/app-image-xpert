@@ -32,7 +32,8 @@ exports.get = function (req) {
     var body = mustacheLib.render(view, {
         albums: albums,
         galleryPageUrl: galleryPageUrl,
-        assetUrl: portalLib.assetUrl('')
+        assetUrl: portalLib.assetUrl(''),
+        imageCreationServiceUrl: portalLib.serviceUrl({service: "create-image"})
     });
 
     return {

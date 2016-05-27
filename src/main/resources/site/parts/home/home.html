@@ -2,14 +2,17 @@
     <div class="search">
         <form action="{{galleryPageUrl}}">
             <input name="search" class="search-input" type="text" placeholder="Search our library for amazing photos, places or authors">
-            <a class="search-button"><input type="image" src="{{assetUrl}}/img/search-icon.svg"></a>
+            <a class="search-button"><input type="image" src="{{assetUrl}}/img/plus.svg"></a>
         </form>
     </div>
     <div class="browse-albums">
         <h1>or browse albums</h1>
         <div class="browse">
             <div class="album new-album">
-                <div class="empty-album"></div>
+                <div class="empty-album" onclick="openFileUploadDialog();">
+                    <img src="{{assetUrl}}/img/search-icon.svg">
+                    <p>Upload images</p>
+                </div>
                 <div class="album-name">New album</div>
             </div>
         {{#albums}}
@@ -23,7 +26,10 @@
                 <div class="album-name">{{displayName}}</div>
             </div>
         {{/albums}}
-
+        <form action="{{imageCreationServiceUrl}}" method="post" enctype="multipart/form-data">
+            <input name="albumName" type="hidden" value="New album">
+            <input name="file" type="file" multiple="multiple" accept="image/*" style="display: none;" onchange="this.parentElement.submit();">
+        </form>
         </div>
     </div>
 </div>

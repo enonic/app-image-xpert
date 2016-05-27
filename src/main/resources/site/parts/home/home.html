@@ -9,7 +9,8 @@
         <h1>or browse albums</h1>
         <div class="browse">
             <div class="album new-album">
-                <div class="empty-album" onclick="openFileUploadDialog();">
+                <div class="empty-album" onclick="openNewAlbumDialog(this);" >
+                    <!-- onclick="openFileUploadDialog();" -->
                     <img src="{{assetUrl}}/img/plus.svg">
                     <p>Create a new album</p>
                 </div>
@@ -25,10 +26,27 @@
                 <div class="album-name">{{displayName}}</div>
             </div>
         {{/albums}}
-        <form action="{{imageCreationServiceUrl}}" method="post" enctype="multipart/form-data">
-            <input name="albumName" type="hidden" value="New album">
-            <input name="file" type="file" multiple="multiple" accept="image/*" style="display: none;" onchange="this.parentElement.submit();">
-        </form>
         </div>
+    </div>
+</div>
+
+<div class="new-album-dialog-container">
+    <div class="new-album-dialog">
+        <h2>New album</h2>
+        <form action="{{imageCreationServiceUrl}}" method="post" enctype="multipart/form-data">
+            <div>
+                <label>Enter a name for this album</label><br>
+                <input name="albumName" type="text" placeholder="Title" onkeyup="validateForm()">
+            </div>
+
+            <input name="file" type="file" multiple="multiple" accept="image/*" style="display: none;" onchange="this.parentElement.submit();">
+
+            <div class="button-toolbar">
+                <button type="reset" class="button-cancel" onclick="closeNewAlbumDialog();">Cancel</button>
+                <button class="button-create" onclick="return openFileUploadDialog();" disabled>Create</button>
+                <p class="button-toolbar-text">Please select images in the dialog...</p>
+            </div>
+
+        </form>
     </div>
 </div>

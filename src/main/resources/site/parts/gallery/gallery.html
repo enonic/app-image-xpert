@@ -3,17 +3,17 @@
         <div class="gallery-header-container">
             <div class="logo-container"><a href="{{homePageUrl}}" class="main-logo">Image XPert</a></div>
 
-            <ul class="select-category-container">
-                {{#categories}}
+            <ul class="select-album-container">
+                {{#albums}}
                 <li>
                     <a href="{{linkUrl}}">
-                        <input type="radio" name="category" value="{{id}}" {{checked}}>
-                    <label class="category-radio">
-                        <em class="icon icon-check"></em> {{displayName}}
-                    </label>
+                        <input type="radio" name="album" value="{{id}}" {{checked}}>
+                        <label class="album-radio">
+                            <em class="icon icon-check"></em> {{displayName}}
+                        </label>
                     </a>
                 </li>
-                {{/categories}}
+                {{/albums}}
             </ul>
 
             <div class="search-container">
@@ -24,9 +24,8 @@
             </div>
 
             <div class="upload-box">
-               <img src="{{assetUrl}}/img/upload_image.svg" title="Upload image" onclick="toggleLayers();">
+                <img src="{{assetUrl}}/img/upload_image.svg" title="Upload image" onclick="toggleLayers();">
             </div>
-
 
 
         </div>
@@ -34,26 +33,29 @@
 
     <div class="gallery-body">
         {{#searchQuery}}
-        <div class="gallery-search" {{#categoryId}}style="display: none;"{{/categoryId}}>
-            <span>Your search for "<em>{{.}}</em>" produced {{imageCount}}</span>
-        </div>
-        {{/searchQuery}}
-        {{#images}}
-        <figure class="gallery-image-figure">
-            <a href="{{downloadPageUrl}}" target="_blank">
-                <img class="gallery-image" src="{{imageUrl}}" alt="{{displayName}}" style="height: 600px;" onload="onImageLoad(this);">
-            </a>
-            <figcaption class="image-caption">
+        <div class="gallery-search" {{#albumId}}style="display: none;" {{
+        /albumId}}>
+        <span>Your search for "<em>{{.}}</em>" produced {{imageCount}}</span>
+    </div>
+    {{/searchQuery}}
+    {{#images}}
+    <figure class="gallery-image-figure">
+        <a href="{{downloadPageUrl}}" target="_blank">
+            <img class="gallery-image" src="{{imageUrl}}" alt="{{displayName}}" style="height: 600px;" onload="onImageLoad(this);">
+        </a>
+        <figcaption class="image-caption">
             {{#caption}}<b>{{.}}</b>{{/caption}}
             {{#artist}}by {{.}}{{/artist}}
-            {{#copyright}}<em><small>&copy; {{.}}</small></em>{{/copyright}}
-            </figcaption>
-            <!--
-            <a href="{{downloadPageUrl}}">Download image</a>
-            -->
-        </figure>
-        {{/images}}
-    </div>
+            {{#copyright}}<em>
+            <small>&copy; {{.}}</small>
+        </em>{{/copyright}}
+        </figcaption>
+        <!--
+        <a href="{{downloadPageUrl}}">Download image</a>
+        -->
+    </figure>
+    {{/images}}
+</div>
 </div>
 <div class="upload-success">
     <p>Your image was successfully uploaded.</p>

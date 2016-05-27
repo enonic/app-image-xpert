@@ -5,7 +5,7 @@
         <div class="upload-file">
             <div>
                 <label>Select a file</label><br>
-                <input name="file" type="file" class="file-name" accept="image/*" onchange="previewImage(event);">
+                <input name="file" type="file" multiple="multiple" class="file-name" accept="image/*" onchange="previewImage(event);">
             </div>
             <div class="upload-preview">
                 <img class="image-preview" src="">
@@ -13,14 +13,14 @@
         </div>
         <div>
             <fieldset>
-                <legend>Image category</legend>
-                <div class="category-container">
-                    {{#categories}}
-                    <div class="category-input">
-                        <input type="radio" name="category" class="category-radio" value="{{id}}" {{checked}} onchange="validateForm();">
+                <legend>Image album</legend>
+                <div class="album-container">
+                    {{#albums}}
+                    <div class="album-input">
+                        <input type="radio" name="album" class="album-radio" value="{{id}}" {{checked}} onchange="validateForm();">
                         <label>{{displayName}}</label>
                     </div>
-                    {{/categories}}
+                    {{/albums}}
                 </div>
             </fieldset>
         </div>

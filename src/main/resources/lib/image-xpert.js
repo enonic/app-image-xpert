@@ -11,11 +11,11 @@ exports.getContentByKey = function (key) {
     });
 };
 
-exports.getCategories = function () {
+exports.getAlbums = function () {
     return contentLib.query({
         start: 0,
         count: -1,
-        contentTypes: [app.name + ":category"],
+        contentTypes: [app.name + ":album"],
         sort: "displayName ASC"
     }).hits;
 }
@@ -61,11 +61,11 @@ exports.getImages = function (params) {
         });
     }
 
-    //Else if this is a search by category
+    //Else if this is a search by album
     var imageQuery;
-    if (params && params.categoryId) {
-        // Searches by category
-        imageQuery = "data.category = '" + params.categoryId + "'";
+    if (params && params.albumId) {
+        // Searches by album
+        imageQuery = "data.album = '" + params.albumId + "'";
         imageSort = "createdTime DESC";
     }
 
@@ -94,12 +94,12 @@ exports.getRandomImage = function () {
     }).hits[0];
 };
 
-exports.getCategoryImage = function (categoryId) {
+exports.getAlbumImage = function (albumId) {
     return contentLib.query({
         start: 0,
         count: 1,
         contentTypes: [app.name + ":image"],
-        query: "data.category = '" + categoryId + "'",
+        query: "data.album = '" + albumId + "'",
         sort: "createdTime DESC"
     }).hits[0];
 };
@@ -127,8 +127,8 @@ exports.generateInfoPageUrl = function (params) {
 
 exports.generateGalleryPageUrl = function (params) {
     var sitePath = portalLib.getSite()._path;
-    var params = params && params.categoryId ? {
-        category: params.categoryId
+    var params = params && params.albumId ? {
+        album: params.albumId
     } : undefined;
     return portalLib.pageUrl({
         path: sitePath + "/gallery",
@@ -143,8 +143,8 @@ exports.generateHomeUrl = function (params) {
     });
 };
 
-exports.generateCurrentImageFolderPath = function (categoryPath) {
-    var folder = createOrGetFolder(categoryPath, getIsoCurrentDate());
+exports.generateCurrentImageFolderPath = function (albumPath) {
+    var folder = createOrGetFolder(albumPath, getIsoCurrentDate());
     return folder._path;
 };
 

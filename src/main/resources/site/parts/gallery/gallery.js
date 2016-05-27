@@ -4,26 +4,23 @@ var imageXpertLib = require('/lib/image-xpert');
 
 
 exports.get = function (req) {
-    //Retrieves the categories
-    var categories = imageXpertLib.getCategories().
-        filter(function (category) {
-            return category.data.binaryImage;
-        }).
-        map(function (category) {
+    //Retrieves the albums
+    var albums = imageXpertLib.getAlbums().
+        map(function (album) {
             var linkUrl = imageXpertLib.generateGalleryPageUrl({
-                categoryId: category._id
+                albumId: album._id
             });
             return {
-                displayName: category.displayName,
+                displayName: album.displayName,
                 linkUrl: linkUrl,
-                id: category._id,
-                checked: (req.params.category == category._id) ? "checked" : ""
+                id: album._id,
+                checked: (req.params.album == album._id) ? "checked" : ""
             };
         });
 
-    //Retrieves the images for the current category and search query
+    //Retrieves the images for the current album or search query
     var getImagesParams = {
-        categoryId: req.params.category,
+        albumId: req.params.album,
         searchQuery: req.params.search
     };
     var images = imageXpertLib.getImages(getImagesParams).
@@ -66,13 +63,13 @@ exports.get = function (req) {
 
     var view = resolve('gallery.html');
     var body = mustacheLib.render(view, {
-        categories: categories,
+        albums: albums,
         images: images,
         imageCount: imageCount,
         homePageUrl: homePageUrl,
         assetUrl: portalLib.assetUrl(''),
         searchQuery: req.params.search || undefined,
-        categoryId: req.params.category
+        albumId: req.params.album
     });
 
     return {

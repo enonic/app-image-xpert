@@ -16,7 +16,7 @@ exports.getAlbums = function () {
         start: 0,
         count: -1,
         contentTypes: [app.name + ":album"],
-        sort: "displayName ASC"
+        sort: "createdTime DESC"
     }).hits;
 }
 

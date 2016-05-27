@@ -200,8 +200,19 @@ body {
     height: 275px;
 }
 
+.album a {
+    cursor: default;
+    pointer-events: none;
+}
+
+.album a {
+    cursor: default;
+    pointer-events: none;
+}
+
 .album:not(.new-album) .image-stack:hover img,
-.image-stack:hover:before, .image-stack:hover:after {
+.image-stack:hover:before, .image-stack:hover:after,
+.empty-album:hover {
     border-color: #585858;
 }
 
@@ -210,6 +221,9 @@ body {
     -webkit-box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
     -moz-box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+
+    cursor: pointer;
+    pointer-events: all;
 }
 
 .album:not(.new-album) img:first-child ~ img {
@@ -228,14 +242,11 @@ body {
     height: 150px;
     margin: 0 auto;
     border: 6px solid #FFFFFF;
+    opacity: 0.8;
 }
 
-.empty-album > * {
-    display: none;
-}
-.empty-album:hover > * {
-    display: block;
-    opacity: 0.8;
+.empty-album:hover {
+    opacity: 1;
 }
 
 .empty-album img {
@@ -244,7 +255,7 @@ body {
 }
 
 .empty-album p {
-    margin: 5px auto;
+    margin: 0 auto;
     color: white;
     font-size: 14px;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;

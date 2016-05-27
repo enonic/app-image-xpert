@@ -3,9 +3,20 @@ var contentLib = require('/lib/xp/content');
 var imageXpertLib = require('/lib/image-xpert');
 
 exports.post = function (req) {
-    var createdImages = createImages();
+    var albumId = portalLib.getMultipartText('album');
+
+    if (!albumId && !!portalLib.getMultipartText('albumName')) {
+        albumId = createNewAlbum();
+    }
+
+    if (!albumId) {
+        log.error('No albumId found');
+        return null;
+    }
+
+    var createdImages = createImages(albumId);
     var redirectUrl = imageXpertLib.generateGalleryPageUrl({
-        albumId: createdImages.length > 0 ? createdImages[0].data.album : undefined
+        albumId: createdImages.length > 0 ? albumId : undefined
     });
 
     return {
@@ -13,21 +24,33 @@ exports.post = function (req) {
     };
 };
 
-function createImages() {
+function createNewAlbum() {
+    var sitePath = portalLib.getSite()._path;
+    var album = contentLib.create({
+            parentPath: sitePath + "/Albums",
+            displayName: portalLib.getMultipartText('albumName'),
+            contentType: app.name + ":album",
+            branch: "draft",
+            data: {}
+        });
+
+    return album._id;
+}
+
+function createImages(albumId) {
     var createdImages = [];
     var nbImages = portalLib.getMultipartForm().file.length;
     for (var index = 0; index < nbImages; index++) {
-        createdImages.push(createImage(index));
+        createdImages.push(createImage(index, albumId));
     }
     return createdImages;
 }
 
-function createImage(fileIndex) {
+function createImage(fileIndex, albumId) {
     var part = portalLib.getMultipartItem("file", fileIndex);
     if (part.fileName && part.size > 0) {
 
         //Retrieves the album
-        var albumId = portalLib.getMultipartText('album');
         var album = imageXpertLib.getContentByKey(albumId);
         if (!album || album.type != (app.name + ":album" )) {
             log.error('No album: %s', albumId);

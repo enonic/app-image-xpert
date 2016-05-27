@@ -140,12 +140,12 @@ body {
     }
 }
 
-.browse-album {
+.browse-albums {
     text-align: center;
 }
 
 @media only screen and (min-width: 937px) {
-    .browse-album {
+    .browse-albums {
         margin-top: 40px;
     }
 }
@@ -167,7 +167,7 @@ body {
     }
 }
 
-.browse-album h1 {
+.browse-albums h1 {
     color: lavender;
     font-size: 22px;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -179,19 +179,27 @@ body {
     color: white;
     font-size: 16px;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    margin-top: 15px;
+    margin-top: 20px;
     width: 160px;
-    padding-left: 40px;
+    padding-left: 45px;
     text-align: left;
 }
 
-.category-image {
-    width: 250px;
+.new-album .album-name {
+    margin-top: 25px;
+}
+
+.empty-album {
+    cursor: pointer;
+}
+
+.album {
+    width: 249px;
     text-align: center;
     height: 275px;
 }
 
-.category-image img:hover {
+.album img:hover {
     opacity: 0.7;
     -webkit-transition: opacity 500ms;
     -moz-transition: opacity 500ms;
@@ -199,14 +207,14 @@ body {
     transition: opacity 500ms;
 }
 
-.category-image img:first-child {
+.album img:first-child {
     border: 6px solid #fff;
     -webkit-box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
     -moz-box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
     box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
 }
 
-.category-image img:first-child ~ img {
+.album img:first-child ~ img {
     display: none;
 }
 
@@ -217,18 +225,18 @@ body {
 }
 
 .empty-album {
-    background-color: #E1E4D7;
+    background-color: #888A83;
     width: 150px;
     height: 150px;
     margin: 0 auto;
-    border: 6px solid transparent;
+    border: 6px solid #FFFFFF;
 }
 
 .image-stack:before, .image-stack:after {
     content: "";
     height: 150px;
     width: 150px;
-    border: 6px solid #fff;
+    border: 6px solid #FFFFFF;
 
     position: absolute;
     z-index: -1;

@@ -5,20 +5,21 @@
             <a class="search-button"><input type="image" src="{{assetUrl}}/img/search-icon.svg"></a>
         </form>
     </div>
-    <div class="browse-album">
+    <div class="browse-albums">
         <h1>or browse albums</h1>
         <div class="browse">
-
+            <div class="album new-album">
+                <div class="empty-album"></div>
+                <div class="album-name">New album</div>
+            </div>
         {{#categories}}
-            <div class="category-image">
-                <a href="{{linkUrl}}">
+            <div class="album">
                 {{#imageUrl}}
-                <div class="image-stack {{stackType}}"><img src="{{imageUrl}}"></div>
+                <a href="{{linkUrl}}"><div class="image-stack {{stackType}}"><img src="{{imageUrl}}"></div></a>
                 {{/imageUrl}}
                 {{^imageUrl}}
                 <div class="empty-album"></div>
                 {{/imageUrl}}
-                </a>
                 <div class="album-name">{{displayName}}</div>
             </div>
         {{/categories}}

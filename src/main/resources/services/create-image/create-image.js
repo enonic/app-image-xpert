@@ -27,23 +27,32 @@ exports.post = function (req) {
 function createNewAlbum() {
     var sitePath = portalLib.getSite()._path;
     var album = contentLib.create({
-            parentPath: sitePath + "/Albums",
-            displayName: portalLib.getMultipartText('albumName'),
-            contentType: app.name + ":album",
-            branch: "draft",
-            data: {}
-        });
+        parentPath: sitePath + "/Albums",
+        displayName: portalLib.getMultipartText('albumName'),
+        contentType: app.name + ":album",
+        branch: "draft",
+        data: {}
+    });
 
     return album._id;
 }
 
 function createImages(albumId) {
     var createdImages = [];
-    var nbImages = portalLib.getMultipartForm().file.length;
+    var nbImages = getNumberImages();
     for (var index = 0; index < nbImages; index++) {
         createdImages.push(createImage(index, albumId));
     }
     return createdImages;
+}
+
+function getNumberImages() {
+    if (portalLib.getMultipartForm().file.constructor === Array) {
+        return portalLib.getMultipartForm().file.length;
+    }
+    else {
+        return 1;
+    }
 }
 
 function createImage(fileIndex, albumId) {

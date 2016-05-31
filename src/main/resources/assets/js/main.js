@@ -62,7 +62,7 @@ function editAlbumName(id) {
     var spanEl = document.querySelector('#album-name-span-' + id),
         inputEl = document.querySelector('#album-name-input-' + id);
 
-    inputEl.onCloseEditMode = closeEditMode.bind(this, spanEl, inputEl);
+    inputEl.onCloseEditMode = closeEditMode.bind(this, spanEl, inputEl, id);
 
     inputEl.addEventListener("click", onAlbumNameClick);
     inputEl.addEventListener("keyup", inputEl.onCloseEditMode);
@@ -75,7 +75,7 @@ function editAlbumName(id) {
     inputEl.focus();
 }
 
-function closeEditMode(spanEl, inputEl, e) {
+function closeEditMode(spanEl, inputEl, id, e) {
     if (e.target == spanEl) {
         return;
     }
@@ -91,7 +91,7 @@ function closeEditMode(spanEl, inputEl, e) {
     delete inputEl.onCloseEditMode;
 
     if (inputEl.value.trim() !== "" && (!e.keyCode || e.keyCode !== 27)) {
-        spanEl.innerText = inputEl.value;
+        renameAlbum(id, inputEl.value, spanEl);
     }
     spanEl.hidden = false;
     inputEl.hidden = true;
@@ -104,4 +104,24 @@ function onAlbumNameClick(e) {
     else {
         window.event.cancelBubble = true;
     }
+}
+
+function renameAlbum(id, albumName, spanEl) {
+    if (!renameAlbumServiceUrl || renameAlbumServiceUrl == "") {
+        return;
+    }
+
+    var http = new XMLHttpRequest();
+    http.open("POST", renameAlbumServiceUrl, true);
+    http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+
+    http.onreadystatechange = function() {
+        if (http.readyState == 4 && http.status == 200 && http.responseText !== "") {
+            var responseObj = JSON.parse(http.responseText);
+            if (responseObj.name !== "" && responseObj.name !== spanEl.innerText) {
+                spanEl.innerText = responseObj.name;
+            }
+        }
+    };
+    http.send("id=" + id + "&name=" + albumName);
 }

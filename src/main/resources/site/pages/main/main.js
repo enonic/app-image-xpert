@@ -10,7 +10,7 @@ function handleGet(req) {
 
     var site = portal.getSite();
     var reqContent = portal.getContent();
-    var jQueryAssetUrl = portal.assetUrl({path: "js/jquery-2.1.4.min.js"});
+    var renameAlbumServiceUrl = portal.serviceUrl({service: "rename-album"});
 
     var randomImage = imageXpertLib.getRandomImage();
     var backgroundImageUrl = portal.attachmentUrl({
@@ -24,9 +24,10 @@ function handleGet(req) {
         reqContent: reqContent,
         mainRegion: reqContent.page.regions["main"],
         editable: editMode,
-        jQueryAssetUrl: jQueryAssetUrl,
-        backgroundImageStyle: backgroundImageStyle
-    };
+        backgroundImageStyle: backgroundImageStyle,
+        renameAlbumServiceUrl: renameAlbumServiceUrl
+
+};
     var body = thymeleaf.render(view, params);
 
     return {

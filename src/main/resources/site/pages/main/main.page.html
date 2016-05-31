@@ -15,6 +15,11 @@
             }
         }
     </script>
+    <script type="text/javascript" th:inline="javascript">
+        /*<![CDATA[*/
+        var renameAlbumServiceUrl = /*[[${renameAlbumServiceUrl}]]*/;
+        /*]]>*/
+    </script>
 </head>
 
 <body data-portal-component-type="page" data-th-class="${editable}? 'edit'">

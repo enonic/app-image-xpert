@@ -10,12 +10,14 @@
     pointer-events: none;
 }
 .new-album-dialog-container.visible {
+    pointer-events: bounding-box;
     opacity: 1;
     background-color: rgba(0, 0, 0, 0.7);
 }
 
 .new-album-dialog-container.visible .new-album-dialog {
     opacity: 1;
+    pointer-events: auto;
 }
 
 .new-album-dialog {
@@ -30,12 +32,12 @@
     top: 50%;
     margin-left: -200px;
     margin-top: -100px;
-    pointer-events: auto;
     background-color: #333333;
     -webkit-box-shadow: 5px 5px 25px 0px rgba(0, 0, 0, 0.75);
     -moz-box-shadow: 5px 5px 25px 0px rgba(0, 0, 0, 0.75);
     box-shadow: 5px 5px 25px 0px rgba(0, 0, 0, 0.75);
     border-radius: 5px;
+    pointer-events: none;
 }
 
 .new-album-dialog h2 {

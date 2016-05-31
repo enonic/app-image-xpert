@@ -19,10 +19,11 @@ exports.get = function (req) {
             });
 
             return {
-                displayName: album.displayName.toLowerCase(),
+                displayName: album.displayName,
                 stackType: "stack-type-" + parseInt((Math.random() * 5) + 1),
                 imageUrl: imageUrl,
-                linkUrl: linkUrl
+                linkUrl: linkUrl,
+                albumId: album._id
             };
         });
 

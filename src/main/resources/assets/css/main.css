@@ -4,7 +4,6 @@ html {
 }
 body {
     margin: 0;
-    height: 100%;
     -webkit-animation: animate-opacity 2s;
     -moz-animation: animate-opacity 2s;
     -o-animation: animate-opacity 2s;
@@ -184,6 +183,7 @@ body {
     width: 160px;
     padding-left: 45px;
     text-align: left;
+    position: relative;
 }
 
 .new-album .album-name {
@@ -366,4 +366,19 @@ body {
 .stack-type-5:after {
     top: 8px;
     left: 10px;
+}
+
+.album-name-span {
+    cursor: pointer;
+    padding: 3px 0 0 3px;
+    display: inline-block;
+    margin: 0;
+}
+
+.album-name-input {
+    position: absolute;
+    width: 155px;
+    left: 45px;
+    font-size: 16px;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }

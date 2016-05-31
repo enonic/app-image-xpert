@@ -57,3 +57,51 @@ function validateForm() {
         createButton["disabled"] = (albumNameTextBox.value.trim().length == 0);
     }
 }
+
+function editAlbumName(id) {
+    var spanEl = document.querySelector('#album-name-span-' + id),
+        inputEl = document.querySelector('#album-name-input-' + id);
+
+    inputEl.onCloseEditMode = closeEditMode.bind(this, spanEl, inputEl);
+
+    inputEl.addEventListener("click", onAlbumNameClick);
+    inputEl.addEventListener("keyup", inputEl.onCloseEditMode);
+    document.addEventListener("click", inputEl.onCloseEditMode);
+
+    inputEl.value = spanEl.innerText;
+
+    spanEl.hidden = true;
+    inputEl.hidden = false;
+    inputEl.focus();
+}
+
+function closeEditMode(spanEl, inputEl, e) {
+    if (e.target == spanEl) {
+        return;
+    }
+
+    if (!!e.keyCode && !(e.keyCode == 13 || e.keyCode == 27)) {
+        return;
+    }
+
+    inputEl.removeEventListener("click", onAlbumNameClick);
+    inputEl.removeEventListener("keyup", inputEl.onCloseEditMode);
+    document.removeEventListener("click", inputEl.onCloseEditMode);
+
+    delete inputEl.onCloseEditMode;
+
+    if (inputEl.value.trim() !== "" && (!e.keyCode || e.keyCode !== 27)) {
+        spanEl.innerText = inputEl.value;
+    }
+    spanEl.hidden = false;
+    inputEl.hidden = true;
+}
+
+function onAlbumNameClick(e) {
+    if (e) {
+        e.stopPropagation();
+    }
+    else {
+        window.event.cancelBubble = true;
+    }
+}

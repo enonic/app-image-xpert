@@ -70,8 +70,9 @@ function editAlbumName(id) {
 
     inputEl.value = spanEl.innerText;
 
-    spanEl.hidden = true;
-    inputEl.hidden = false;
+    spanEl.classList.add("hidden");
+    inputEl.classList.add("visible");
+
     inputEl.focus();
 }
 
@@ -91,10 +92,8 @@ function closeEditMode(spanEl, inputEl, id, e) {
     delete inputEl.onCloseEditMode;
 
     if (inputEl.value.trim() !== "" && (!e.keyCode || e.keyCode !== 27)) {
-        renameAlbum(id, inputEl.value, spanEl);
+        renameAlbum(id, inputEl, spanEl);
     }
-    spanEl.hidden = false;
-    inputEl.hidden = true;
 }
 
 function onAlbumNameClick(e) {
@@ -106,8 +105,13 @@ function onAlbumNameClick(e) {
     }
 }
 
-function renameAlbum(id, albumName, spanEl) {
-    if (!renameAlbumServiceUrl || renameAlbumServiceUrl == "") {
+function renameAlbum(id, inputEl, spanEl) {
+    var rawAlbumName = inputEl.value.trim().toLowerCase(),
+        albumName = rawAlbumName.charAt(0).toUpperCase() + rawAlbumName.slice(1);
+
+    if (!renameAlbumServiceUrl || renameAlbumServiceUrl == "" || albumName == "" || spanEl.innerText == albumName) {
+        spanEl.classList.remove("hidden");
+        inputEl.classList.remove("visible");
         return;
     }
 
@@ -118,8 +122,10 @@ function renameAlbum(id, albumName, spanEl) {
     http.onreadystatechange = function() {
         if (http.readyState == 4 && http.status == 200 && http.responseText !== "") {
             var responseObj = JSON.parse(http.responseText);
-            if (responseObj.name !== "" && responseObj.name !== spanEl.innerText) {
+            if (responseObj.name !== "" && responseObj.name === albumName) {
                 spanEl.innerText = responseObj.name;
+                spanEl.classList.remove("hidden");
+                inputEl.classList.remove("visible");
             }
         }
     };

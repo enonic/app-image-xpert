@@ -177,11 +177,11 @@ body {
 .album-name {
     text-transform: capitalize;
     color: white;
-    font-size: 16px;
+    font-size: 20px;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     margin-top: 20px;
     width: 160px;
-    padding-left: 45px;
+    padding-left: 43px;
     text-align: left;
     position: relative;
 }
@@ -370,15 +370,30 @@ body {
 
 .album-name-span {
     cursor: pointer;
-    padding: 3px 0 0 3px;
+    padding: 3px 0 0 5px;
     display: inline-block;
     margin: 0;
+    opacity: 1;
+    transition: opacity 500ms;
+}
+
+.album-name-span.hidden {
+    opacity: 0;
+    pointer-events: none;
 }
 
 .album-name-input {
     position: absolute;
     width: 155px;
     left: 45px;
-    font-size: 16px;
+    font-size: 20px;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 500ms;
+}
+
+.album-name-input.visible {
+    opacity: 1;
+    pointer-events: all;
 }

@@ -131,3 +131,9 @@ function renameAlbum(id, inputEl, spanEl) {
     };
     http.send("id=" + id + "&name=" + albumName);
 }
+
+function showSearchField() {
+    var searchForm = document.querySelector('.search-form');
+    searchForm.style.display = 'block';
+    searchForm.querySelector('.search-input').focus();
+}

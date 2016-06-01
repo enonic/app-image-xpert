@@ -5,16 +5,16 @@ var imageXpertLib = require('/lib/image-xpert');
 
 exports.get = function (req) {
     //Retrieves the albums
+    var albumName = "All albums";
     var albums = imageXpertLib.getAlbums().
         map(function (album) {
-            var linkUrl = imageXpertLib.generateGalleryPageUrl({
-                albumId: album._id
-            });
+            if (album._id == req.params.album) {
+                albumName = album.displayName;
+            }
             return {
                 displayName: album.displayName,
-                linkUrl: linkUrl,
                 id: album._id,
-                checked: (req.params.album == album._id) ? "checked" : ""
+                selected: (req.params.album == album._id) ? "selected" : ""
             };
         });
 
@@ -23,6 +23,7 @@ exports.get = function (req) {
         albumId: req.params.album,
         searchQuery: req.params.search
     };
+
     var images = imageXpertLib.getImages(getImagesParams).
         map(function (image) {
             var imageBinary = imageXpertLib.getContentByKey(image.data.binary);
@@ -63,14 +64,16 @@ exports.get = function (req) {
 
     var view = resolve('gallery.html');
     var body = mustacheLib.render(view, {
-        albums: albums,
-        images: images,
-        imageCount: imageCount,
-        homePageUrl: homePageUrl,
-        assetUrl: portalLib.assetUrl(''),
-        searchQuery: req.params.search || undefined,
-        albumId: req.params.album
-    });
+            albums: albums,
+            images: images,
+            imageCount: imageCount,
+            homePageUrl: homePageUrl,
+            assetUrl: portalLib.assetUrl(''),
+            searchQuery: req.params.search || undefined,
+            albumId: req.params.album || "",
+            albumName: albumName,
+            galleryPageUrl: imageXpertLib.generateGalleryPageUrl({})
+        });
 
     return {
         contentType: 'text/html',

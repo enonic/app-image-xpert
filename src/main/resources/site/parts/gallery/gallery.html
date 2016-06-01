@@ -3,38 +3,34 @@
         <div class="gallery-header-container">
             <div class="logo-container"><a href="{{homePageUrl}}" class="main-logo">Image XPert</a></div>
 
-            <ul class="select-album-container">
-                {{#albums}}
-                <li>
-                    <a href="{{linkUrl}}">
-                        <input type="radio" name="album" value="{{id}}" {{checked}}>
-                        <label class="album-radio">
-                            <em class="icon icon-check"></em> {{displayName}}
-                        </label>
-                    </a>
-                </li>
-                {{/albums}}
-            </ul>
-
-            <div class="search-container">
-                <form>
-                    <input name="search" class="search-input" type="text" placeholder="Search for photos">
-                    <a class="search-button"><input type="image" src="{{assetUrl}}/img/search-icon.svg"></a>
+            <div class="select-album-container">
+                <p class="album-name">{{albumName}}</p>
+                <form action="{{galleryPageUrl}}" hidden>
+                    <select name="album" onchange="submit();">
+                        {{#albums}}
+                        <option value="{{id}}" {{selected}}>{{displayName}}</option>
+                        {{/albums}}
+                    </select>
                 </form>
             </div>
 
-            <div class="upload-box">
-                <img src="{{assetUrl}}/img/upload_image.svg" title="Upload image" onclick="toggleLayers();">
+            <div class="search-and-upload-container">
+                <div class="search-container">
+                    <input type="image" class="search-icon" src="{{assetUrl}}/img/search-icon-white.svg" onclick="showSearchField();">
+                    <form class="search-form">
+                        <input name="album" type="hidden" value="{{albumId}}">
+                        <input name="search" class="search-input" type="text" placeholder="Search for photos">
+                        <a class="search-button"><input type="image" src="{{assetUrl}}/img/search-icon.svg"></a>
+                    </form>
+                </div>
+                <a class="upload-icon"><input type="image" src="{{assetUrl}}/img/plus.svg"></a>
             </div>
-
-
         </div>
     </div>
 
     <div class="gallery-body">
         {{#searchQuery}}
-        <div class="gallery-search" {{#albumId}}style="display: none;" {{
-        /albumId}}>
+        <div class="gallery-search">
         <span>Your search for "<em>{{.}}</em>" produced {{imageCount}}</span>
     </div>
     {{/searchQuery}}
@@ -58,5 +54,5 @@
 </div>
 </div>
 <div class="upload-success">
-    <p>Your image was successfully uploaded.</p>
+    <p>Image(s) successfully uploaded.</p>
 </div>

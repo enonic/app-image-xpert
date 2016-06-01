@@ -46,12 +46,17 @@ exports.getImages = function (params) {
     //If this is a search by query
     var imageSort;
     if (binaryImagesIds) {
+        var albumQuery = "";
+        if (params && params.albumId) {
+            albumQuery = " AND (data.album = '" + params.albumId + "')";
+        }
         // Searches and return the image contents containing the image binaries found
         return binaryImagesIds.map(function (binaryImageId) {
+            log.info("(data.binary = '" + binaryImageId + "')" + albumQuery);
             var imagesFound = contentLib.query({
                 start: 0,
                 count: 1,
-                query: "data.binary = '" + binaryImageId + "'",
+                query: "(data.binary = '" + binaryImageId + "')" + albumQuery,
                 contentTypes: [app.name + ":image"],
                 sort: imageSort
             }).hits;

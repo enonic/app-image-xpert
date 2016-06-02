@@ -169,6 +169,12 @@
     position: absolute;
     top: 3px;
     right: 3px;
+    width: 24px;
+    height: 24px;
+    background-color: white;
+    background-size: 100%;
+    border: none;
+    cursor: pointer;
 }
 /*
 @media only screen and (max-width: 768px) {
@@ -177,10 +183,11 @@
     }
 }
 */
+/*
 .search-container .search-button input {
     width: 24px;
 }
-
+*/
 .upload-box {
     position: absolute;
     top: 0;

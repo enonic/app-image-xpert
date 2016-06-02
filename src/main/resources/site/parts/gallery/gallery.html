@@ -20,7 +20,7 @@
                     <form class="search-form">
                         <input name="album" type="hidden" value="{{albumId}}">
                         <input name="search" class="search-input" type="text" placeholder="Search for photos">
-                        <a class="search-button"><input type="image" src="{{assetUrl}}/img/search-icon.svg"></a>
+                        <button class="search-button" style="background-image: url('{{assetUrl}}/img/search-icon.svg');" onclick="return submitSearch();"></button>
                     </form>
                 </div>
                 <a class="upload-icon"><input type="image" src="{{assetUrl}}/img/plus.svg"></a>

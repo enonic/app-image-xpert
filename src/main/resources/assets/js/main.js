@@ -137,3 +137,17 @@ function showSearchField() {
     searchForm.style.display = 'block';
     searchForm.querySelector('.search-input').focus();
 }
+
+function submitSearch() {
+    var searchForm = document.querySelector('.search-form'),
+        searchInput = document.querySelector('.search-input');
+
+    if (searchInput.value == "") {
+        searchForm.style.display = 'none';
+    }
+    else {
+        searchForm.submit();
+    }
+
+    return false;
+}

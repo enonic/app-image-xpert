@@ -59,14 +59,6 @@
                         <property-set name="config"/>
                     </property-set>
                 </property-set>
-                <property-set name="component">
-                    <string name="type">PartComponent</string>
-                    <property-set name="PartComponent">
-                        <string name="name">upload</string>
-                        <string name="template">com.enonic.app.imagexpert:upload</string>
-                        <property-set name="config"/>
-                    </property-set>
-                </property-set>
             </property-set>
             <property-set name="config"/>
             <boolean name="customized">true</boolean>

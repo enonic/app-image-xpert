@@ -33,6 +33,7 @@
 .upload-icon input, .search-icon {
     opacity: 0.8;
     width: 24px;
+    outline: none;
 }
 
 .logo-container {
@@ -62,61 +63,12 @@
 }
 
 .select-album-container {
-    /*width: 50%;*/
     padding: 0;
     list-style: none;
     display: table-cell;
     vertical-align: middle;
     text-align: center;
 }
-/*
-@media only screen and (max-width: 768px) {
-    .select-album-container {
-        padding-left: 2%;
-        padding-right: 190px;
-    }
-}
-
-@media only screen and (max-width: 540px) {
-    .select-album-container {
-        display: none;
-    }
-}
-
-.select-album-container li {
-    float: left;
-    margin-right: 2.5%;
-    white-space: nowrap;
-}
-
-.select-album-container a {
-    color: white;
-    text-decoration: none;
-}
-
-.select-album-container input {
-    height: 15px;
-    pointer-events: none;
-}
-
-@media only screen and (max-width: 768px) {
-    .album-radio {
-        font-size: 11px;
-    }
-}
-
-@media only screen and (min-width: 769px) {
-    .album-radio {
-        font-size: 1.4vw;
-    }
-}
-
-@media only screen and (min-width: 1150px) {
-    .album-radio {
-        font-size: 16px;
-    }
-}
-*/
 .search-and-upload-container {
     display: table-cell;
     width: 25%;
@@ -124,14 +76,7 @@
     vertical-align: middle;
     padding-top: 5px;
 }
-/*
-@media only screen and (max-width: 768px) {
-    .search-and-upload-container {
-        padding-left: 25px;
-        vertical-align: top;
-    }
-}
-*/
+
 .search-container {
     position: absolute;
     right: 50px;
@@ -166,6 +111,7 @@
     background-size: 100%;
     border: none;
     cursor: pointer;
+    outline: none;
 }
 
 .gallery-body {

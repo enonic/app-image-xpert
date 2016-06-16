@@ -10,6 +10,7 @@ exports.get = function (req) {
         map(function (album) {
             if (album._id == req.params.album) {
                 albumName = album.displayName;
+                log.info(albumName);
             }
             return {
                 displayName: album.displayName,
@@ -70,9 +71,10 @@ exports.get = function (req) {
             homePageUrl: homePageUrl,
             assetUrl: portalLib.assetUrl(''),
             searchQuery: req.params.search || undefined,
-            albumId: req.params.album || "",
+            albumId: req.params.album || undefined,
             albumName: albumName,
-            galleryPageUrl: imageXpertLib.generateGalleryPageUrl({})
+            galleryPageUrl: imageXpertLib.generateGalleryPageUrl({}),
+            imageCreationServiceUrl: portalLib.serviceUrl({service: "create-image"})
         });
 
     return {

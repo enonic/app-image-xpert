@@ -18,12 +18,18 @@
                 <div class="search-container">
                     <input type="image" class="search-icon" src="{{assetUrl}}/img/search-icon-white.svg" onclick="showSearchField();">
                     <form class="search-form">
-                        <input name="album" type="hidden" value="{{albumId}}">
+                        {{#albumId}}<input name="album" type="hidden" value="{{albumId}}">{{/albumId}}
                         <input name="search" class="search-input" type="text" placeholder="Search for photos">
                         <button class="search-button" style="background-image: url('{{assetUrl}}/img/search-icon.svg');" onclick="return submitSearch();"></button>
                     </form>
                 </div>
-                <a class="upload-icon"><input type="image" src="{{assetUrl}}/img/plus.svg"></a>
+                {{#albumId}}
+                <form action="{{imageCreationServiceUrl}}" method="post" enctype="multipart/form-data">
+                    <input name="album" type="hidden" value="{{albumId}}">
+                    <input name="file" type="file" multiple="multiple" accept="image/*" style="display: none;" onchange="this.parentElement.submit();">
+                    <input type="image" class="upload-icon" src="{{assetUrl}}/img/plus.svg" onclick="return openFileUploadDialog();">
+                </form>
+                {{/albumId}}
             </div>
         </div>
     </div>

@@ -24,8 +24,11 @@ function openNewAlbumDialog() {
 }
 
 function closeNewAlbumDialog() {
-    document.querySelector('.new-album-dialog-container').classList.remove("visible");
-    document.querySelector('.new-album-dialog-container .button-toolbar').classList.remove("select-files");
+    var newAlbumDialog = document.querySelector('.new-album-dialog-container');
+    if (newAlbumDialog) {
+        document.querySelector('.new-album-dialog-container').classList.remove("visible");
+        document.querySelector('.new-album-dialog-container .button-toolbar').classList.remove("select-files");
+    }
 }
 
 function validateForm() {
@@ -84,8 +87,7 @@ function onAlbumNameClick(e) {
 }
 
 function renameAlbum(id, inputEl, spanEl) {
-    var rawAlbumName = inputEl.value.trim().toLowerCase(),
-        albumName = rawAlbumName.charAt(0).toUpperCase() + rawAlbumName.slice(1);
+    var albumName = inputEl.value.trim();
 
     if (!renameAlbumServiceUrl || renameAlbumServiceUrl == "" || albumName == "" || spanEl.innerText == albumName) {
         spanEl.classList.remove("hidden");

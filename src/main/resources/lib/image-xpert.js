@@ -52,7 +52,6 @@ exports.getImages = function (params) {
         }
         // Searches and return the image contents containing the image binaries found
         return binaryImagesIds.map(function (binaryImageId) {
-            log.info("(data.binary = '" + binaryImageId + "')" + albumQuery);
             var imagesFound = contentLib.query({
                 start: 0,
                 count: 1,

@@ -25,12 +25,12 @@
     margin-right: auto;
 }
 
-.logo-container:hover, .upload-icon input:hover, .search-icon:hover {
+.logo-container:hover, .upload-icon:hover, .search-icon:hover {
     cursor: pointer;
     opacity: 1;
 }
 
-.upload-icon input, .search-icon {
+.upload-icon, .search-icon {
     opacity: 0.8;
     width: 24px;
     outline: none;
@@ -80,6 +80,7 @@
 .search-container {
     position: absolute;
     right: 50px;
+    top: 15px;
 }
 
 .search-container form {
@@ -207,7 +208,7 @@
     .gallery-body {
         padding: 0 15px;
     }
-    .upload-icon input, .search-icon {
+    .upload-icon, .search-icon {
         width: 18px;
     }
     .search-container {

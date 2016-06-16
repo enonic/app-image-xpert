@@ -4,8 +4,6 @@
     left: 0;
     width: 100%;
     height: 100%;
-}
-.new-album-dialog-container {
     opacity: 0;
     pointer-events: none;
 }
@@ -13,6 +11,7 @@
     pointer-events: bounding-box;
     opacity: 1;
     background-color: rgba(0, 0, 0, 0.7);
+    z-index: 100;
 }
 
 .new-album-dialog-container.visible .new-album-dialog {

@@ -4,11 +4,20 @@ html {
 }
 body {
     margin: 0;
+    height: 100%;
     -webkit-animation: animate-opacity 2s;
     -moz-animation: animate-opacity 2s;
     -o-animation: animate-opacity 2s;
     animation: animate-opacity 2s;
     overflow-x: hidden;
+}
+
+#mainRegion {
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+    position: absolute;
 }
 
 .background-image {
@@ -39,25 +48,25 @@ body {
 }
 
 .main-container {
-    z-index: 0;
+    /*z-index: 0;*/
     width: 100%;
     height: 100%;
     opacity: 1;
     position: absolute;
-    background-color: rgba(0, 0, 0, 0.5);
+    /*background-color: rgba(0, 0, 0, 0.5);*/
     -webkit-transition: opacity 300ms ease-in;
     -moz-transition: opacity 300ms ease-in;
     transition: opacity 300ms ease-in;
 }
 
-@media only screen and (min-width: 937px) {
+@media only screen and (min-width: 1250px) {
     .main-container {
         width: 80%;
         left: 8%;
     }
 }
 
-@media only screen and (min-width: 1250px) {
+@media only screen and (min-width: 1435px) {
     .main-container {
         width: 70%;
         left: 50%;
@@ -65,18 +74,19 @@ body {
     }
 }
 
-@media only screen and (min-width: 750px) {
+@media only screen and (min-width: 1000px) {
     .main-container {
         padding: 0 20px;
         height: auto;
         top: 50%;
         margin-top: -370px;
     }
-
+/*
     .search {
         max-width: 560px;
-        margin: 25px auto 0 auto;
+        margin: 25px auto 50px auto;
     }
+    */
 }
 
 .search, .browse {
@@ -85,6 +95,8 @@ body {
 
 .search {
     padding: 4px;
+    max-width: 560px;
+    margin: 25px auto 50px auto;
 }
 
 .search form {
@@ -111,6 +123,7 @@ body {
     box-sizing: border-box;
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
+    box-shadow: 0 0 8px #565361;
 }
 
 @media only screen and (max-width: 768px) {
@@ -142,12 +155,7 @@ body {
 
 .browse-albums {
     text-align: center;
-}
-
-@media only screen and (min-width: 937px) {
-    .browse-albums {
-        margin-top: 40px;
-    }
+    margin-top: 60px;
 }
 
 .browse {
@@ -159,12 +167,6 @@ body {
     -webkit-flex-flow: row wrap;
     flex-flow: row wrap;
     justify-content: center;
-}
-
-@media only screen and (min-width: 940px) {
-    .browse {
-        justify-content: flex-start;
-    }
 }
 
 .browse-albums h1 {
@@ -192,6 +194,7 @@ body {
 
 .empty-album {
     cursor: pointer;
+    box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.5);
 }
 
 .album {
@@ -385,6 +388,7 @@ body {
 .album-name-input {
     position: absolute;
     width: 155px;
+    top: 0;
     left: 45px;
     font-size: 20px;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;

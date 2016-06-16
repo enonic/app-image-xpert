@@ -27,7 +27,7 @@ exports.post = function (req) {
 function createNewAlbum() {
     var sitePath = portalLib.getSite()._path;
     var album = contentLib.create({
-        parentPath: sitePath + "/Albums",
+        parentPath: sitePath + "/albums",
         displayName: portalLib.getMultipartText('albumName'),
         contentType: app.name + ":album",
         branch: "draft",

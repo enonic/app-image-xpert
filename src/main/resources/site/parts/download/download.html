@@ -1,13 +1,14 @@
 
 <div class="main-container">
-    <img class="fake-image" src="" onload="syncImage()"></img>
+    <img class="fake-image" src="" onload="syncImage()">
     <div class="image-info-overlay-gradient"></div>
     <div class="image-info-overlay"></div>
     <div class="image-placeholder" data-src="{{imageUrl}}"></div>
     <div class="image-header">
         <div class="image-header-icons">
-            <img src="{{assetUrl}}/img/info.svg" title="Image info" onclick="toggleClass('info');" class="icon-info">
             <img src="{{assetUrl}}/img/download_image.svg" title="Download image" onclick="toggleClass('download');" class="icon-download">
+            <img src="{{assetUrl}}/img/info.svg" title="Image info" onclick="toggleClass('info');" class="icon-info">
+            <img src="{{assetUrl}}/img/cancel.svg" title="Close info" onclick="toggleClass();" class="icon-close">
         </div>
     </div>
 </div>

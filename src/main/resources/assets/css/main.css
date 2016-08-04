@@ -108,6 +108,7 @@ body {
 @media only screen and (max-width: 768px) {
     .search {
         padding: 15px;
+        margin-top: 50px;
     }
 }
 

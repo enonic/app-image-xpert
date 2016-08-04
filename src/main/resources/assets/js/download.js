@@ -1,9 +1,24 @@
-function toggleClass(cls) {
+function toggleClass(cls, e) {
     var mainRegion = document.querySelector("#mainRegion");
-    mainRegion.classList.remove("download", "info");
+    mainRegion.classList.remove("download", "info", "edit");
     if (cls) {
-        mainRegion.classList.add(cls);
+        if (typeof cls == "string") {
+            cls = [cls];
+        }
+        cls.forEach(function(cl){
+            mainRegion.classList.add(cl);
+        });
     }
+    if (e) {
+        e.stopPropagation();
+    }
+}
+function closeEditMode() {
+    var mainRegion = document.querySelector("#mainRegion");
+    if (!mainRegion.classList.contains("edit")) {
+        return;
+    }
+    toggleClass("info");
 }
 function debounce(func, wait) {
     var timeout;

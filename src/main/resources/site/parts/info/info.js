@@ -24,22 +24,30 @@ exports.get = function (req) {
         return "<div></div>";
     }
 
-    var artist;
+    var artist = "N/A",
+        tags = "N/A",
+        caption = image.displayName;
+
     if (binary.data.artist) {
         artist = binary.data.artist.toString();
     }
+    if (binary.data.tags) {
+        tags = binary.data.tags.join(', ');
+    }
+    if (binary.data.caption) {
+        caption = binary.data.caption;
+    }
 
     var geoLocation = binary.x.base && binary.x.base.gpsInfo && binary.x.base.gpsInfo.geoPoint;
-
 
     var imageWidth = binary.x.media.imageInfo.imageWidth.toFixed(0);
     var imageHeight = binary.x.media.imageInfo.imageHeight.toFixed(0);
 
     var view = resolve('info.html');
     var body = mustacheLib.render(view, {
-        displayName: image.displayName,
+        caption: caption,
         createdDate: createdDate.toDateString(),
-        artist: artist || "N/A",
+        artist: artist,
         lat: geoLocation ? geoLocation.split(",")[0] : "",
         lng: geoLocation ? geoLocation.split(",")[1] : "",
         geoLocation: geoLocation,
@@ -51,6 +59,7 @@ exports.get = function (req) {
             : "N/A",
         cameraMake: binary.x.media.cameraInfo && binary.x.media.cameraInfo.make ? binary.x.media.cameraInfo.make : "N/A",
         cameraModel: binary.x.media.cameraInfo && binary.x.media.cameraInfo.model ? binary.x.media.cameraInfo.model : "N/A",
+        tags: tags,
         assetUrl: portalLib.assetUrl('')
     });
 

@@ -14,17 +14,58 @@ function toggleClass(cls, e) {
     }
 }
 
+function updateMetaInfo(mediaId) {
+    var captionInputEl = document.querySelector('#input-caption'),
+        artistInputEl = document.querySelector('#input-artist'),
+        tagsInputEl = document.querySelector('#input-tags'),
+        caption = captionInputEl.value.trim(),
+        artist = artistInputEl.value.trim(),
+        tags = tagsInputEl.value.trim(),
+        captionEl = document.querySelector('.caption-stored'),
+        artistEl = document.querySelector('.artist-stored'),
+        tagsEl = document.querySelector('.tags-stored');
+
+    if (!updateMetaServiceUrl || updateMetaServiceUrl == "" || mediaId.trim() == "" ||
+        (captionEl.innerHTML == caption && artistEl.innerHTML == artist && tagsEl.innerHTML == tags)) {
+        toggleClass("info");
+
+        return;
+    }
+
+    var http = new XMLHttpRequest();
+    http.open("POST", updateMetaServiceUrl, true);
+    http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+
+    http.onreadystatechange = function() {
+        if (http.readyState == 4 && http.status == 200 && http.responseText !== "") {
+            var responseObj = JSON.parse(http.responseText);
+            if (responseObj.success) {
+                captionEl.innerHTML = caption;
+                artistEl.innerHTML = artist;
+                tagsEl.innerHTML = tags;
+            }
+            else {
+                captionInputEl.value = captionEl.innerHTML;
+                artistInputEl.value = artistEl.innerHTML;
+                tagsInputEl.value = tagsEl.innerHTML;
+            }
+            toggleClass("info");
+        }
+    };
+    http.send("id=" + mediaId + "&caption=" + caption + "&artist=" + artist + "&tags=" + tags);
+}
+
 function openEditMode(e) {
     toggleClass(['info', 'edit'], e);
     document.querySelector('#input-caption').focus();
 }
 
-function closeEditMode(e) {
+function closeEditMode(mediaId, e) {
     var mainRegion = document.querySelector("#mainRegion");
     if (!mainRegion.classList.contains("edit") || e.srcElement.tagName == "INPUT") {
         return;
     }
-    toggleClass("info");
+    updateMetaInfo(mediaId);
 }
 
 function debounce(func, wait) {

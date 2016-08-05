@@ -25,6 +25,11 @@
             loadImage();
         }
     </script>
+    <script type="text/javascript" th:inline="javascript">
+        /*<![CDATA[*/
+        var updateMetaServiceUrl = /*[[${updateMetaServiceUrl}]]*/;
+        /*]]>*/
+    </script>
 </head>
 
 <body data-portal-component-type="page" data-th-class="${editable}? 'edit'" onresize="loadImage()">

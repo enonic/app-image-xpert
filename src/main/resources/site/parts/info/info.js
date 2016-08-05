@@ -60,7 +60,8 @@ exports.get = function (req) {
         cameraMake: binary.x.media.cameraInfo && binary.x.media.cameraInfo.make ? binary.x.media.cameraInfo.make : "N/A",
         cameraModel: binary.x.media.cameraInfo && binary.x.media.cameraInfo.model ? binary.x.media.cameraInfo.model : "N/A",
         tags: tags,
-        assetUrl: portalLib.assetUrl('')
+        assetUrl: portalLib.assetUrl(''),
+        mediaId: image.data.binary
     });
 
     return {

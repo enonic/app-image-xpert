@@ -15,7 +15,8 @@ function handleGet(req) {
         site: site,
         reqContent: reqContent,
         mainRegion: reqContent.page.regions["main"],
-        editable: editMode
+        editable: editMode,
+        updateMetaServiceUrl: portal.serviceUrl({service: "update-meta"})
     };
     var body = thymeleaf.render(view, params);
 

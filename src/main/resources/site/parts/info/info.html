@@ -1,22 +1,22 @@
-<div class="image-info-container" onclick="closeEditMode(event);">
+<div class="image-info-container" onclick="closeEditMode('{{mediaId}}', event);">
     <div class="image-info-vertical-wrapper">
         <div class="image-info-vertical-cell">
             <div class="image-meta-container">
                 <div class="image-caption">
                     <img class="icon-edit" src="{{assetUrl}}/img/pencil.svg" title="Edit info" onclick="openEditMode(event);">
-                    <h1>{{caption}}</h1>
+                    <h1 class="caption-stored">{{caption}}</h1>
                     <input id="input-caption" type="text" class="info-meta-input" value="{{caption}}">
                 </div>
                 <div class="image-row">
                     <div class="image-info-column">
                         <h2 class="image-info-heading">Taken by</h2>
-                        <h3 class="image-info-meta">{{artist}}</h3>
+                        <h3 class="image-info-meta artist-stored">{{artist}}</h3>
                         <input id="input-artist" type="text" class="info-meta-input" value="{{artist}}">
                     </div>
 
                     <div class="image-info-column">
                         <h2 class="image-info-heading">Tags</h2>
-                        <h3 class="image-info-meta">{{tags}}</h3>
+                        <h3 class="image-info-meta tags-stored">{{tags}}</h3>
                         <input id="input-tags" type="text" class="info-meta-input" value="{{tags}}">
                     </div>
                 </div>

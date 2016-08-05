@@ -13,13 +13,20 @@ function toggleClass(cls, e) {
         e.stopPropagation();
     }
 }
-function closeEditMode() {
+
+function openEditMode(e) {
+    toggleClass(['info', 'edit'], e);
+    document.querySelector('#input-caption').focus();
+}
+
+function closeEditMode(e) {
     var mainRegion = document.querySelector("#mainRegion");
-    if (!mainRegion.classList.contains("edit")) {
+    if (!mainRegion.classList.contains("edit") || e.srcElement.tagName == "INPUT") {
         return;
     }
     toggleClass("info");
 }
+
 function debounce(func, wait) {
     var timeout;
     return function() {

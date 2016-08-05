@@ -100,7 +100,7 @@ body {
     width: 25%;
     margin-top: 15px;
     float: left;
-    white-space: nowrap;
+    position: relative;
 }
 
 @media only screen and (max-width: 768px) {
@@ -129,7 +129,7 @@ body {
 }
 .image-caption img {
     position: absolute;
-    left: 0;
+    left: 10px;
     top: 10px;
     cursor: pointer;
     width: 25px;
@@ -146,7 +146,11 @@ body {
 }
 
 #mainRegion.edit .image-caption img{
-    display: none;
+    filter: invert(100%);
+    -webkit-filter: invert(100%);
+    z-index: 1000;
+    opacity: 0.7;
+    pointer-events: none;
 }
 
 .image-info-heading {
@@ -262,4 +266,41 @@ body {
 
 .image-header .image-header-icons img:hover {
     opacity: 0.7;
+}
+
+.info-meta-input {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 500ms;
+    font-family: Courier, monospace;
+    font-weight: 400;
+}
+
+#mainRegion.edit .info-meta-input {
+    opacity: 1;
+    pointer-events: all;
+}
+
+#input-caption {
+    font-size: 28px;
+    top: 3px;
+    left: -3px;
+    width: 93%;
+    padding-left: 47px;
+}
+
+#input-artist, #input-tags {
+    font-size: 15px;
+    top: 33px;
+    left: -3px;
+    height: 20px;
+}
+
+#input-tags {
+    width: 100%;
+}
+
+#input-artist {
+    width: 75%;
 }

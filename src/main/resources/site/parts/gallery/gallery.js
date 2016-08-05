@@ -10,7 +10,6 @@ exports.get = function (req) {
         map(function (album) {
             if (album._id == req.params.album) {
                 albumName = album.displayName;
-                log.info(albumName);
             }
             return {
                 displayName: album.displayName,

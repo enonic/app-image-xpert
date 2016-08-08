@@ -2,10 +2,17 @@ function onImageLoad(image) {
     image.style.height = "";
 }
 
+function createNewAlbum(formEl) {
+    closeNewAlbumDialog();
+    formEl.submit();
+}
+
 function openFileUploadDialog() {
     var fileUploadEl = document.querySelector('input[name="file"]');
+    document.body.onfocus = closeNewAlbumDialog.bind(this, true);
+
     if (fileUploadEl) {
-        closeNewAlbumDialog();
+        document.querySelector('.new-album-dialog-container').classList.add("select-files");
         fileUploadEl.click();
     }
     return false;
@@ -23,11 +30,14 @@ function openNewAlbumDialog() {
     document.querySelector('input[name="albumName"]').focus();
 }
 
-function closeNewAlbumDialog() {
+function closeNewAlbumDialog(canceled) {
+    document.body.onfocus = null;
+    if (canceled) {
+        document.querySelector('.search-input').focus();
+    }
     var newAlbumDialog = document.querySelector('.new-album-dialog-container');
     if (newAlbumDialog) {
-        document.querySelector('.new-album-dialog-container').classList.remove("visible");
-        document.querySelector('.new-album-dialog-container .button-toolbar').classList.remove("select-files");
+        document.querySelector('.new-album-dialog-container').classList.remove("visible", "select-files");
     }
 }
 

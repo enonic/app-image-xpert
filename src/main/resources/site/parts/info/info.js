@@ -32,7 +32,12 @@ exports.get = function (req) {
         artist = binary.data.artist.toString();
     }
     if (binary.data.tags) {
-        tags = binary.data.tags.join(', ');
+        if (typeof binary.data.tags !== "string") {
+            tags = binary.data.tags.join(', ');
+        }
+        else {
+            tags = binary.data.tags;
+        }
     }
     if (binary.data.caption) {
         caption = binary.data.caption;

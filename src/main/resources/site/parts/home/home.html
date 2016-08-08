@@ -40,14 +40,16 @@
                 <input name="albumName" type="text" placeholder="Title" onkeyup="validateForm()">
             </div>
 
-            <input name="file" type="file" multiple="multiple" accept="image/*" style="display: none;" onchange="this.parentElement.submit();">
+            <input name="file" type="file" multiple="multiple" accept="image/*" style="display: none;" onchange="createNewAlbum(this.parentElement);">
 
             <div class="button-toolbar">
                 <button type="reset" class="button-cancel" onclick="closeNewAlbumDialog();">Cancel</button>
                 <button class="button-create" onclick="return openFileUploadDialog();" disabled>Create</button>
-                <p class="button-toolbar-text">Please select images in the dialog...</p>
             </div>
 
         </form>
+    </div>
+    <div class="new-album-footer">
+        <p class="button-toolbar-text">Please select images in the dialog above...</p>
     </div>
 </div>

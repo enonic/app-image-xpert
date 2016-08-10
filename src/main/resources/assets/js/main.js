@@ -7,46 +7,81 @@ function createNewAlbum(formEl) {
     formEl.submit();
 }
 
+function isChrome() {
+    return navigator.userAgent.search("Chrome") > -1;
+}
+
+function getNewAlbumName() {
+    var albumName = '',
+        albumNameTextBox = document.querySelector('input[name="albumName"]');
+
+    if (albumNameTextBox) {
+        albumName = albumNameTextBox.value.trim();
+    }
+
+    return albumName;
+}
+
+function setNewAlbumName(albumName) {
+    var newAlbumSpanEl = document.getElementById('album-name-span-new');
+    newAlbumSpanEl.innerText = albumName;
+    newAlbumSpanEl.classList.toggle('hidden', albumName=='');
+}
+
 function openFileUploadDialog() {
+    var albumName = getNewAlbumName();
     var fileUploadEl = document.querySelector('input[name="file"]');
-    document.body.onfocus = closeNewAlbumDialog.bind(this, true);
+    if (isChrome()) {
+        document.body.onfocus = closeNewAlbumDialog.bind(this, true);
+    }
 
     if (fileUploadEl) {
-        document.querySelector('.new-album-dialog-container').classList.add("select-files");
+        if (isChrome()) {
+            document.querySelector('.new-album-dialog-container').classList.add("select-files");
+            setNewAlbumName(albumName);
+        }
+        else {
+            closeNewAlbumDialog();
+        }
         fileUploadEl.click();
     }
     return false;
 }
 
 function openNewAlbumDialog() {
-    var albumNameTextBox = document.querySelector('input[name="albumName"]');
-    var createButton = document.querySelector('.button-create');
+    var newAlbumDialogContainer = document.querySelector('.new-album-dialog-container');
+    var albumNameTextBox = newAlbumDialogContainer.querySelector('input[name="albumName"]');
+    var createButton = newAlbumDialogContainer.querySelector('.button-create');
 
     if (!!albumNameTextBox && !!createButton) {
         albumNameTextBox.value = "";
         createButton["disabled"] = true;
     }
-    document.querySelector('.new-album-dialog-container').classList.add("visible");
-    document.querySelector('input[name="albumName"]').focus();
+
+    newAlbumDialogContainer.classList.add("visible");
+    document.querySelector('.main-container').classList.add("new-album");
+    if (isChrome()) {
+        setNewAlbumName('');
+    }
+    albumNameTextBox.focus();
 }
 
 function closeNewAlbumDialog(canceled) {
+    document.querySelector('.new-album-dialog-container').classList.remove("visible", "select-files");
+    document.querySelector('.main-container').classList.remove("new-album");
+    if (!isChrome()) {
+        return;
+    }
     document.body.onfocus = null;
+    setNewAlbumName('');
     if (canceled) {
         document.querySelector('.search-input').focus();
-    }
-    var newAlbumDialog = document.querySelector('.new-album-dialog-container');
-    if (newAlbumDialog) {
-        document.querySelector('.new-album-dialog-container').classList.remove("visible", "select-files");
     }
 }
 
 function validateForm() {
     var createButton = document.querySelector('.button-create');
-    var albumNameTextBox = document.querySelector('input[name="albumName"]');
-    if (!!createButton && !!albumNameTextBox) {
-        createButton["disabled"] = (albumNameTextBox.value.trim().length == 0);
-    }
+    createButton["disabled"] = (getNewAlbumName().length == 0);
 }
 
 function editAlbumName(id) {

@@ -174,12 +174,41 @@
 
 .upload-success.visible {
     display: block;
-    -webkit-animation: opacity 3s;
+    animation: fadeOut 3s;
+    -webkit-animation: fadeOut 3s;
+    -moz-animation-name: fadeOut;
+    -moz-animation-duration: 3s;
+    -webkit-animation-fill-mode:forwards;
+    -moz-animation-fill-mode:forwards;
     animation-fill-mode: forwards;
     pointer-events: none;
 }
 
-@-webkit-keyframes opacity {
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+@-moz-keyframes fadeOut {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+@-webkit-keyframes fadeOut {
     0% {
         opacity: 1;
     }

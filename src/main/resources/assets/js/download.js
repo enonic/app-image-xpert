@@ -37,22 +37,30 @@ function updateMetaInfo(mediaId) {
     http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 
     http.onreadystatechange = function() {
-        if (http.readyState == 4 && http.status == 200 && http.responseText !== "") {
-            var responseObj = JSON.parse(http.responseText);
-            if (responseObj.success) {
-                captionEl.innerHTML = caption;
-                artistEl.innerHTML = artist;
-                tagsEl.innerHTML = tags;
+        if (http.readyState == 4) {
+            if (http.status == 200 && http.responseText !== "") {
+                var responseObj = JSON.parse(http.responseText);
+                if (responseObj.success) {
+                    captionEl.innerHTML = caption;
+                    artistEl.innerHTML = artist;
+                    tagsEl.innerHTML = tags;
+                }
+                else {
+                    captionInputEl.value = captionEl.innerHTML;
+                    artistInputEl.value = artistEl.innerHTML;
+                    tagsInputEl.value = tagsEl.innerHTML;
+                }
             }
-            else {
-                captionInputEl.value = captionEl.innerHTML;
-                artistInputEl.value = artistEl.innerHTML;
-                tagsInputEl.value = tagsEl.innerHTML;
-            }
+            toggleSpinner(false);
             toggleClass("info");
         }
     };
+    toggleSpinner(true);
     http.send("id=" + mediaId + "&caption=" + caption + "&artist=" + artist + "&tags=" + tags);
+}
+
+function toggleSpinner(visible) {
+    document.getElementById('ixp-spinner').classList.toggle("visible", visible);
 }
 
 function openEditMode(e) {
@@ -126,4 +134,19 @@ function downloadImage(imageUrl, form) {
     form.appendChild(a);
     a.click();
     form.removeChild(a);
+}
+
+function onMetaInputKeyUp(mediaId, e) {
+    if (!!e.keyCode && !(e.keyCode == 13 || e.keyCode == 27)) {
+        return;
+    }
+    
+    if (e.keyCode == 27) {
+        toggleSpinner(false);
+        toggleClass("info");
+        
+        return;
+    }
+    
+    updateMetaInfo(mediaId);
 }

@@ -304,3 +304,18 @@ body {
 #input-artist {
     width: 75%;
 }
+
+#mainRegion.edit .meta-editable {
+    opacity: 0;
+}
+
+#ixp-spinner {
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+}
+
+#ixp-spinner.visible {
+    display: block;
+}

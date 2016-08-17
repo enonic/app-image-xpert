@@ -27,7 +27,7 @@
                 <form action="{{imageCreationServiceUrl}}" method="post" enctype="multipart/form-data">
                     <input name="album" type="hidden" value="{{albumId}}">
                     <input name="file" type="file" multiple="multiple" accept="image/*" style="display: none;" onchange="this.parentElement.submit();">
-                    <input type="image" class="upload-icon" src="{{assetUrl}}/img/plus.svg" onclick="return openFileUploadDialog();">
+                    <input type="image" class="upload-icon" src="{{assetUrl}}/img/plus.svg" onclick="return openFileUploadDialog(true);">
                 </form>
                 {{/albumId}}
             </div>
@@ -52,9 +52,6 @@
             <small>&copy; {{.}}</small>
         </em>{{/copyright}}
         </figcaption>
-        <!--
-        <a href="{{downloadPageUrl}}">Download image</a>
-        -->
     </figure>
     {{/images}}
 </div>

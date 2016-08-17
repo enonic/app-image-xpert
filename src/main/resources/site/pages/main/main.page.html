@@ -7,23 +7,27 @@
     <link rel="stylesheet" data-th-href="${portal.assetUrl({'_path=css/main.css'})}" type="text/css"/>
     <link rel="stylesheet" data-th-href="${portal.assetUrl({'_path=css/newalbum.css'})}" type="text/css"/>
     <script type="text/javascript" data-th-src="${portal.assetUrl({'_path=js/main.js'})}"></script>
-    <script type="text/javascript">
+    <script type="text/javascript" th:inline="javascript">
         window.onload = function() {
             var searchField = document.querySelector('.search-input');
             if (searchField) {
                 searchField.focus();
+                searchField.addEventListener("keyup", debounce(initSearch.bind(this), 500));
             }
         }
     </script>
     <script type="text/javascript" th:inline="javascript">
         /*<![CDATA[*/
         var renameAlbumServiceUrl = /*[[${renameAlbumServiceUrl}]]*/;
+        var searchPageUrl = /*[[${searchPageUrl}]]*/;
         /*]]>*/
     </script>
 </head>
 
 <body data-portal-component-type="page" data-th-class="${editable}? 'edit'">
 <div class="background-image" data-th-style="${backgroundImageStyle}"></div>
+<div class="background-opacity"></div>
+<img id="ixp-spinner" data-th-src="${spinnerUrl}" />
 <div id="mainRegion" data-portal-region="main">
     <div data-th-if="${reqContent.page.regions['main']}" data-th-remove="tag">
         <div data-th-each="component : ${reqContent.page.regions['main'].components}" data-th-remove="tag">

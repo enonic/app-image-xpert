@@ -75,11 +75,13 @@ body {
     margin-right: auto;
     margin-left: auto;
     max-width: 1200px;
-    margin-top: -100px;
 }
 
 .image-row {
-    height: 100px;
+    margin-left: 30%;
+    height: auto;
+    width: 50%;
+    display: flex;
 }
 
 .image-row.map {
@@ -87,7 +89,7 @@ body {
 }
 
 .image-info-column:first-child {
-    margin-left: 30%;
+    margin-right: 30%;
 }
 
 @media only screen and (max-width: 768px) {
@@ -99,7 +101,6 @@ body {
 .image-info-column {
     width: 25%;
     margin-top: 15px;
-    float: left;
     position: relative;
 }
 
@@ -112,8 +113,7 @@ body {
 
 .image-caption {
     width: 50%;
-    margin-left: 30%;
-    margin-bottom: 50px;
+    margin-left: 29%;
     position: relative;
 }
 
@@ -202,8 +202,8 @@ body {
 .image-location {
     width: 500px;
     height: 300px;
-    margin: auto;
     border: 3px solid white;
+    margin-top: 15px;
 }
 
 @media only screen and (max-width: 768px) {

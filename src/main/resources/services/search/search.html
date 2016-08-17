@@ -1,0 +1,18 @@
+<h3>Your search produced {{imageCount}} results</h3>
+<div class="browse">
+    {{#images}}
+    <figure class="album">
+        <a href="{{downloadPageUrl}}" target="_blank">
+            <img src="{{imageUrl}}" alt="{{displayName}}">
+        </a>
+        <figcaption class="image-caption">
+            {{#caption}}<b>{{.}}</b>{{/caption}}
+            <p class="image-caption-span">{{#artist}}by {{.}}{{/artist}}
+                {{#copyright}}<em>
+            <small>&copy; {{.}}</small>
+        </em>{{/copyright}}</p>
+        </figcaption>
+
+    </figure>
+    {{/images}}
+</div>

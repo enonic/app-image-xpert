@@ -28,9 +28,13 @@ function setNewAlbumName(albumName) {
     newAlbumSpanEl.classList.toggle('hidden', albumName=='');
 }
 
-function openFileUploadDialog() {
-    var albumName = getNewAlbumName();
+function  openFileUploadDialog(isNewAlbum) {
     var fileUploadEl = document.querySelector('input[name="file"]');
+    if (isNewAlbum) {
+        fileUploadEl.click();
+        return false;
+    }
+    var albumName = getNewAlbumName();
     if (isChrome()) {
         document.body.onfocus = closeNewAlbumDialog.bind(this, true);
     }
@@ -175,4 +179,84 @@ function submitSearch() {
     }
 
     return false;
+}
+
+function debounce(fn, delay) {
+    var timer = null;
+    return function () {
+        var context = this, args = arguments;
+        clearTimeout(timer);
+        timer = setTimeout(function () {
+            fn.apply(context, args);
+        }, delay);
+    };
+}
+
+function toggleSpinner(visible) {
+    var mainContainer = document.querySelector(".main-container");
+    if (visible) {
+        mainContainer.style.opacity = 0.2;
+    }
+    document.getElementById('ixp-spinner').classList.toggle("visible", visible);
+    if (!visible) {
+        mainContainer.style.opacity = 1;
+    }
+}
+
+function initSearch(e) {
+    var searchValue = e.srcElement.value.trim();
+    toggleSpinner(true);
+
+    doSearch(searchValue);
+}
+
+function hideAlbums() {
+    document.querySelector(".main-container").classList.add("search-results");
+}
+
+function showAlbums() {
+    var searchField = document.querySelector('.search-input');
+    document.querySelector(".main-container").classList.remove("search-results");
+    clearSearchResults('');
+    searchField.value = '';
+    searchField.focus();
+}
+
+function clearSearchResults() {
+    showSearchResults('');
+}
+
+function showSearchResults(responseHTML) {
+    document.getElementById('browse-images').innerHTML = responseHTML;
+}
+
+function toggleNoResultsMessage(visible) {
+    document.getElementById('search-results-span').style.display = visible ? "block" : "none";
+}
+
+function doSearch(keyWords) {
+    toggleNoResultsMessage(false);
+    clearSearchResults('');
+
+    if (!searchPageUrl || keyWords.trim() == "") {
+        toggleNoResultsMessage(true);
+        toggleSpinner(false);
+        
+        return;
+    }
+
+    var http = new XMLHttpRequest();
+    http.open("POST", searchPageUrl, true);
+    http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+
+    http.onreadystatechange = function() {
+        if (http.readyState == 4) {
+            if (http.status == 200 && http.responseText !== "") {
+                hideAlbums();
+                showSearchResults(http.responseText);
+            }
+            toggleSpinner(false);
+        }
+    };
+    http.send("search=" + keyWords);
 }

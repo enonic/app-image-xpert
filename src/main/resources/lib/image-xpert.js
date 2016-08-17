@@ -24,7 +24,7 @@ exports.getImages = function (params) {
 
     //Retrieves the binary images corresponding to the search query
     var binaryImagesIds;
-    var count = params.count || 10;
+    var count = params.count || 100;
     if (params && params.searchQuery) {
         var binaryImageQuery = "ngram('_allText', '" + params.searchQuery + "', 'OR')";
         var binaryImagesIds = contentLib.query({

@@ -25,7 +25,9 @@ function handleGet(req) {
         mainRegion: reqContent.page.regions["main"],
         editable: editMode,
         backgroundImageStyle: backgroundImageStyle,
-        renameAlbumServiceUrl: renameAlbumServiceUrl
+        renameAlbumServiceUrl: renameAlbumServiceUrl,
+        searchPageUrl: portal.serviceUrl({service: "search"}),
+        spinnerUrl: portal.assetUrl({path: 'img/spinner.svg'})
 
 };
     var body = thymeleaf.render(view, params);

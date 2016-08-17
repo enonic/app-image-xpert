@@ -1,11 +1,13 @@
 <div class="main-container">
     <div class="search">
-        <form action="{{galleryPageUrl}}">
+        <form>
             <input name="search" class="search-input" type="text" placeholder="Search our library for amazing photos, places or authors">
             <a class="search-button"><input type="image" src="{{assetUrl}}/img/search-icon.svg"></a>
         </form>
+        <a class="show-albums-link" href="#" onclick="showAlbums(); return false;">Back to albums</a>
+        <h3 id="search-results-span">Your search produced no results</h3>
     </div>
-    <div class="browse-albums">
+    <div id="browse-albums">
         <div class="browse">
             <div class="album new-album">
                 <div class="empty-album" onclick="openNewAlbumDialog(this);" >
@@ -32,6 +34,7 @@
         {{/albums}}
         </div>
     </div>
+    <div id="browse-images"></div>
 </div>
 
 <div class="new-album-dialog-container">

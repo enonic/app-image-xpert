@@ -10,36 +10,31 @@ exports.post = function (req) {
     };
 
     var images = imageXpertLib.getImages(getImagesParams).
-    map(function (image) {
-        var imageBinary = imageXpertLib.getContentByKey(image.data.binary);
-        if (!imageBinary) {
-            return undefined;
-        }
+        map(function (image) {
+            var caption = image.data.caption ? image.data.caption.toString() : undefined;
+            var artist = image.data.artist ? image.data.artist.toString() : undefined;
+            var copyright = image.data.copyright ? image.data.copyright.toString() : undefined;
 
-        var caption = imageBinary.data.caption ? imageBinary.data.caption.toString() : undefined;
-        var artist = imageBinary.data.artist ? imageBinary.data.artist.toString() : undefined;
-        var copyright = imageBinary.data.copyright ? imageBinary.data.copyright.toString() : undefined;
+            if (artist && copyright && artist.toLowerCase() == copyright.toLowerCase()) {
+                artist = null;
+            }
 
-        if (artist && copyright && artist.toLowerCase() == copyright.toLowerCase()) {
-            artist = null;
-        }
-
-        return {
-            displayName: image.displayName,
-            caption: caption,
-            artist: artist,
-            copyright: copyright,
-            imageUrl: portalLib.imageUrl({
-                id: image.data.binary,
-                scale: "square(200)"
-            }),
-            downloadPageUrl: imageXpertLib.generateDownloadPageUrl({
-                imageId: image._id
-            })
-        }
-    }).filter(function (image) {
-        return !!image
-    });
+            return {
+                displayName: image.displayName,
+                caption: caption,
+                artist: artist,
+                copyright: copyright,
+                imageUrl: portalLib.imageUrl({
+                    id: image._id,
+                    scale: "square(200)"
+                }),
+                downloadPageUrl: imageXpertLib.generateDownloadPageUrl({
+                    imageId: image._id
+                })
+            };
+        }).filter(function (image) {
+            return !!image
+        });
 
     var view = resolve('./search.html');
     var body = mustacheLib.render(view, {

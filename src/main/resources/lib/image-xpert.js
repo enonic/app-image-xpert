@@ -68,8 +68,11 @@ exports.getImages = function (params) {
     //Else if this is a search by album
     var imageQuery;
     if (params && params.albumId) {
+
+        var album = exports.getContentByKey(params.albumId);
+        log.info("album:" + JSON.stringify(album));
         // Searches by album
-        imageQuery = "data.album = '" + params.albumId + "'";
+        imageQuery = "_path LIKE '/content" + album._path + "/*'";
         imageSort = "createdTime DESC";
     }
 
@@ -78,7 +81,7 @@ exports.getImages = function (params) {
         start: 0,
         count: count,
         query: imageQuery,
-        contentTypes: [app.name + ":image"],
+        contentTypes: ["media:image"],
         sort: "createdTime DESC"
     }).hits;
 

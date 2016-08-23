@@ -70,6 +70,7 @@ function createImage(fileIndex, albumId) {
         var content = contentLib.create({
             parentPath: imageXpertLib.generateCurrentImageFolderPath(album._path),
             displayName: part.fileName,
+            requireValid: false,
             contentType: app.name + ":image",
             branch: "draft",
             data: {

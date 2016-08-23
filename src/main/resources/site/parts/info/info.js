@@ -10,7 +10,7 @@ exports.get = function (req) {
     } else {
         image = portalLib.getContent();
     }
-    if (!image || image.type != app.name + ":image") {
+    if (!image || image.type != "media:image") {
         image = imageXpertLib.getRandomImage();
     }
 

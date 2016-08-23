@@ -6,10 +6,10 @@ exports.get = function (req) {
     var albums = imageXpertLib.getAlbums().
         map(function (album) {
             var imageUrl;
-            var albumImage = imageXpertLib.getAlbumImage(album._id);
+            var albumImage = imageXpertLib.getAlbumImage(album._path);
             if (albumImage) {
                 imageUrl = portalLib.imageUrl({
-                    id: albumImage.data.binary,
+                    id: albumImage._id,
                     scale: "square(150)"
                 })
             }

@@ -17,7 +17,7 @@ exports.get = function (req) {
     var createdDate = new Date(image.createdTime);
 
     var binary = contentLib.get({
-        key: image.data.binary
+        key: image._id
     });
 
     if (!binary) {
@@ -66,7 +66,7 @@ exports.get = function (req) {
         cameraModel: binary.x.media.cameraInfo && binary.x.media.cameraInfo.model ? binary.x.media.cameraInfo.model : "N/A",
         tags: tags,
         assetUrl: portalLib.assetUrl(''),
-        mediaId: image.data.binary
+        mediaId: image._id
     });
 
     return {

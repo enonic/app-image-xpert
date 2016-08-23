@@ -15,14 +15,14 @@ exports.get = function (req) {
     }
 
     var binary = contentLib.get({
-        key: image.data.binary
+        key: image._id
     });
 
     var imageWidth = binary.x.media.imageInfo.imageWidth.toFixed(0);
     var imageHeight = binary.x.media.imageInfo.imageHeight.toFixed(0);
 
     var imageUrl = portalLib.attachmentUrl({
-        id: image.data.binary
+        id: image._id
     });
 
     var infoPageUrl = imageXpertLib.generateInfoPageUrl({
@@ -35,7 +35,7 @@ exports.get = function (req) {
     var body = mustacheLib.render(view, {
         displayName: image.displayName,
         imageUrl: imageUrl,
-        binaryImageId: image.data.binary,
+        binaryImageId: image._id,
         infoPageUrl: infoPageUrl,
         downloadImageServiceUrl: downloadImageServiceUrl,
         imageWidth: imageWidth,

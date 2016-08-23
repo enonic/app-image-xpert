@@ -147,30 +147,3 @@ exports.generateHomeUrl = function (params) {
     });
 };
 
-exports.generateCurrentImageFolderPath = function (albumPath) {
-    var folder = createOrGetFolder(albumPath, getIsoCurrentDate());
-    return folder._path;
-};
-
-function getIsoCurrentDate() {
-    return new Date().toISOString().substring(0, 10);
-}
-
-function createOrGetFolder(parentPath, displayName) {
-    var folder = contentLib.get({
-        key: parentPath + "/" + displayName,
-        branch: 'draft'
-    });
-
-    if (!folder) {
-        folder = contentLib.create({
-            parentPath: parentPath,
-            displayName: displayName,
-            contentType: "base:folder",
-            branch: "draft",
-            data: {}
-        });
-    }
-    return folder;
-}
-

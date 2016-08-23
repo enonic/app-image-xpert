@@ -68,7 +68,7 @@ function createImage(fileIndex, albumId) {
 
         //Creates the Image content
         var content = contentLib.create({
-            parentPath: imageXpertLib.generateCurrentImageFolderPath(album._path),
+            parentPath: album._path,
             displayName: part.fileName,
             requireValid: false,
             contentType: app.name + ":image",

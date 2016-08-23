@@ -66,22 +66,10 @@ function createImage(fileIndex, albumId) {
             return null;
         }
 
-        //Creates the Image content
-        var content = contentLib.create({
-            parentPath: album._path,
-            displayName: part.fileName,
-            requireValid: false,
-            contentType: app.name + ":image",
-            branch: "draft",
-            data: {
-                album: album._id
-            }
-        });
-
-        //Creates the Image media
-        var media = contentLib.createMedia({
+        //Creates the image
+        var content = contentLib.createMedia({
             name: part.fileName,
-            parentPath: content._path,
+            parentPath: album._path,
             mimeType: part.contentType,
             branch: "draft",
             focalX: 0.5,
@@ -94,22 +82,12 @@ function createImage(fileIndex, albumId) {
         var artist = portalLib.getMultipartText("artist");
         var tags = portalLib.getMultipartText("tags");
         contentLib.modify({
-            key: media._id,
+            key: content._id,
             editor: function (media) {
                 media.data.caption = caption;
                 media.data.artist = artist;
                 media.data.tags = tags;
                 return media;
-            }
-        });
-
-
-        //Links the Image content to the Image media
-        content = contentLib.modify({
-            key: content._id,
-            editor: function (content) {
-                content.data.binary = media._id;
-                return content;
             }
         });
 

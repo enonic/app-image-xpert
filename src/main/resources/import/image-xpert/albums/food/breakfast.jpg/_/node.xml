@@ -1,9 +1,9 @@
 <node>
-    <id>fc04df03-2660-4270-b43f-74b96783e941</id>
+    <id>77531395-2811-474b-8e4a-2b6fb85049dd</id>
     <childOrder>modifiedtime DESC</childOrder>
     <nodeType>content</nodeType>
-    <timestamp>2016-05-24T14:10:41.272Z</timestamp>
-    <inheritPermissions>false</inheritPermissions>
+    <timestamp>2016-05-24T14:10:41.275Z</timestamp>
+    <inheritPermissions>true</inheritPermissions>
     <permissions>
         <principal key="role:cms.cm.app">
             <allow type="array">
@@ -39,15 +39,74 @@
     <data>
         <boolean name="valid">true</boolean>
         <string name="displayName">Breakfast.jpg</string>
-        <string name="type">com.enonic.app.imagexpert:image</string>
+        <string name="type">media:image</string>
         <string name="owner">user:system:su</string>
-        <dateTime name="modifiedTime">2016-04-25T21:53:31.259Z</dateTime>
+        <dateTime name="modifiedTime">2016-04-25T21:59:03.142Z</dateTime>
         <string name="modifier">user:system:su</string>
         <string name="creator">user:system:su</string>
-        <dateTime name="createdTime">2016-04-25T21:53:30.619Z</dateTime>
+        <dateTime name="createdTime">2016-04-25T21:53:30.718Z</dateTime>
         <property-set name="data">
-            <reference name="album">19417f32-fb4a-4592-89cd-646dae8d5a6e</reference>
-            <reference name="binary">77531395-2811-474b-8e4a-2b6fb85049dd</reference>
+            <property-set name="media">
+                <string name="attachment">Breakfast.jpg</string>
+                <property-set name="focalPoint">
+                    <double name="x">0.5</double>
+                    <double name="y">0.5</double>
+                </property-set>
+            </property-set>
+            <string name="caption">Breakfast</string>
+            <string name="artist">Kristine Eek</string>
+            <string isNull="true" name="copyright"/>
+            <string name="tags">breakfast food</string>
+        </property-set>
+        <property-set name="x">
+            <property-set name="media">
+                <property-set name="imageInfo">
+                    <string name="colorSpace">RGB</string>
+                    <string name="colorSpace">sRGB</string>
+                    <long name="imageWidth">4078</long>
+                    <long name="imageHeight">3168</long>
+                    <string name="contentType">image/jpeg</string>
+                    <long name="pixelSize">12919104</long>
+                    <long name="byteSize">2200954</long>
+                    <string isNull="true" name="description"/>
+                    <string isNull="true" name="fileSource"/>
+                </property-set>
+                <property-set name="cameraInfo">
+                    <string name="focalLength">28.0 mm</string>
+                    <string name="aperture">F4</string>
+                    <string name="make">Canon</string>
+                    <string name="meteringMode">Multi-segment</string>
+                    <string name="orientation">Top, left side (Horizontal / normal)</string>
+                    <string name="lens">Canon EF-S 18-55mm f/3.5-5.6 [II]</string>
+                    <string name="model">Canon EOS 500D</string>
+                    <string name="whiteBalance">Auto white balance</string>
+                    <localDateTime name="date">2011-12-01T22:19:29.000Z</localDateTime>
+                    <string name="exposureProgram">Unknown program (0)</string>
+                    <string name="shutterTime">1/30 sec</string>
+                    <string name="iso">800</string>
+                    <string name="flash">Flash did not fire, auto</string>
+                    <string name="exposureBias">0 EV</string>
+                    <string name="exposureMode">Auto exposure</string>
+                    <string isNull="true" name="focalLength35"/>
+                    <string isNull="true" name="autoFlashCompensation"/>
+                    <string isNull="true" name="shootingMode"/>
+                    <string isNull="true" name="focusDistance"/>
+                </property-set>
+            </property-set>
+            <property-set name="base">
+                <property-set name="gpsInfo">
+                    <geoPoint name="geoPoint">51.520083,-0.102325</geoPoint>
+                    <string isNull="true" name="altitude"/>
+                    <string isNull="true" name="direction"/>
+                </property-set>
+            </property-set>
+        </property-set>
+        <property-set name="attachment">
+            <string name="name">Breakfast.jpg</string>
+            <string name="label">source</string>
+            <binaryReference name="binary">Breakfast.jpg</binaryReference>
+            <string name="mimeType">image/jpeg</string>
+            <long name="size">2200954</long>
         </property-set>
     </data>
     <indexConfigs>
@@ -82,36 +141,6 @@
                     </indexValueProcessors>
                 </indexConfig>
                 <path>data.htmlarea_text</path>
-            </pathIndexConfig>
-            <pathIndexConfig>
-                <indexConfig>
-                    <decideByType>false</decideByType>
-                    <enabled>true</enabled>
-                    <nGram>false</nGram>
-                    <fulltext>false</fulltext>
-                    <includeInAllText>false</includeInAllText>
-                </indexConfig>
-                <path>modifier</path>
-            </pathIndexConfig>
-            <pathIndexConfig>
-                <indexConfig>
-                    <decideByType>false</decideByType>
-                    <enabled>true</enabled>
-                    <nGram>false</nGram>
-                    <fulltext>false</fulltext>
-                    <includeInAllText>false</includeInAllText>
-                </indexConfig>
-                <path>owner</path>
-            </pathIndexConfig>
-            <pathIndexConfig>
-                <indexConfig>
-                    <decideByType>false</decideByType>
-                    <enabled>true</enabled>
-                    <nGram>false</nGram>
-                    <fulltext>false</fulltext>
-                    <includeInAllText>false</includeInAllText>
-                </indexConfig>
-                <path>attachment</path>
             </pathIndexConfig>
             <pathIndexConfig>
                 <indexConfig>
@@ -192,6 +221,36 @@
                     <includeInAllText>false</includeInAllText>
                 </indexConfig>
                 <path>modifiedTime</path>
+            </pathIndexConfig>
+            <pathIndexConfig>
+                <indexConfig>
+                    <decideByType>false</decideByType>
+                    <enabled>true</enabled>
+                    <nGram>false</nGram>
+                    <fulltext>false</fulltext>
+                    <includeInAllText>false</includeInAllText>
+                </indexConfig>
+                <path>modifier</path>
+            </pathIndexConfig>
+            <pathIndexConfig>
+                <indexConfig>
+                    <decideByType>false</decideByType>
+                    <enabled>true</enabled>
+                    <nGram>false</nGram>
+                    <fulltext>false</fulltext>
+                    <includeInAllText>false</includeInAllText>
+                </indexConfig>
+                <path>owner</path>
+            </pathIndexConfig>
+            <pathIndexConfig>
+                <indexConfig>
+                    <decideByType>false</decideByType>
+                    <enabled>true</enabled>
+                    <nGram>false</nGram>
+                    <fulltext>false</fulltext>
+                    <includeInAllText>false</includeInAllText>
+                </indexConfig>
+                <path>attachment</path>
             </pathIndexConfig>
         </pathIndexConfigs>
     </indexConfigs>

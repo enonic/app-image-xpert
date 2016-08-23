@@ -21,65 +21,26 @@ exports.getAlbums = function () {
 }
 
 exports.getImages = function (params) {
+    var query, sort;
 
-    //Retrieves the binary images corresponding to the search query
-    var binaryImagesIds;
-    var count = params.count || 100;
+    //If this is a search by query    
     if (params && params.searchQuery) {
-        var binaryImageQuery = "ngram('_allText', '" + params.searchQuery + "', 'OR')";
-        var binaryImagesIds = contentLib.query({
-            start: 0,
-            count: count,
-            query: binaryImageQuery,
-            contentTypes: ["media:image"]
-        }).
-            hits.
-            map(function (binaryImage) {
-                return binaryImage._id;
-            });
+        query = "ngram('_allText', '" + params.searchQuery + "', 'OR')";
+    } else if (params && params.albumId) {
 
-        if (binaryImagesIds.length == 0) {
-            return [];
-        }
+        //Else if it is a search by album
+        var album = exports.getContentByKey(params.albumId);
+        query = "_path LIKE '/content" + album._path + "/*'";
+        sort = "createdTime DESC";
     }
 
-    //If this is a search by query
-    var imageSort;
-    if (binaryImagesIds) {
-        var albumQuery = "";
-        if (params && params.albumId) {
-            albumQuery = " AND (data.album = '" + params.albumId + "')";
-        }
-        // Searches and return the image contents containing the image binaries found
-        return binaryImagesIds.map(function (binaryImageId) {
-            var imagesFound = contentLib.query({
-                start: 0,
-                count: 1,
-                query: "(data.binary = '" + binaryImageId + "')" + albumQuery,
-                contentTypes: [app.name + ":image"],
-                sort: imageSort
-            }).hits;
-            return imagesFound.length > 0 ? imagesFound[0] : undefined;
-        }).filter(function (image) {
-            return !!image;
-        });
-    }
-
-    //Else if this is a search by album
-    var imageQuery;
-    if (params && params.albumId) {
-        // Searches by album
-        imageQuery = "data.album = '" + params.albumId + "'";
-        imageSort = "createdTime DESC";
-    }
-
-    //Returns the ten last created images
+    //Returns the hundred last created images
     return contentLib.query({
         start: 0,
-        count: count,
-        query: imageQuery,
-        contentTypes: [app.name + ":image"],
-        sort: "createdTime DESC"
+        count: 100,
+        query: query,
+        contentTypes: ["media:image"],
+        sort: sort
     }).hits;
 
 };
@@ -88,22 +49,22 @@ exports.getRandomImage = function () {
     var total = contentLib.query({
         start: 0,
         count: 0,
-        contentTypes: [app.name + ":image"]
+        contentTypes: ["media:image"]
     }).total;
 
     return contentLib.query({
         start: Math.floor(Math.random() * total),
         count: 1,
-        contentTypes: [app.name + ":image"]
+        contentTypes: ["media:image"]
     }).hits[0];
 };
 
-exports.getAlbumImage = function (albumId) {
+exports.getAlbumImage = function (albumPath) {
     return contentLib.query({
         start: 0,
         count: 1,
-        contentTypes: [app.name + ":image"],
-        query: "data.album = '" + albumId + "'",
+        contentTypes: ["media:image"],
+        query: "_path LIKE '/content" + albumPath + "/*'",
         sort: "createdTime DESC"
     }).hits[0];
 };

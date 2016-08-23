@@ -26,14 +26,9 @@ exports.get = function (req) {
 
     var images = imageXpertLib.getImages(getImagesParams).
         map(function (image) {
-            var imageBinary = imageXpertLib.getContentByKey(image.data.binary);
-            if (!imageBinary) {
-                return undefined;
-            }
-
-            var caption = imageBinary.data.caption ? imageBinary.data.caption.toString() : undefined;
-            var artist = imageBinary.data.artist ? imageBinary.data.artist.toString() : undefined;
-            var copyright = imageBinary.data.copyright ? imageBinary.data.copyright.toString() : undefined;
+            var caption = image.data.caption ? image.data.caption.toString() : undefined;
+            var artist = image.data.artist ? image.data.artist.toString() : undefined;
+            var copyright = image.data.copyright ? image.data.copyright.toString() : undefined;
 
             if (artist && copyright && artist.toLowerCase() == copyright.toLowerCase()) {
                 artist = null;
@@ -45,7 +40,7 @@ exports.get = function (req) {
                 artist: artist,
                 copyright: copyright,
                 imageUrl: portalLib.imageUrl({
-                    id: image.data.binary,
+                    id: image._id,
                     scale: "max(1200)"
                 }),
                 downloadPageUrl: imageXpertLib.generateDownloadPageUrl({
@@ -64,17 +59,17 @@ exports.get = function (req) {
 
     var view = resolve('gallery.html');
     var body = mustacheLib.render(view, {
-            albums: albums,
-            images: images,
-            imageCount: imageCount,
-            homePageUrl: homePageUrl,
-            assetUrl: portalLib.assetUrl(''),
-            searchQuery: req.params.search || undefined,
-            albumId: req.params.album || undefined,
-            albumName: albumName,
-            galleryPageUrl: imageXpertLib.generateGalleryPageUrl({}),
-            imageCreationServiceUrl: portalLib.serviceUrl({service: "create-image"})
-        });
+        albums: albums,
+        images: images,
+        imageCount: imageCount,
+        homePageUrl: homePageUrl,
+        assetUrl: portalLib.assetUrl(''),
+        searchQuery: req.params.search || undefined,
+        albumId: req.params.album || undefined,
+        albumName: albumName,
+        galleryPageUrl: imageXpertLib.generateGalleryPageUrl({}),
+        imageCreationServiceUrl: portalLib.serviceUrl({service: "create-image"})
+    });
 
     return {
         contentType: 'text/html',

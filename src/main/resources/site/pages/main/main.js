@@ -14,7 +14,7 @@ function handleGet(req) {
 
     var randomImage = imageXpertLib.getRandomImage();
     var backgroundImageUrl = portal.attachmentUrl({
-        id: randomImage.data.binary
+        id: randomImage._id
     });
     var backgroundImageStyle = "background-image: url('" + backgroundImageUrl + "');";
 
@@ -29,7 +29,7 @@ function handleGet(req) {
         searchPageUrl: portal.serviceUrl({service: "search"}),
         spinnerUrl: portal.assetUrl({path: 'img/spinner.svg'})
 
-};
+    };
     var body = thymeleaf.render(view, params);
 
     return {

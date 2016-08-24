@@ -34,7 +34,7 @@ exports.getImages = function (params) {
         sort = "createdTime DESC";
     }
 
-    //Returns the hundred last created images
+    //Returns the hundred first images
     return contentLib.query({
         start: 0,
         count: 100,

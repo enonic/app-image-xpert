@@ -77,7 +77,7 @@ function createImage(fileIndex, albumId) {
             data: portalLib.getMultipartStream("file", fileIndex)
         });
 
-        //Updates the Image media
+        //Updates the image with meta data
         var caption = portalLib.getMultipartText("caption");
         var artist = portalLib.getMultipartText("artist");
         var tags = portalLib.getMultipartText("tags");

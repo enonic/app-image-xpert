@@ -65,6 +65,14 @@ body {
     margin: auto;
 }
 
+.main-container.search-results #browse-images {
+    min-height: 550px;
+}
+
+.main-container:not(.search-results) #browse-albums {
+    min-height: 550px;
+}
+
 #browse-albums, #browse-images {
     margin: auto;
 }

@@ -239,8 +239,8 @@ function doSearch(keyWords) {
     clearSearchResults('');
 
     if (!searchPageUrl || keyWords.trim() == "") {
-        toggleNoResultsMessage(true);
         toggleSpinner(false);
+        showAlbums();
         
         return;
     }

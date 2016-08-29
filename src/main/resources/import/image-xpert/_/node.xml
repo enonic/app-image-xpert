@@ -49,7 +49,9 @@
             <string isNull="true" name="description"/>
             <property-set name="siteConfig">
                 <string name="applicationKey">com.enonic.app.imagexpert</string>
-                <property-set name="config"/>
+                <property-set name="config">
+                    <long name="searchResultMax">50</long>
+                </property-set>
             </property-set>
         </property-set>
         <property-set name="page">

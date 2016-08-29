@@ -41,7 +41,7 @@ exports.getImages = function (params) {
     //Returns the hundred first images
     return contentLib.query({
         start: 0,
-        count: 100,
+        count: portalLib.getSiteConfig().searchResultMax,
         query: query,
         contentTypes: ["media:image"],
         sort: sort

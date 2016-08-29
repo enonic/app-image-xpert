@@ -23,17 +23,19 @@ exports.getAlbums = function () {
 exports.getImages = function (params) {
     var query, sort;
 
-    //If this is a search by query    
-    if (params && params.searchQuery) {
-
-        var sitePath = portalLib.getSite()._path;
-        query = "_path LIKE '/content" + sitePath + "/*' AND ngram('_allText', '" + params.searchQuery + "', 'OR')";
-    } else if (params && params.albumId) {
-
+    //If this is a search by query  
+    if (params && params.albumId) {
         //Else if it is a search by album
         var album = exports.getContentByKey(params.albumId);
         query = "_path LIKE '/content" + album._path + "/*'";
         sort = "createdTime DESC";
+    } else {
+        var sitePath = portalLib.getSite()._path;
+        query = "_path LIKE '/content" + sitePath + "/*'";
+    }
+
+    if (params && params.searchQuery) {
+        query += " AND ngram('_allText', '" + params.searchQuery + "', 'OR')";
     }
 
     //Returns the hundred first images

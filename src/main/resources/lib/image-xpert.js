@@ -25,7 +25,9 @@ exports.getImages = function (params) {
 
     //If this is a search by query    
     if (params && params.searchQuery) {
-        query = "ngram('_allText', '" + params.searchQuery + "', 'OR')";
+
+        var sitePath = portalLib.getSite()._path;
+        query = "_path LIKE '/content" + sitePath + "/*' AND ngram('_allText', '" + params.searchQuery + "', 'OR')";
     } else if (params && params.albumId) {
 
         //Else if it is a search by album

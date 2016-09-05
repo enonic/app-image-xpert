@@ -13,6 +13,12 @@
             if (searchField) {
                 searchField.focus();
                 searchField.addEventListener("keyup", debounce(initSearch.bind(this), 500));
+                searchField.addEventListener("keydown", function(e) {
+                    if (e.keyCode == 13) {
+                        e.preventDefault();
+                        e.stopPropagation();
+                    }
+                });
             }
         }
     </script>
@@ -28,6 +34,7 @@
 <div class="background-image" data-th-style="${backgroundImageStyle}"></div>
 <div class="background-opacity"></div>
 <img id="ixp-spinner" data-th-src="${spinnerUrl}" />
+<input type="hidden" id="albumId" value="">
 <div id="mainRegion" data-portal-region="main">
     <div data-th-if="${reqContent.page.regions['main']}" data-th-remove="tag">
         <div data-th-each="component : ${reqContent.page.regions['main'].components}" data-th-remove="tag">

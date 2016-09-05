@@ -204,7 +204,7 @@ function toggleSpinner(visible) {
 }
 
 function initSearch(e) {
-    var searchValue = e.srcElement.value.trim();
+    var searchValue = e.target.value.trim();
     toggleSpinner(true);
 
     doSearch(searchValue);
@@ -218,6 +218,7 @@ function showAlbums() {
     var searchField = document.querySelector('.search-input');
     document.querySelector(".main-container").classList.remove("search-results");
     clearSearchResults('');
+    setAlbumId('');
     searchField.value = '';
     searchField.focus();
 }
@@ -235,6 +236,7 @@ function toggleNoResultsMessage(visible) {
 }
 
 function doSearch(keyWords) {
+    var searchString = "search=" + keyWords;
     toggleNoResultsMessage(false);
     clearSearchResults('');
 
@@ -258,5 +260,42 @@ function doSearch(keyWords) {
             toggleSpinner(false);
         }
     };
-    http.send("search=" + keyWords);
+    if (getAlbumId()) {
+        searchString += "&albumId=" + getAlbumId();
+    }
+    http.send(searchString);
+}
+
+function getAlbumId() {
+    return document.querySelector("#albumId").value;
+}
+
+function setAlbumId(albumId) {
+    document.querySelector("#albumId").value = albumId;
+}
+
+function openAlbum(albumId) {
+
+    if (!searchPageUrl || !albumId) {
+        return false;
+    }
+    toggleNoResultsMessage(false);
+    toggleSpinner(true);
+    setAlbumId(albumId);
+    
+    var http = new XMLHttpRequest();
+    http.open("POST", searchPageUrl, true);
+    http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+
+    http.onreadystatechange = function() {
+        if (http.readyState == 4) {
+            if (http.status == 200 && http.responseText !== "") {
+                hideAlbums();
+                showSearchResults(http.responseText);
+            }
+            toggleSpinner(false);
+        }
+    };
+    http.send("albumId=" + albumId);
+    return false;
 }

@@ -14,15 +14,10 @@ exports.get = function (req) {
                 })
             }
 
-            var linkUrl = imageXpertLib.generateGalleryPageUrl({
-                albumId: album._id
-            });
-
             return {
                 displayName: album.displayName,
                 stackType: "stack-type-" + parseInt((Math.random() * 5) + 1),
                 imageUrl: imageUrl,
-                linkUrl: linkUrl,
                 albumId: album._id
             };
         });

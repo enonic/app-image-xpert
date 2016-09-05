@@ -6,9 +6,15 @@ exports.post = function (req) {
 
     //Retrieves the images for the current album or search query
     var getImagesParams = {
-        searchQuery: req.params.search
+        searchQuery: req.params.search,
+        albumId: req.params.albumId
     };
 
+    var albumName;
+    if (req.params.albumId) {
+        albumName = imageXpertLib.getContentByKey(req.params.albumId).displayName
+    }
+    
     var images = imageXpertLib.getImages(getImagesParams).
         map(function (image) {
             var caption = image.data.caption ? image.data.caption.toString() : undefined;
@@ -40,7 +46,8 @@ exports.post = function (req) {
     var body = mustacheLib.render(view, {
         images: images,
         imageCount: images.length || 'no',
-        searchQuery: req.params.search || undefined
+        searchQuery: req.params.search || undefined,
+        albumName: albumName
     });
 
     return {

@@ -7,4 +7,10 @@
       <default>50</default>
     </input>
   </config>
+
+  <mappings>
+    <mapping controller="/site/pages/image/image.js">
+      <pattern>/image</pattern>
+    </mapping>
+  </mappings>
 </site>

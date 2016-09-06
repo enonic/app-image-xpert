@@ -5,7 +5,7 @@ var contentLib = require('/lib/xp/content');
 
 exports.get = function (req) {
     var image;
-    if (req.params.image) {
+    if (req.params.imageId) {
         image = imageXpertLib.getContentByKey(req.params.image);
     } else {
         image = portalLib.getContent();
@@ -25,10 +25,6 @@ exports.get = function (req) {
         id: image._id
     });
 
-    var infoPageUrl = imageXpertLib.generateInfoPageUrl({
-        imagePath: image._path
-    });
-
     var downloadImageServiceUrl = portalLib.serviceUrl({service: "download-image"});
 
     var view = resolve('download.html');
@@ -36,7 +32,6 @@ exports.get = function (req) {
         displayName: image.displayName,
         imageUrl: imageUrl,
         binaryImageId: image._id,
-        infoPageUrl: infoPageUrl,
         downloadImageServiceUrl: downloadImageServiceUrl,
         imageWidth: imageWidth,
         imageHeight: imageHeight,

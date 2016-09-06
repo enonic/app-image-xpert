@@ -34,7 +34,7 @@ exports.post = function (req) {
                     id: image._id,
                     scale: "square(200)"
                 }),
-                downloadPageUrl: imageXpertLib.generateDownloadPageUrl({
+                imagePageUrl: imageXpertLib.generateImagePageUrl({
                     imageId: image._id
                 })
             };

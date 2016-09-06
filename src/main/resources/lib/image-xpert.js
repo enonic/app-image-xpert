@@ -80,39 +80,27 @@ exports.getAlbumImage = function (albumPath) {
  * URL and path generation functions
  *****************************************/
 
-exports.generateDownloadPageUrl = function (params) {
+exports.generateImagePageUrl = function (params) {
     var sitePath = portalLib.getSite()._path;
     var params = params && params.imageId ? {
-        image: params.imageId
+        imageId: params.imageId
     } : undefined;
     return portalLib.pageUrl({
-        path: sitePath + "/download",
+        path: sitePath + "/image",
         params: params
     });
 };
 
-exports.generateInfoPageUrl = function (params) {
-    var sitePath = portalLib.getSite()._path;
-    return portalLib.pageUrl({
-        path: params.imagePath
-    });
-};
 
-exports.generateGalleryPageUrl = function (params) {
+exports.generateHomeUrl = function (params) {
     var sitePath = portalLib.getSite()._path;
     var params = params && params.albumId ? {
         album: params.albumId
     } : undefined;
-    return portalLib.pageUrl({
-        path: sitePath + "/gallery",
-        params: params
-    });
-};
 
-exports.generateHomeUrl = function (params) {
-    var sitePath = portalLib.getSite()._path;
     return portalLib.pageUrl({
-        path: sitePath
+        path: sitePath,
+        params: params
     });
 };
 

@@ -3,7 +3,4 @@
   <display-name>Image</display-name>
   <config>
   </config>
-  <regions>
-    <region name="main"/>
-  </regions>
 </page>

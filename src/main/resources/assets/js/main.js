@@ -1,5 +1,27 @@
-function onImageLoad(image) {
-    image.style.height = "";
+function initApp(albumId) {
+    if (albumId) {
+        openAlbum(albumId);
+    }
+    else {
+        showAlbums();
+    }
+
+    addSearchEventListeners();
+}
+
+function addSearchEventListeners() {
+    var searchField = document.querySelector('.search-input');
+    if (searchField) {
+        searchField.addEventListener("keyup", debounce(initSearch.bind(this), 500));
+        searchField.addEventListener("keydown", onSearchKeyPressed);
+    }
+}
+
+function onSearchKeyPressed(e) {
+    if (e.keyCode == 13) {
+        e.preventDefault();
+        e.stopPropagation();
+    }
 }
 
 function createNewAlbum(formEl) {
@@ -28,7 +50,7 @@ function setNewAlbumName(albumName) {
     newAlbumSpanEl.classList.toggle('hidden', albumName=='');
 }
 
-function  openFileUploadDialog(isNewAlbum) {
+function openFileUploadDialog(isNewAlbum) {
     var fileUploadEl = document.querySelector('input[name="file"]');
     if (isNewAlbum) {
         fileUploadEl.click();
@@ -214,7 +236,11 @@ function hideAlbums() {
     document.querySelector(".main-container").classList.add("search-results");
 }
 
-function showAlbums() {
+function showAlbums(albumId) {
+    if (albumId) {
+        window.location = window.location.href.split("?")[0];
+        return;
+    }
     var searchField = document.querySelector('.search-input');
     document.querySelector(".main-container").classList.remove("search-results");
     clearSearchResults('');
@@ -247,23 +273,10 @@ function doSearch(keyWords) {
         return;
     }
 
-    var http = new XMLHttpRequest();
-    http.open("POST", searchPageUrl, true);
-    http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-
-    http.onreadystatechange = function() {
-        if (http.readyState == 4) {
-            if (http.status == 200 && http.responseText !== "") {
-                hideAlbums();
-                showSearchResults(http.responseText);
-            }
-            toggleSpinner(false);
-        }
-    };
     if (getAlbumId()) {
         searchString += "&albumId=" + getAlbumId();
     }
-    http.send(searchString);
+    doSearchAndShowResults(searchString);
 }
 
 function getAlbumId() {
@@ -282,7 +295,14 @@ function openAlbum(albumId) {
     toggleNoResultsMessage(false);
     toggleSpinner(true);
     setAlbumId(albumId);
-    
+
+    doSearchAndShowResults("albumId=" + albumId);
+
+    return false;
+}
+
+function doSearchAndShowResults(searchString) {
+
     var http = new XMLHttpRequest();
     http.open("POST", searchPageUrl, true);
     http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
@@ -296,6 +316,5 @@ function openAlbum(albumId) {
             toggleSpinner(false);
         }
     };
-    http.send("albumId=" + albumId);
-    return false;
+    http.send(searchString);
 }

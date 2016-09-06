@@ -3,6 +3,7 @@ var contentLib = require('/lib/xp/content');
 var imageXpertLib = require('/lib/image-xpert');
 
 exports.post = function (req) {
+    log.info("Creating an album...");
     var albumId = portalLib.getMultipartText('album');
 
     if (!albumId && !!portalLib.getMultipartText('albumName')) {
@@ -15,12 +16,12 @@ exports.post = function (req) {
     }
 
     var createdImages = createImages(albumId);
-    var redirectUrl = imageXpertLib.generateGalleryPageUrl({
+    var redirectUrl = imageXpertLib.generateHomeUrl({
         albumId: createdImages.length > 0 ? albumId : undefined
     });
 
     return {
-        redirect: redirectUrl + "&upload=true"
+        redirect: redirectUrl
     };
 };
 

@@ -22,14 +22,18 @@ exports.get = function (req) {
             };
         });
 
-    var galleryPageUrl = imageXpertLib.generateGalleryPageUrl();
-
     var view = resolve('home.html');
+    var albumId;
+
+    if (req.params.albumId && imageXpertLib.getContentByKey(req.params.albumId)) {
+        albumId = req.params.albumId;
+    }
+
     var body = mustacheLib.render(view, {
         albums: albums,
-        galleryPageUrl: galleryPageUrl,
         assetUrl: portalLib.assetUrl(''),
-        imageCreationServiceUrl: portalLib.serviceUrl({service: "create-image"})
+        imageCreationServiceUrl: portalLib.serviceUrl({service: "create-image"}),
+        albumId: albumId
     });
 
     return {

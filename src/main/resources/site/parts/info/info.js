@@ -6,7 +6,7 @@ var imageXpertLib = require('/lib/image-xpert');
 exports.get = function (req) {
     var image;
     if (req.params.image) {
-        image = imageXpertLib.getContentByKey(req.params.image);
+        image = imageXpertLib.getContentByKey(req.params.imageId);
     } else {
         image = portalLib.getContent();
     }

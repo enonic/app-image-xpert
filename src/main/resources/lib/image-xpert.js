@@ -50,15 +50,19 @@ exports.getImages = function (params) {
 };
 
 exports.getRandomImage = function () {
+    var sitePath = portalLib.getSite()._path;
+    var query = "_path LIKE '/content" + sitePath + "/*'";
     var total = contentLib.query({
         start: 0,
         count: 0,
+        query: query,
         contentTypes: ["media:image"]
     }).total;
 
     return contentLib.query({
         start: Math.floor(Math.random() * total),
         count: 1,
+        query: query,
         contentTypes: ["media:image"]
     }).hits[0];
 };

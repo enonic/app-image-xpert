@@ -1,5 +1,5 @@
 function toggleClass(cls, e) {
-    var mainRegion = document.querySelector("#mainRegion");
+    var mainRegion = document.querySelector("#main-region");
     mainRegion.classList.remove("download", "info", "edit");
     if (cls) {
         if (typeof cls == "string") {
@@ -69,7 +69,7 @@ function openEditMode(e) {
 }
 
 function closeEditMode(mediaId, e) {
-    var mainRegion = document.querySelector("#mainRegion");
+    var mainRegion = document.querySelector("#main-region");
     if (!mainRegion.classList.contains("edit") || e.srcElement.tagName == "INPUT") {
         return;
     }

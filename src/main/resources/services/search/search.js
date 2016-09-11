@@ -17,7 +17,7 @@ exports.post = function (req) {
     
     var images = imageXpertLib.getImages(getImagesParams).
         map(function (image) {
-            var caption = image.data.caption ? image.data.caption.toString() : undefined;
+            var caption = image.data.caption ? image.data.caption.toString() : image.displayName;
             var artist = image.data.artist ? image.data.artist.toString() : undefined;
             var copyright = image.data.copyright ? image.data.copyright.toString() : undefined;
 
@@ -26,7 +26,6 @@ exports.post = function (req) {
             }
 
             return {
-                displayName: image.displayName,
                 caption: caption,
                 artist: artist,
                 copyright: copyright,

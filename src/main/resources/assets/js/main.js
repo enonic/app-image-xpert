@@ -3,10 +3,15 @@ function initApp(albumId) {
         openAlbum(albumId);
     }
     else {
+        initPage();
         showAlbums();
     }
 
     addSearchEventListeners();
+}
+
+function initPage() {
+    document.querySelector('.main-container').classList.remove("init");
 }
 
 function addSearchEventListeners() {
@@ -245,6 +250,7 @@ function showAlbums(albumId) {
     document.querySelector(".main-container").classList.remove("search-results");
     clearSearchResults('');
     setAlbumId('');
+    showAlbumTitle('');
     searchField.value = '';
     searchField.focus();
 }
@@ -287,7 +293,7 @@ function setAlbumId(albumId) {
     document.querySelector("#albumId").value = albumId;
 }
 
-function openAlbum(albumId) {
+function openAlbum(albumId, albumTitle) {
 
     if (!searchPageUrl || !albumId) {
         return false;
@@ -296,12 +302,12 @@ function openAlbum(albumId) {
     toggleSpinner(true);
     setAlbumId(albumId);
 
-    doSearchAndShowResults("albumId=" + albumId);
+    doSearchAndShowResults("albumId=" + albumId, albumTitle);
 
     return false;
 }
 
-function doSearchAndShowResults(searchString) {
+function doSearchAndShowResults(searchString, albumTitle) {
 
     var http = new XMLHttpRequest();
     http.open("POST", searchPageUrl, true);
@@ -311,10 +317,18 @@ function doSearchAndShowResults(searchString) {
         if (http.readyState == 4) {
             if (http.status == 200 && http.responseText !== "") {
                 hideAlbums();
+                if (albumTitle) {
+                    showAlbumTitle(albumTitle);
+                }
                 showSearchResults(http.responseText);
+                initPage();
             }
             toggleSpinner(false);
         }
     };
     http.send(searchString);
+}
+
+function showAlbumTitle(title) {
+    document.querySelector("#album-title").innerText = title;
 }

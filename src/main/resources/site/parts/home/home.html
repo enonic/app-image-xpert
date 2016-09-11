@@ -1,10 +1,19 @@
-<div class="main-container search-results">
+<div class="main-container init">
+
+    <h1 id="album-title">{{albumName}}</h1>
     <div class="search">
         <form>
+            {{#albumId}}
+                <a id="show-albums-link" href="{{homePageUrl}}">
+            {{/albumId}}
+            {{^albumId}}
+                <a id="show-albums-link" href="#" onclick="showAlbums(); return false;">
+            {{/albumId}}
+            <img src="{{assetUrl}}/img/arrow-left.svg" title="Back to albums" class="icon-back">
+            </a>
             <input name="search" class="search-input" type="text" placeholder="Search our library for amazing photos, places or authors">
             <img class="search-button" src="{{assetUrl}}/img/search-icon.svg">
         </form>
-        <a class="show-albums-link" href="#" onclick="showAlbums(); return false;">Back to albums</a>
         <h3 id="search-results-span">Your search produced no results</h3>
     </div>
     <div id="browse-albums">
@@ -21,7 +30,7 @@
         {{#albums}}
             <div class="album">
                 {{#imageUrl}}
-                <a href="#" onclick="openAlbum('{{albumId}}');"><div class="image-stack {{stackType}}"><img src="{{imageUrl}}"></div></a>
+                <a href="#" onclick="openAlbum('{{albumId}}', '{{displayName}}');"><div class="image-stack {{stackType}}"><img src="{{imageUrl}}"></div></a>
                 {{/imageUrl}}
                 {{^imageUrl}}
                 <div class="empty-album"></div>

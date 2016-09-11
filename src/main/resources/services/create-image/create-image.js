@@ -2,26 +2,28 @@ var portalLib = require('/lib/xp/portal');
 var contentLib = require('/lib/xp/content');
 var imageXpertLib = require('/lib/image-xpert');
 
-exports.post = function (req) {
-    log.info("Creating an album...");
+exports.post = function () {
     var albumId = portalLib.getMultipartText('album');
 
     if (!albumId && !!portalLib.getMultipartText('albumName')) {
         albumId = createNewAlbum();
     }
 
-    if (!albumId) {
-        log.error('No albumId found');
-        return null;
+    var params = {};
+    
+    if (albumId) {
+        var createdImages = createImages(albumId);
+        
+        if (createdImages.length > 0) {
+            params.albumId = albumId;
+        }
+    }
+    else {
+        log.error('Failed to create an album');
     }
 
-    var createdImages = createImages(albumId);
-    var redirectUrl = imageXpertLib.generateHomeUrl({
-        albumId: createdImages.length > 0 ? albumId : undefined
-    });
-
     return {
-        redirect: redirectUrl
+        redirect: imageXpertLib.generateHomeUrl(params)
     };
 };
 

@@ -33,7 +33,9 @@ exports.get = function (req) {
         albums: albums,
         assetUrl: portalLib.assetUrl(''),
         imageCreationServiceUrl: portalLib.serviceUrl({service: "create-image"}),
-        albumId: albumId
+        albumId: albumId,
+        albumName: albumId ? imageXpertLib.getContentByKey(req.params.albumId).displayName : '',
+        homePageUrl: imageXpertLib.generateHomeUrl()
     });
 
     return {

@@ -12,6 +12,12 @@ body {
     overflow-x: hidden;
 }
 
+.main-container.init #show-albums-link,
+.main-container.init #search-results-span,
+.main-container.init #browse-albums {
+    display: none;
+}
+
 #mainRegion {
     display: flex;
     min-height: 100%;
@@ -62,15 +68,14 @@ body {
     -webkit-transition: opacity 300ms ease-in;
     -moz-transition: opacity 300ms ease-in;
     transition: opacity 300ms ease-in;
-    /*margin: auto;*/
 }
 
 .main-container.search-results #browse-images {
-    min-height: 520px;
+    min-height: 510px;
 }
 
 .main-container:not(.search-results) #browse-albums {
-    min-height: 520px;
+    min-height: 510px;
 }
 
 #browse-albums, #browse-images {
@@ -102,7 +107,12 @@ body {
 .search {
     position: static;
     max-width: 560px;
-    margin: 50px auto 100px auto;
+    margin: 50px auto 20px auto;
+}
+
+.main-container:not(.search-results) .search {
+    padding-right: 15px;
+    margin-bottom: 60px;
 }
 
 .search form {
@@ -115,7 +125,6 @@ body {
 @media only screen and (max-width: 768px) {
     .search {
         padding: 15px;
-        /*margin-top: 50px;*/
     }
 }
 
@@ -167,7 +176,6 @@ body {
 
 #browse-albums {
     text-align: center;
-    margin-top: 60px;
 }
 
 .browse {
@@ -206,7 +214,7 @@ body {
 .album {
     width: 249px;
     text-align: center;
-    height: 265px;
+    height: 255px;
 }
 
 .album a {
@@ -421,8 +429,8 @@ body {
 #ixp-spinner {
     display: none;
     position: absolute;
-    top: 50%;
-    left: 50%;
+    top: 40%;
+    left: 45%;
     width: 100px;
 }
 
@@ -444,37 +452,36 @@ body {
 
 .main-container.search-results #search-results-span,
 .main-container.search-results #browse-images,
-.main-container.search-results .show-albums-link{
+.main-container.search-results #show-albums-link{
     display: block;
 }
 
-.main-container.search-results #browse-albums, .show-albums-link {
+.main-container.search-results #browse-albums, #show-albums-link {
     display: none;
-}
-
-.main-container.search-results .search {
-    margin-bottom: 50px;
 }
 
 #browse-images h4 {
     text-align: center;
+    opacity: 0.7;
 }
 
 #browse-images .album {
     height: 249px;
 }
 
-.show-albums-link {
+#show-albums-link {
+    position: absolute;
+    left: -60px;
+    top: 4px;
     font-size: 16px;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     color: white;
     text-decoration: none;
-    margin-top: 10px;
 }
 
-.show-albums-link:hover {
+#show-albums-link:hover {
     opacity: 0.7;
     cursor: pointer;
 }
@@ -503,4 +510,16 @@ body {
     text-align: left;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+}
+
+#album-title {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: white;
+    text-align: center;
+    letter-spacing: 4px;
+}
+
+
+h1:not(:empty) + .search {
+    margin-top: 0;
 }

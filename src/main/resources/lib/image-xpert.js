@@ -95,7 +95,7 @@ exports.generateImagePageUrl = function (params) {
 exports.generateHomeUrl = function (params) {
     var sitePath = portalLib.getSite()._path;
     var params = params && params.albumId ? {
-        album: params.albumId
+        albumId: params.albumId
     } : undefined;
 
     return portalLib.pageUrl({

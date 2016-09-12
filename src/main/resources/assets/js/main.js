@@ -293,7 +293,11 @@ function setAlbumId(albumId) {
     document.querySelector("#albumId").value = albumId;
 }
 
-function openAlbum(albumId, albumTitle) {
+function getAlbumTitle(albumId) {
+    return document.getElementById('album-name-span-' + albumId).innerText;
+}
+
+function openAlbum(albumId) {
 
     if (!searchPageUrl || !albumId) {
         return false;
@@ -302,7 +306,7 @@ function openAlbum(albumId, albumTitle) {
     toggleSpinner(true);
     setAlbumId(albumId);
 
-    doSearchAndShowResults("albumId=" + albumId, albumTitle);
+    doSearchAndShowResults("albumId=" + albumId, getAlbumTitle(albumId));
 
     return false;
 }

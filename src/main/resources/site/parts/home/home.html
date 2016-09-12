@@ -30,7 +30,7 @@
         {{#albums}}
             <div class="album">
                 {{#imageUrl}}
-                <a href="#" onclick="openAlbum('{{albumId}}', '{{displayName}}');"><div class="image-stack {{stackType}}"><img src="{{imageUrl}}"></div></a>
+                <a href="#" onclick="openAlbum('{{albumId}}');"><div class="image-stack {{stackType}}"><img src="{{imageUrl}}"></div></a>
                 {{/imageUrl}}
                 {{^imageUrl}}
                 <div class="empty-album"></div>

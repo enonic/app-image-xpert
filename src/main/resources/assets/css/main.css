@@ -214,7 +214,7 @@ body {
 .album {
     width: 249px;
     text-align: center;
-    height: 255px;
+    height: 280px;
 }
 
 .album a {
@@ -222,9 +222,10 @@ body {
     pointer-events: none;
 }
 
-.album a {
-    cursor: default;
-    pointer-events: none;
+#browse-images .album a img {
+    width: 200px;
+    height: 200px;
+    background: url('../img/spinner.svg') no-repeat center center;
 }
 
 .main-container:not(.new-album) .album:not(.new-album) .image-stack:hover img,
@@ -465,10 +466,6 @@ body {
     opacity: 0.7;
 }
 
-#browse-images .album {
-    height: 249px;
-}
-
 #show-albums-link {
     position: absolute;
     left: -60px;
@@ -519,7 +516,10 @@ body {
     letter-spacing: 4px;
 }
 
-
 h1:not(:empty) + .search {
     margin-top: 0;
+}
+
+h1:empty {
+    margin-bottom: 82px;
 }

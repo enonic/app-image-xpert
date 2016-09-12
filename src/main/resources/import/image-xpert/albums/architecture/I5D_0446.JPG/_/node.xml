@@ -53,7 +53,7 @@
                     <double name="y">0.5</double>
                 </property-set>
             </property-set>
-            <string isNull="true" name="caption"/>
+            <string name="caption">Snowstorm in Strømmen</string>
             <string name="artist">Jørgen Sivesind</string>
             <string name="copyright">Jørgen Sivesind</string>
             <string name="tags">snow storm</string>

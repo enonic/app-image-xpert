@@ -53,9 +53,9 @@
                     <double name="y">0.5</double>
                 </property-set>
             </property-set>
-            <string name="caption"/>
-            <string name="artist"/>
-            <string name="copyright"/>
+            <string name="caption">First Breathe of Winter</string>
+            <string name="artist">Jørgen Sivesind</string>
+            <string name="copyright">Jørgen Sivesind</string>
             <string name="tags"/>
         </property-set>
         <property-set name="x">

@@ -66,7 +66,7 @@
                     <double name="bottom">1.0</double>
                 </property-set>
             </property-set>
-            <string isNull="true" name="caption"/>
+            <string name="caption">Norwegian Blueberry</string>
             <string name="artist">Jørgen Sivesind</string>
             <string name="copyright">Jørgen Sivesind</string>
             <string name="tags">Blueberry</string>

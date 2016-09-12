@@ -234,6 +234,10 @@ body {
     border-color: #585858;
 }
 
+.empty-album:hover {
+    background-color: #585858;
+}
+
 .album:not(.new-album) img:first-child {
     border: 6px solid #FFFFFF;
     -webkit-box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
@@ -258,11 +262,11 @@ body {
 }
 
 .empty-album {
-    background-color: #888A83;
     width: 150px;
     height: 150px;
     margin: 0 auto;
-    border: 6px solid #FFFFFF;
+    margin-top: 6px;
+    border: 1px solid #FFFFFF;
     opacity: 0.8;
 }
 
@@ -420,6 +424,7 @@ body {
     pointer-events: all;
 }
 
+.main-container.new-album .empty-album,
 .main-container.new-album .empty-album > * {
     display: none;
 }

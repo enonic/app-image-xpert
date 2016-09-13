@@ -80,7 +80,7 @@
                     <string name="contentType">image/jpeg</string>
                     <long name="imageWidth">4608</long>
                     <long name="pixelSize">15925248</long>
-                    <long name="byteSize">4921548</long>
+                    <long name="byteSize">2413155</long>
                     <string isNull="true" name="description"/>
                     <string isNull="true" name="fileSource"/>
                 </property-set>
@@ -119,7 +119,7 @@
             <string name="label">source</string>
             <binaryReference name="binary">IMGP0257.JPG</binaryReference>
             <string name="mimeType">image/jpeg</string>
-            <long name="size">4921548</long>
+            <long name="size">2413155</long>
         </property-set>
     </data>
     <indexConfigs>

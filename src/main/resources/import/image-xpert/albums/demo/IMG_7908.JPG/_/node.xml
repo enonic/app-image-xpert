@@ -68,7 +68,7 @@
                     <long name="imageHeight">2336</long>
                     <string name="contentType">image/jpeg</string>
                     <long name="pixelSize">8185344</long>
-                    <long name="byteSize">4617139</long>
+                    <long name="byteSize">2165710</long>
                     <string isNull="true" name="description"/>
                     <string isNull="true" name="fileSource"/>
                 </property-set>
@@ -107,7 +107,7 @@
             <string name="label">source</string>
             <binaryReference name="binary">IMG_7908.JPG</binaryReference>
             <string name="mimeType">image/jpeg</string>
-            <long name="size">4617139</long>
+            <long name="size">2165710</long>
         </property-set>
     </data>
     <indexConfigs>

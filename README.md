@@ -25,4 +25,4 @@ Enonic proudly presents **imageXPert** - an application designed to help you bui
 | App version | Required XP version | Download |
 | ----------- | ------------------- | -------- |
 | 1.0.0 | 6.7.0 | [Download](http://repo.enonic.com/public/com/enonic/app/imagexpert/1.0.0/imagexpert-1.0.0.jar) |
-| 1.1.0 | 6.7.0 | [Download](http://repo.enonic.com/public/com/enonic/app/imagexpert/1.0.0/imagexpert-1.1.0.jar) |
+| 1.1.0 | 6.7.0 | [Download](http://repo.enonic.com/public/com/enonic/app/imagexpert/1.1.0/imagexpert-1.1.0.jar) |

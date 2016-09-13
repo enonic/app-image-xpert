@@ -1,8 +1,8 @@
 <node>
-    <id>19417f32-fb4a-4592-89cd-646dae8d5a6e</id>
+    <id>572c461e-71cb-423c-b235-1ab3bb2475c5</id>
     <childOrder>modifiedtime DESC</childOrder>
     <nodeType>content</nodeType>
-    <timestamp>2016-04-14T13:24:37.230Z</timestamp>
+    <timestamp>2016-04-14T13:27:17.503Z</timestamp>
     <inheritPermissions>true</inheritPermissions>
     <permissions>
         <principal key="role:cms.cm.app">
@@ -38,13 +38,13 @@
     </permissions>
     <data>
         <boolean name="valid">true</boolean>
-        <string name="displayName">Food</string>
+        <string name="displayName">Demo Album</string>
         <string name="type">com.enonic.app.imagexpert:album</string>
         <string name="owner">user:system:su</string>
-        <dateTime name="modifiedTime">2016-04-14T13:24:37.229Z</dateTime>
+        <dateTime name="modifiedTime">2016-04-14T13:27:17.502Z</dateTime>
         <string name="modifier">user:system:su</string>
         <string name="creator">user:system:su</string>
-        <dateTime name="createdTime">2016-04-14T10:17:46.354Z</dateTime>
+        <dateTime name="createdTime">2016-04-14T10:18:01.272Z</dateTime>
         <property-set name="data"/>
     </data>
     <indexConfigs>

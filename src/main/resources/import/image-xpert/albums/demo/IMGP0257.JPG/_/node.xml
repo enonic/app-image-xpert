@@ -75,12 +75,12 @@
         <property-set name="x">
             <property-set name="media">
                 <property-set name="imageInfo">
-                    <long name="imageHeight">3456</long>
+                    <long name="imageHeight">1080</long>
                     <string name="colorSpace">sRGB</string>
                     <string name="contentType">image/jpeg</string>
-                    <long name="imageWidth">4608</long>
-                    <long name="pixelSize">15925248</long>
-                    <long name="byteSize">2413155</long>
+                    <long name="imageWidth">1440</long>
+                    <long name="pixelSize">1555200</long>
+                    <long name="byteSize">238636</long>
                     <string isNull="true" name="description"/>
                     <string isNull="true" name="fileSource"/>
                 </property-set>
@@ -119,7 +119,7 @@
             <string name="label">source</string>
             <binaryReference name="binary">IMGP0257.JPG</binaryReference>
             <string name="mimeType">image/jpeg</string>
-            <long name="size">2413155</long>
+            <long name="size">238636</long>
         </property-set>
     </data>
     <indexConfigs>

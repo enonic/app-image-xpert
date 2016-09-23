@@ -66,12 +66,12 @@
                     <string name="fileSource">Digital Still Camera (DSC)</string>
                     <string name="colorSpace">RGB</string>
                     <string name="colorSpace">sRGB</string>
-                    <long name="imageWidth">2201</long>
-                    <long name="imageHeight">1651</long>
+                    <long name="imageWidth">1440</long>
+                    <long name="imageHeight">1080</long>
                     <string name="description">OLYMPUS DIGITAL CAMERA</string>
                     <string name="contentType">image/jpeg</string>
-                    <long name="pixelSize">3633851</long>
-                    <long name="byteSize">1567335</long>
+                    <long name="pixelSize">1555200</long>
+                    <long name="byteSize">737720</long>
                 </property-set>
                 <property-set name="cameraInfo">
                     <string name="focalLength">11.5 mm</string>
@@ -108,7 +108,7 @@
             <string name="label">source</string>
             <binaryReference name="binary">PB280109 copy.jpg</binaryReference>
             <string name="mimeType">image/jpeg</string>
-            <long name="size">1567335</long>
+            <long name="size">737720</long>
         </property-set>
     </data>
     <indexConfigs>

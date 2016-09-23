@@ -79,11 +79,11 @@
                 <property-set name="imageInfo">
                     <string name="colorSpace">RGB</string>
                     <string name="colorSpace">sRGB</string>
-                    <long name="imageWidth">4372</long>
-                    <long name="imageHeight">2459</long>
+                    <long name="imageWidth">1920</long>
+                    <long name="imageHeight">1080</long>
                     <string name="contentType">image/jpeg</string>
-                    <long name="pixelSize">10750748</long>
-                    <long name="byteSize">3689804</long>
+                    <long name="pixelSize">2073600</long>
+                    <long name="byteSize">510161</long>
                     <string isNull="true" name="description"/>
                     <string isNull="true" name="fileSource"/>
                 </property-set>
@@ -122,7 +122,7 @@
             <string name="label">source</string>
             <binaryReference name="binary">7T1A9656_bw_background_16_9.jpg</binaryReference>
             <string name="mimeType">image/jpeg</string>
-            <long name="size">3689804</long>
+            <long name="size">510161</long>
         </property-set>
     </data>
     <indexConfigs>

@@ -78,10 +78,10 @@
                 <property-set name="imageInfo">
                     <string name="colorSpace">1</string>
                     <string name="contentType">image/jpeg</string>
-                    <long name="imageWidth">5184</long>
-                    <long name="imageHeight">3456</long>
-                    <long name="pixelSize">17915904</long>
-                    <long name="byteSize">3873429</long>
+                    <long name="imageWidth">1620</long>
+                    <long name="imageHeight">1080</long>
+                    <long name="pixelSize">1749600</long>
+                    <long name="byteSize">442119</long>
                     <string isNull="true" name="description"/>
                     <string isNull="true" name="fileSource"/>
                 </property-set>
@@ -121,7 +121,7 @@
             <string name="label">source</string>
             <binaryReference name="binary">IMG_0149.JPG</binaryReference>
             <string name="mimeType">image/jpeg</string>
-            <long name="size">3873429</long>
+            <long name="size">442119</long>
         </property-set>
     </data>
     <indexConfigs>

@@ -64,11 +64,11 @@
                 <property-set name="imageInfo">
                     <string name="colorSpace">RGB</string>
                     <string name="colorSpace">sRGB</string>
-                    <long name="imageWidth">3504</long>
-                    <long name="imageHeight">2336</long>
+                    <long name="imageWidth">1620</long>
+                    <long name="imageHeight">1080</long>
                     <string name="contentType">image/jpeg</string>
-                    <long name="pixelSize">8185344</long>
-                    <long name="byteSize">2165710</long>
+                    <long name="pixelSize">1749600</long>
+                    <long name="byteSize">565442</long>
                     <string isNull="true" name="description"/>
                     <string isNull="true" name="fileSource"/>
                 </property-set>
@@ -107,7 +107,7 @@
             <string name="label">source</string>
             <binaryReference name="binary">IMG_7908.JPG</binaryReference>
             <string name="mimeType">image/jpeg</string>
-            <long name="size">2165710</long>
+            <long name="size">565442</long>
         </property-set>
     </data>
     <indexConfigs>

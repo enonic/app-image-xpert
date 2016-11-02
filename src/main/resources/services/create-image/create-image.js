@@ -2,18 +2,19 @@ var portalLib = require('/lib/xp/portal');
 var contentLib = require('/lib/xp/content');
 var imageXpertLib = require('/lib/image-xpert');
 
-exports.post = function () {
+exports.post = function (req) {
+    var publish = "master" == req.branch;
     var albumId = portalLib.getMultipartText('album');
 
     if (!albumId && !!portalLib.getMultipartText('albumName')) {
-        albumId = createNewAlbum();
+        albumId = createNewAlbum(publish);
     }
 
     var params = {};
-    
+
     if (albumId) {
-        var createdImages = createImages(albumId);
-        
+        var createdImages = createImages(albumId, publish);
+
         if (createdImages.length > 0) {
             params.albumId = albumId;
         }
@@ -27,7 +28,7 @@ exports.post = function () {
     };
 };
 
-function createNewAlbum() {
+function createNewAlbum(publish) {
     var sitePath = portalLib.getSite()._path;
     var album = contentLib.create({
         parentPath: sitePath + "/albums",
@@ -37,14 +38,22 @@ function createNewAlbum() {
         data: {}
     });
 
+    if (publish) {
+        contentLib.publish({
+            keys: [album._id],
+            sourceBranch: 'draft',
+            targetBranch: 'master'
+        });
+    }
+
     return album._id;
 }
 
-function createImages(albumId) {
+function createImages(albumId, publish) {
     var createdImages = [];
     var nbImages = getNumberImages();
     for (var index = 0; index < nbImages; index++) {
-        createdImages.push(createImage(index, albumId));
+        createdImages.push(createImage(albumId, publish, index));
     }
     return createdImages;
 }
@@ -58,7 +67,7 @@ function getNumberImages() {
     }
 }
 
-function createImage(fileIndex, albumId) {
+function createImage(albumId, publish, fileIndex) {
     var part = portalLib.getMultipartItem("file", fileIndex);
     if (part.fileName && part.size > 0) {
 
@@ -86,6 +95,7 @@ function createImage(fileIndex, albumId) {
         var tags = portalLib.getMultipartText("tags");
         contentLib.modify({
             key: content._id,
+            branch: "draft",
             editor: function (media) {
                 media.data.caption = caption;
                 media.data.artist = artist;
@@ -93,6 +103,14 @@ function createImage(fileIndex, albumId) {
                 return media;
             }
         });
+
+        if (publish) {
+            contentLib.publish({
+                keys: [content._id],
+                sourceBranch: 'draft',
+                targetBranch: 'master'
+            });
+        }
 
         return content;
     }

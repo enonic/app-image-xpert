@@ -28,7 +28,7 @@
     <meta name="theme-color" content="#ffffff">
 
 
-    <!--<link rel="stylesheet" data-th-href="${portal.assetUrl({'_path=css/main.css'})}" type="text/css"/>-->
+    <link rel="stylesheet" data-th-href="${portal.assetUrl({'_path=css/main.css'})}" type="text/css"/>
     <!--<link rel="stylesheet" data-th-href="${portal.assetUrl({'_path=css/newalbum.css'})}" type="text/css"/>-->
     <script type="text/javascript" data-th-src="${portal.assetUrl({'_path=js/main.js'})}"></script>
 
@@ -46,7 +46,7 @@
 
 <body data-portal-component-type="page" data-th-class="${editable}? 'edit'">
 <header class="header">
-    <h1 class="header__title">Image XPert</h1>
+    <h1 id="header_title" class="header__title">Image XPert</h1>
     <button id="butRefresh" class="headerButton" aria-label="Refresh"></button>
     <button id="butAdd" class="headerButton" aria-label="Add"></button>
 </header>

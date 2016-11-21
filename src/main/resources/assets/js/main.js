@@ -334,5 +334,5 @@ function doSearchAndShowResults(searchString, albumTitle) {
 }
 
 function showAlbumTitle(title) {
-    document.querySelector("#album-title").innerText = title;
+    document.querySelector("#header-title").innerText = "Image XPert " + (title ? " / " + title : "");
 }

@@ -10,7 +10,7 @@ exports.get = function (req) {
             if (albumImage) {
                 imageUrl = portalLib.imageUrl({
                     id: albumImage._id,
-                    scale: "square(150)"
+                    scale: "square(225)"
                 })
             }
 

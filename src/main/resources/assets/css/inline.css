@@ -100,7 +100,7 @@ body {
 
 .header__title {
     font-weight: 400;
-    font-size: 20px;
+    font-size: 22px;
     margin: 0;
     -webkit-box-flex: 1;
     -webkit-flex: 1;
@@ -167,7 +167,7 @@ body {
         transform: rotate(90deg); } }
 
 .main {
-    padding-top: 60px;
+    padding: 60px 20px;
     -webkit-box-flex: 1;
     -webkit-flex: 1;
     -ms-flex: 1;

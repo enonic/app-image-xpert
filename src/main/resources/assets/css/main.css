@@ -1,9 +1,9 @@
 #browse-albums {
     display: flex;
+    flex-flow: row wrap;
 }
 
 .album {
-    text-align: center;
     padding: 50px;
 }
 
@@ -15,9 +15,9 @@
     pointer-events: all;
 }
 
-.main-container .album:not(.new-album) .image-stack:hover img,
-.main-container .image-stack:hover:before, .main-container .image-stack:hover:after {
-    border-color: #585858;
+.main .album:not(.new-album) .image-stack:hover img,
+.main .image-stack:hover:before, .main .image-stack:hover:after {
+    border-color: #a9a6a6;
 }
 
 .album img:first-child {

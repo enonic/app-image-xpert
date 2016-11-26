@@ -174,7 +174,9 @@ body {
     flex: 1;
     overflow-x: hidden;
     overflow-y: auto;
-    -webkit-overflow-scrolling: touch; }
+    -webkit-overflow-scrolling: touch;
+    display: flex;
+}
 
 .dialog-container {
     background: rgba(0, 0, 0, 0.57);

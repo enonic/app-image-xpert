@@ -31,20 +31,22 @@
     <link rel="stylesheet" data-th-href="${portal.assetUrl({'_path=css/main.css'})}" type="text/css"/>
     <!--<link rel="stylesheet" data-th-href="${portal.assetUrl({'_path=css/newalbum.css'})}" type="text/css"/>-->
     <script type="text/javascript" data-th-src="${portal.assetUrl({'_path=js/main.js'})}"></script>
-
-
-
     <script type="text/javascript" th:inline="javascript">
         /*<![CDATA[*/
-        var renameAlbumServiceUrl = /*[[${renameAlbumServiceUrl}]]*/;
-        var searchPageUrl = /*[[${searchPageUrl}]]*/;
 
-        window.onload = initApp.bind(this, /*[[${albumId}]]*/);
+        var urlConfig = {
+            createImageUrl: /*[[${createImageUrl}]]*/,
+            loadAlbumsUrl: /*[[${loadAlbumsUrl}]]*/,
+            renameAlbumServiceUrl: /*[[${renameAlbumUrl}]]*/,
+            searchPageUrl: /*[[${searchPageUrl}]]*/,
+            assetUrl: /*[[${assetUrl}]]*/
+        };
+
         /*]]>*/
     </script>
 </head>
 
-<body data-portal-component-type="page" data-th-class="${editable}? 'edit'">
+<body data-portal-component-type="page">
 <header class="header">
     <h1 id="header_title" class="header__title">Image XPert</h1>
     <button id="butRefresh" class="headerButton" aria-label="Refresh"></button>
@@ -52,10 +54,22 @@
 </header>
 
 <main class="main">
+    <div class="album album-template" hidden>
+        <a class="album-link" href="#" hidden>
+            <div class="image-stack"><img class="album-image" src=""></div>
+        </a>
+        <div class="empty-album" hidden></div>
+        <div class="album-name">
+            <p id="album-name-span-{{albumId}}" class="album-name-span"></p>
+            <input id="album-name-input-{{albumId}}" type="text" class="album-name-input">
+        </div>
+    </div>
+    <!-- <div id="browse-albums"></div>
+    <div id="browse-images"></div> -->
 
 <!-- <div class="background-image" data-th-style="${backgroundImageStyle}"></div>
 <div class="background-opacity"></div>
-    <img id="ixp-spinner" data-th-src="${spinnerUrl}" />-->
+    <img id="ixp-spinner" data-th-src="${spinnerUrl}" />
     <input type="hidden" id="albumId" value="">
     <div id="mainRegion" data-portal-region="main">
         <div data-th-if="${reqContent.page.regions['main']}" data-th-remove="tag">
@@ -63,7 +77,7 @@
                 <div data-portal-component="${component.path}" data-th-remove="tag"></div>
             </div>
         </div>
-    </div>
+    </div>-->
 </main>
 
 
@@ -85,6 +99,8 @@
         <circle id="spinner" cx="16" cy="16" r="14" fill="none"></circle>
     </svg>
 </div>
+
+<script type="text/javascript" data-th-src="${portal.assetUrl({'_path=js/app.js'})}"></script>
 
 </body>
 </html>

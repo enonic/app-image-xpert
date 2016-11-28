@@ -29,7 +29,7 @@ function onSearchKeyPressed(e) {
     }
 }
 
-function createNewAlbum(formEl) {
+function submitForm(formEl) {
     formEl.submit();
 }
 

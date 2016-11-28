@@ -9,8 +9,17 @@
   </config>
 
   <mappings>
+    <mapping controller="/site/pages/image/image.js">
+      <pattern>/image</pattern>
+    </mapping>
     <mapping controller="/lib/asset.js">
       <pattern>/service-worker.js</pattern>
+    </mapping>
+    <mapping controller="/lib/asset.js">
+      <pattern>/manifest.json</pattern>
+    </mapping>
+    <mapping controller="/lib/asset.js">
+      <pattern>/browserconfig.xml</pattern>
     </mapping>
     <mapping controller="/lib/asset.js">
       <pattern>/js/.*\.js</pattern>

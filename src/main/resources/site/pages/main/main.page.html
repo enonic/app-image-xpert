@@ -5,33 +5,33 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Image XPert by Enonic</title>
-<!--
-    <link rel="apple-touch-icon" sizes="57x57" data-th-href="${portal.assetUrl({'_path=img/icons/apple-icon-57x57.png'})}">
-    <link rel="apple-touch-icon" sizes="60x60" data-th-href="${portal.assetUrl({'_path=img/icons/apple-icon-60x60.png'})}">
-    <link rel="apple-touch-icon" sizes="72x72" data-th-href="${portal.assetUrl({'_path=img/icons/apple-icon-72x72.png'})}">
-    <link rel="apple-touch-icon" sizes="76x76" data-th-href="${portal.assetUrl({'_path=img/icons/apple-icon-76x76.png'})}">
-    <link rel="apple-touch-icon" sizes="114x114" data-th-href="${portal.assetUrl({'_path=img/icons/apple-icon-114x114.png'})}">
-    <link rel="apple-touch-icon" sizes="120x120" data-th-href="${portal.assetUrl({'_path=img/icons/apple-icon-120x120.png'})}">
-    <link rel="apple-touch-icon" sizes="144x144" data-th-href="${portal.assetUrl({'_path=img/icons/apple-icon-144x144.png'})}">
-    <link rel="apple-touch-icon" sizes="152x152" data-th-href="${portal.assetUrl({'_path=img/icons/apple-icon-152x152.png'})}">
-    <link rel="apple-touch-icon" sizes="180x180" data-th-href="${portal.assetUrl({'_path=img/icons/apple-icon-180x180.png'})}">
 
-    <link rel="icon" type="image/png" sizes="192x192" data-th-href="${portal.assetUrl({'_path=img/icons/android-icon-192x192.png'})}">
-    <link rel="icon" type="image/png" sizes="32x32" data-th-href="${portal.assetUrl({'_path=img/icons/favicon-32x32.png'})}">
-    <link rel="icon" type="image/png" sizes="96x96" data-th-href="${portal.assetUrl({'_path=img/icons/favicon-96x96.png'})}">
-    <link rel="icon" type="image/png" sizes="16x16" data-th-href="${portal.assetUrl({'_path=img/icons/favicon-16x16.png'})}">
+    <link rel="apple-touch-icon" sizes="57x57" href="img/icons/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="img/icons/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="img/icons/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="img/icons/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="img/icons/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="img/icons/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="img/icons/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="img/icons/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="img/icons/apple-icon-180x180.png">
 
-    <link rel="manifest" data-th-content="${portal.assetUrl({'_path=img/icons/manifest.json'})}">
+    <link rel="icon" type="image/png" sizes="192x192" href="img/icons/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="img/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="img/icons/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="img/icons/favicon-16x16.png">
+
+    <link rel="manifest" content="manifest.json">
     <meta name="msapplication-TileColor" content="#ffffff">
-    <meta name="msapplication-TileImage" data-th-content="${portal.assetUrl({'_path=img/icons/ms-icon-144x144.png'})}">
+    <meta name="msapplication-TileImage" content="img/icons/ms-icon-144x144.png">
     <meta name="theme-color" content="#ffffff">
--->
+
 
     <!--
-    <link rel="stylesheet" data-th-href="${portal.assetUrl({'_path=css/main.css'})}" type="text/css"/>
-    <link rel="stylesheet" data-th-href="${portal.assetUrl({'_path=css/newalbum.css'})}" type="text/css"/>
+    <link rel="stylesheet" href="css/main.css" type="text/css"/>
+    <link rel="stylesheet" href="css/newalbum.css" type="text/css"/>
 
-    <script type="text/javascript" data-th-src="${portal.assetUrl({'_path=js/main.js'})}"></script>
+    <script type="text/javascript" data-th-src="${portal.assetUrl({'_path=js/main.js"></script>
 -->
     <link rel="stylesheet" href="css/inline.css" type="text/css"/>
     <link rel="stylesheet" href="css/main.css" type="text/css"/>
@@ -41,7 +41,6 @@
     <script type="text/javascript" th:inline="javascript">
         /*<![CDATA[*/
         var urlConfig = {
-            createImageUrl: /*[[${createImageUrl}]]*/,
             loadAlbumsUrl: /*[[${loadAlbumsUrl}]]*/,
             renameAlbumServiceUrl: /*[[${renameAlbumUrl}]]*/,
             searchPageUrl: /*[[${searchPageUrl}]]*/,
@@ -79,7 +78,7 @@
         <form data-th-action="${createImageUrl}" method="post" enctype="multipart/form-data">
             <input name="albumName" type="hidden">
 
-            <input name="file" type="file" multiple="multiple" accept="image/*" style="display: none;" onchange="createNewAlbum(this.parentElement);">
+            <input name="file" type="file" multiple="multiple" accept="image/*" style="display: none;" onchange="submitForm(this.parentElement);">
 
         </form>
             <div class="dialog-title">Add new album</div>

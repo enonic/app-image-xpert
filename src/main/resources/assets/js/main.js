@@ -53,30 +53,30 @@ function setNewAlbumName(albumName) {
     newAlbumSpanEl.value = albumName;
 }
 /*
-function openFileUploadDialog(isNewAlbum) {
-    var fileUploadEl = document.querySelector('input[name="file"]');
-    if (isNewAlbum) {
-        fileUploadEl.click();
-        return false;
-    }
-    var albumName = getNewAlbumName();
-    if (isChrome()) {
-        document.body.onfocus = closeNewAlbumDialog.bind(this, true);
-    }
+ function openFileUploadDialog(isNewAlbum) {
+ var fileUploadEl = document.querySelector('input[name="file"]');
+ if (isNewAlbum) {
+ fileUploadEl.click();
+ return false;
+ }
+ var albumName = getNewAlbumName();
+ if (isChrome()) {
+ document.body.onfocus = closeNewAlbumDialog.bind(this, true);
+ }
 
-    if (fileUploadEl) {
-        if (isChrome()) {
-            document.querySelector('.new-album-dialog-container').classList.add("select-files");
-            setNewAlbumName(albumName);
-        }
-        else {
-            closeNewAlbumDialog();
-        }
-        fileUploadEl.click();
-    }
-    return false;
-}
-*/
+ if (fileUploadEl) {
+ if (isChrome()) {
+ document.querySelector('.new-album-dialog-container').classList.add("select-files");
+ setNewAlbumName(albumName);
+ }
+ else {
+ closeNewAlbumDialog();
+ }
+ fileUploadEl.click();
+ }
+ return false;
+ }
+ */
 function openNewAlbumDialog() {
     var newAlbumDialogContainer = document.querySelector('.new-album-dialog-container');
     var albumNameTextBox = newAlbumDialogContainer.querySelector('input[name="albumName"]');
@@ -113,8 +113,11 @@ function validateForm() {
     createButton["disabled"] = (getNewAlbumName().length == 0);
 }
 
-function editAlbumName(spanEl, inputEl, albumId) {
-    inputEl.onCloseEditMode = closeEditMode.bind(this, spanEl, inputEl, albumId);
+function editAlbumName(id) {
+    var spanEl = document.querySelector('#album-name-span-' + id),
+        inputEl = document.querySelector('#album-name-input-' + id);
+
+    inputEl.onCloseEditMode = closeEditMode.bind(this, spanEl, inputEl, id);
 
     inputEl.addEventListener("click", onAlbumNameClick);
     inputEl.addEventListener("keyup", inputEl.onCloseEditMode);
@@ -128,7 +131,7 @@ function editAlbumName(spanEl, inputEl, albumId) {
     inputEl.focus();
 }
 
-function closeEditMode(spanEl, inputEl, albumId, e) {
+function closeEditMode(spanEl, inputEl, id, e) {
     if (e.target == spanEl) {
         return;
     }
@@ -144,7 +147,7 @@ function closeEditMode(spanEl, inputEl, albumId, e) {
     delete inputEl.onCloseEditMode;
 
     if (inputEl.value.trim() !== "" && (!e.keyCode || e.keyCode !== 27)) {
-        renameAlbum(spanEl, inputEl, albumId);
+        renameAlbum(id, inputEl, spanEl);
     }
 }
 
@@ -157,7 +160,7 @@ function onAlbumNameClick(e) {
     }
 }
 
-function renameAlbum(spanEl, inputEl, albumId) {
+function renameAlbum(id, inputEl, spanEl) {
     var albumName = inputEl.value.trim();
 
     if (!urlConfig.renameAlbumServiceUrl || urlConfig.renameAlbumServiceUrl == "" || albumName == "" || spanEl.innerText == albumName) {
@@ -180,7 +183,7 @@ function renameAlbum(spanEl, inputEl, albumId) {
             }
         }
     };
-    http.send("id=" + albumId + "&name=" + albumName);
+    http.send("id=" + id + "&name=" + albumName);
 }
 
 function showSearchField() {
@@ -270,7 +273,7 @@ function doSearch(keyWords) {
     if (!searchPageUrl || keyWords.trim() == "") {
         toggleSpinner(false);
         showAlbums();
-        
+
         return;
     }
 
@@ -297,7 +300,7 @@ function openAlbum(albumId) {
     if (!searchPageUrl || !albumId) {
         return false;
     }
-    //toggleNoResultsMessage(false);
+//    toggleNoResultsMessage(false);
     toggleSpinner(true);
     setAlbumId(albumId);
 

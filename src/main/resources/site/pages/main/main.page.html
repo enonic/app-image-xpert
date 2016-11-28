@@ -58,7 +58,6 @@
 <!-- <div class="background-image" data-th-style="${backgroundImageStyle}"></div>
 <div class="background-opacity"></div>
     <img id="ixp-spinner" data-th-src="${spinnerUrl}" />-->
-    {{^albumId}}
     <div id="browse-albums">
         <input type="hidden" id="albumId" value="">
     {{#albums}}
@@ -77,11 +76,7 @@
         </div>
         {{/albums}}
     </div>
-    {{/albumId}}
-
-    {{#albumId}}
     <div id="browse-images"></div>
-    {{/albumId}}
 
 </main>
 

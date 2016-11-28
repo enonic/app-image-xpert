@@ -100,7 +100,8 @@
             app.addDialog.classList.remove('dialog-container--visible');
         }
     };
-    
+
+    /*
     if ('serviceWorker' in navigator) {
         navigator.serviceWorker
             .register('service-worker.js')
@@ -110,4 +111,5 @@
                 console.log('Service Worker registration failure.');
             });
     }
+    */
 })();

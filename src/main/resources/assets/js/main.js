@@ -30,7 +30,6 @@ function onSearchKeyPressed(e) {
 }
 
 function createNewAlbum(formEl) {
-    closeNewAlbumDialog();
     formEl.submit();
 }
 
@@ -40,7 +39,7 @@ function isChrome() {
 
 function getNewAlbumName() {
     var albumName = '',
-        albumNameTextBox = document.querySelector('input[name="albumName"]');
+        albumNameTextBox = document.querySelector('input[name="new-album-name"]');
 
     if (albumNameTextBox) {
         albumName = albumNameTextBox.value.trim();
@@ -50,11 +49,10 @@ function getNewAlbumName() {
 }
 
 function setNewAlbumName(albumName) {
-    var newAlbumSpanEl = document.getElementById('album-name-span-new');
-    newAlbumSpanEl.innerText = albumName;
-    newAlbumSpanEl.classList.toggle('hidden', albumName=='');
+    var newAlbumSpanEl = document.querySelector('input[name="albumName"]');
+    newAlbumSpanEl.value = albumName;
 }
-
+/*
 function openFileUploadDialog(isNewAlbum) {
     var fileUploadEl = document.querySelector('input[name="file"]');
     if (isNewAlbum) {
@@ -78,7 +76,7 @@ function openFileUploadDialog(isNewAlbum) {
     }
     return false;
 }
-
+*/
 function openNewAlbumDialog() {
     var newAlbumDialogContainer = document.querySelector('.new-album-dialog-container');
     var albumNameTextBox = newAlbumDialogContainer.querySelector('input[name="albumName"]');
@@ -111,7 +109,7 @@ function closeNewAlbumDialog(canceled) {
 }
 
 function validateForm() {
-    var createButton = document.querySelector('.button-create');
+    var createButton = document.getElementById('butAddAlbum');
     createButton["disabled"] = (getNewAlbumName().length == 0);
 }
 
@@ -165,14 +163,14 @@ function onAlbumNameClick(e) {
 function renameAlbum(id, inputEl, spanEl) {
     var albumName = inputEl.value.trim();
 
-    if (!renameAlbumServiceUrl || renameAlbumServiceUrl == "" || albumName == "" || spanEl.innerText == albumName) {
+    if (!urlConfig.renameAlbumServiceUrl || urlConfig.renameAlbumServiceUrl == "" || albumName == "" || spanEl.innerText == albumName) {
         spanEl.classList.remove("hidden");
         inputEl.classList.remove("visible");
         return;
     }
 
     var http = new XMLHttpRequest();
-    http.open("POST", renameAlbumServiceUrl, true);
+    http.open("POST", urlConfig.renameAlbumServiceUrl, true);
     http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 
     http.onreadystatechange = function() {

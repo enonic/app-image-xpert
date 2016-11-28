@@ -174,7 +174,9 @@ body {
     flex: 1;
     overflow-x: hidden;
     overflow-y: auto;
-    -webkit-overflow-scrolling: touch; }
+    -webkit-overflow-scrolling: touch;
+    display: flex;
+}
 
 .dialog-container {
     background: rgba(0, 0, 0, 0.57);
@@ -217,8 +219,9 @@ body {
     font-size: 1.25em; }
 
 .dialog-body {
+    width: 100%;
     padding-top: 20px;
-    padding-bottom: 24px; }
+    padding-bottom: 19px; }
 .dialog-body select {
     width: 100%;
     font-size: 2em; }

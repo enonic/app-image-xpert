@@ -1,5 +1,6 @@
 #browse-albums {
     display: flex;
+    flex-flow: row wrap;
 }
 
 .album {
@@ -17,7 +18,7 @@
 
 .main-container .album:not(.new-album) .image-stack:hover img,
 .main-container .image-stack:hover:before, .main-container .image-stack:hover:after {
-    border-color: #585858;
+    border-color: #a9a6a6;
 }
 
 .album img:first-child {
@@ -178,6 +179,22 @@
 .album-name-input.visible {
     opacity: 1;
     pointer-events: all;
+}
+
+.dialog-input {
+    font-size: 2em;
+}
+
+.dialog-container .dialog-tip {
+    display: none;
+}
+
+.dialog-container.select-files .dialog-tip {
+    display: block;
+}
+
+.dialog-container.select-files .dialog-input {
+    display: none;
 }
 /*
 html {

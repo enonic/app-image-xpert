@@ -8,13 +8,14 @@ function handleGet(req) {
 
     var site = portal.getSite();
     var reqContent = portal.getContent();
-    var renameAlbumServiceUrl = portal.serviceUrl({service: "rename-album"});
-
+    var renameAlbumUrl = portal.serviceUrl({service: "rename-album"});
+/*
     var randomImage = imageXpertLib.getRandomImage();
     var backgroundImageUrl = portal.attachmentUrl({
         id: randomImage._id
     });
     var backgroundImageStyle = "background-image: url('" + backgroundImageUrl + "');";
+  */
     var albumId;
 
     if (req.params.albumId && imageXpertLib.getContentByKey(req.params.albumId)) {
@@ -22,15 +23,18 @@ function handleGet(req) {
     }
     
     var params = {
-        context: req,
-        site: site,
+        /*context: req,
+        site: site,*/
         reqContent: reqContent,
         mainRegion: reqContent.page.regions["main"],
-        backgroundImageStyle: backgroundImageStyle,
-        renameAlbumServiceUrl: renameAlbumServiceUrl,
+        //spinnerUrl: portal.assetUrl({path: 'img/spinner.svg'}),
+        albumId: albumId,
+
+        createImageUrl: portal.serviceUrl({service: "create-image"}),
+        renameAlbumUrl: portal.serviceUrl({service: "rename-album"}),
         searchPageUrl: portal.serviceUrl({service: "search"}),
-        spinnerUrl: portal.assetUrl({path: 'img/spinner.svg'}),
-        albumId: albumId
+        loadAlbumsUrl: portal.serviceUrl({service: "load-albums"}),
+        assetUrl: portal.assetUrl('')
     };
     var body = thymeleaf.render(view, params);
 

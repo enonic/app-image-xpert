@@ -113,11 +113,8 @@ function validateForm() {
     createButton["disabled"] = (getNewAlbumName().length == 0);
 }
 
-function editAlbumName(id) {
-    var spanEl = document.querySelector('#album-name-span-' + id),
-        inputEl = document.querySelector('#album-name-input-' + id);
-
-    inputEl.onCloseEditMode = closeEditMode.bind(this, spanEl, inputEl, id);
+function editAlbumName(spanEl, inputEl, albumId) {
+    inputEl.onCloseEditMode = closeEditMode.bind(this, spanEl, inputEl, albumId);
 
     inputEl.addEventListener("click", onAlbumNameClick);
     inputEl.addEventListener("keyup", inputEl.onCloseEditMode);
@@ -131,7 +128,7 @@ function editAlbumName(id) {
     inputEl.focus();
 }
 
-function closeEditMode(spanEl, inputEl, id, e) {
+function closeEditMode(spanEl, inputEl, albumId, e) {
     if (e.target == spanEl) {
         return;
     }
@@ -147,7 +144,7 @@ function closeEditMode(spanEl, inputEl, id, e) {
     delete inputEl.onCloseEditMode;
 
     if (inputEl.value.trim() !== "" && (!e.keyCode || e.keyCode !== 27)) {
-        renameAlbum(id, inputEl, spanEl);
+        renameAlbum(spanEl, inputEl, albumId);
     }
 }
 
@@ -160,7 +157,7 @@ function onAlbumNameClick(e) {
     }
 }
 
-function renameAlbum(id, inputEl, spanEl) {
+function renameAlbum(spanEl, inputEl, albumId) {
     var albumName = inputEl.value.trim();
 
     if (!urlConfig.renameAlbumServiceUrl || urlConfig.renameAlbumServiceUrl == "" || albumName == "" || spanEl.innerText == albumName) {
@@ -183,7 +180,7 @@ function renameAlbum(id, inputEl, spanEl) {
             }
         }
     };
-    http.send("id=" + id + "&name=" + albumName);
+    http.send("id=" + albumId + "&name=" + albumName);
 }
 
 function showSearchField() {
@@ -300,7 +297,7 @@ function openAlbum(albumId) {
     if (!searchPageUrl || !albumId) {
         return false;
     }
-    toggleNoResultsMessage(false);
+    //toggleNoResultsMessage(false);
     toggleSpinner(true);
     setAlbumId(albumId);
 

@@ -8,7 +8,6 @@ exports.post = function (req) {
             return album;
         }
     });
-
     var responseObj = result ? {
             id: req.params.id,
             name: result.displayName

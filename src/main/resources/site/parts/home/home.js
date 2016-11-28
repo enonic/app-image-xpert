@@ -2,8 +2,8 @@ var portalLib = require('/lib/xp/portal');
 var mustacheLib = require('/lib/xp/mustache');
 var imageXpertLib = require('/lib/image-xpert');
 
-exports.get = function (req) {
-    var albums = imageXpertLib.getAlbums().
+function getAlbums() {
+    return imageXpertLib.getAlbums().
         map(function (album) {
             var imageUrl;
             var albumImage = imageXpertLib.getAlbumImage(album._path);
@@ -21,20 +21,28 @@ exports.get = function (req) {
                 albumId: album._id
             };
         });
+}
 
+exports.get = function (req) {
+    /*var albums = [];
+
+    for (var i=0; i<10; i++) {
+        albums = albums.concat(getAlbums());
+    }
+*/
     var view = resolve('home.html');
-    var albumId;
+/*    var albumId;
 
     if (req.params.albumId && imageXpertLib.getContentByKey(req.params.albumId)) {
         albumId = req.params.albumId;
     }
-
+*/
     var body = mustacheLib.render(view, {
-        albums: albums,
+        //albums: albums,
         assetUrl: portalLib.assetUrl(''),
         imageCreationServiceUrl: portalLib.serviceUrl({service: "create-image"}),
-        albumId: albumId,
-        albumName: albumId ? imageXpertLib.getContentByKey(req.params.albumId).displayName : '',
+        //albumId: albumId,
+        //albumName: albumId ? imageXpertLib.getContentByKey(req.params.albumId).displayName : '',
         homePageUrl: imageXpertLib.generateHomeUrl()
     });
 

@@ -6,24 +6,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Image XPert by Enonic</title>
 
-    <link rel="apple-touch-icon" sizes="57x57" href="{{host}}/img/icons/apple-icon-57x57.png">
-    <link rel="apple-touch-icon" sizes="60x60" href="{{host}}/img/icons/apple-icon-60x60.png">
-    <link rel="apple-touch-icon" sizes="72x72" href="{{host}}/img/icons/apple-icon-72x72.png">
-    <link rel="apple-touch-icon" sizes="76x76" href="{{host}}/img/icons/apple-icon-76x76.png">
-    <link rel="apple-touch-icon" sizes="114x114" href="{{host}}/img/icons/apple-icon-114x114.png">
-    <link rel="apple-touch-icon" sizes="120x120" href="{{host}}/img/icons/apple-icon-120x120.png">
-    <link rel="apple-touch-icon" sizes="144x144" href="{{host}}/img/icons/apple-icon-144x144.png">
-    <link rel="apple-touch-icon" sizes="152x152" href="{{host}}/img/icons/apple-icon-152x152.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="{{host}}/img/icons/apple-icon-180x180.png">
+    <link rel="apple-touch-icon" sizes="57x57" href="img/icons/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="img/icons/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="img/icons/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="img/icons/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="img/icons/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="img/icons/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="img/icons/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="img/icons/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="img/icons/apple-icon-180x180.png">
 
-    <link rel="icon" type="image/png" sizes="192x192" href="{{host}}/img/icons/android-icon-192x192.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="{{host}}/img/icons/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="96x96" href="{{host}}/img/icons/favicon-96x96.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="{{host}}/img/icons/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="img/icons/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="img/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="img/icons/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="img/icons/favicon-16x16.png">
 
-    <link rel="manifest" content="{{host}}/manifest.json">
+    <link rel="manifest" content="manifest.json">
     <meta name="msapplication-TileColor" content="#ffffff">
-    <meta name="msapplication-TileImage" content="{{host}}/img/icons/ms-icon-144x144.png">
+    <meta name="msapplication-TileImage" content="img/icons/ms-icon-144x144.png">
     <meta name="theme-color" content="#ffffff">
 
 
@@ -31,12 +31,15 @@
     <link rel="stylesheet" href="css/newalbum.css" type="text/css"/>
 
 -->
-    <link rel="stylesheet" href="{{host}}/css/inline.css" type="text/css"/>
-    <link rel="stylesheet" href="{{host}}/css/main.css" type="text/css"/>
-    <script type="text/javascript" src="{{host}}/js/main.js"></script>
+    <link rel="stylesheet" href="css/inline.css" type="text/css"/>
+    <link rel="stylesheet" href="css/main.css" type="text/css"/>
+    <script type="text/javascript" src="js/main.js"></script>
 
 
     <script type="text/javascript">
+        if (document.location.href.endsWith('{{baseUrl}}') && !document.location.href.endsWith('/')) {
+            document.location = document.location.href + "/";
+        }
         var urlConfig = {
             loadAlbumsUrl: '{{loadAlbumsUrl}}',
             renameAlbumServiceUrl: '{{renameAlbumUrl}}',
@@ -108,7 +111,6 @@
     </svg>
 </div>
 -->
-<script type="text/javascript" src="{{host}}/js/app.js"></script>
-
+<script type="text/javascript" src="js/app.js"></script>
 </body>
 </html>

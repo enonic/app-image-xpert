@@ -1,4 +1,3 @@
-
 * {
     box-sizing: border-box; }
 
@@ -176,6 +175,7 @@ body {
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
     display: flex;
+    background-color: lightgray;
 }
 
 .dialog-container {

@@ -68,7 +68,6 @@
     };
 
     app.openFileUploadDialog = function (isNewAlbum) {
-        debugger;
         var fileUploadEl = document.querySelector('input[name="file"]');
         if (isNewAlbum) {
             fileUploadEl.click();
@@ -101,7 +100,7 @@
         }
     };
 
-    /*
+
     if ('serviceWorker' in navigator) {
         navigator.serviceWorker
             .register('service-worker.js')
@@ -111,5 +110,5 @@
                 console.log('Service Worker registration failure.');
             });
     }
-    */
+
 })();

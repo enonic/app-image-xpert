@@ -24,7 +24,7 @@ function getAlbums() {
                 };
             });
 }
-
+/*
 function getImages(albumId) {
     var getImagesParams = {
         searchQuery: null, //req.params.search,
@@ -47,7 +47,7 @@ function getImages(albumId) {
                     copyright: copyright,
                     imageUrl: portal.imageUrl({
                         id: image._id,
-                        scale: "square(200)"
+                        scale: "square(250)"
                     }),
                     imagePageUrl: imageXpertLib.generateImagePageUrl({
                         imageId: image._id
@@ -57,10 +57,19 @@ function getImages(albumId) {
                 return !!image
             });
 }
-
+*/
 function handleGet(req) {
     var albumId, albumName;
+    var homePageUrl = imageXpertLib.generateHomeUrl();
 
+    log.info(JSON.stringify(req, 4, 1));
+/*
+    if (req.url.endsWith(homePageUrl) && !req.url.endsWith("/")) {
+        return {
+            redirect: req.url + "/abw/"
+        };
+    }
+*/
     if (req.params.albumId && imageXpertLib.getContentByKey(req.params.albumId)) {
         albumId = req.params.albumId;
         albumName = imageXpertLib.getContentByKey(req.params.albumId).displayName;
@@ -68,7 +77,7 @@ function handleGet(req) {
     
     var params = {
         albums: albumId ? [] : getAlbums(),
-        images: albumId ? getImages(albumId) : [],
+        //images: albumId ? getImages(albumId) : [],
         albumId: albumId,
         albumName: albumName,
         createImageUrl: portal.serviceUrl({service: "create-image"}),
@@ -76,7 +85,7 @@ function handleGet(req) {
         searchPageUrl: portal.serviceUrl({service: "search"}),
         loadAlbumsUrl: portal.serviceUrl({service: "load-albums"}),
         assetUrl: portal.assetUrl(''),
-        host: imageXpertLib.generateHomeUrl()
+        baseUrl: imageXpertLib.generateHomeUrl()
     };
     var body = mustacheLib.render(view, params);
 

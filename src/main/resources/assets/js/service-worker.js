@@ -7,7 +7,7 @@ var cacheName = 'ixp-cache';
 var dataCacheName = 'ixp-data-cache';
 
 var filesToCache = [
-    '/portal/master/image-xpert/',
+    '/ix/',
     'js/app.js',
     'js/main.js',
     'css/inline.css',

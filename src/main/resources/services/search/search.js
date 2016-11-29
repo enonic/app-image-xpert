@@ -31,7 +31,7 @@ exports.post = function (req) {
                 copyright: copyright,
                 imageUrl: portalLib.imageUrl({
                     id: image._id,
-                    scale: "square(200)"
+                    scale: "square(250)"
                 }),
                 imagePageUrl: imageXpertLib.generateImagePageUrl({
                     imageId: image._id

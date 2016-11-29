@@ -105,10 +105,11 @@ exports.generateHomeUrl = function (params) {
 };
 
 exports.publishAlbum = function(albumId) {
+    log.info(albumId);
     contentLib.publish({
         keys: [albumId],
         sourceBranch: 'draft',
         targetBranch: 'master'
     });
-}
+};
 

@@ -1,15 +1,3 @@
-function initApp(albumId) {
-    if (albumId) {
-        openAlbum(albumId);
-    }
-    else {
-        initPage();
-        showAlbums();
-    }
-
-    addSearchEventListeners();
-}
-
 function initPage() {
     document.querySelector('.main-container').classList.remove("init");
 }
@@ -28,11 +16,11 @@ function onSearchKeyPressed(e) {
         e.stopPropagation();
     }
 }
-
+/*
 function submitForm(formEl) {
     formEl.submit();
 }
-
+*/
 function isChrome() {
     return navigator.userAgent.search("Chrome") > -1;
 }
@@ -76,7 +64,7 @@ function setNewAlbumName(albumName) {
  }
  return false;
  }
- */
+
 function openNewAlbumDialog() {
     var newAlbumDialogContainer = document.querySelector('.new-album-dialog-container');
     var albumNameTextBox = newAlbumDialogContainer.querySelector('input[name="albumName"]');
@@ -107,7 +95,7 @@ function closeNewAlbumDialog(canceled) {
         document.querySelector('.search-input').focus();
     }
 }
-
+*/
 function validateForm() {
     var createButton = document.getElementById('butAddAlbum');
     createButton["disabled"] = (getNewAlbumName().length == 0);
@@ -184,6 +172,34 @@ function renameAlbum(id, inputEl, spanEl) {
         }
     };
     http.send("id=" + id + "&name=" + albumName);
+}
+
+function htmlToElement(html) {
+    var template = document.createElement('template');
+    template.innerHTML = html;
+    return template.content.firstChild;
+}
+
+function appendNewAlbum(albumHtml) {
+    var newAlbumDiv = htmlToElement(albumHtml);
+    var container = document.getElementById("browse-albums");
+
+    container.firstChild ? container.insertBefore(newAlbumDiv, container.firstChild) : container.appendChild(newAlbumDiv);
+}
+
+function createNewAlbum() {
+    var http = new XMLHttpRequest();
+    var form = document.getElementById("new-album-form");
+    var formData = new FormData(form);
+    http.open("POST", form.action, true);
+
+    http.onreadystatechange = function() {
+        if (http.readyState == 4 && http.status == 200 && http.responseText !== "") {
+            appendNewAlbum(http.responseText);
+            showNotification("New album successfully created")
+        }
+    };
+    http.send(formData);
 }
 
 function showSearchField() {
@@ -333,4 +349,13 @@ function doSearchAndShowResults(searchString, albumTitle) {
 
 function showAlbumTitle(title) {
     document.getElementById("header_title").innerText = "Image XPert " + (title ? " / " + title : "");
+}
+
+function showNotification(message) {
+    var snackbarContainer = document.getElementById("notification_snackbar");
+    var data = {
+            message: message,
+            timeout: 3000
+        };
+    snackbarContainer.MaterialSnackbar.showSnackbar(data);
 }

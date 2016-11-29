@@ -16,7 +16,7 @@
         displayName: 'ImageXPert Album',
         imageUrl: "../img/logo.png"
     };
-    
+
     document.getElementById('butRefresh').addEventListener('click', function() {
         // Refresh all albums
     });
@@ -68,8 +68,11 @@
     };
 
     app.openFileUploadDialog = function (isNewAlbum) {
+        //app.addDialog.classList.remove("select-files");
+        app.toggleAddDialog(false);
         var fileUploadEl = document.querySelector('input[name="file"]');
         if (isNewAlbum) {
+            //app.addDialog.classList.remove("select-files");
             fileUploadEl.click();
             return false;
         }
@@ -80,7 +83,7 @@
 
         if (fileUploadEl) {
             if (isChrome()) {
-                app.addDialog.classList.add("select-files");
+                //app.addDialog.classList.add("select-files");
                 setNewAlbumName(albumName);
             }
             else {
@@ -90,16 +93,16 @@
         }
         return false;
     };
-    
+
     // Toggles the visibility of the add new city dialog.
     app.toggleAddDialog = function(visible) {
         if (visible) {
             app.addDialog.classList.add('dialog-container--visible');
+            app.addDialog.querySelector('input[name="new-album-name"]').focus();
         } else {
             app.addDialog.classList.remove('dialog-container--visible');
         }
     };
-
 
     if ('serviceWorker' in navigator) {
         navigator.serviceWorker

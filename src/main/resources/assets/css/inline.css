@@ -193,7 +193,9 @@ body {
 
 .dialog-container--visible {
     opacity: 1;
-    pointer-events: auto; }
+    pointer-events: auto;
+    z-index: 1000;
+}
 
 .dialog {
     background: #FFF;
@@ -212,7 +214,7 @@ body {
 
 .dialog > div {
     padding-left: 24px;
-    padding-right: 24px; }
+    padding-right: 23px; }
 
 .dialog-title {
     padding-top: 20px;
@@ -229,7 +231,7 @@ body {
 .dialog-buttons {
     padding: 8px !important;
     float: right; }
-
+/*
 .mdl-button {
     background: transparent;
     border: none;
@@ -277,3 +279,5 @@ body {
 .mdl-button--primary.mdl-button--primary.mdl-button--raised, .mdl-button--primary.mdl-button--primary.mdl-button--fab {
     color: white;
     background-color: #3f51b5; }
+
+    */

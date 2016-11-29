@@ -1,31 +1,53 @@
 var portalLib = require('/lib/xp/portal');
 var contentLib = require('/lib/xp/content');
 var imageXpertLib = require('/lib/image-xpert');
+var mustacheLib = require('/lib/xp/mustache');
 
 exports.post = function (req) {
+    var album, imageUrl;
     var publish = "master" == req.branch;
-    var albumId = portalLib.getMultipartText('album');
+    //var albumId = portalLib.getMultipartText('album');
 
-    if (!albumId && !!portalLib.getMultipartText('albumName')) {
-        albumId = createNewAlbum(publish);
+    if (!!portalLib.getMultipartText('albumName')) {
+        album = createNewAlbum(publish);
     }
 
-    var params = {};
+    if (!!album) {
+        createImages(album._id, publish);
 
-    if (albumId) {
-        var createdImages = createImages(albumId, publish);
-
-        if (createdImages.length > 0) {
-            params.albumId = albumId;
+        var albumImage = imageXpertLib.getAlbumImage(album._path);
+        if (albumImage) {
+            imageUrl = portalLib.imageUrl({
+                id: albumImage._id,
+                scale: "square(225)"
+            })
         }
     }
     else {
         log.error('Failed to create an album');
     }
 
-    return {
-        redirect: imageXpertLib.generateHomeUrl(params)
-    };
+    if (!!album) {
+        var view = resolve('./create-album.html');
+        var body = mustacheLib.render(view, {
+            displayName: album.displayName,
+            stackType: "stack-type-" + parseInt((Math.random() * 5) + 1),
+            imageUrl: imageUrl,
+            albumId: album._id
+        });
+
+        return {
+            status: 200,
+            contentType: 'text/html',
+            body: body
+        };
+    }
+    else {
+        // Should push error message here
+        return {
+            redirect: imageXpertLib.generateHomeUrl()
+        };
+    }
 };
 
 function createNewAlbum(publish) {
@@ -42,7 +64,7 @@ function createNewAlbum(publish) {
         imageXpertLib.publishAlbum(album._id);
     }
 
-    return album._id;
+    return album;
 }
 
 function createImages(albumId, publish) {

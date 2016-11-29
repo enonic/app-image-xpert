@@ -1,8 +1,3 @@
-/*var version = parseInt((Math.random() * 1000000) + 1);
-var cacheName = 'ixp-cache-' + version;
-var dataCacheName = 'ixp-data-cache-' + version;
-*/
-
 var cacheName = 'ixp-cache';
 var dataCacheName = 'ixp-data-cache';
 
@@ -10,8 +5,10 @@ var filesToCache = [
     '/ix/',
     'js/app.js',
     'js/main.js',
+    'js/material.js',
     'css/inline.css',
     'css/main.css',
+    'css/material.css',
     'img/ic_add_white_24px.svg',
     'img/ic_refresh_white_24px.svg'
 ];
@@ -25,6 +22,8 @@ self.addEventListener('install', function(e) {
     caches.open(cacheName).then(function(cache) {
       console.log('[ServiceWorker] Caching app shell');
       return cache.addAll(filesToCache);
+    }).catch(function(err) {
+        console.log(err);
     })
   );
 });
@@ -50,8 +49,8 @@ self.addEventListener('activate', function(e) {
 self.addEventListener('fetch', function(e) {
   console.log('[ServiceWorker] Fetch', e.request.url);
   //var dataUrl = urlConfig.loadAlbumsUrl;
-  var dataUrl = 'THIS IS NOT IMPLEMENTED YET';
-  if (e.request.url.indexOf(dataUrl) > -1) {
+  var dataUrl = '/search';
+  if (e.request.url.endsWith(dataUrl)) {
     /*
      * When the request URL contains dataUrl, the app is asking for fresh
      * weather data. In this case, the service worker always goes to the
@@ -59,7 +58,7 @@ self.addEventListener('fetch', function(e) {
      * network" strategy:
      * https://jakearchibald.com/2014/offline-cookbook/#cache-then-network
      */
-
+    console.log("Fetching data url ", e.request.url);
     e.respondWith(
       caches.open(dataCacheName).then(function(cache) {
         return fetch(e.request).then(function(response){

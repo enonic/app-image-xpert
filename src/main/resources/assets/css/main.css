@@ -200,15 +200,7 @@
     font-size: 2em;
 }
 
-.dialog-container .dialog-tip {
-    display: none;
-}
-
-.dialog-container.select-files .dialog-tip {
-    display: block;
-}
-
-.dialog-container.select-files .dialog-input {
+.dialog-container.select-files .dialog {
     display: none;
 }
 

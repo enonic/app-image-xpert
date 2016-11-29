@@ -5,6 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Image XPert by Enonic</title>
+<!--
+    <base href="http://localhost:8080/portal/master/image-xpert/">-->
 
     <link rel="apple-touch-icon" sizes="57x57" href="img/icons/apple-icon-57x57.png">
     <link rel="apple-touch-icon" sizes="60x60" href="img/icons/apple-icon-60x60.png">
@@ -33,14 +35,17 @@
 -->
     <link rel="stylesheet" href="css/inline.css" type="text/css"/>
     <link rel="stylesheet" href="css/main.css" type="text/css"/>
-    <script type="text/javascript" src="js/main.js"></script>
+    <link rel="stylesheet" href="css/material.css" type="text/css"/>
 
+    <script type="text/javascript" src="js/material.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
 
     <script type="text/javascript">
         if (document.location.href.endsWith('{{baseUrl}}') && !document.location.href.endsWith('/')) {
             document.location = document.location.href + "/";
         }
         var urlConfig = {
+            createAlbumUrl: '{{createAlbumUrl}}',
             loadAlbumsUrl: '{{loadAlbumsUrl}}',
             renameAlbumServiceUrl: '{{renameAlbumUrl}}',
             searchPageUrl: '{{searchPageUrl}}',
@@ -62,12 +67,10 @@
 <div class="background-opacity"></div>
     <img id="ixp-spinner" data-th-src="${spinnerUrl}" />-->
     <div id="browse-albums">
-        <input type="hidden" id="albumId" value="">
-    {{#albums}}
-
+        {{#albums}}
         <div class="album">
             {{#imageUrl}}
-            <a href="#" onclick="openAlbum('{{albumId}}');"><div class="image-stack {{stackType}}"><img src="{{imageUrl}}"></div></a>
+            <a href="#" onclick="return openAlbum('{{albumId}}');"><div class="image-stack {{stackType}}"><img src="{{imageUrl}}"></div></a>
             {{/imageUrl}}
             {{^imageUrl}}
             <div class="empty-album"></div>
@@ -78,6 +81,7 @@
             </div>
         </div>
         {{/albums}}
+        <input type="hidden" id="albumId" value="">
     </div>
     <div id="browse-images"></div>
 
@@ -86,23 +90,27 @@
 
 <div class="dialog-container">
     <div class="dialog">
-        <form action="{{createImageUrl}}" method="post" enctype="multipart/form-data">
+        <form id="new-album-form" action="{{createAlbumUrl}}" method="post" enctype="multipart/form-data">
             <input name="albumName" type="hidden">
 
-            <input name="file" type="file" multiple="multiple" accept="image/*" style="display: none;" onchange="submitForm(this.parentElement);">
+            <input name="file" type="file" multiple="multiple" accept="image/*" style="display: none;" onchange="createNewAlbum();">
 
         </form>
             <div class="dialog-title">Add new album</div>
             <div class="dialog-body">
                 <input class="dialog-input" name="new-album-name" type="text" placeholder="Title" onkeyup="validateForm()">
-                <p class="dialog-tip">Select images from the file dialog</p>
             </div>
 
             <div class="dialog-buttons">
                 <button id="butAddCancel" class="button mdl-button">Cancel</button>
-                <button id="butAddAlbum" class="button mdl-button mdl-button--colored" disabled>Add images</button>
+                <button id="butAddAlbum" class="mdl-button mdl-button--colored mdl-button--raised mdl-js-button mdl-js-ripple-effect" disabled>Add images</button>
             </div>
     </div>
+</div>
+
+<div id="notification_snackbar" class="mdl-js-snackbar mdl-snackbar">
+    <div class="mdl-snackbar__text"></div>
+    <button class="mdl-snackbar__action" type="button"></button>
 </div>
 <!--
 <div class="loader">
@@ -111,6 +119,8 @@
     </svg>
 </div>
 -->
+
 <script type="text/javascript" src="js/app.js"></script>
+
 </body>
 </html>

@@ -24,63 +24,21 @@ function getAlbums() {
                 };
             });
 }
-/*
-function getImages(albumId) {
-    var getImagesParams = {
-        searchQuery: null, //req.params.search,
-        albumId: albumId
-    };
 
-    return imageXpertLib.getImages(getImagesParams).
-            map(function (image) {
-                var caption = image.data.caption ? image.data.caption.toString() : image.displayName;
-                var artist = image.data.artist ? image.data.artist.toString() : undefined;
-                var copyright = image.data.copyright ? image.data.copyright.toString() : undefined;
-
-                if (artist && copyright && artist.toLowerCase() == copyright.toLowerCase()) {
-                    artist = null;
-                }
-
-                return {
-                    caption: caption,
-                    artist: artist,
-                    copyright: copyright,
-                    imageUrl: portal.imageUrl({
-                        id: image._id,
-                        scale: "square(250)"
-                    }),
-                    imagePageUrl: imageXpertLib.generateImagePageUrl({
-                        imageId: image._id
-                    })
-                };
-            }).filter(function (image) {
-                return !!image
-            });
-}
-*/
 function handleGet(req) {
-    var albumId, albumName;
-    var homePageUrl = imageXpertLib.generateHomeUrl();
+/*    var albumId, albumName;
 
-    log.info(JSON.stringify(req, 4, 1));
-/*
-    if (req.url.endsWith(homePageUrl) && !req.url.endsWith("/")) {
-        return {
-            redirect: req.url + "/abw/"
-        };
-    }
-*/
     if (req.params.albumId && imageXpertLib.getContentByKey(req.params.albumId)) {
+        log.info(JSON.stringify(req, 4, 1));
         albumId = req.params.albumId;
         albumName = imageXpertLib.getContentByKey(req.params.albumId).displayName;
     }
-    
+    */
     var params = {
-        albums: albumId ? [] : getAlbums(),
-        //images: albumId ? getImages(albumId) : [],
-        albumId: albumId,
-        albumName: albumName,
-        createImageUrl: portal.serviceUrl({service: "create-image"}),
+        albums: getAlbums(),
+        //albumId: albumId,
+        //albumName: albumName,
+        createAlbumUrl: portal.serviceUrl({service: "create-album"}),
         renameAlbumUrl: portal.serviceUrl({service: "rename-album"}),
         searchPageUrl: portal.serviceUrl({service: "search"}),
         loadAlbumsUrl: portal.serviceUrl({service: "load-albums"}),

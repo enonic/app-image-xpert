@@ -1,0 +1,12 @@
+<div class="album">
+    {{#imageUrl}}
+    <a href="#" onclick="return openAlbum('{{albumId}}');"><div class="image-stack {{stackType}}"><img src="{{imageUrl}}"></div></a>
+    {{/imageUrl}}
+    {{^imageUrl}}
+    <div class="empty-album"></div>
+    {{/imageUrl}}
+    <div class="album-name">
+        <p id="album-name-span-{{albumId}}" class="album-name-span" onclick="editAlbumName('{{albumId}}');">{{displayName}}</p>
+        <input id="album-name-input-{{albumId}}" type="text" class="album-name-input" value="{{displayName}}">
+    </div>
+</div>

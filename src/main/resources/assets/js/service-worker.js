@@ -49,8 +49,8 @@ self.addEventListener('activate', function(e) {
 self.addEventListener('fetch', function(e) {
   console.log('[ServiceWorker] Fetch', e.request.url);
   //var dataUrl = urlConfig.loadAlbumsUrl;
-  var dataUrl = '/search';
-  if (e.request.url.endsWith(dataUrl)) {
+  var dataUrl = '/search?';
+  if (e.request.url.indexOf(dataUrl) > -1) {
     /*
      * When the request URL contains dataUrl, the app is asking for fresh
      * weather data. In this case, the service worker always goes to the

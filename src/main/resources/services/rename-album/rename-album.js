@@ -4,6 +4,7 @@ var imageXpertLib = require('/lib/image-xpert');
 exports.post = function (req) {
     var result = contentLib.modify({
         key: req.params.id,
+        branch: 'draft',
         editor: function (album) {
             album.displayName = req.params.name;
             return album;

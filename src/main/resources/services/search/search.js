@@ -2,7 +2,7 @@ var mustacheLib = require('/lib/xp/mustache');
 var imageXpertLib = require('/lib/image-xpert');
 var portalLib = require('/lib/xp/portal');
 
-exports.post = function (req) {
+exports.get = function (req) {
 
     //Retrieves the images for the current album or search query
     var getImagesParams = {

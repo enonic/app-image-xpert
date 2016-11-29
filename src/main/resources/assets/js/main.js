@@ -325,26 +325,48 @@ function openAlbum(albumId) {
     return false;
 }
 
+function onResponseReceived(responseText, albumTitle) {
+    hideAlbums();
+    if (albumTitle) {
+        showAlbumTitle(albumTitle);
+    }
+    showSearchResults(responseText);
+}
+
 function doSearchAndShowResults(searchString, albumTitle) {
+    var url = urlConfig.searchPageUrl + "?" + searchString;
 
-    var http = new XMLHttpRequest();
-    http.open("POST", urlConfig.searchPageUrl, true);
-    http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-
-    http.onreadystatechange = function() {
-        if (http.readyState == 4) {
-            if (http.status == 200 && http.responseText !== "") {
-                hideAlbums();
-                if (albumTitle) {
-                    showAlbumTitle(albumTitle);
-                }
-                showSearchResults(http.responseText);
-                initPage();
+    if ('caches' in window) {
+        /*
+         * Check if the service worker has already cached results of this search.
+         * If it did, then display the cached data while the app fetches the latest.
+         */
+        caches.match(url).then(function(response) {
+            if (response) {
+                response.text().then(function (responseText) {
+                    onResponseReceived(responseText, albumTitle);
+                });
             }
-            //toggleSpinner(false);
-        }
-    };
-    http.send(searchString);
+        });
+    }
+
+    setTimeout(function() {
+
+        var http = new XMLHttpRequest();
+        http.open("GET", url, true);
+        http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+
+        http.onreadystatechange = function () {
+            if (http.readyState == 4) {
+                if (http.status == 200 && http.responseText !== "") {
+                    onResponseReceived(http.responseText, albumTitle);
+                    //initPage();
+                }
+                //toggleSpinner(false);
+            }
+        };
+        http.send();
+    }, 500);
 }
 
 function showAlbumTitle(title) {

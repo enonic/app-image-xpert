@@ -3,10 +3,8 @@ var dataCacheName = 'ixp-data-cache';
 
 var filesToCache = [
     '/ix/',
-    'js/app.js',
     'js/main.js',
     'js/material.js',
-    'css/inline.css',
     'css/main.css',
     'css/material.css',
     'img/icon-add.svg',

@@ -9,8 +9,8 @@ var filesToCache = [
     'css/inline.css',
     'css/main.css',
     'css/material.css',
-    'img/ic_add_white_24px.svg',
-    'img/ic_refresh_white_24px.svg'
+    'img/icon-add.svg',
+    'img/icon-search.svg'
 ];
 
 self.addEventListener('install', function(e) {

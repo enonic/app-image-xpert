@@ -17,8 +17,8 @@
         imageUrl: "../img/logo.png"
     };
 
-    document.getElementById('butRefresh').addEventListener('click', function() {
-        // Refresh all albums
+    document.getElementById('butSearch').addEventListener('click', function() {
+        document.getElementById('search-field').classList.toggle("is-focused");
     });
 
     document.getElementById('butAdd').addEventListener('click', function() {
@@ -27,20 +27,7 @@
     });
 
     document.getElementById('butAddAlbum').addEventListener('click', function() {
-        // Add the new album
-        //app.toggleAddDialog(false);
-        return app.openFileUploadDialog();/*
-        var select = document.getElementById('selectCityToAdd');
-        var selected = select.options[select.selectedIndex];
-        var key = selected.value;
-        var label = selected.textContent;
-        if (!app.selectedCities) {
-            app.selectedCities = [];
-        }
-        app.getForecast(key, label);
-        app.selectedCities.push({key: key, label: label});
-        app.saveSelectedCities();
-        app.toggleAddDialog(false);*/
+        return app.openFileUploadDialog();
     });
 
     document.getElementById('butAddCancel').addEventListener('click', function() {
@@ -103,7 +90,7 @@
             app.addDialog.classList.remove('dialog-container--visible');
         }
     };
-
+/*
     if ('serviceWorker' in navigator) {
         navigator.serviceWorker
             .register('service-worker.js')
@@ -113,5 +100,5 @@
                 console.log('Service Worker registration failure.');
             });
     }
-
+*/
 })();

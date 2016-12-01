@@ -106,27 +106,12 @@
         document.querySelector('.main-container').classList.remove("init");
     }
 
-    function addSearchEventListeners() {
-        var searchField = document.querySelector('.search-input');
-        if (searchField) {
-            searchField.addEventListener("keyup", debounce(initSearch.bind(this), 500));
-            searchField.addEventListener("keydown", onSearchKeyPressed);
-        }
-    }
-
-    function onSearchKeyPressed(e) {
-        if (e.keyCode == 13) {
-            e.preventDefault();
-            e.stopPropagation();
-        }
-    }
-
     function isChrome() {
         return navigator.userAgent.search("Chrome") > -1;
     }
 
     function getNewAlbumName() {
-        var albumName = '',
+        let albumName = '',
             albumNameTextBox = document.querySelector('input[name="new-album-name"]');
 
         if (albumNameTextBox) {
@@ -137,7 +122,7 @@
     }
 
     function setNewAlbumName(albumName) {
-        var newAlbumSpanEl = document.querySelector('input[name="albumName"]');
+        let newAlbumSpanEl = document.querySelector('input[name="albumName"]');
         newAlbumSpanEl.value = albumName;
     }
 
@@ -258,7 +243,7 @@
 
     function initSearch(e) {
         var searchValue = e.target.value.trim();
-        toggleSpinner(true);
+        //toggleSpinner(true);
 
         doSearch(searchValue);
     }
@@ -278,23 +263,10 @@
     function showAlbums() {
         togglePanel(imagePanel);
         togglePanel(albumPanel);
+        setAlbumId('');
         showAlbumTitle('');
         menuIcon.style.display = "block";
         backButton.style.display = "none";
-    }
-
-    function showAlbums_old(albumId) {
-        if (albumId) {
-            window.location = window.location.href.split("?")[0];
-            return;
-        }
-        var searchField = document.querySelector('.search-input');
-        document.querySelector(".main-container").classList.remove("search-results");
-        clearSearchResults('');
-        setAlbumId('');
-        showAlbumTitle('');
-        searchField.value = '';
-        searchField.focus();
     }
 
     function clearSearchResults() {
@@ -312,28 +284,29 @@
 
     function doSearch(keyWords) {
         var searchString = "search=" + keyWords;
-        toggleNoResultsMessage(false);
-        clearSearchResults('');
+        //toggleNoResultsMessage(false);
+        //clearSearchResults('');
 
-        if (!searchPageUrl || keyWords.trim() == "") {
-            toggleSpinner(false);
+        if (!urlConfig.searchPageUrl || keyWords.trim() == "") {
+            //toggleSpinner(false);
             showAlbums();
 
             return;
         }
 
         if (getAlbumId()) {
+            // Search in current album
             searchString += "&albumId=" + getAlbumId();
         }
-        doSearchAndShowResults(searchString);
+        doSearchAndShowResults(searchString, '"' + keyWords + '"');
     }
 
     function getAlbumId() {
-        return document.querySelector("#albumId").value;
+        return document.getElementById("albumId").value;
     }
 
     function setAlbumId(albumId) {
-        document.querySelector("#albumId").value = albumId;
+        document.getElementById("albumId").value = albumId;
     }
 
     function getAlbumTitle(albumId) {
@@ -414,8 +387,25 @@
         snackbarContainer.MaterialSnackbar.showSnackbar(data);
     }
 
+    function addSearchEventListeners() {
+        let searchField = document.getElementById('search-input');
+        if (searchField) {
+            searchField.addEventListener("keyup", debounce(initSearch.bind(this), 500));
+            searchField.addEventListener("keydown", onSearchKeyPressed);
+        }
+    }
+
+    function onSearchKeyPressed(e) {
+        if (e.keyCode == 13) {
+            e.preventDefault();
+            e.stopPropagation();
+        }
+    }
+    
     function addEventHandling() {
 
+        addSearchEventListeners();
+        
         document.getElementById('butAdd').addEventListener('click', function () {
             // Open/show the add new city dialog
             toggleAddDialog(true);

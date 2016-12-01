@@ -64,13 +64,11 @@
     <h1 id="header_title" class="header__title">Image XPert</h1>
 
     <div id="search-field" class="search-button mdl-layout-search mdl-textfield mdl-js-textfield mdl-textfield--expandable mdl-textfield--floating-label mdl-textfield--align-right">
-        <label id="butSearch" class="mdl-button mdl-js-button mdl-button--icon js-search-button" for="search-field-input" data-search-url="/search/">
+        <label id="butSearch" class="mdl-button mdl-js-button mdl-button--icon js-search-button" for="search-input" data-search-url="/search/">
             <i class="material-icons">search</i>
         </label>
         <div class="mdl-textfield__expandable-holder">
-            <form role="search" action="/search/" method="get">
-                <input class="mdl-textfield__input" type="text" name="q" id="search-field-input">
-            </form>
+            <input class="mdl-textfield__input" type="text" name="q" id="search-input">
         </div>
     </div>
     <div class="add-button mdl-layout-search mdl-textfield mdl-js-textfield mdl-textfield--expandable">
@@ -156,7 +154,8 @@
                     console.log('Service Worker registration failure.');
                 });
     }
-    -->
 </script>
+    -->
+
 </body>
 </html>

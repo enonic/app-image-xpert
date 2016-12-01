@@ -118,7 +118,7 @@ exports.getAlbumObject = function (album) {
     if (albumImage) {
         imageUrl = portalLib.imageUrl({
             id: albumImage._id,
-            scale: "square(200)"
+            scale: "square(175)"
         })
     }
 

@@ -32,7 +32,7 @@
 
             inputEl.value = spanEl.innerText;
 
-            spanEl.classList.add("hidden");
+            spanEl.classList.add("invisible");
             inputEl.classList.add("visible");
 
             inputEl.focus();
@@ -52,7 +52,7 @@
         }
     };
 
-    var addDialog;
+    var addDialog, albumPanel, imagePanel, menuIcon, backButton;
 
     function getNewAlbumName() {
         var albumName = '',
@@ -179,7 +179,7 @@
         var albumName = inputEl.value.trim();
 
         if (!urlConfig.renameAlbumServiceUrl || urlConfig.renameAlbumServiceUrl == "" || albumName == "" || spanEl.innerText == albumName) {
-            spanEl.classList.remove("hidden");
+            spanEl.classList.remove("invisible");
             inputEl.classList.remove("visible");
             return;
         }
@@ -193,7 +193,7 @@
                 var responseObj = JSON.parse(http.responseText);
                 if (responseObj.name !== "" && responseObj.name === albumName) {
                     spanEl.innerText = responseObj.name;
-                    spanEl.classList.remove("hidden");
+                    spanEl.classList.remove("invisible");
                     inputEl.classList.remove("visible");
                 }
             }
@@ -264,10 +264,26 @@
     }
 
     function hideAlbums() {
-        document.querySelector(".main-container").classList.add("search-results");
+        //document.querySelector(".main-container").classList.add("search-results");
+        if (!albumPanel.classList.contains("slide-out")) {
+            albumPanel.classList.add("slide-out");
+        }
+        else {
+            togglePanel(albumPanel);
+        }
+        menuIcon.style.display = "none";
+        backButton.style.display = "block";
     }
 
-    function showAlbums(albumId) {
+    function showAlbums() {
+        togglePanel(imagePanel);
+        togglePanel(albumPanel);
+        showAlbumTitle('');
+        menuIcon.style.display = "block";
+        backButton.style.display = "none";
+    }
+
+    function showAlbums_old(albumId) {
         if (albumId) {
             window.location = window.location.href.split("?")[0];
             return;
@@ -286,7 +302,8 @@
     }
 
     function showSearchResults(responseHTML) {
-        document.getElementById('browse-images').innerHTML = responseHTML;
+        imagePanel.innerHTML = responseHTML;
+        togglePanel(imagePanel);
     }
 
     function toggleNoResultsMessage(visible) {
@@ -338,7 +355,7 @@
     };
 
     function onResponseReceived(responseText, albumTitle) {
-        hideAlbums();
+        //hideAlbums();
         if (albumTitle) {
             showAlbumTitle(albumTitle);
         }
@@ -348,6 +365,9 @@
     function doSearchAndShowResults(searchString, albumTitle) {
         var url = urlConfig.searchPageUrl + "?" + searchString;
 
+        hideAlbums();
+        imagePanel.innerHTML = "";
+        
         if ('caches' in window) {
             /*
              * Check if the service worker has already cached results of this search.
@@ -362,7 +382,7 @@
             });
         }
 
-        setTimeout(function() {
+        //setTimeout(function() {
 
             var http = new XMLHttpRequest();
             http.open("GET", url, true);
@@ -378,7 +398,7 @@
                 }
             };
             http.send();
-        }, 500);
+        //}, 500);
     }
 
     function showAlbumTitle(title) {
@@ -394,10 +414,7 @@
         snackbarContainer.MaterialSnackbar.showSnackbar(data);
     }
 
-
-    function init() {
-
-        addDialog = document.querySelector('.dialog-container');
+    function addEventHandling() {
 
         document.getElementById('butAdd').addEventListener('click', function () {
             // Open/show the add new city dialog
@@ -415,6 +432,28 @@
 
         document.getElementById('dialog-input').addEventListener('keyup', validateForm);
 
+        backButton.addEventListener('click', function () {
+            showAlbums();
+        });
+    }
+
+    function togglePanel(panel) {
+        panel.classList.toggle("slide-in");
+        if (panel.classList.contains("slide-in")) {
+            panel.scrollTop = 0;
+        }
+    }
+
+    function init() {
+
+        addDialog = document.querySelector('.dialog-container');
+        albumPanel = document.getElementById('browse-albums');
+        imagePanel = document.getElementById('browse-images');
+        menuIcon = document.getElementById('menu-icon');
+        backButton = document.getElementById('back-button');
+
+        addEventHandling();
+        
         global.ixp = ixp;
     }
 

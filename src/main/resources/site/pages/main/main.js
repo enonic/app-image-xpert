@@ -4,27 +4,6 @@ var parentPath = './';
 var view = resolve(parentPath + 'main.page.html');
 var mustacheLib = require('/lib/xp/mustache');
 
-function getAlbums() {
-    return imageXpertLib.getAlbums().
-            map(function (album) {
-                var imageUrl;
-                var albumImage = imageXpertLib.getAlbumImage(album._path);
-                if (albumImage) {
-                    imageUrl = portal.imageUrl({
-                        id: albumImage._id,
-                        scale: "square(225)"
-                    })
-                }
-
-                return {
-                    displayName: album.displayName,
-                    stackType: "stack-type-" + parseInt((Math.random() * 5) + 1),
-                    imageUrl: imageUrl,
-                    albumId: album._id
-                };
-            });
-}
-
 function handleGet(req) {
 /*    var albumId, albumName;
 
@@ -35,7 +14,7 @@ function handleGet(req) {
     }
     */
     var params = {
-        albums: getAlbums(),
+        albums: imageXpertLib.getAlbums(),
         //albumId: albumId,
         //albumName: albumName,
         createAlbumUrl: portal.serviceUrl({service: "create-album"}),

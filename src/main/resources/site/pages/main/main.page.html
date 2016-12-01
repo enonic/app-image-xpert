@@ -53,7 +53,14 @@
 
 <body>
 <header class="header">
-    <div class="mdl-layout__drawer-button"><i class="material-icons">menu</i></div>
+    <div class="mdl-layout__drawer-button">
+        <label id="menu-icon">
+            <i class="material-icons">menu</i>
+        </label>
+        <label id="back-button" class="mdl-button mdl-js-button mdl-button--icon" style="display: none;" title="Back to albums">
+            <i class="material-icons">navigate_before</i>
+        </label>
+    </div>
     <h1 id="header_title" class="header__title">Image XPert</h1>
 
     <div id="search-field" class="search-button mdl-layout-search mdl-textfield mdl-js-textfield mdl-textfield--expandable mdl-textfield--floating-label mdl-textfield--align-right">
@@ -100,7 +107,7 @@
         {{/albums}}
         <input type="hidden" id="albumId" value="">
     </div>
-    <div id="browse-images"></div>
+    <div id="browse-images" class="slide-out"></div>
 
 </main>
 

@@ -17,8 +17,8 @@ exports.getAlbums = function () {
         count: -1,
         contentTypes: [app.name + ":album"],
         sort: "createdTime DESC"
-    }).hits;
-}
+    }).hits.map(this.getAlbumObject.bind(this));
+};
 
 exports.getImages = function (params) {
     var query, sort;
@@ -91,7 +91,6 @@ exports.generateImagePageUrl = function (params) {
     });
 };
 
-
 exports.generateHomeUrl = function (params) {
     var sitePath = portalLib.getSite()._path;
     var params = params && params.albumId ? {
@@ -112,3 +111,21 @@ exports.publishAlbum = function(albumId) {
     });
 };
 
+
+exports.getAlbumObject = function (album) {
+    var imageUrl;
+    var albumImage = this.getAlbumImage(album._path);
+    if (albumImage) {
+        imageUrl = portalLib.imageUrl({
+            id: albumImage._id,
+            scale: "square(200)"
+        })
+    }
+
+    return {
+        displayName: album.displayName,
+        stackType: "stack-type-" + parseInt((Math.random() * 5) + 1),
+        imageUrl: imageUrl,
+        albumId: album._id
+    };
+};

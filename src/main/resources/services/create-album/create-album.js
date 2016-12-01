@@ -14,14 +14,6 @@ exports.post = function (req) {
 
     if (!!album) {
         createImages(album._id, publish);
-
-        var albumImage = imageXpertLib.getAlbumImage(album._path);
-        if (albumImage) {
-            imageUrl = portalLib.imageUrl({
-                id: albumImage._id,
-                scale: "square(225)"
-            })
-        }
     }
     else {
         log.error('Failed to create an album');
@@ -29,12 +21,7 @@ exports.post = function (req) {
 
     if (!!album) {
         var view = resolve('./create-album.html');
-        var body = mustacheLib.render(view, {
-            displayName: album.displayName,
-            stackType: "stack-type-" + parseInt((Math.random() * 5) + 1),
-            imageUrl: imageUrl,
-            albumId: album._id
-        });
+        var body = mustacheLib.render(view, imageXpertLib.getAlbumObject(album));
 
         return {
             status: 200,

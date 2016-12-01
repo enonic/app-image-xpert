@@ -116,17 +116,33 @@ body {
     opacity: 0.54;
 }
 
-.header .add-button .mdl-button--icon .material-icons {
+.header #back-button {
+    display: none;
+    position: absolute;
+    top: 8px;
+    left: 8px;
+}
+
+.main-container.search-results .header #back-button {
+    display: block;
+}
+
+.header #back-button .material-icons {
+    font-size: 32px;
+    left: 35%;
+}
+
+.header #butAdd .material-icons {
     font-size: 30px;
-    top: 48%;
-    left: 44%;
+    top: 49%;
+    left: 42%;
 }
 
-.header .search-button .mdl-button--icon .material-icons {
-    top: 46%;
+.header #butSearch .material-icons {
+    top: 50%;
 }
 
-.header .search-button.mdl-textfield {
+.header #search-field {
     padding: 3px;
 }
 
@@ -235,14 +251,74 @@ body {
     background-color: lightgray;
 }
 
+#browse-albums.slide-out {
+    animation: slide-out-left 0.5s forwards;
+    -webkit-animation: slide-out-left 0.5s forwards;
+}
+
+#browse-albums.slide-in {
+    animation: slide-in-right 0.5s forwards;
+    -webkit-animation: slide-in-right 0.5s forwards;
+}
+
+#browse-images.slide-out {
+    animation: slide-out-right 0.5s forwards;
+    -webkit-animation: slide-out-right 0.5s forwards;
+}
+
+#browse-images.slide-in {
+    animation: slide-in-left 0.5s forwards;
+    -webkit-animation: slide-in-left 0.5s forwards;
+}
+@keyframes slide-in-left {
+    0% { transform: translateX(100%); }
+    100% { transform: translateX(0%); }
+}
+
+@-webkit-keyframes slide-in-left {
+    0% { transform: translateX(100%); }
+    100% { -webkit-transform: translateX(0%); }
+}
+
+@keyframes slide-in-right {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(0%); }
+}
+
+@-webkit-keyframes slide-in-right {
+    0% { transform: translateX(-100%); }
+    100% { -webkit-transform: translateX(0%); }
+}
+
+@keyframes slide-out-left {
+    0% { transform: translateX(0%); }
+    100% { transform: translateX(-100%); }
+}
+
+@-webkit-keyframes slide-out-left {
+    0% { -webkit-transform: translateX(0%); }
+    100% { -webkit-transform: translateX(-100%); }
+}
+
+@keyframes slide-out-right {
+    0% { transform: translateX(0%); }
+    100% { transform: translateX(100%); }
+}
+
+@-webkit-keyframes slide-out-right {
+    0% { -webkit-transform: translateX(0%); }
+    100% { -webkit-transform: translateX(100%); }
+}
+
 #browse-albums, #browse-images {
     position: absolute;
     display: flex;
     flex-flow: row wrap;
+    width: 100%;
 }
 
 .album {
-    padding: 50px;
+    padding: 30px 50px 10px 50px;
 }
 
 #browse-images {
@@ -250,6 +326,7 @@ body {
 }
 
 #browse-images .album {
+    width: 260px;
     padding: 0 5px;
 }
 
@@ -290,8 +367,8 @@ body {
 
 .image-stack:before, .image-stack:after {
     content: "";
-    height: 225px;
-    width: 225px;
+    height: 200px;
+    width: 200px;
     border: 6px solid #FFFFFF;
     position: absolute;
     z-index: -1;
@@ -410,7 +487,7 @@ body {
     font-size: 20px;
 }
 
-.album-name-span.hidden {
+.album-name-span.invisible {
     opacity: 0;
     pointer-events: none;
 }
@@ -440,7 +517,28 @@ body {
 .dialog-container.select-files .dialog {
     display: none;
 }
+/*
+.main-container #browse-albums {
+    right: 0px;
+    transition: right 1000ms;
+}
 
+.main-container #browse-images {
+    left: 2000px;
+    transition: left 1000ms;
+}
+
+.main-container.search-results #browse-albums {
+    right: 2000px;
+    transition: right 1000ms;
+}
+
+.main-container.search-results #browse-images {
+    left: 0px;
+    transition: left 1000ms;
+}
+*/
+/*
 .main-container #show-albums-link,
 .main-container #search-results-span,
 .main-container #browse-images,
@@ -456,7 +554,7 @@ body {
 .main-container.search-results #browse-images {
     display: flex;
 }
-
+*/
 .image-caption {
     text-transform: capitalize;
     font-size: 18px;
@@ -493,16 +591,7 @@ body {
 
 @media screen and (max-width: 540px) {
     #browse-albums .album {
-        padding: 25px 80px;
-        zoom: 0.85;
-    }
-
-    #browse-albums .album:first-child {
-        padding-top: 50px;
-    }
-
-    #browse-albums .album:last-child {
-        padding-bottom: 25px;
+        padding: 15px 60px 20px 60px;
     }
 }
 

@@ -52,7 +52,7 @@
         }
     };
 
-    var addDialog, albumPanel, imagePanel, menuIcon, backButton;
+    var addDialog, albumPanel, imagePanel, menuIcon, backButton, searchInput;
 
     function getNewAlbumName() {
         var albumName = '',
@@ -199,26 +199,6 @@
         container.firstChild ? container.insertBefore(newAlbumDiv, container.firstChild) : container.appendChild(newAlbumDiv);
     }
 
-    function showSearchField() {
-        var searchForm = document.querySelector('.search-form');
-        searchForm.style.display = 'block';
-        searchForm.querySelector('.search-input').focus();
-    }
-
-    function submitSearch() {
-        var searchForm = document.querySelector('.search-form'),
-            searchInput = document.querySelector('.search-input');
-
-        if (searchInput.value == "") {
-            searchForm.style.display = 'none';
-        }
-        else {
-            searchForm.submit();
-        }
-
-        return false;
-    }
-
     function debounce(fn, delay) {
         var timer = null;
         return function () {
@@ -275,7 +255,10 @@
 
     function showSearchResults(responseHTML) {
         imagePanel.innerHTML = responseHTML;
-        togglePanel(imagePanel);
+
+        if (!isPanelVisible(imagePanel)) {
+            togglePanel(imagePanel);
+        }
     }
 
     function toggleNoResultsMessage(visible) {
@@ -283,22 +266,24 @@
     }
 
     function doSearch(keyWords) {
-        var searchString = "search=" + keyWords;
+        let searchString = keyWords ? "search=" + keyWords : "",
+            albumId = getAlbumId();
         //toggleNoResultsMessage(false);
         //clearSearchResults('');
 
-        if (!urlConfig.searchPageUrl || keyWords.trim() == "") {
+        if (!urlConfig.searchPageUrl || (!albumId && keyWords.trim() == "")) {
             //toggleSpinner(false);
             showAlbums();
 
             return;
         }
 
-        if (getAlbumId()) {
+        if (albumId) {
             // Search in current album
-            searchString += "&albumId=" + getAlbumId();
+            searchString += keyWords ? "&" : "";
+            searchString += "albumId=" + albumId;
         }
-        doSearchAndShowResults(searchString, '"' + keyWords + '"');
+        doSearchAndShowResults(searchString, keyWords ? '"' + keyWords + '"' : getAlbumTitle(albumId));
     }
 
     function getAlbumId() {
@@ -338,8 +323,10 @@
     function doSearchAndShowResults(searchString, albumTitle) {
         var url = urlConfig.searchPageUrl + "?" + searchString;
 
-        hideAlbums();
-        imagePanel.innerHTML = "";
+        if (isPanelVisible(albumPanel)) {
+            hideAlbums();
+            imagePanel.innerHTML = "";
+        }
         
         if ('caches' in window) {
             /*
@@ -388,17 +375,25 @@
     }
 
     function addSearchEventListeners() {
-        let searchField = document.getElementById('search-input');
-        if (searchField) {
-            searchField.addEventListener("keyup", debounce(initSearch.bind(this), 500));
-            searchField.addEventListener("keydown", onSearchKeyPressed);
+        if (searchInput) {
+            searchInput.addEventListener("keyup", debounce(initSearch.bind(this), 500));
+            searchInput.addEventListener("keydown", onSearchKeyPressed);
         }
+    }
+
+    function clearSearchField() {
+        searchInput.value = '';
+        searchInput.blur();
+        document.getElementById("search-field").classList.remove("is-dirty");
     }
 
     function onSearchKeyPressed(e) {
         if (e.keyCode == 13) {
             e.preventDefault();
             e.stopPropagation();
+        }
+        if (e.keyCode == 27) {
+            clearSearchField();
         }
     }
     
@@ -424,6 +419,7 @@
 
         backButton.addEventListener('click', function () {
             showAlbums();
+            clearSearchField();
         });
     }
 
@@ -434,6 +430,10 @@
         }
     }
 
+    function isPanelVisible(panel) {
+        return panel.classList.length == 0 || panel.classList.contains("slide-in");
+    }
+
     function init() {
 
         addDialog = document.querySelector('.dialog-container');
@@ -441,6 +441,7 @@
         imagePanel = document.getElementById('browse-images');
         menuIcon = document.getElementById('menu-icon');
         backButton = document.getElementById('back-button');
+        searchInput = document.getElementById('search-input');
 
         addEventHandling();
         

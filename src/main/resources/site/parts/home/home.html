@@ -1,7 +1,6 @@
 <div class="main-container init">
 
-    <!--<h1 id="album-title">{{albumName}}</h1>
-
+    <h1 id="album-title">{{albumName}}</h1>
     <div class="search">
         <form>
             {{#albumId}}
@@ -17,9 +16,8 @@
         </form>
         <h3 id="search-results-span">Your search produced no results</h3>
     </div>
-    -->
     <div id="browse-albums">
-            <!--
+        <div class="browse">
             <div class="album new-album">
                 <div class="empty-album" onclick="openNewAlbumDialog(this);" >
                     <img src="{{assetUrl}}/img/plus.svg">
@@ -29,7 +27,6 @@
                     <p id="album-name-span-new" class="album-name-span hidden"></p>
                 </div>
             </div>
-            -->
         {{#albums}}
             <div class="album">
                 {{#imageUrl}}
@@ -44,10 +41,11 @@
                 </div>
             </div>
         {{/albums}}
+        </div>
     </div>
     <div id="browse-images"></div>
 </div>
-<!--
+
 <div class="new-album-dialog-container">
     <div class="new-album-dialog">
         <h2>New album</h2>
@@ -70,4 +68,3 @@
         <p class="button-toolbar-text">Please select images in the dialog above...</p>
     </div>
 </div>
--->

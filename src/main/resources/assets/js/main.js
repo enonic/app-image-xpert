@@ -30,6 +30,7 @@ function onSearchKeyPressed(e) {
 }
 
 function createNewAlbum(formEl) {
+    closeNewAlbumDialog();
     formEl.submit();
 }
 
@@ -39,7 +40,7 @@ function isChrome() {
 
 function getNewAlbumName() {
     var albumName = '',
-        albumNameTextBox = document.querySelector('input[name="new-album-name"]');
+        albumNameTextBox = document.querySelector('input[name="albumName"]');
 
     if (albumNameTextBox) {
         albumName = albumNameTextBox.value.trim();
@@ -49,10 +50,11 @@ function getNewAlbumName() {
 }
 
 function setNewAlbumName(albumName) {
-    var newAlbumSpanEl = document.querySelector('input[name="albumName"]');
-    newAlbumSpanEl.value = albumName;
+    var newAlbumSpanEl = document.getElementById('album-name-span-new');
+    newAlbumSpanEl.innerText = albumName;
+    newAlbumSpanEl.classList.toggle('hidden', albumName=='');
 }
-/*
+
 function openFileUploadDialog(isNewAlbum) {
     var fileUploadEl = document.querySelector('input[name="file"]');
     if (isNewAlbum) {
@@ -76,7 +78,7 @@ function openFileUploadDialog(isNewAlbum) {
     }
     return false;
 }
-*/
+
 function openNewAlbumDialog() {
     var newAlbumDialogContainer = document.querySelector('.new-album-dialog-container');
     var albumNameTextBox = newAlbumDialogContainer.querySelector('input[name="albumName"]');
@@ -109,12 +111,15 @@ function closeNewAlbumDialog(canceled) {
 }
 
 function validateForm() {
-    var createButton = document.getElementById('butAddAlbum');
+    var createButton = document.querySelector('.button-create');
     createButton["disabled"] = (getNewAlbumName().length == 0);
 }
 
-function editAlbumName(spanEl, inputEl, albumId) {
-    inputEl.onCloseEditMode = closeEditMode.bind(this, spanEl, inputEl, albumId);
+function editAlbumName(id) {
+    var spanEl = document.querySelector('#album-name-span-' + id),
+        inputEl = document.querySelector('#album-name-input-' + id);
+
+    inputEl.onCloseEditMode = closeEditMode.bind(this, spanEl, inputEl, id);
 
     inputEl.addEventListener("click", onAlbumNameClick);
     inputEl.addEventListener("keyup", inputEl.onCloseEditMode);
@@ -128,7 +133,7 @@ function editAlbumName(spanEl, inputEl, albumId) {
     inputEl.focus();
 }
 
-function closeEditMode(spanEl, inputEl, albumId, e) {
+function closeEditMode(spanEl, inputEl, id, e) {
     if (e.target == spanEl) {
         return;
     }
@@ -144,7 +149,7 @@ function closeEditMode(spanEl, inputEl, albumId, e) {
     delete inputEl.onCloseEditMode;
 
     if (inputEl.value.trim() !== "" && (!e.keyCode || e.keyCode !== 27)) {
-        renameAlbum(spanEl, inputEl, albumId);
+        renameAlbum(id, inputEl, spanEl);
     }
 }
 
@@ -157,17 +162,17 @@ function onAlbumNameClick(e) {
     }
 }
 
-function renameAlbum(spanEl, inputEl, albumId) {
+function renameAlbum(id, inputEl, spanEl) {
     var albumName = inputEl.value.trim();
 
-    if (!urlConfig.renameAlbumServiceUrl || urlConfig.renameAlbumServiceUrl == "" || albumName == "" || spanEl.innerText == albumName) {
+    if (!renameAlbumServiceUrl || renameAlbumServiceUrl == "" || albumName == "" || spanEl.innerText == albumName) {
         spanEl.classList.remove("hidden");
         inputEl.classList.remove("visible");
         return;
     }
 
     var http = new XMLHttpRequest();
-    http.open("POST", urlConfig.renameAlbumServiceUrl, true);
+    http.open("POST", renameAlbumServiceUrl, true);
     http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 
     http.onreadystatechange = function() {
@@ -180,7 +185,7 @@ function renameAlbum(spanEl, inputEl, albumId) {
             }
         }
     };
-    http.send("id=" + albumId + "&name=" + albumName);
+    http.send("id=" + id + "&name=" + albumName);
 }
 
 function showSearchField() {
@@ -297,7 +302,7 @@ function openAlbum(albumId) {
     if (!searchPageUrl || !albumId) {
         return false;
     }
-    //toggleNoResultsMessage(false);
+    toggleNoResultsMessage(false);
     toggleSpinner(true);
     setAlbumId(albumId);
 
@@ -329,5 +334,5 @@ function doSearchAndShowResults(searchString, albumTitle) {
 }
 
 function showAlbumTitle(title) {
-    document.querySelector("#header-title").innerText = "Image XPert " + (title ? " / " + title : "");
+    document.querySelector("#album-title").innerText = title;
 }

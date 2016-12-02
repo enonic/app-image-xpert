@@ -1,4 +1,4 @@
-#browse-albums, #browse-images {
+#browse-albums {
     display: flex;
     flex-flow: row wrap;
 }
@@ -195,52 +195,6 @@
 
 .dialog-container.select-files .dialog-input {
     display: none;
-}
-
-.main-container #show-albums-link,
-.main-container #search-results-span,
-.main-container #browse-images,
-.main-container.search-results #browse-albums {
-    display: none;
-}
-
-.main-container.search-results #search-results-span,
-.main-container.search-results #browse-images,
-.main-container.search-results #show-albums-link{
-    display: block;
-}
-
-.image-caption {
-    text-transform: capitalize;
-    font-size: 18px;
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    text-align: left;
-    position: relative;
-    padding: 7px 0 0 20px;
-    color: white;
-    font-style: italic;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    overflow: hidden;
-}
-
-.image-caption-span {
-    margin: 0;
-    color: gainsboro;
-    font-size: 12px;
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    text-align: left;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-}
-
-#album-title {
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    color: white;
-    text-align: center;
-    letter-spacing: 4px;
 }
 /*
 html {

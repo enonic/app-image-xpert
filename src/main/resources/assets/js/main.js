@@ -297,11 +297,11 @@ function getAlbumTitle(albumId) {
 
 function openAlbum(albumId) {
 
-    if (!urlConfig.searchPageUrl || !albumId) {
+    if (!searchPageUrl || !albumId) {
         return false;
     }
 //    toggleNoResultsMessage(false);
-//    toggleSpinner(true);
+    toggleSpinner(true);
     setAlbumId(albumId);
 
     doSearchAndShowResults("albumId=" + albumId, getAlbumTitle(albumId));
@@ -312,7 +312,7 @@ function openAlbum(albumId) {
 function doSearchAndShowResults(searchString, albumTitle) {
 
     var http = new XMLHttpRequest();
-    http.open("POST", urlConfig.searchPageUrl, true);
+    http.open("POST", searchPageUrl, true);
     http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 
     http.onreadystatechange = function() {
@@ -325,12 +325,12 @@ function doSearchAndShowResults(searchString, albumTitle) {
                 showSearchResults(http.responseText);
                 initPage();
             }
-            //toggleSpinner(false);
+            toggleSpinner(false);
         }
     };
     http.send(searchString);
 }
 
 function showAlbumTitle(title) {
-    document.getElementById("header_title").innerText = "Image XPert " + (title ? " / " + title : "");
+    document.querySelector("#header-title").innerText = "Image XPert " + (title ? " / " + title : "");
 }

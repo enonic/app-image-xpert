@@ -6,89 +6,76 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Image XPert by Enonic</title>
 
-    <link rel="apple-touch-icon" sizes="57x57" href="{{host}}/img/icons/apple-icon-57x57.png">
-    <link rel="apple-touch-icon" sizes="60x60" href="{{host}}/img/icons/apple-icon-60x60.png">
-    <link rel="apple-touch-icon" sizes="72x72" href="{{host}}/img/icons/apple-icon-72x72.png">
-    <link rel="apple-touch-icon" sizes="76x76" href="{{host}}/img/icons/apple-icon-76x76.png">
-    <link rel="apple-touch-icon" sizes="114x114" href="{{host}}/img/icons/apple-icon-114x114.png">
-    <link rel="apple-touch-icon" sizes="120x120" href="{{host}}/img/icons/apple-icon-120x120.png">
-    <link rel="apple-touch-icon" sizes="144x144" href="{{host}}/img/icons/apple-icon-144x144.png">
-    <link rel="apple-touch-icon" sizes="152x152" href="{{host}}/img/icons/apple-icon-152x152.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="{{host}}/img/icons/apple-icon-180x180.png">
+    <link rel="apple-touch-icon" sizes="57x57" href="img/icons/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="img/icons/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="img/icons/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="img/icons/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="img/icons/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="img/icons/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="img/icons/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="img/icons/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="img/icons/apple-icon-180x180.png">
 
-    <link rel="icon" type="image/png" sizes="192x192" href="{{host}}/img/icons/android-icon-192x192.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="{{host}}/img/icons/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="96x96" href="{{host}}/img/icons/favicon-96x96.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="{{host}}/img/icons/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="img/icons/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="img/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="img/icons/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="img/icons/favicon-16x16.png">
 
-    <link rel="manifest" content="{{host}}/manifest.json">
+    <link rel="manifest" content="manifest.json">
     <meta name="msapplication-TileColor" content="#ffffff">
-    <meta name="msapplication-TileImage" content="{{host}}/img/icons/ms-icon-144x144.png">
+    <meta name="msapplication-TileImage" content="img/icons/ms-icon-144x144.png">
     <meta name="theme-color" content="#ffffff">
 
 
     <!--
+    <link rel="stylesheet" href="css/main.css" type="text/css"/>
     <link rel="stylesheet" href="css/newalbum.css" type="text/css"/>
 
+    <script type="text/javascript" data-th-src="${portal.assetUrl({'_path=js/main.js"></script>
 -->
-    <link rel="stylesheet" href="{{host}}/css/inline.css" type="text/css"/>
-    <link rel="stylesheet" href="{{host}}/css/main.css" type="text/css"/>
-    <script type="text/javascript" src="{{host}}/js/main.js"></script>
+    <link rel="stylesheet" href="css/inline.css" type="text/css"/>
+    <link rel="stylesheet" href="css/main.css" type="text/css"/>
+    <script type="text/javascript" src="js/main.js"></script>
 
 
-    <script type="text/javascript">
+    <script type="text/javascript" th:inline="javascript">
+        /*<![CDATA[*/
         var urlConfig = {
-            loadAlbumsUrl: '{{loadAlbumsUrl}}',
-            renameAlbumServiceUrl: '{{renameAlbumUrl}}',
-            searchPageUrl: '{{searchPageUrl}}',
-            assetUrl: '{{assetUrl}}'
+            loadAlbumsUrl: /*[[${loadAlbumsUrl}]]*/,
+            renameAlbumServiceUrl: /*[[${renameAlbumUrl}]]*/,
+            searchPageUrl: /*[[${searchPageUrl}]]*/,
+            assetUrl: /*[[${assetUrl}]]*/
         };
+        /*]]>*/
     </script>
 </head>
 
-<body>
+<body data-portal-component-type="page" data-th-class="${editable}? 'edit'">
 <header class="header">
     <h1 id="header_title" class="header__title">Image XPert</h1>
     <button id="butRefresh" class="headerButton" aria-label="Refresh"></button>
     <button id="butAdd" class="headerButton" aria-label="Add"></button>
 </header>
 
-<main class="main-container">
+<main class="main">
 
 <!-- <div class="background-image" data-th-style="${backgroundImageStyle}"></div>
 <div class="background-opacity"></div>
     <img id="ixp-spinner" data-th-src="${spinnerUrl}" />-->
-    {{^albumId}}
-    <div id="browse-albums">
-        <input type="hidden" id="albumId" value="">
-    {{#albums}}
-
-        <div class="album">
-            {{#imageUrl}}
-            <a href="#" onclick="openAlbum('{{albumId}}');"><div class="image-stack {{stackType}}"><img src="{{imageUrl}}"></div></a>
-            {{/imageUrl}}
-            {{^imageUrl}}
-            <div class="empty-album"></div>
-            {{/imageUrl}}
-            <div class="album-name">
-                <p id="album-name-span-{{albumId}}" class="album-name-span" onclick="editAlbumName('{{albumId}}');">{{displayName}}</p>
-                <input id="album-name-input-{{albumId}}" type="text" class="album-name-input" value="{{displayName}}">
+    <input type="hidden" id="albumId" value="">
+    <div id="mainRegion" data-portal-region="main">
+        <div data-th-if="${reqContent.page.regions['main']}" data-th-remove="tag">
+            <div data-th-each="component : ${reqContent.page.regions['main'].components}" data-th-remove="tag">
+                <div data-portal-component="${component.path}" data-th-remove="tag"></div>
             </div>
         </div>
-        {{/albums}}
     </div>
-    {{/albumId}}
-
-    {{#albumId}}
-    <div id="browse-images"></div>
-    {{/albumId}}
-
 </main>
 
 
 <div class="dialog-container">
     <div class="dialog">
-        <form action="{{createImageUrl}}" method="post" enctype="multipart/form-data">
+        <form data-th-action="${createImageUrl}" method="post" enctype="multipart/form-data">
             <input name="albumName" type="hidden">
 
             <input name="file" type="file" multiple="multiple" accept="image/*" style="display: none;" onchange="submitForm(this.parentElement);">
@@ -113,7 +100,7 @@
     </svg>
 </div>
 -->
-<script type="text/javascript" src="{{host}}/js/app.js"></script>
+<script type="text/javascript" src="js/app.js"></script>
 
 </body>
 </html>

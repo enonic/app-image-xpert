@@ -41,8 +41,6 @@ exports.get = function(req) {
 
     var res = ioLib.getResource('/assets/' + folder + fileName).getStream();
 
-    log.info("MAPPING")
-    
     return {
         body: res,
         contentType: contentType

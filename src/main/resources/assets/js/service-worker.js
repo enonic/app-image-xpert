@@ -8,7 +8,8 @@ var filesToCache = [
     'css/main.css',
     'css/material.css',
     'img/icon-add.svg',
-    'img/icon-search.svg'
+    'img/icon-search.svg',
+    '//fonts.googleapis.com/icon?family=Material+Icons'
 ];
 
 self.addEventListener('install', function(e) {

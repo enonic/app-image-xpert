@@ -30,5 +30,8 @@
     <mapping controller="/lib/asset.js">
       <pattern>/img/.*</pattern>
     </mapping>
+    <mapping controller="/lib/asset.js">
+      <pattern>/fonts/.*</pattern>
+    </mapping>
   </mappings>
 </site>

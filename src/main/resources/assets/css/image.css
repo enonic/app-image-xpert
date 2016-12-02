@@ -319,130 +319,189 @@ body {
 #ixp-spinner.visible {
     display: block;
 }
-.download-container {
-    opacity: 0;
-    pointer-events: none;
-    z-index: 30;
-    color: white;
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    position: absolute;
-    height: 325px;
-    width: 600px;
-    padding: 20px;
-    left: 50%;
-    top: 50%;
-    margin-left: -330px;
-    margin-top: -200px;
-    background-color: rgba(51, 51, 51, 0.85);
-    -webkit-box-shadow: 5px 5px 25px 0px rgba(0,0,0,0.75);
-    -moz-box-shadow: 5px 5px 25px 0px rgba(0,0,0,0.75);
-    box-shadow: 5px 5px 25px 0px rgba(0,0,0,0.75);
-    border-radius: 5px;
-    -webkit-transition: opacity 0.5s ease-in-out, -webkit-transform 0.5s ease-in-out, visibility 0.5s linear;
-    transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out, visibility 0.5s linear;
+
+#downloadDialog {
+    width: 35%;
+    min-width: 348px;
+    top: 25%;
 }
 
-#main-region.download .download-container{
+@media only screen and (max-width: 540px) {
+    #downloadDialog {
+        top: 15%;
+    }
+}
+
+select {
+    display: none
+}
+
+select.browser-default {
+    display: block
+}
+
+select {
+    background-color: rgba(255,255,255,0.9);
+    width: 100%;
+    padding: 5px;
+    border: 1px solid #f2f2f2;
+    border-radius: 2px;
+    height: 3rem
+}
+
+.select-label {
+    position: absolute
+}
+
+.select-wrapper {
+    position: relative
+}
+
+.select-wrapper.active .dropdown-content{
+    display: block;
     opacity: 1;
-    pointer-events: auto;
 }
 
-.download-container h2 {
-    margin-left: 10px;
-}
-.download-container button {
-    padding: 10px;
-    width: 100px;
-    font-size: 16px;
+.select-wrapper input.select-dropdown {
+    position: relative;
     cursor: pointer;
+    background-color: transparent;
     border: none;
+    border-bottom: 1px solid #9e9e9e;
+    outline: none;
+    height: 3rem;
+    line-height: 3rem;
+    width: 100%;
+    font-size: 1rem;
+    margin: 0 0 20px 0;
+    padding: 0;
+    display: block
 }
 
-.download-container div.text-input {
-    margin-right: 15px;
-}
-
-.download-container label {
-    line-height: 50px;
-    color: darkgray;
-}
-.download-container input[type="text"] {
-    height: 25px;
-    font-size: 14px;
-    width: 45px;
-    padding-left: 4px;
-}
-
-.download-container .button-toolbar {
-    text-align: right;
-    margin-top: 50px;
-}
-
-.download-container .button-toolbar .download-button {
-    margin-right: 15px;
-    font-weight: bold;
-}
-
-.download-container .button-toolbar button {
-    padding: 8px;
-}
-
-.fieldset-container {
-    display: flex;
-}
-
-.fieldset-container fieldset {
-    width: 50%;
-    padding: 5px 20px 10px 25px;
-}
-
-.fieldset-container fieldset legend {
-    font-size: 16px;
-    color: darkgray;
-}
-
-.fieldset-container .size-text {
-    margin-left: 28px;
-}
-
-.fieldset-container fieldset label input {
-    float: left;
-    height: 43px;
-    margin-right: 7px;
-}
-
-.fieldset-container fieldset:first-child {
-    margin-right: 15px;
-}
-
-.download-container .size-container {
-    display: table;
-    width: 240px;
-}
-
-.download-container .size-container > div {
-    display: table-cell;
-}
-
-.download-container .size-container .input-size-label {
-    white-space: nowrap;
-}
-
-.download-container .size-container .input-size {
-    text-align: center;
-    width: 85px;
-}
-
-.download-container .size-container .input-size span {
-    font-size: 12px;
-    color: darkgray;
-}
-
-.download-container .size-container .input-size-label input {
+.select-wrapper span.caret {
+    color: initial;
     position: absolute;
-    left: 50px;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    height: 10px;
+    margin: auto 0;
+    font-size: 10px;
+    line-height: 10px
 }
 
-.download-container .size-container .input-size-label {
-    padding-left: 25px;
+.select-wrapper span.caret.disabled {
+    color: rgba(0,0,0,0.26)
+}
+
+.select-wrapper+label {
+    position: absolute;
+    top: -14px;
+    font-size: 0.8rem
+}
+
+select:disabled {
+    color: rgba(0,0,0,0.3)
+}
+
+.select-wrapper input.select-dropdown:disabled {
+    color: rgba(0,0,0,0.3);
+    cursor: default;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    border-bottom: 1px solid rgba(0,0,0,0.3)
+}
+
+.select-wrapper i {
+    color: rgba(0,0,0,0.3)
+}
+
+.select-dropdown li.disabled,.select-dropdown li.disabled>span,.select-dropdown li.optgroup {
+    color: rgba(0,0,0,0.3);
+    background-color: transparent
+}
+
+.select-dropdown li img {
+    height: 40px;
+    width: 40px;
+    margin: 5px 15px;
+    float: right
+}
+
+.select-dropdown li.optgroup {
+    border-top: 1px solid #eee
+}
+
+.select-dropdown li.optgroup.selected>span {
+    color: rgba(0,0,0,0.7)
+}
+
+.select-dropdown li.optgroup>span {
+    color: rgba(0,0,0,0.4)
+}
+
+.select-dropdown li.optgroup ~ li.optgroup-option {
+    padding-left: 1rem
+}
+
+.dropdown-content {
+    background-color: #fff;
+    margin: 0;
+    display: none;
+    min-width: 100px;
+    max-height: 650px;
+    overflow-y: auto;
+    opacity: 0;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    z-index: 999;
+    will-change: width, height;
+    padding: 0;
+    box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14),0 1px 5px 0 rgba(0,0,0,0.12),0 3px 1px -2px rgba(0,0,0,0.2);
+}
+
+.dropdown-content li {
+    clear: both;
+    color: rgba(0,0,0,0.87);
+    cursor: pointer;
+    min-height: 50px;
+    line-height: 1.5rem;
+    width: 100%;
+    text-align: left;
+    text-transform: none;
+    list-style-type: none;
+}
+
+.dropdown-content li:hover,.dropdown-content li.active,.dropdown-content li.selected {
+    background-color: #eee
+}
+
+.dropdown-content li.active.selected {
+    background-color: #e1e1e1
+}
+
+.dropdown-content li.divider {
+    min-height: 0;
+    height: 1px
+}
+
+.dropdown-content li>a,.dropdown-content li>span {
+    font-size: 16px;
+    color: rgb(63,81,181);
+    display: block;
+    line-height: 22px;
+    padding: 14px 16px
+}
+
+.dropdown-content li>span>label {
+    top: 1px;
+    left: 0;
+    height: 18px
+}
+
+.dropdown-content li>a>i {
+    height: inherit;
+    line-height: inherit
 }

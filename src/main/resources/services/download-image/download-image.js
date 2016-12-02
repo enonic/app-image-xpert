@@ -3,32 +3,31 @@ var imageXpertLib = require('/lib/image-xpert');
 
 exports.post = function (req) {
 
-    var imageUrl;
-    if (req.params.size == "original" && req.params.format == "original") {
+    var imageUrl, width, height, scale, binaryImage;
+
+    if (!req.params.width && !req.params.height && !req.params.formatname) {
         imageUrl = portalLib.attachmentUrl({
             id: req.params.binary,
             download: true
         });
-    } else {
-        var scale;
-        if (req.params.size == "original") {
-            var binaryImage = imageXpertLib.getContentByKey(req.params.binary);
-            var width = binaryImage.x.media.imageInfo.imageWidth;
-            var height = binaryImage.x.media.imageInfo.imageHeight;
-            scale = "block(" + width.toFixed(0) + "," + height.toFixed(0) + ")";
-        } else {
-            var width = req.params.width;
-            var height = req.params.height;
-            scale = "block(" + width + "," + height + ")";
+    }
+    else {
+
+        if (!req.params.width || !req.params.height) {
+            binaryImage = imageXpertLib.getContentByKey(req.params.binary);
         }
 
-        var imageUrl = portalLib.imageUrl({
+        width = req.params.width || binaryImage.x.media.imageInfo.imageWidth.toFixed(0);
+        height = req.params.height || binaryImage.x.media.imageInfo.imageHeight.toFixed(0);
+
+        scale = "block(" + width + "," + height + ")";
+
+        imageUrl = portalLib.imageUrl({
             id: req.params.binary,
             scale: scale,
-            format: req.params.format == "custom" ? req.params.formatname : undefined
+            format: req.params.formatname || undefined
         });
     }
-
 
     return {
         contentType: 'text/plain',

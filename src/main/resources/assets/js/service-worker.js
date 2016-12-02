@@ -4,11 +4,14 @@ var dataCacheName = 'ixp-data-cache';
 var filesToCache = [
     '/ix/',
     'js/main.js',
+    'js/image.js',
     'js/material.js',
+    'js/dialog-polyfill.js',
     'css/main.css',
+    'css/image.css',
     'css/material.css',
-    'img/icon-add.svg',
-    'img/icon-search.svg',
+    'css/dialog-polyfill.css',
+    'img/spinner.svg',
     '//fonts.googleapis.com/icon?family=Material+Icons'
 ];
 

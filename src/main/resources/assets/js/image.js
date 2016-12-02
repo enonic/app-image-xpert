@@ -1,5 +1,36 @@
+function openDownloadDialog() {
+    let dialog = document.querySelector('dialog');
+
+    dialogPolyfill.registerDialog(dialog);
+
+    toggleClass("download");
+    dialog.showModal();
+}
+
+function closeDownloadDialog() {
+    let dialog = document.querySelector('dialog');
+    toggleClass();
+    dialog.close();
+}
+
+function selectOption(e) {
+    let selectedOption = e.currentTarget;
+
+    if (!selectedOption || selectedOption.tagName !== 'LI') {
+        return;
+    }
+
+    let parentElement = selectedOption.parentElement;
+    let currentSelection = parentElement.querySelector("li.selected");
+    !!currentSelection && currentSelection.classList.remove("active", "selected");
+
+    document.getElementById("formatInput").value = selectedOption.textContent.toLowerCase();
+    document.getElementById("formatSelect").value = selectedOption.textContent;
+    selectedOption.classList.add("active", "selected");
+}
+
 function toggleClass(cls, e) {
-    var mainRegion = document.querySelector("#main-region");
+    var mainRegion = document.getElementById("main-region");
     mainRegion.classList.remove("download", "info", "edit");
     if (cls) {
         if (typeof cls == "string") {
@@ -14,10 +45,20 @@ function toggleClass(cls, e) {
     }
 }
 
+function toggleSelect(select) {
+    if (select.classList.contains("active")) {
+        select.classList.remove("active");
+        return;
+    }
+    let dropdown = select.querySelector('.dropdown-content');
+    dropdown.style.width = select.clientWidth + "px";
+    select.classList.add("active");
+}
+
 function updateMetaInfo(mediaId) {
-    var captionInputEl = document.querySelector('#input-caption'),
-        artistInputEl = document.querySelector('#input-artist'),
-        tagsInputEl = document.querySelector('#input-tags'),
+    var captionInputEl = document.getElementById('input-caption'),
+        artistInputEl = document.getElementById('input-artist'),
+        tagsInputEl = document.getElementById('input-tags'),
         caption = captionInputEl.value.trim(),
         artist = artistInputEl.value.trim(),
         tags = tagsInputEl.value.trim(),
@@ -108,11 +149,11 @@ function loadImage() {
     scaleImage();
 }
 
-
 function requestImage(serviceUrl) {
     var form = document.querySelector(".download-form");
     var request = new XMLHttpRequest();
 
+    closeDownloadDialog();
     toggleClass();
 
     request.onload = function () {

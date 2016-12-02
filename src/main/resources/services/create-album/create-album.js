@@ -10,10 +10,12 @@ exports.post = function (req) {
 
     if (!!portalLib.getMultipartText('albumName')) {
         album = createNewAlbum(publish);
+        log.info("Created album ", JSON.stringify(album, 4, 1));
     }
 
     if (!!album) {
         createImages(album._id, publish);
+        log.info("Added images");
     }
     else {
         log.error('Failed to create an album');

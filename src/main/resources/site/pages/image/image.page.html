@@ -4,8 +4,13 @@
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Image XPert / {{caption}}</title>
-    <link rel="stylesheet" href="{{assetUrl}}/css/image.css" type="text/css"/>
-    <script type="text/javascript" src="{{assetUrl}}/js/image.js"></script>
+    <link rel="stylesheet" href="css/image.css" type="text/css"/>
+    <link rel="stylesheet" href="css/material.css" type="text/css"/>
+    <link rel="stylesheet" href="css/dialog-polyfill.css" type="text/css"/>
+
+    <script type="text/javascript" src="js/material.js"></script>
+    <script type="text/javascript" src="js/image.js"></script>
+    <script type="text/javascript" src="js/dialog-polyfill.js"></script>
 
     <script type="text/javascript">
         var imgPlaceholder;
@@ -20,6 +25,10 @@
         }, 150);
 
         window.onload = function() {
+            let dialog = document.querySelector('dialog');
+
+            dialogPolyfill.registerDialog(dialog);
+
             imgPlaceholder = document.querySelector(".image-placeholder");
 
             loadImage();
@@ -36,76 +45,62 @@
         <div class="image-placeholder" data-src="{{imageUrl}}"></div>
         <div class="image-header">
             <div class="image-header-icons">
-                <img src="{{assetUrl}}/img/download_image.svg" title="Download image" onclick="toggleClass('download');" class="icon-download">
-                <img src="{{assetUrl}}/img/info.svg" title="Image info" onclick="toggleClass('info');" class="icon-info">
-                <img src="{{assetUrl}}/img/cancel.svg" title="Close info" onclick="toggleClass();" class="icon-close">
+                <img src="img/download_image.svg" title="Download image" onclick="openDownloadDialog();" class="icon-download">
+                <img src="img/info.svg" title="Image info" onclick="toggleClass('info');" class="icon-info">
+                <img src="img/cancel.svg" title="Close info" onclick="toggleClass();" class="icon-close">
             </div>
         </div>
     </div>
-
-    <div class="download-container">
-        <h2>Download image</h2>
-
+    <dialog class="mdl-dialog" id="downloadDialog">
+        <h4 class="mdl-dialog__title">Download image</h4>
         <form class="download-form" action="" method="post" onsubmit="return requestImage('{{downloadImageServiceUrl}}', this);">
-            <div class="fieldset-container">
-                <fieldset>
-                    <legend>Specify size</legend>
+        <div class="mdl-dialog__content">
 
-                    <label>Original:
-                        <input type="radio" name="size" value="original" checked>
-                    </label>
-                    <span class="size-text">{{imageWidth}}&nbsp;&nbsp;&nbsp;X&nbsp;&nbsp;&nbsp;{{imageHeight}}</span>
-                    <br>
-                    <div class="size-container">
-                        <div class="input-size-label">
-                            <label>Custom:&nbsp;
-                                <input type="radio" name="size" value="custom">
-                            </label>
-                        </div>
-                        <div class="input-size">
-                            <input type="text" name="width" placeholder="width"><br>
-                            <span>px</span>
-                        </div>
-                        <span>&nbsp;X&nbsp;</span>
-                        <div class="input-size">
-                            <input type="text" name="height" placeholder="height"><br>
-                            <span>px</span>
-                        </div>
-                    </div>
-                </fieldset>
-                <fieldset>
-                    <legend>Specify format</legend>
-                    <label>Original:&nbsp;
-                        <input type="radio" name="format" value="original" checked>
-                    </label>
-                    <span>{{contentType}}</span>
-                    <br>
-                    <label>Custom:&nbsp;
-                        <input type="radio" name="format" value="custom">
-                    </label>
-                    <select name="formatname">
-                        <option value="jpg">JPEG</option>
-                        <option value="png">PNG</option>
-                        <option value="gif">GIF</option>
-                        <option value="bmp">BMP</option>
-                    </select>
-                </fieldset>
+            <h4>Format</h4>
 
+            <div class="select-wrapper" onclick="toggleSelect(this);">
+                <span class="caret">▼</span>
+                <input type="text" id="formatSelect" class="select-dropdown" readonly="true" data-activates="select-options-a9ae3696-c9e3-f824-efdb-0c9bc47f0ce6" value="Choose your option">
+                <ul id="select-options-a9ae3696-c9e3-f824-efdb-0c9bc47f0ce6" class="dropdown-content select-dropdown">
+                    <li class="disabled"><span>Choose format</span></li>
+                    <li class="" onclick="selectOption(event);"><span>JPG</span></li>
+                    <li class="" onclick="selectOption(event);"><span>PNG</span></li>
+                    <li class="" onclick="selectOption(event);"><span>GIF</span></li>
+                    <li class="" onclick="selectOption(event);"><span>BMP</span></li>
+                </ul>
+                <input id="formatInput" name="formatname" value="" type="hidden">
             </div>
-            <div class="button-toolbar">
-                <input name="binary" type="hidden" value="{{binaryImageId}}"/>
-                <button type="submit" name="download" class="download-button">Download</button>
-                <button type="reset" name="cancel" onclick="toggleClass();" class="download-cancel">Cancel</button>
+
+            <h4>Size</h4>
+
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" name="width" id="imageWidth" placeholder="{{imageWidth}}">
+                <label class="mdl-textfield__label" for="imageWidth">Width</label>
+                <span class="mdl-textfield__error">Width is not a number!</span>
             </div>
-        </form>
-    </div>
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" name="height" id="imageHeight" placeholder="{{imageHeight}}">
+                <label class="mdl-textfield__label" for="imageHeight">Height</label>
+                <span class="mdl-textfield__error">Height is not a number!</span>
+            </div>
+
+        </div>
+
+        <div class="mdl-dialog__actions">
+            <input name="binary" type="hidden" value="{{binaryImageId}}"/>
+            <button type="submit" name="download" class="mdl-button mdl-button--colored mdl-button--raised mdl-js-button mdl-js-ripple-effect">Download</button>
+            <button type="reset" name="cancel" class="mdl-button close" onclick="closeDownloadDialog();">Cancel</button>
+        </div>
+    </form>
+    </dialog>
+
     <div class="image-info-container" onclick="closeEditMode('{{binaryImageId}}', event);">
-        <img id="ixp-spinner" src="{{assetUrl}}/img/spinner.svg">
+        <img id="ixp-spinner" src="img/spinner.svg">
         <div class="image-info-vertical-wrapper">
             <div class="image-info-vertical-cell">
                 <div class="image-meta-container">
                     <div class="image-caption">
-                        <img class="icon-edit" src="{{assetUrl}}/img/pencil.svg" title="Edit info" onclick="openEditMode(event);">
+                        <img class="icon-edit" src="img/pencil.svg" title="Edit info" onclick="openEditMode(event);">
                         <h1 class="caption-stored meta-editable">{{caption}}</h1>
                         <input id="input-caption" type="text" class="info-meta-input" value="{{caption}}" onkeyup="onMetaInputKeyUp('{{binaryImageId}}', event);">
                     </div>

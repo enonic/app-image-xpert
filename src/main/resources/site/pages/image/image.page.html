@@ -60,7 +60,7 @@
 
             <div class="select-wrapper" onclick="toggleSelect(this);">
                 <span class="caret">▼</span>
-                <input type="text" id="formatSelect" class="select-dropdown" readonly="true" data-activates="select-options-a9ae3696-c9e3-f824-efdb-0c9bc47f0ce6" value="Choose your option">
+                <input type="text" id="formatSelect" class="select-dropdown" readonly="true" data-activates="select-options-a9ae3696-c9e3-f824-efdb-0c9bc47f0ce6" value="Choose format">
                 <ul id="select-options-a9ae3696-c9e3-f824-efdb-0c9bc47f0ce6" class="dropdown-content select-dropdown">
                     <li class="disabled"><span>Choose format</span></li>
                     <li class="" onclick="selectOption(event);"><span>JPG</span></li>
@@ -73,12 +73,12 @@
 
             <h4>Size</h4>
 
-            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+            <div id="image-width-textfield" class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                 <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" name="width" id="imageWidth" placeholder="{{imageWidth}}">
                 <label class="mdl-textfield__label" for="imageWidth">Width</label>
                 <span class="mdl-textfield__error">Width is not a number!</span>
             </div>
-            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+            <div id="image-height-textfield" class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                 <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" name="height" id="imageHeight" placeholder="{{imageHeight}}">
                 <label class="mdl-textfield__label" for="imageHeight">Height</label>
                 <span class="mdl-textfield__error">Height is not a number!</span>
@@ -94,7 +94,7 @@
     </form>
     </dialog>
 
-    <div class="image-info-container" onclick="closeEditMode('{{binaryImageId}}', event);">
+    <div class="image-info-container {{#geoLocation}}geo-location{{/geoLocation}}" onclick="closeEditMode('{{binaryImageId}}', event);">
         <img id="ixp-spinner" src="img/spinner.svg">
         <div class="image-info-vertical-wrapper">
             <div class="image-info-vertical-cell">

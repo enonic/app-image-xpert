@@ -47,6 +47,7 @@ body {
 .image-info-container {
     height: 100%;
     width: 100%;
+    min-width: 348px;
     position: fixed;
     top: 0;
     z-index: 15;
@@ -74,11 +75,11 @@ body {
 .image-meta-container {
     margin-right: auto;
     margin-left: auto;
-    max-width: 1200px;
+    /*max-width: 1200px;*/
 }
 
 .image-row {
-    margin-left: 30%;
+    margin: 0 auto;
     height: auto;
     width: 50%;
     display: flex;
@@ -88,33 +89,32 @@ body {
     height: 300px;
 }
 
-.image-info-column:first-child {
-    margin-right: 30%;
-}
-
-@media only screen and (max-width: 768px) {
-    .image-info-column:first-child {
-        margin-left: 35px;
-    }
-}
-
 .image-info-column {
-    width: 25%;
+    width: 50%;
     margin-top: 15px;
     position: relative;
 }
 
-@media only screen and (max-width: 768px) {
-    .image-info-column {
-        width: 43%;
-        overflow: hidden;
-    }
+.image-info-container.geo-location .image-info-column {
+    margin-top: 0px;
+}
+
+.image-info-container.geo-location .image-info-column h2,
+.image-info-container.geo-location .image-info-column h3{
+    margin: 20px 0;
+}
+#input-caption {
+    font-size: 28px;
+    top: 10px;
+    width: 93%;
+    padding-left: 48px;
 }
 
 .image-caption {
     width: 50%;
-    margin-left: 29%;
+    margin: 0 auto;
     position: relative;
+    padding-top: 9px;
 }
 
 .image-caption h1 {
@@ -125,27 +125,29 @@ body {
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+    line-height: 20px;
+    letter-spacing: normal;
+    margin: 10px 0;
     margin-left: 50px;
 }
-.image-caption img {
+.icon-edit {
     position: absolute;
-    left: 10px;
-    top: 10px;
     cursor: pointer;
     width: 25px;
+    top: 16px;
+    left: 12px;
 }
 .image-caption img:hover {
     opacity: 0.7;
 }
 
 @media only screen and (max-width: 768px) {
-    .image-caption  {
-        width: 100%;
-        margin-left: 35px;
+    .image-caption, .image-row {
+        width: 75%;
     }
 }
 
-#main-region.edit .image-caption img{
+#main-region.edit .icon-edit{
     filter: invert(100%);
     -webkit-filter: invert(100%);
     z-index: 1000;
@@ -200,15 +202,15 @@ body {
 }
 
 .image-location {
-    width: 500px;
-    height: 300px;
+    width: 400px;
+    height: 200px;
     border: 3px solid white;
     margin-top: 15px;
 }
 
 @media only screen and (max-width: 768px) {
     .image-location {
-        height: 200px;
+        height: 150px;
         width: 80%;
     }
 }
@@ -282,17 +284,10 @@ body {
     pointer-events: all;
 }
 
-#input-caption {
-    font-size: 28px;
-    top: 3px;
-    left: -3px;
-    width: 93%;
-    padding-left: 47px;
-}
 
 #input-artist, #input-tags {
     font-size: 15px;
-    top: 33px;
+    top: 53px;
     left: -3px;
     height: 20px;
 }
@@ -323,12 +318,21 @@ body {
 #downloadDialog {
     width: 35%;
     min-width: 348px;
-    top: 25%;
+    top: 30%;
 }
 
-@media only screen and (max-width: 540px) {
+#image-width-textfield, #image-height-textfield {
+    width: 42%;
+}
+#image-width-textfield {
+    margin-right: 20px;
+}
+#image-height-textfield {
+    margin-left: 20px;
+}
+@media only screen and (max-height: 680px) {
     #downloadDialog {
-        top: 15%;
+        top: 20%;
     }
 }
 

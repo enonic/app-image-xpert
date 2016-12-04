@@ -15,6 +15,7 @@
                 if (http.readyState == 4 && http.status == 200 && http.responseText !== "") {
                     appendNewAlbum(http.responseText);
                     showNotification("New album successfully created");
+                    sendRequestUpdate();
                 }
             };
             http.send(formData);
@@ -54,6 +55,12 @@
 
     var addDialog, albumPanel, imagePanel, menuIcon, backButton, searchInput;
 
+    function sendRequestUpdate(url) {
+        let http = new XMLHttpRequest();
+        http.open("GET", url + "?update=true", true);
+        http.send();
+    }
+
     function getNewAlbumName() {
         var albumName = '',
             albumNameTextBox = document.querySelector('input[name="albumName"]');
@@ -79,12 +86,7 @@
         }
 
         if (fileUploadEl) {
-            if (isChrome()) {
-                setNewAlbumName(albumName);
-            }
-            else {
-                toggleAddDialog(false);
-            }
+            setNewAlbumName(albumName);
             fileUploadEl.click();
         }
         return false;
@@ -198,6 +200,17 @@
 
         container.firstChild ? container.insertBefore(newAlbumDiv, container.firstChild) : container.appendChild(newAlbumDiv);
     }
+    
+    function updateCachedResponse(url) {
+        e.respondWith(
+            caches.open(dataCacheName).then(function(cache) {
+                return fetch(e.request).then(function(response){
+                    cache.put(e.request.url, response.clone());
+                    return response;
+                });
+            })
+        );
+    }
 
     function debounce(fn, delay) {
         var timer = null;
@@ -297,20 +310,6 @@
     function getAlbumTitle(albumId) {
         return document.getElementById('album-name-span-' + albumId).innerText;
     }
-
-    ixp.openAlbum = function (albumId) {
-
-        if (!urlConfig.searchPageUrl || !albumId) {
-            return false;
-        }
-    //    toggleNoResultsMessage(false);
-    //    toggleSpinner(true);
-        setAlbumId(albumId);
-
-        doSearchAndShowResults("albumId=" + albumId, getAlbumTitle(albumId));
-
-        return false;
-    };
 
     function onResponseReceived(responseText, albumTitle) {
         //hideAlbums();

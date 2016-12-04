@@ -329,7 +329,6 @@ body {
     text-align: center;
 }
 .album {
-    /*padding: 30px 50px 10px 50px;*/
     padding: 30px 40px;
 }
 
@@ -568,7 +567,7 @@ body {
 
 @media screen and (max-width: 540px) {
     #browse-albums .album {
-        padding: 15px 30px;
+        padding: 15px 34px 15px 18px;
     }
     #browse-albums .album img {
         width: 125px;

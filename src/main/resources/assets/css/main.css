@@ -155,11 +155,13 @@ body {
 
 @media screen and (max-width: 540px) {
     .header__title {
-        font-size: 16px;
+        font-size: 20px;
         line-height: 30px;
         margin-left: 35px;
     }
-
+    .header.search .header__title {
+        font-size: 16px;
+    }
     .header .search-button.mdl-textfield {
         max-width: 170px;
     }
@@ -180,6 +182,11 @@ body {
     }
 }
 
+@media screen and (max-width: 420px) {
+    .header.search .header__title {
+        font-size: 16px;
+    }
+}
 
 /* DIALOG */
 
@@ -329,7 +336,7 @@ body {
     text-align: center;
 }
 .album {
-    padding: 30px 40px;
+    padding: 45px 50px 20px 50px;
 }
 
 #browse-images {
@@ -337,9 +344,9 @@ body {
 }
 
 #browse-images .album {
-    width: 260px;
+    width: 250px;
     padding: 0;
-    margin: 10px 28px 0px 28px;
+    margin: 40px 45px 15px 45px;
 }
 
 #browse-images .album a img {
@@ -490,13 +497,17 @@ body {
 
 .album-name-span {
     cursor: pointer;
-    padding: 3px 0 0 4px;
+    padding-left: 3px;
     display: inline-block;
     margin: 0;
     opacity: 1;
     transition: opacity 500ms;
     text-transform: capitalize;
     font-size: 20px;
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
 .album-name-span.invisible {
@@ -505,6 +516,7 @@ body {
 }
 
 .album-name-input {
+    width: 100%;
     position: absolute;
     top: 0;
     left: 0;
@@ -538,7 +550,6 @@ body {
     text-align: left;
     position: relative;
     padding: 7px 0 0 20px;
-    color: white;
     font-style: italic;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -549,7 +560,6 @@ body {
 
 .image-caption-span {
     margin: 0;
-    color: gainsboro;
     font-size: 12px;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     text-align: left;
@@ -564,10 +574,11 @@ body {
     letter-spacing: 4px;
 }
 
-
 @media screen and (max-width: 540px) {
     #browse-albums .album {
-        padding: 15px 34px 15px 18px;
+        width: 175px;
+        height: 195px;
+        padding: 25px 34px 15px 18px;
     }
     #browse-albums .album img {
         width: 125px;
@@ -581,6 +592,14 @@ body {
     #browse-albums .album-name {
         margin-top: 15px;
     }
+
+    .album-name-span, .album-name-input {
+        font-size: 16px;
+    }
+
+    #browse-images .album {
+        margin: 20px 30px 15px 30px;
+    }
 }
 
 @media screen and (min-width: 540px) and (max-width: 768px) {
@@ -593,3 +612,64 @@ body {
         justify-content: center;
     }
 }
+
+/* SPINNER */
+
+.loader {
+    left: 50%;
+    top: 50%;
+    position: fixed;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%); }
+.loader #spinner {
+    box-sizing: border-box;
+    stroke: #673AB7;
+    stroke-width: 3px;
+    -webkit-transform-origin: 50%;
+    transform-origin: 50%;
+    -webkit-animation: line 1.6s cubic-bezier(0.4, 0, 0.2, 1) infinite, rotate 1.6s linear infinite;
+    animation: line 1.6s cubic-bezier(0.4, 0, 0.2, 1) infinite, rotate 1.6s linear infinite; }
+
+@-webkit-keyframes rotate {
+    from {
+        -webkit-transform: rotate(0);
+        transform: rotate(0); }
+    to {
+        -webkit-transform: rotate(450deg);
+        transform: rotate(450deg); } }
+
+@keyframes rotate {
+    from {
+        -webkit-transform: rotate(0);
+        transform: rotate(0); }
+    to {
+        -webkit-transform: rotate(450deg);
+        transform: rotate(450deg); } }
+
+@-webkit-keyframes line {
+    0% {
+        stroke-dasharray: 2, 85.964;
+        -webkit-transform: rotate(0);
+        transform: rotate(0); }
+    50% {
+        stroke-dasharray: 65.973, 21.9911;
+        stroke-dashoffset: 0; }
+    100% {
+        stroke-dasharray: 2, 85.964;
+        stroke-dashoffset: -65.973;
+        -webkit-transform: rotate(90deg);
+        transform: rotate(90deg); } }
+
+@keyframes line {
+    0% {
+        stroke-dasharray: 2, 85.964;
+        -webkit-transform: rotate(0);
+        transform: rotate(0); }
+    50% {
+        stroke-dasharray: 65.973, 21.9911;
+        stroke-dashoffset: 0; }
+    100% {
+        stroke-dasharray: 2, 85.964;
+        stroke-dashoffset: -65.973;
+        -webkit-transform: rotate(90deg);
+        transform: rotate(90deg); } }

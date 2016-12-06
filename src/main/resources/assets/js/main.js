@@ -6,16 +6,24 @@
         // public methods
 
         createNewAlbum: function () {
+            toggleSpinner(true);
             var http = new XMLHttpRequest();
             var form = document.getElementById("new-album-form");
             var formData = new FormData(form);
             http.open("POST", form.action, true);
 
             http.onreadystatechange = function() {
-                if (http.readyState == 4 && http.status == 200 && http.responseText !== "") {
-                    appendNewAlbum(http.responseText);
-                    showNotification("New album successfully created");
-                    sendRequestUpdate();
+                if (http.readyState == 4) {
+                    if (http.status == 200 && http.responseText !== "") {
+                        appendNewAlbum(http.responseText);
+                        showNotification("New album successfully created");
+                        sendRequestUpdate();
+                    }
+                    else {
+                        showNotification("Failed to create an album");
+                    }
+
+                    toggleSpinner(false);
                 }
             };
             http.send(formData);
@@ -44,20 +52,29 @@
                 return false;
             }
             //    toggleNoResultsMessage(false);
-            //    toggleSpinner(true);
+            toggleSpinner(true);
             setAlbumId(albumId);
 
             doSearchAndShowResults("albumId=" + albumId, getAlbumTitle(albumId));
 
             return false;
+        },
+
+        toggleSearch: function() {
+            let searchField = document.getElementById("search-field"),
+                activateSearch = !searchField.classList.contains("is-focused");
+            
+            if (!searchField.classList.contains("is-dirty")) {
+                document.querySelector("header").classList.toggle("search", activateSearch);
+            }
         }
     };
 
-    var addDialog, albumPanel, imagePanel, menuIcon, backButton, searchInput;
+    var addDialog, albumPanel, imagePanel, menuIcon, backButton, searchInput, spinner;
 
     function sendRequestUpdate(url) {
         let http = new XMLHttpRequest();
-        http.open("GET", url + "?update=true", true);
+        http.open("GET", (url || "") + "?update=true", true);
         http.send();
     }
 
@@ -128,9 +145,13 @@
         newAlbumSpanEl.value = albumName;
     }
 
-    function validateForm() {
+    function validateForm(e) {
+
         let createButton = document.getElementById('butAddAlbum');
         createButton["disabled"] = (getNewAlbumName().length == 0);
+        if (e.keyCode == 13 && !createButton["disabled"]) {
+            document.getElementById('butAddAlbum').click();
+        }
     }
 
     function closeEditMode(spanEl, inputEl, id, e) {
@@ -182,6 +203,7 @@
                     spanEl.innerText = responseObj.name;
                     spanEl.classList.remove("invisible");
                     inputEl.classList.remove("visible");
+                    sendRequestUpdate();
                 }
             }
         };
@@ -223,12 +245,21 @@
         };
     }
 
+    function showSpinner() {
+        spinner.removeAttribute('hidden');
+    }
+
+    function hideSpinner() {
+        spinner.setAttribute('hidden', true);
+    }
+
     function toggleSpinner(visible) {
         var mainContainer = document.querySelector(".main-container");
         if (visible) {
             mainContainer.style.opacity = 0.2;
         }
-        document.getElementById('ixp-spinner').classList.toggle("visible", visible);
+        visible ? showSpinner() : hideSpinner();
+        //document.getElementById('ixp-spinner').classList.toggle("visible", visible);
         if (!visible) {
             mainContainer.style.opacity = 1;
         }
@@ -236,7 +267,7 @@
 
     function initSearch(e) {
         var searchValue = e.target.value.trim();
-        //toggleSpinner(true);
+        toggleSpinner(true);
 
         doSearch(searchValue);
     }
@@ -285,7 +316,7 @@
         //clearSearchResults('');
 
         if (!urlConfig.searchPageUrl || (!albumId && keyWords.trim() == "")) {
-            //toggleSpinner(false);
+            toggleSpinner(false);
             showAlbums();
 
             return;
@@ -317,6 +348,7 @@
             showAlbumTitle(albumTitle);
         }
         showSearchResults(responseText);
+        toggleSpinner(false);
     }
 
     function doSearchAndShowResults(searchString, albumTitle) {
@@ -353,7 +385,9 @@
                         onResponseReceived(http.responseText, albumTitle);
                         //initPage();
                     }
-                    //toggleSpinner(false);
+                    else {
+                        toggleSpinner(false);
+                    }
                 }
             };
             http.send();
@@ -441,6 +475,7 @@
         menuIcon = document.getElementById('menu-icon');
         backButton = document.getElementById('back-button');
         searchInput = document.getElementById('search-input');
+        spinner = document.querySelector('.loader');
 
         addEventHandling();
         

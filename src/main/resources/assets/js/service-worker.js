@@ -51,8 +51,8 @@ self.addEventListener('activate', function(e) {
 self.addEventListener('fetch', function(e) {
     console.log('[ServiceWorker] Fetch', e.request.url);
     let dataUrl = '/search?';
-    let urlUpdate = e.request.url.endsWith("?update=true");
-    if (e.request.url.indexOf(dataUrl) > -1 || urlUpdate) {
+    let responseUpdate = e.request.url.endsWith("?update=true");
+    if (e.request.url.indexOf(dataUrl) > -1 || responseUpdate) {
         /*
          * When the request URL contains dataUrl, the app is asking for fresh
          * weather data. In this case, the service worker always goes to the
@@ -60,11 +60,11 @@ self.addEventListener('fetch', function(e) {
          * network" strategy:
          * https://jakearchibald.com/2014/offline-cookbook/#cache-then-network
          */
-        let url = urlUpdate ? e.request.url.replace("?update=true", "") : e.request.url;
+        let url = responseUpdate ? e.request.url.replace("?update=true", "") : e.request.url;
 
         console.log("Fetching data url ", url);
         e.respondWith(
-          caches.open(urlUpdate ? cacheName : dataCacheName).then(function(cache) {
+          caches.open(responseUpdate ? cacheName : dataCacheName).then(function(cache) {
             return fetch(e.request).then(function(response){
               cache.put(url, response.clone());
               return response;
@@ -74,9 +74,9 @@ self.addEventListener('fetch', function(e) {
       }
       else {
           e.respondWith(
-              caches.match(e.request, {ignoreVary: true}).then(function (response) {
-                  // {ignoreVary: true} is extremely important - without it caching will not work!
-
+              caches.match(e.request, {
+                  ignoreVary: true
+              }).then(function (response) {
                   console.log('[ServiceWorker]', response ? "Serving from cache" : "Requesting from the server", ": ",
                       e.request.url);
                   return response || fetch(e.request);

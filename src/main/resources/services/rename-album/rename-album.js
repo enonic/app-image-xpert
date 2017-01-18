@@ -1,5 +1,4 @@
 var contentLib = require('/lib/xp/content');
-var imageXpertLib = require('/lib/image-xpert');
 
 exports.post = function (req) {
     var result = contentLib.modify({
@@ -11,15 +10,16 @@ exports.post = function (req) {
         }
     });
 
-    if (result) {
-        imageXpertLib.publishAlbum(req.params.id);
-    }
+    var responseObj = result ? {
+            id: req.params.id,
+            name: result.displayName
+        } : {
+            id: req.params.id,
+            name: ""
+        };
 
     return {
         contentType: "application/json",
-        body: {
-            id: req.params.id,
-            name: result ? result.displayName : ""
-        }
+        body: responseObj
     }
 };

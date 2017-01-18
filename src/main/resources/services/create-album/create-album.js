@@ -50,7 +50,11 @@ function createNewAlbum(publish) {
     });
 
     if (publish) {
-        imageXpertLib.publishAlbum(album._id);
+        contentLib.publish({
+            keys: [album._id],
+            sourceBranch: 'draft',
+            targetBranch: 'master'
+        });
     }
 
     return album;

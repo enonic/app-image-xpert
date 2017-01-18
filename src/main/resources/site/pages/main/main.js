@@ -15,6 +15,7 @@ function handleGet(req) {
     */
     var params = {
         albums: imageXpertLib.getAlbums(),
+        isLive: (req.mode == 'live'),
         //albumId: albumId,
         //albumName: albumName,
         createAlbumUrl: portal.serviceUrl({service: "create-album"}),
@@ -22,12 +23,17 @@ function handleGet(req) {
         searchPageUrl: portal.serviceUrl({service: "search"}),
         loadAlbumsUrl: portal.serviceUrl({service: "load-albums"}),
         assetUrl: portal.assetUrl(''),
-        baseUrl: imageXpertLib.generateHomeUrl()
+        baseUrl: imageXpertLib.generateHomeUrl(),
+        serviceWorkerUrl: imageXpertLib.generateHomeUrl() + "/service-worker.js"
     };
+    
     var body = mustacheLib.render(view, params);
 
     return {
         contentType: 'text/html',
+        headers: {
+            'Service-Worker-Allowed': '/'
+        },
         body: body
     };
 }

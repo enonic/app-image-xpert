@@ -65,8 +65,7 @@ function handleGet(req) {
             : "N/A",
         cameraMake: binary.x.media.cameraInfo && binary.x.media.cameraInfo.make ? binary.x.media.cameraInfo.make : "N/A",
         cameraModel: binary.x.media.cameraInfo && binary.x.media.cameraInfo.model ? binary.x.media.cameraInfo.model : "N/A",
-        tags: tags,
-
+        tags: tags
     });
     
     return {

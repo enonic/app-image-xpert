@@ -4,13 +4,13 @@
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Image XPert / {{caption}}</title>
-    <link rel="stylesheet" href="css/image.css" type="text/css"/>
-    <link rel="stylesheet" href="css/material.css" type="text/css"/>
-    <link rel="stylesheet" href="css/dialog-polyfill.css" type="text/css"/>
+    <link rel="stylesheet" href="{{assetUrl}}/css/image.css" type="text/css"/>
+    <link rel="stylesheet" href="{{assetUrl}}/css/material.css" type="text/css"/>
+    <link rel="stylesheet" href="{{assetUrl}}/css/dialog-polyfill.css" type="text/css"/>
 
-    <script type="text/javascript" src="js/material.js"></script>
-    <script type="text/javascript" src="js/image.js"></script>
-    <script type="text/javascript" src="js/dialog-polyfill.js"></script>
+    <script type="text/javascript" src="{{assetUrl}}/js/material.js"></script>
+    <script type="text/javascript" src="{{assetUrl}}/js/image.js"></script>
+    <script type="text/javascript" src="{{assetUrl}}/js/dialog-polyfill.js"></script>
 
     <script type="text/javascript">
         var imgPlaceholder;
@@ -45,9 +45,9 @@
         <div class="image-placeholder" data-src="{{imageUrl}}"></div>
         <div class="image-header">
             <div class="image-header-icons">
-                <img src="img/download_image.svg" title="Download image" onclick="openDownloadDialog();" class="icon-download">
-                <img src="img/info.svg" title="Image info" onclick="toggleClass('info');" class="icon-info">
-                <img src="img/cancel.svg" title="Close info" onclick="toggleClass();" class="icon-close">
+                <img src="{{assetUrl}}/img/download_image.svg" title="Download image" onclick="openDownloadDialog();" class="icon-download">
+                <img src="{{assetUrl}}/img/info.svg" title="Image info" onclick="toggleClass('info');" class="icon-info">
+                <img src="{{assetUrl}}/img/cancel.svg" title="Close info" onclick="toggleClass();" class="icon-close">
             </div>
         </div>
     </div>
@@ -95,12 +95,12 @@
     </dialog>
 
     <div class="image-info-container {{#geoLocation}}geo-location{{/geoLocation}}" onclick="closeEditMode('{{binaryImageId}}', event);">
-        <img id="ixp-spinner" src="img/spinner.svg">
+        <img id="ixp-spinner" src="{{assetUrl}}/img/spinner.svg">
         <div class="image-info-vertical-wrapper">
             <div class="image-info-vertical-cell">
                 <div class="image-meta-container">
                     <div class="image-caption">
-                        <img class="icon-edit" src="img/pencil.svg" title="Edit info" onclick="openEditMode(event);">
+                        <img class="icon-edit" src="{{assetUrl}}/img/pencil.svg" title="Edit info" onclick="openEditMode(event);">
                         <h1 class="caption-stored meta-editable">{{caption}}</h1>
                         <input id="input-caption" type="text" class="info-meta-input" value="{{caption}}" onkeyup="onMetaInputKeyUp('{{binaryImageId}}', event);">
                     </div>

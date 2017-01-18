@@ -12,26 +12,11 @@
     <mapping controller="/site/pages/image/image.js">
       <pattern>/image</pattern>
     </mapping>
-    <mapping controller="/lib/asset.js">
+    <mapping controller="/lib/service-worker/controller.js">
       <pattern>/service-worker.js</pattern>
     </mapping>
-    <mapping controller="/lib/asset.js">
+    <mapping controller="/lib/manifest/controller.js">
       <pattern>/manifest.json</pattern>
-    </mapping>
-    <mapping controller="/lib/asset.js">
-      <pattern>/browserconfig.xml</pattern>
-    </mapping>
-    <mapping controller="/lib/asset.js">
-      <pattern>/js/.*\.js</pattern>
-    </mapping>
-    <mapping controller="/lib/asset.js">
-      <pattern>/css/.*\.css</pattern>
-    </mapping>
-    <mapping controller="/lib/asset.js">
-      <pattern>/img/.*</pattern>
-    </mapping>
-    <mapping controller="/lib/asset.js">
-      <pattern>/fonts/.*</pattern>
     </mapping>
   </mappings>
 </site>

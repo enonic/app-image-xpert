@@ -2,16 +2,20 @@ var cacheName = 'ixp-cache';
 var dataCacheName = 'ixp-data-cache';
 
 var filesToCache = [
-    '/ix/',
-    'js/main.js',
-    'js/image.js',
-    'js/material.js',
-    'js/dialog-polyfill.js',
-    'css/main.css',
-    'css/image.css',
-    'css/material.css',
-    'css/dialog-polyfill.css',
-    'img/spinner.svg',
+    '{{siteUrl}}/',
+    '{{assetUrl}}/js/main.js',
+    '{{assetUrl}}/js/image.js',
+    '{{assetUrl}}/js/material.js',
+    '{{assetUrl}}/js/dialog-polyfill.js',
+    '{{assetUrl}}/css/main.css',
+    '{{assetUrl}}/css/image.css',
+    '{{assetUrl}}/css/material.css',
+    '{{assetUrl}}/css/dialog-polyfill.css',
+    '{{assetUrl}}/img/cancel.svg',
+    '{{assetUrl}}/img/download_image.svg',
+    '{{assetUrl}}/img/info.svg',
+    '{{assetUrl}}/img/pencil.svg',
+    '{{assetUrl}}/img/spinner.svg',
     '//fonts.googleapis.com/icon?family=Material+Icons'
 ];
 

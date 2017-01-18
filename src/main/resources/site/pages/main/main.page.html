@@ -5,36 +5,34 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Image XPert by Enonic</title>
-<!--
-    <base href="http://localhost:8080/portal/master/image-xpert/">-->
 
-    <link rel="apple-touch-icon" sizes="57x57" href="img/icons/apple-icon-57x57.png">
-    <link rel="apple-touch-icon" sizes="60x60" href="img/icons/apple-icon-60x60.png">
-    <link rel="apple-touch-icon" sizes="72x72" href="img/icons/apple-icon-72x72.png">
-    <link rel="apple-touch-icon" sizes="76x76" href="img/icons/apple-icon-76x76.png">
-    <link rel="apple-touch-icon" sizes="114x114" href="img/icons/apple-icon-114x114.png">
-    <link rel="apple-touch-icon" sizes="120x120" href="img/icons/apple-icon-120x120.png">
-    <link rel="apple-touch-icon" sizes="144x144" href="img/icons/apple-icon-144x144.png">
-    <link rel="apple-touch-icon" sizes="152x152" href="img/icons/apple-icon-152x152.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="img/icons/apple-icon-180x180.png">
+    <link rel="apple-touch-icon" sizes="57x57" href="{{assetUrl}}/img/icons/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="{{assetUrl}}/img/icons/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="{{assetUrl}}/img/icons/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="{{assetUrl}}/img/icons/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="{{assetUrl}}/img/icons/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="{{assetUrl}}/img/icons/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="{{assetUrl}}/img/icons/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="{{assetUrl}}/img/icons/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="{{assetUrl}}/img/icons/apple-icon-180x180.png">
 
-    <link rel="icon" type="image/png" sizes="192x192" href="img/icons/android-icon-192x192.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="img/icons/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="96x96" href="img/icons/favicon-96x96.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="img/icons/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="{{assetUrl}}/img/icons/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{assetUrl}}/img/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="{{assetUrl}}/img/icons/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{assetUrl}}/img/icons/favicon-16x16.png">
     <link rel="stylesheet" href="//fonts.googleapis.com/icon?family=Material+Icons">
 
-    <link rel="manifest" href="manifest.json">
+    <link rel="manifest" href="{{baseUrl}}/manifest.json">
     <meta name="msapplication-TileColor" content="#ffffff">
-    <meta name="msapplication-TileImage" content="img/icons/ms-icon-144x144.png">
+    <meta name="msapplication-TileImage" content="{{assetUrl}}/img/icons/ms-icon-144x144.png">
     <meta name="theme-color" content="#ffffff">
 
 
-    <link rel="stylesheet" href="css/main.css" type="text/css"/>
-    <link rel="stylesheet" href="css/material.css" type="text/css"/>
+    <link rel="stylesheet" href="{{assetUrl}}/css/main.css" type="text/css"/>
+    <link rel="stylesheet" href="{{assetUrl}}/css/material.css" type="text/css"/>
 
-    <script type="text/javascript" src="js/material.js"></script>
-    <script type="text/javascript" src="js/main.js"></script>
+    <script type="text/javascript" src="{{assetUrl}}/js/material.js"></script>
+    <script type="text/javascript" src="{{assetUrl}}/js/main.js"></script>
 
     <script type="text/javascript">
         if (document.location.href.endsWith('{{baseUrl}}') && !document.location.href.endsWith('/')) {
@@ -138,20 +136,21 @@
         <circle id="spinner" cx="16" cy="16" r="14" fill="none"></circle>
     </svg>
 </div>
+{{#isLive}}
 
 <script type="text/javascript">
     if ('serviceWorker' in navigator) {
         navigator.serviceWorker
-                .register('service-worker.js')
+                .register('{{baseUrl}}/service-worker.js')
                 .then(function(reg) {
                     console.log('Service Worker registered with scope '  + reg.scope);
                 }, function() {
                     console.log('Service Worker registration failure.');
                 });
     }
+    </script>
 
-</script>
 
-
+{{/isLive}}
 </body>
 </html>

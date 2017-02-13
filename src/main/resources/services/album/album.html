@@ -1,0 +1,17 @@
+<div id="{{albumId}}" class="album">
+    <a href="#" onclick="ixp.openAlbum('{{albumId}}');">
+        {{#imageUrl}}
+        <div class="image-stack {{stackType}}">
+            <img class="album-image" src="{{imageUrl}}">
+        </div>
+        {{/imageUrl}}
+        {{^imageUrl}}
+        <div class="empty"></div>
+        {{/imageUrl}}
+        <i class="material-icons delete-icon" title="Delete album" onclick="ixp.deleteAlbum(event, '{{albumId}}', '{{displayName}}');">cancel</i>
+    </a>
+    <div class="album-name">
+        <p id="album-name-span-{{albumId}}" class="album-name-span" onclick="ixp.editAlbumName('{{albumId}}');">{{displayName}}</p>
+        <input id="album-name-input-{{albumId}}" type="text" class="album-name-input" value="{{displayName}}">
+    </div>
+</div>

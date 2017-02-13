@@ -1,0 +1,36 @@
+{{#fullVersion}}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Image XPert by Enonic</title>
+    <link rel="stylesheet" href="{{assetUrl}}/css/main.css" type="text/css"/>
+    <link rel="stylesheet" href="{{assetUrl}}/css/material.css" type="text/css"/>
+</head>
+<body>
+<div class="mdl-layout__container">
+    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header has-drawer">
+
+        <header class="header mdl-layout__header is-casting-shadow">
+            <div class="mdl-layout__header-row" style="padding-left: 20px;">
+                <!-- Title -->
+                <span id="header_title" class="mdl-layout-title">Image XPert</span>
+            </div>
+        </header>
+        <main>
+{{/fullVersion}}
+            <div class="offline-section">
+                <img class="offline-image" src="{{assetUrl}}/img/placeholder.png" />
+                <img class="noisy-texture" src="{{assetUrl}}/img/noisy-texture.png" />
+                <p class="offline-text-1">Ouch... You don't have an internet connection.</p>
+                <p class="offline-text-2">Please try again in a little while.</p>
+            </div>
+{{#fullVersion}}
+        </main>
+    </div>
+</div>
+</body>
+</html>
+{{/fullVersion}}

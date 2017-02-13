@@ -1,0 +1,23 @@
+{{#searchQuery}}
+<h6>Your search {{#albumName}}in album "{{albumName}}" {{/albumName}}produced {{imageCount}} results</h6>
+{{/searchQuery}}
+<div class="browse">
+    {{#images}}
+    <figure class="album">
+        <a onclick="ixp.openImage('{{imagePageUrl}}')" target="_blank">
+            <img class="album-image" src="{{imageUrl}}">
+            {{^searchQuery}}
+            <i class="material-icons delete-icon" title="Delete image" onclick="ixp.deleteImage(event, '{{imageId}}', '{{imageName}}');">cancel</i>
+            {{/searchQuery}}
+        </a>
+        <figcaption class="image-caption">
+            {{#caption}}<b>{{.}}</b>{{/caption}}
+            <p class="image-caption-span">{{#artist}}by {{.}}{{/artist}}
+                {{#copyright}}<em>
+            <small>&copy; {{.}}</small>
+        </em>{{/copyright}}</p>
+        </figcaption>
+
+    </figure>
+    {{/images}}
+</div>

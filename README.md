@@ -1,4 +1,4 @@
-# Progressive Web Application ImageXPert
+# ImageXPert PWA
 
 Enonic proudly presents **ImageXPert** - a Progressive Web Application designed as mobile-first with offline support in mind. Build and categorize a library of hi-resolution images which will be instantly indexed to enable fast search by caption, author or tags all of which can be edited by you. Browse albums created by other users and preview images (including their meta-data) in full-screen resolution. Download the images you liked, either in original format/size or specify format/size to convert them on-the-fly.
 
@@ -7,11 +7,11 @@ Enonic proudly presents **ImageXPert** - a Progressive Web Application designed 
 * Build up a collection of images of any format and size
 * Create albums and categorize images
 * Add images to existing albums
-* Edit image caption, author and tags
 * ElasticSearch-powered indexing by image caption, author or tags, with search either inside selected album or in the entire library
 * Fullscreen preview of an image
-* Geolocation of where an image was taken
-* Download of selected image with instant conversion of format and size
+* Editable image caption, author and tags with instant indexing
+* Geolocation of where the image was taken
+* Download of selected image in desired format/size with instant conversion
 * Responsive layout
 * Offline support
 * iPhone-inspired UI for deleting albums and images

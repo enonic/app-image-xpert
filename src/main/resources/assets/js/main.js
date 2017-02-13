@@ -118,7 +118,7 @@
         }
     };
 
-    var deleteDialog, newAlbumDialog, albumPanel, imagePanel, menuIcon, backButton, searchInput, spinner;
+    var deleteDialog, newAlbumDialog, albumPanel, imagePanel, menuIcon, backButton, searchInput, spinner, lastKeyWords;
 
     function sendRequestUpdate(url) {
         let http = new XMLHttpRequest();
@@ -128,8 +128,14 @@
 
     function onImageDeleted(imageId, albumHtml) {
         let albumId = getAlbumId();
-        appendOrReplaceAlbum(albumHtml, albumId);
-        ixp.openAlbum(albumId);
+        if (albumId) {
+            appendOrReplaceAlbum(albumHtml, albumId);
+            ixp.openAlbum(albumId);
+        }
+        else if (lastKeyWords) {
+            sendRequestUpdate(getSearchUrl());
+            doSearch(lastKeyWords);
+        }
     }
 
     function onAlbumDeleted(albumId) {
@@ -351,9 +357,6 @@
     function initSearch(e) {
         var searchValue = e.target.value.trim();
 
-        document.querySelector("header").classList.add("search-results");
-        toggleSpinner(true);
-
         doSearch(searchValue);
     }
 
@@ -374,6 +377,7 @@
         showAlbumTitle();
         document.querySelector("header").classList.remove("search-results");
         document.querySelector("header").classList.remove("album");
+        lastKeyWords = null;
     }
 
 
@@ -385,14 +389,13 @@
         }
     }
 
-    function toggleNoResultsMessage(visible) {
-        document.getElementById('search-results-span').style.display = visible ? "block" : "none";
-    }
-
     function doSearch(keyWords) {
         let searchString = keyWords ? "search=" + keyWords : "",
             searchTitle = keyWords ? '"' + keyWords + '"' : "",
             albumId = getAlbumId();
+
+        document.querySelector("header").classList.add("search-results");
+        toggleSpinner(true);
 
         if (!urlConfig.searchPageUrl || (!albumId && keyWords.trim() == "")) {
             toggleSpinner(false);
@@ -431,9 +434,15 @@
         toggleSpinner(false);
     }
 
+    function getSearchUrl(searchString) {
+        return urlConfig.searchPageUrl + "?" + (searchString || lastKeyWords);
+    }
+    
     function doSearchAndShowResults(searchString, albumTitle) {
-        var url = urlConfig.searchPageUrl + "?" + searchString;
+        var url = getSearchUrl(searchString);
 
+        lastKeyWords = searchString;
+        
         if (isPanelVisible(albumPanel)) {
             hideAlbums();
             imagePanel.innerHTML = "";
@@ -447,7 +456,6 @@
             if (http.readyState == 4) {
                 if (http.status == 200 && http.responseText !== "") {
                     onResponseReceived(http.responseText, albumTitle);
-                    //initPage();
                 }
                 else {
                     toggleSpinner(false);
@@ -458,7 +466,7 @@
     }
 
     function showAlbumTitle(title) {
-        document.getElementById("header_title").innerText = title || "ImageXPert"/*"ImageXPert " + (title ? " / " + title : "")*/;
+        document.getElementById("header_title").innerText = title || "ImageXPert";
     }
 
     function showNotification(message) {
@@ -529,6 +537,9 @@
             showAlbums();
             clearSearchField();
             e.stopPropagation();
+            if (isDeleteMode()) {
+                closeDeleteMode();
+            }
         });
         
         trackMouseClick();
@@ -577,7 +588,7 @@
     }
     
     function closeDeleteMode(mainContainer) {
-        mainContainer.classList.remove('delete');
+        (mainContainer || document.querySelector("main")).classList.remove('delete');
         document.onclick = null;
     }
     
@@ -613,7 +624,7 @@
         });
 
         mainContainer.addEventListener("mousedown", function (e) {
-            if (!e.target.classList.contains("album-image")) {
+            if (e.button > 0 || !e.target.classList.contains("album-image")) {
                 return;
             }
             startTime = new Date().getTime();

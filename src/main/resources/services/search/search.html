@@ -6,9 +6,7 @@
     <figure class="album">
         <a onclick="ixp.openImage('{{imagePageUrl}}')" target="_blank">
             <img class="album-image" src="{{imageUrl}}">
-            {{^searchQuery}}
             <i class="material-icons delete-icon" title="Delete image" onclick="ixp.deleteImage(event, '{{imageId}}', '{{imageName}}');">cancel</i>
-            {{/searchQuery}}
         </a>
         <figcaption class="image-caption">
             {{#caption}}<b>{{.}}</b>{{/caption}}

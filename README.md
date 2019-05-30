@@ -26,3 +26,4 @@ Enonic proudly presents **ImageXPert** - a Progressive Web Application designed 
 | App version | Required XP version | Download |
 | ----------- | ------------------- | -------- |
 | 1.0.0 | 6.9.2 | [Download](http://repo.enonic.com/public/com/enonic/app/imagexpert/1.0.0/imagexpert-1.0.0.jar) |
+| 2.0.0 | 7.0.0 | [Download](http://repo.enonic.com/public/com/enonic/app/imagexpert/2.0.0/imagexpert-2.0.0.jar) |

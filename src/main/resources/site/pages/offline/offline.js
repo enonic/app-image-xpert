@@ -1,6 +1,6 @@
 var portal = require('/lib/xp/portal');
 var view = resolve('offline.page.html');
-var mustacheLib = require('/lib/xp/mustache');
+var mustacheLib = require('/lib/mustache');
 
 function handleGet(req) {
     var version = req.params.version || 'full';

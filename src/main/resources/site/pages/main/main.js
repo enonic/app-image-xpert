@@ -2,7 +2,7 @@ var portal = require('/lib/xp/portal');
 var imageXpertLib = require('/lib/image-xpert');
 var parentPath = './';
 var view = resolve(parentPath + 'main.page.html');
-var mustacheLib = require('/lib/xp/mustache');
+var mustacheLib = require('/lib/mustache');
 
 function handleGet(req) {
 

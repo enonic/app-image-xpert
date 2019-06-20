@@ -114,7 +114,11 @@ header .search-field.is-focused .mdl-textfield__expandable-holder {
     }
 
     header.search #header_title {
-        width: calc(100% - 200px);
+''        width: calc(100% - 180px);
+    }
+
+    .mdl-layout__header-row {
+        padding-left: 55px !important;
     }
 }
 

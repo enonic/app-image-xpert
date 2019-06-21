@@ -1,7 +1,7 @@
 var portalLib = require('/lib/xp/portal');
 var contentLib = require('/lib/xp/content');
 var imageXpertLib = require('/lib/image-xpert');
-var mustacheLib = require('/lib/xp/mustache');
+var mustacheLib = require('/lib/mustache');
 
 exports.post = function (req) {
     var album, images;

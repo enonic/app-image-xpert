@@ -1,6 +1,6 @@
 var contentLib = require('/lib/xp/content');
 var imageXpertLib = require('/lib/image-xpert');
-var mustacheLib = require('/lib/xp/mustache');
+var mustacheLib = require('/lib/mustache');
 
 exports.delete = function (req) {
     var urlParts = req.url.split('/');

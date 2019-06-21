@@ -1,7 +1,7 @@
 var contentLib = require('/lib/xp/content');
 var portalLib = require('/lib/xp/portal');
 var imageXpertLib = require('/lib/image-xpert');
-var mustacheLib = require('/lib/xp/mustache');
+var mustacheLib = require('/lib/mustache');
 
 function handleGet(req) {
     var image = req.params.imageId ? imageXpertLib.getContentByKey(req.params.imageId) : imageXpertLib.getRandomImage();

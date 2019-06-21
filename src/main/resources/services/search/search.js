@@ -1,4 +1,4 @@
-var mustacheLib = require('/lib/xp/mustache');
+var mustacheLib = require('/lib/mustache');
 var imageXpertLib = require('/lib/image-xpert');
 var portalLib = require('/lib/xp/portal');
 

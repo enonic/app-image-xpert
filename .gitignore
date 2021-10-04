@@ -18,6 +18,9 @@ Icon
 .Trashes
 .VolumeIcon.icns
 
+# enonic cli
+.enonic
+
 # Directories potentially created on remote AFP share
 .AppleDB
 .AppleDesktop

@@ -1,0 +1,5 @@
+kind: "Application"
+title: "ImageXPert"
+description: "Progressive library of hi-res images stored and indexed by Enonic XP"
+vendorName: "Enonic AS"
+vendorUrl: "https://enonic.com"

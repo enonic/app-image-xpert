@@ -1,0 +1,9 @@
+kind: "CMS"
+form:
+  - name: "searchResultMax"
+    type: "Long"
+    label: "Search result number maximum"
+    occurrences:
+      min: 1
+      max: 1
+    default: 50

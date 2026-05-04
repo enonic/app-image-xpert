@@ -1,0 +1,3 @@
+kind: "ContentType"
+superType: "base:structured"
+title: "Album"

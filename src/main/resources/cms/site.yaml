@@ -1,0 +1,10 @@
+kind: "Site"
+mappings:
+  - controller: "/cms/pages/image/image.js"
+    pattern: "/image"
+  - controller: "/cms/pages/offline/offline.js"
+    pattern: "/offline"
+  - controller: "/lib/service-worker/controller.js"
+    pattern: "/service-worker.js"
+  - controller: "/lib/manifest/controller.js"
+    pattern: "/manifest.json"

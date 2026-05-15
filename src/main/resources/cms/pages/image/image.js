@@ -46,7 +46,7 @@ function handleGet(req) {
 
     var view = resolve('image.page.html');
     var body = mustacheLib.render(view, {
-        assetUrl: portalLib.assetUrl(''),
+        assetUrl: portalLib.assetUrl({path: ''}),
         downloadImageServiceUrl: downloadImageServiceUrl,
         updateMetaServiceUrl: portalLib.serviceUrl({service: "update-meta"}),
         imageUrl: imageUrl,

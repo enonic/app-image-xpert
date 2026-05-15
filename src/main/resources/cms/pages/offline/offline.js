@@ -6,7 +6,7 @@ function handleGet(req) {
     var version = req.params.version || 'full';
 
     var params = {
-        assetUrl: portal.assetUrl(''),
+        assetUrl: portal.assetUrl({path: ''}),
         fullVersion: (version == 'full')
     };
     

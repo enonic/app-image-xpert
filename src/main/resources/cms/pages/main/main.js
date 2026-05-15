@@ -15,7 +15,7 @@ function handleGet(req) {
         searchPageUrl: portal.serviceUrl({service: "search"}),
         loadAlbumsUrl: portal.serviceUrl({service: "load-albums"}),
         deleteServiceUrl: portal.serviceUrl({service: "delete-content"}),
-        assetUrl: portal.assetUrl(''),
+        assetUrl: portal.assetUrl({path: ''}),
         baseUrl: imageXpertLib.generateHomeUrl()
     };
     

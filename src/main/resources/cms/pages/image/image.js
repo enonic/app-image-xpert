@@ -1,5 +1,6 @@
 var contentLib = require('/lib/xp/content');
 var portalLib = require('/lib/xp/portal');
+var assetLib = require('/lib/enonic/asset');
 var imageXpertLib = require('/lib/image-xpert');
 var mustacheLib = require('/lib/mustache');
 
@@ -46,7 +47,7 @@ function handleGet(req) {
 
     var view = resolve('image.page.html');
     var body = mustacheLib.render(view, {
-        assetUrl: portalLib.assetUrl({path: ''}),
+        assetUrl: assetLib.assetUrl({path: ''}),
         downloadImageServiceUrl: downloadImageServiceUrl,
         updateMetaServiceUrl: portalLib.serviceUrl({service: "update-meta"}),
         imageUrl: imageUrl,

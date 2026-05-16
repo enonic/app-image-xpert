@@ -15,6 +15,7 @@ dependencies {
 
     include libs.lib.mustache
     include libs.lib.thymeleaf
+    include libs.lib.asset
 }
 
 repositories {

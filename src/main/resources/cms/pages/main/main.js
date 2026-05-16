@@ -1,4 +1,5 @@
 var portal = require('/lib/xp/portal');
+var assetLib = require('/lib/enonic/asset');
 var imageXpertLib = require('/lib/image-xpert');
 var parentPath = './';
 var view = resolve(parentPath + 'main.page.html');
@@ -15,7 +16,7 @@ function handleGet(req) {
         searchPageUrl: portal.serviceUrl({service: "search"}),
         loadAlbumsUrl: portal.serviceUrl({service: "load-albums"}),
         deleteServiceUrl: portal.serviceUrl({service: "delete-content"}),
-        assetUrl: portal.assetUrl({path: ''}),
+        assetUrl: assetLib.assetUrl({path: ''}),
         baseUrl: imageXpertLib.generateHomeUrl()
     };
     

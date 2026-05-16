@@ -1,4 +1,4 @@
-var portal = require('/lib/xp/portal');
+var assetLib = require('/lib/enonic/asset');
 var view = resolve('offline.page.html');
 var mustacheLib = require('/lib/mustache');
 
@@ -6,7 +6,7 @@ function handleGet(req) {
     var version = req.params.version || 'full';
 
     var params = {
-        assetUrl: portal.assetUrl({path: ''}),
+        assetUrl: assetLib.assetUrl({path: ''}),
         fullVersion: (version == 'full')
     };
     

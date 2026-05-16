@@ -1,4 +1,6 @@
 kind: "Site"
+apis:
+  - "asset"
 mappings:
   - controller: "/cms/pages/image/image.js"
     pattern: "/image"

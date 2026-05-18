@@ -7,9 +7,7 @@ const projectData = {
     id: 'image-xpert',
     displayName: 'Image expert',
     description: 'Image expert project',
-    readAccess: {
-        public: true
-    }
+    publicRead: true
 }
 
 function runInContext(callback) {

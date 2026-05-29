@@ -12,6 +12,7 @@ dependencies {
     include xplibs.export
     include xplibs.project
     include xplibs.cluster
+    include xplibs.task
 
     include libs.lib.mustache
     include libs.lib.thymeleaf

@@ -2,10 +2,15 @@
     <id>881930d4-1d61-4a0c-9d3f-0f043c99239a</id>
     <childOrder>modifiedtime DESC</childOrder>
     <nodeType>content</nodeType>
-  <timestamp>2019-05-30T13:21:44.169Z</timestamp>
-    <inheritPermissions>true</inheritPermissions>
+    <timestamp>2026-05-29T11:22:23.227Z</timestamp>
     <permissions>
         <principal key="role:system.everyone">
+            <allow type="array">
+                <value>READ</value>
+            </allow>
+            <deny type="array"/>
+        </principal>
+        <principal key="role:system.admin">
             <allow type="array">
                 <value>READ</value>
                 <value>CREATE</value>
@@ -14,6 +19,63 @@
                 <value>PUBLISH</value>
                 <value>READ_PERMISSIONS</value>
                 <value>WRITE_PERMISSIONS</value>
+            </allow>
+            <deny type="array"/>
+        </principal>
+        <principal key="role:cms.admin">
+            <allow type="array">
+                <value>READ</value>
+                <value>CREATE</value>
+                <value>MODIFY</value>
+                <value>DELETE</value>
+                <value>PUBLISH</value>
+                <value>READ_PERMISSIONS</value>
+                <value>WRITE_PERMISSIONS</value>
+            </allow>
+            <deny type="array"/>
+        </principal>
+        <principal key="role:cms.project.image-xpert.owner">
+            <allow type="array">
+                <value>READ</value>
+                <value>CREATE</value>
+                <value>MODIFY</value>
+                <value>DELETE</value>
+                <value>PUBLISH</value>
+                <value>READ_PERMISSIONS</value>
+                <value>WRITE_PERMISSIONS</value>
+            </allow>
+            <deny type="array"/>
+        </principal>
+        <principal key="role:cms.project.image-xpert.editor">
+            <allow type="array">
+                <value>READ</value>
+                <value>CREATE</value>
+                <value>MODIFY</value>
+                <value>DELETE</value>
+                <value>PUBLISH</value>
+                <value>READ_PERMISSIONS</value>
+                <value>WRITE_PERMISSIONS</value>
+            </allow>
+            <deny type="array"/>
+        </principal>
+        <principal key="role:cms.project.image-xpert.author">
+            <allow type="array">
+                <value>READ</value>
+                <value>CREATE</value>
+                <value>MODIFY</value>
+                <value>DELETE</value>
+            </allow>
+            <deny type="array"/>
+        </principal>
+        <principal key="role:cms.project.image-xpert.contributor">
+            <allow type="array">
+                <value>READ</value>
+            </allow>
+            <deny type="array"/>
+        </principal>
+        <principal key="role:cms.project.image-xpert.viewer">
+            <allow type="array">
+                <value>READ</value>
             </allow>
             <deny type="array"/>
         </principal>
@@ -28,9 +90,9 @@
         <string name="creator">user:system:su</string>
         <dateTime name="createdTime">2016-04-18T19:47:19.980Z</dateTime>
         <property-set name="publish">
-            <dateTime name="from">2017-01-19T13:07:04.567Z</dateTime>
-            <dateTime isNull="true" name="to"/>
-          <dateTime name="first">2017-01-19T13:07:04.567Z</dateTime>
+            <dateTime name="first">2017-01-19T13:07:04.567Z</dateTime>
+            <dateTime name="time">2026-05-29T11:22:22.367Z</dateTime>
+            <dateTime name="from">2026-05-29T11:22:22.017Z</dateTime>
         </property-set>
         <property-set name="data">
             <property-set name="media">
@@ -96,7 +158,8 @@
             <binaryReference name="binary">PB280109 copy.jpg</binaryReference>
             <string name="mimeType">image/jpeg</string>
             <long name="size">737720</long>
-            <string isNull="true" name="text"/>
+            <string name="sha512">a93ade9ac65cd54f67c288f749501f6f16ee8f0d46dfada8154113c20fc1f17e285b349a5f8f5fe1c23582531ffdd946140233d2f063e0bfb0186e0d3c05df9d</string>
+            <string name="text"/>
         </property-set>
     </data>
     <indexConfigs>
@@ -122,22 +185,22 @@
             <pathIndexConfig>
                 <indexConfig>
                     <decideByType>false</decideByType>
-                  <enabled>false</enabled>
-                  <nGram>false</nGram>
-                  <fulltext>false</fulltext>
+                    <enabled>false</enabled>
+                    <nGram>false</nGram>
+                    <fulltext>false</fulltext>
                     <includeInAllText>false</includeInAllText>
                 </indexConfig>
-              <path>page.regions</path>
+                <path>page.regions</path>
             </pathIndexConfig>
             <pathIndexConfig>
                 <indexConfig>
                     <decideByType>false</decideByType>
-                  <enabled>true</enabled>
-                  <nGram>true</nGram>
-                  <fulltext>true</fulltext>
+                    <enabled>true</enabled>
+                    <nGram>true</nGram>
+                    <fulltext>true</fulltext>
                     <includeInAllText>false</includeInAllText>
                 </indexConfig>
-              <path>attachment.text</path>
+                <path>attachment.text</path>
             </pathIndexConfig>
             <pathIndexConfig>
                 <indexConfig>
@@ -152,12 +215,12 @@
             <pathIndexConfig>
                 <indexConfig>
                     <decideByType>false</decideByType>
-                  <enabled>true</enabled>
+                    <enabled>true</enabled>
                     <nGram>false</nGram>
                     <fulltext>false</fulltext>
                     <includeInAllText>false</includeInAllText>
                 </indexConfig>
-              <path>type</path>
+                <path>type</path>
             </pathIndexConfig>
             <pathIndexConfig>
                 <indexConfig>
@@ -172,22 +235,12 @@
             <pathIndexConfig>
                 <indexConfig>
                     <decideByType>false</decideByType>
-                  <enabled>false</enabled>
+                    <enabled>false</enabled>
                     <nGram>false</nGram>
                     <fulltext>false</fulltext>
                     <includeInAllText>false</includeInAllText>
                 </indexConfig>
-              <path>page</path>
-            </pathIndexConfig>
-            <pathIndexConfig>
-                <indexConfig>
-                  <decideByType>false</decideByType>
-                    <enabled>true</enabled>
-                    <nGram>false</nGram>
-                    <fulltext>false</fulltext>
-                    <includeInAllText>false</includeInAllText>
-                </indexConfig>
-              <path>owner</path>
+                <path>page</path>
             </pathIndexConfig>
             <pathIndexConfig>
                 <indexConfig>
@@ -197,7 +250,7 @@
                     <fulltext>false</fulltext>
                     <includeInAllText>false</includeInAllText>
                 </indexConfig>
-              <path>modifier</path>
+                <path>owner</path>
             </pathIndexConfig>
             <pathIndexConfig>
                 <indexConfig>
@@ -207,17 +260,7 @@
                     <fulltext>false</fulltext>
                     <includeInAllText>false</includeInAllText>
                 </indexConfig>
-              <path>modifiedTime</path>
-            </pathIndexConfig>
-            <pathIndexConfig>
-                <indexConfig>
-                  <decideByType>true</decideByType>
-                    <enabled>true</enabled>
-                    <nGram>false</nGram>
-                    <fulltext>false</fulltext>
-                    <includeInAllText>false</includeInAllText>
-                </indexConfig>
-              <path>data</path>
+                <path>modifier</path>
             </pathIndexConfig>
             <pathIndexConfig>
                 <indexConfig>
@@ -227,7 +270,17 @@
                     <fulltext>false</fulltext>
                     <includeInAllText>false</includeInAllText>
                 </indexConfig>
-              <path>creator</path>
+                <path>modifiedtime</path>
+            </pathIndexConfig>
+            <pathIndexConfig>
+                <indexConfig>
+                    <decideByType>true</decideByType>
+                    <enabled>true</enabled>
+                    <nGram>false</nGram>
+                    <fulltext>false</fulltext>
+                    <includeInAllText>false</includeInAllText>
+                </indexConfig>
+                <path>data</path>
             </pathIndexConfig>
             <pathIndexConfig>
                 <indexConfig>
@@ -237,7 +290,17 @@
                     <fulltext>false</fulltext>
                     <includeInAllText>false</includeInAllText>
                 </indexConfig>
-              <path>createdTime</path>
+                <path>creator</path>
+            </pathIndexConfig>
+            <pathIndexConfig>
+                <indexConfig>
+                    <decideByType>false</decideByType>
+                    <enabled>true</enabled>
+                    <nGram>false</nGram>
+                    <fulltext>false</fulltext>
+                    <includeInAllText>false</includeInAllText>
+                </indexConfig>
+                <path>createdtime</path>
             </pathIndexConfig>
             <pathIndexConfig>
                 <indexConfig>
@@ -250,6 +313,10 @@
                 <path>attachment</path>
             </pathIndexConfig>
         </pathIndexConfigs>
-      <allTextIndexConfig/>
+        <allTextIndexConfig>
+            <enabled>true</enabled>
+            <nGram>true</nGram>
+            <fulltext>true</fulltext>
+        </allTextIndexConfig>
     </indexConfigs>
 </node>
